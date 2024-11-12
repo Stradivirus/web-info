@@ -26,17 +26,17 @@ import Project3 from '../pages/Projects/Project3';
 
 3. Navigation.js 수정: src/components/Navigation/Navigation.js 파일을 열고, 새로운 프로젝트에 대한 NavLink를 추가합니다. 
 예를 들어, 다음과 같이 수정할 수 있습니다:
-<NavLink to="/project/4" className="nav-item">
-    <FolderOpen className="nav-icon" size={18} />
-    <span>Project 4</span>
-</NavLink>
+#<NavLink to="/project/4" className="nav-item">
+#    <FolderOpen className="nav-icon" size={18} />
+#    <span>Project 4</span>
+#</NavLink>
 
 4. Overview.js 수정: src/pages/Overview/Overview.js 파일을 열고, projects 배열에 새로운 프로젝트 객체를 추가합니다. 
 예를 들어, 다음과 같이 수정할 수 있습니다:
 
-  {
-    id: 4,
-    title: "Project 4",
-    description: "네 번째 프로젝트 설명",
-    tags: ["GraphQL", "Apollo", "TypeScript"]
-  }
+#  {
+#    id: 4,
+#    title: "Project 4",
+#    description: "네 번째 프로젝트 설명",
+#    tags: ["GraphQL", "Apollo", "TypeScript"]
+#  }
