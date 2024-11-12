@@ -28,6 +28,13 @@ const Project1 = () => {
         <div className="project-details">
           <div className="content-box">
             <div className="content-section">
+              <h2>제작 목표</h2>
+              <ul className="feature-list">
+                <li>포트폴리오 소개</li>
+                <li>제작한 프로젝트 소개</li>
+              </ul>
+            </div>
+            <div className="content-section">
               <h2>주요 기능</h2>
               <ul className="feature-list">
                 <li>반응형 웹 디자인</li>
@@ -39,10 +46,11 @@ const Project1 = () => {
             <div className="content-section">
               <h2>개발 과정</h2>
               <p>
-                1. 초기 레이아웃 설계 및 컴포넌트 구조화<br />
-                2. 반응형 디자인 구현<br />
-                3. GitHub Actions 워크플로우 설정<br />
-                4. AWS S3 버킷 설정 및 배포 자동화
+                1. AWS S3 설정 및 nodejs 연동
+                2. GitHub Actions 워크플로우 설정<br />
+                3. 초기 레이아웃 설계 및 컴포넌트 구조화<br />
+                4. 아키텍쳐 이미지 삽입<br />
+                5. 기본 구조 완성 및 배포 자동화
               </p>
             </div>
             <div className="content-section">
