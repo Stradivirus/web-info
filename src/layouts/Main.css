@@ -1,0 +1,16 @@
+.main-content {
+  flex: 1;
+  margin-left: 300px;
+  min-height: calc(100vh - 180px);  /* 헤더 높이 고려 */
+}
+
+.main-inner {
+  padding: 24px 4%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 260px;
+  }
+}

@@ -1,24 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Layout from './layouts/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <div className="bg-white rounded-lg p-6">
+        메인 컨텐츠가 여기에 들어갑니다
+      </div>
+    </Layout>
   );
 }
 
