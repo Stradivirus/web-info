@@ -1,16 +1,16 @@
 .main-content {
   flex: 1;
-  margin-left: 300px;
-  min-height: calc(100vh - 180px);  /* 헤더 높이 고려 */
+  margin-left: 360px; /* 300px에서 360px로 변경 */
+  min-height: calc(100vh - 160px); /* 180px에서 160px로 변경 */
 }
 
 .main-inner {
-  padding: 24px 4%;
+  padding: 32px 6%; /* 24px 4%에서 32px 6%로 변경 */
   height: 100%;
 }
 
 @media (max-width: 768px) {
   .main-content {
-    margin-left: 260px;
+    margin-left: 300px; /* 260px에서 300px로 변경 */
   }
 }

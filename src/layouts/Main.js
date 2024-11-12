@@ -1,5 +1,5 @@
 import React from 'react';
-import Overview from '../pages/Overview/Overview';  // 임시로 Overview 페이지만 표시
+import Overview from '../pages/Overview/Overview';
 import './Main.css';
 
 const Main = () => {

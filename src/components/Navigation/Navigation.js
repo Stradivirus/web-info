@@ -1,29 +1,30 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Home, FolderOpen } from 'lucide-react';
 import './Navigation.css';
 
 const Navigation = () => {
   return (
     <nav className="nav-container">
-      <div className="nav-item">
+      <NavLink to="/" className="nav-item" end>
         <Home className="nav-icon" size={18} />
-        <span>Overview</span>
-      </div>
+        <span>개요</span>
+      </NavLink>
       
       <div className="nav-divider">Projects</div>
       
-      <div className="nav-item">
+      <NavLink to="/project/1" className="nav-item">
         <FolderOpen className="nav-icon" size={18} />
         <span>Portfolio Website</span>
-      </div>
-      <div className="nav-item">
+      </NavLink>
+      <NavLink to="/project/2" className="nav-item">
         <FolderOpen className="nav-icon" size={18} />
         <span>Project 2</span>
-      </div>
-      <div className="nav-item">
+      </NavLink>
+      <NavLink to="/project/3" className="nav-item">
         <FolderOpen className="nav-icon" size={18} />
         <span>Project 3</span>
-      </div>
+      </NavLink>
     </nav>
   );
 };
