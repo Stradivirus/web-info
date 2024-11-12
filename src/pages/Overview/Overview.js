@@ -11,15 +11,15 @@ const projects = [
   },
   {
     id: 2,
-    title: "Project 2",
-    description: "두 번째 프로젝트 설명",
-    tags: ["Node.js", "Express", "MongoDB"]
+    title: "CBT 까짓것 내가 만든다",
+    description: "Django와 Postgresql을 사용한 CBT 제작",
+    tags: ["Docker-compose", "Django", "Postgresql","GCP"]
   },
   {
     id: 3,
-    title: "Project 3",
-    description: "세 번째 프로젝트 설명",
-    tags: ["React Native", "Firebase", "Redux"]
+    title: "다소니 - 마음과 마음을 연결합니다",
+    description: "websocket, redis를 이용한 채팅",
+    tags: ["Websocket", "Redis", "Fastapi", "Docker-compose"]
   }
 ];
 

@@ -19,7 +19,7 @@ const Navigation = () => {
       </NavLink>
       <NavLink to="/project/2" className="nav-item">
         <FolderOpen className="nav-icon" size={18} />
-        <span>Project 2</span>
+        <span>Django와 Postgresql로 만든 시험</span>
       </NavLink>
       <NavLink to="/project/3" className="nav-item">
         <FolderOpen className="nav-icon" size={18} />

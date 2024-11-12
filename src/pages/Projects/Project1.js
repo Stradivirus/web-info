@@ -1,11 +1,11 @@
 import React from 'react';
 import { Github, Globe, Calendar } from 'lucide-react';
-import './ProjectDetail.css';
-import ArchitectureDiagram from './Projent1-Architecture.png';
+import './Project1.css';
+import ArchitectureDiagram from './Project1-Architecture.png';
 
 const Project1 = () => {
   return (
-    <div className="project-detail-container">
+    <div className="project1-container">
       <h1>Portfolio Website</h1>
 
       {/* 프로젝트 기간 */}
@@ -17,33 +17,33 @@ const Project1 = () => {
       </div>
 
       {/* 사용 기술 태그 */}
-      <div className="project-tags">
-        <span className="tag">React</span>
-        <span className="tag">AWS S3</span>
-        <span className="tag">GitHub Actions</span>
+      <div className="project1-tags">
+        <span className="project1-tag">React</span>
+        <span className="project1-tag">AWS S3</span>
+        <span className="project1-tag">GitHub Actions</span>
       </div>
 
       {/* 프로젝트 개요와 아키텍처 다이어그램 */}
-      <div className="project-overview-container">
-        <div className="project-details">
-          <div className="content-box">
-            <div className="content-section">
+      <div className="project1-overview-container">
+        <div className="project1-details">
+          <div className="project1-content-box">
+            <div className="project1-content-section">
               <h2>제작 목표</h2>
-              <ul className="feature-list">
+              <ul className="project1-feature-list">
                 <li>포트폴리오 소개</li>
                 <li>제작한 프로젝트 소개</li>
               </ul>
             </div>
-            <div className="content-section">
+            <div className="project1-content-section">
               <h2>주요 기능</h2>
-              <ul className="feature-list">
+              <ul className="project1-feature-list">
                 <li>반응형 웹 디자인</li>
                 <li>GitHub Actions를 통한 CI/CD 구축</li>
                 <li>AWS S3를 활용한 정적 웹사이트 호스팅</li>
                 <li>React Router를 이용한 SPA 구현</li>
               </ul>
             </div>
-            <div className="content-section">
+            <div className="project1-content-section">
               <h2>개발 과정</h2>
               <p>
                 1. AWS S3 설정 및 nodejs 연동<br />
@@ -53,10 +53,10 @@ const Project1 = () => {
                 5. 기본 구조 완성 및 배포 자동화
               </p>
             </div>
-            <div className="content-section">
+            <div className="project1-content-section">
               <h2>사용 기술</h2>
-              <div className="tech-details">
-                <div className="tech-category">
+              <div className="project1-tech-details">
+                <div className="project1-tech-category">
                   <h3>Frontend</h3>
                   <ul>
                     <li>React</li>
@@ -64,7 +64,7 @@ const Project1 = () => {
                     <li>CSS</li>
                   </ul>
                 </div>
-                <div className="tech-category">
+                <div className="project1-tech-category">
                   <h3>Deployment</h3>
                   <ul>
                     <li>AWS S3</li>
@@ -73,7 +73,7 @@ const Project1 = () => {
                 </div>
               </div>
             </div>
-            <div className="content-section">
+            <div className="project1-content-section">
               <h2>느낀 점</h2>
               <p>
                 이 프로젝트를 통해 React 컴포넌트 구조화와
@@ -83,22 +83,22 @@ const Project1 = () => {
             </div>
           </div>
         </div>
-        <div className="architecture-diagram">
+        <div className="project1-architecture-diagram">
           <img src={ArchitectureDiagram} alt="Architecture Diagram" />
         </div>
       </div>
 
       {/* 프로젝트 링크 */}
-      <div className="project-links">
+      <div className="project1-links">
         <a href="https://github.com/stradivirus/web-info"
-           className="project-link"
+           className="project1-link"
            target="_blank"
            rel="noopener noreferrer">
           <Github size={16} />
           GitHub 저장소
         </a>
         <a href="https://portfolio.example.com"
-           className="project-link"
+           className="project1-link"
            target="_blank"
            rel="noopener noreferrer">
           <Globe size={16} />
