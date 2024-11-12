@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+src/
+├── layouts/
+│   └── Layout.js               # 레이아웃 컴포넌트
+├── components/
+│   ├── Profile/                # 프로필 관련 컴포넌트
+│   └── Navigation/             # 사이드바 관련 컴포넌트
+├── pages/
+│   ├── Overview/               # 개요 페이지
+│   └── Projects/               # 프로젝트 페이지
+│       ├── Project1.js         # 프로젝트 1 상세 페이지
+│       ├── Project2.js         # 프로젝트 2 상세 페이지
+│       └── Project3.js         # 프로젝트 3 상세 페이지 (추가 예정)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+파일 설명
+src/layouts/Layout.js: 전체 애플리케이션의 레이아웃을 정의하는 컴포넌트입니다.
+src/components/Profile/: 사용자 프로필과 관련된 컴포넌트를 포함합니다.
+src/components/Navigation/: 사이드바 및 내비게이션 관련 컴포넌트를 포함합니다.
+src/pages/Overview/: 개요 페이지의 내용을 포함합니다.
+src/pages/Projects/: 각 프로젝트에 대한 상세 정보를 포함하는 페이지입니다.
 
-## Available Scripts
+프로젝트 추가 방법
+새로운 프로젝트를 추가하려면 다음 단계를 따르세요:
+프로젝트 파일 생성: src/pages/Projects/ 폴더에 새로운 프로젝트 파일을 생성합니다. 예를 들어, Project3.js라는 파일을 생성합니다.
 
-In the project directory, you can run:
+Layout.js 수정: web-info/src/layouts/Layout.js 파일에 새로 추가한 프로젝트를 import 합니다. 아래와 같이 코드를 추가하세요:
+import Project3 from '../pages/Projects/Project3';
 
-### `npm start`
+Navigation.js 수정: src/components/Navigation/Navigation.js 파일을 열고, 새로운 프로젝트에 대한 NavLink를 추가합니다. 예를 들어, 다음과 같이 수정할 수 있습니다:
+<NavLink to="/project/4" className="nav-item">
+    <FolderOpen className="nav-icon" size={18} />
+    <span>Project 4</span>
+</NavLink>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Overview.js 수정: src/pages/Overview/Overview.js 파일을 열고, projects 배열에 새로운 프로젝트 객체를 추가합니다. 예를 들어, 다음과 같이 수정할 수 있습니다:
+  {
+    id: 4,
+    title: "Project 4",
+    description: "네 번째 프로젝트 설명",
+    tags: ["GraphQL", "Apollo", "TypeScript"]
+  }
