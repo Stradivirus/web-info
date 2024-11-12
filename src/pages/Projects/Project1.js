@@ -46,7 +46,7 @@ const Project1 = () => {
             <div className="content-section">
               <h2>개발 과정</h2>
               <p>
-                1. AWS S3 설정 및 nodejs 연동
+                1. AWS S3 설정 및 nodejs 연동<br />
                 2. GitHub Actions 워크플로우 설정<br />
                 3. 초기 레이아웃 설계 및 컴포넌트 구조화<br />
                 4. 아키텍쳐 이미지 삽입<br />
