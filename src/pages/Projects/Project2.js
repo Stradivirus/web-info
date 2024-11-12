@@ -1,4 +1,3 @@
-// Project2.js
 import React, { useState } from 'react';
 import { Github, Globe, Calendar, X } from 'lucide-react';
 import './Project2.css';
@@ -44,11 +43,9 @@ const Project2 = () => {
 
   return (
     <div className="project2-container">
-      <h1>CBT 까짓것 내가 만든다</h1>
-
-      {/* 프로젝트 기간 */}
-      <div className="project-info">
-        <div className="info-item">
+      <div className="project-header">
+        <h1 className="text-4xl font-bold mb-4">CBT 까짓것 내가 만든다</h1>
+        <div className="flex items-center gap-2 text-gray-600">
           <Calendar size={16} />
           <span>2024.6 - 2024.6</span>
         </div>
@@ -59,6 +56,7 @@ const Project2 = () => {
         <span className="project2-tag">Django</span>
         <span className="project2-tag">Postgresql</span>
         <span className="project2-tag">Docker-Compose</span>
+        <span className="project2-tag">GCP</span>
       </div>
 
       {/* 프로젝트 개요와 아키텍처 다이어그램 */}

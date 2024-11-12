@@ -6,11 +6,9 @@ import ArchitectureDiagram from './Project1-Architecture.png';
 const Project1 = () => {
   return (
     <div className="project1-container">
-      <h1>Portfolio Website</h1>
-
-      {/* 프로젝트 기간 */}
-      <div className="project-info">
-        <div className="info-item">
+      <div className="project-header">
+        <h1 className="text-4xl font-bold mb-4">Portfolio Website</h1>
+        <div className="flex items-center gap-2 text-gray-600">
           <Calendar size={16} />
           <span>2024.11 - 2024.11</span>
         </div>
