@@ -18,6 +18,7 @@ const Project1 = () => {
       <div className="project1-tags">
         <span className="project1-tag">React</span>
         <span className="project1-tag">AWS S3</span>
+        <span className="project1-tag">AWS Cloudfront</span>
         <span className="project1-tag">GitHub Actions</span>
       </div>
 

@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: "Portfolio Website",
     description: "포트폴리오 웹사이트 제작 프로젝트",
-    tags: ["React", "AWS S3", "GitHub Actions"]
+    tags: ["React", "AWS S3", "AWS Cloudfront", "GitHub Actions"]
   },
   {
     id: 2,
