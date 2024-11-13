@@ -47,11 +47,11 @@
 }
 
 .project2-details {
-    flex: 6;
+    flex: 5;
 }
 
 .project2-architecture-diagram {
-    flex: 4;
+    flex: 5;
 }
 
 .project2-architecture-diagram img {
