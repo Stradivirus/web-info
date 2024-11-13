@@ -23,7 +23,7 @@ const Navigation = () => {
       </NavLink>
       <NavLink to="/project/3" className="nav-item">
         <FolderOpen className="nav-icon" size={18} />
-        <span>Project 3</span>
+        <span>다소니 - 마음과 마음을 연결하는 채팅</span>
       </NavLink>
     </nav>
   );
