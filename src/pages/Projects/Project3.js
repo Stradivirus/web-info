@@ -40,7 +40,7 @@ const Project3 = () => {
  };
 
  return (
-   <div className="project2-container">
+   <div className="project3-container">
      <div className="project-header">
        <h1 className="text-4xl font-bold mb-4">다소니</h1>
        <p className="text-gray-600 mb-4">사랑하는 사람을 뜻하는 순 우리말. 소중한 인연을 더욱 특별하게 만든다는 의미를 담았다.</p>
@@ -51,30 +51,30 @@ const Project3 = () => {
      </div>
 
      {/* 사용 기술 태그 */}
-     <div className="project2-tags">
-       <span className="project2-tag">React</span>
-       <span className="project2-tag">Fastapi</span>
-       <span className="project2-tag">Postgresql</span>
-       <span className="project2-tag">Redis</span>
-       <span className="project2-tag">Docker-compose</span>
-       <span className="project2-tag">GCP</span>
+     <div className="project3-tags">
+       <span className="project3-tag">React</span>
+       <span className="project3-tag">Fastapi</span>
+       <span className="project3-tag">Postgresql</span>
+       <span className="project3-tag">Redis</span>
+       <span className="project3-tag">Docker-compose</span>
+       <span className="project3-tag">GCP</span>
      </div>
 
      {/* 프로젝트 개요와 아키텍처 다이어그램 */}
-     <div className="project2-overview-container">
-       <div className="project2-details">
-         <div className="project2-content-box">
-           <div className="project2-content-section">
+     <div className="project3-overview-container">
+       <div className="project3-details">
+         <div className="project3-content-box">
+           <div className="project3-content-section">
              <h2>제작 목표</h2>
-             <ul className="project2-feature-list">
+             <ul className="project3-feature-list">
                <li>실시간 채팅 서비스를 통한 효율적인 실시간 소통 플랫폼 구축</li>
                <li>Redis를 활용한 실시간 메시지 처리 및 데이터 동기화 구현</li>
                <li>WebSocket을 통한 효율적이고 안정적인 양방향 통신 구현</li>
              </ul>
            </div>
-           <div className="project2-content-section">
+           <div className="project3-content-section">
              <h2>주요 기능</h2>
-             <ul className="project2-feature-list">
+             <ul className="project3-feature-list">
                <li>WebSocket 기반 실시간 채팅 시스템</li>
                <li>Redis를 활용한 실시간 메시지 캐싱 및 관리</li>
                <li>사용자 접속 상태 실시간 모니터링</li>
@@ -82,7 +82,7 @@ const Project3 = () => {
                <li>채팅 메시지 영구 저장 및 동기화</li>
              </ul>
            </div>
-           <div className="project2-content-section">
+           <div className="project3-content-section">
              <h2>개발 과정</h2>
              <p>
                1. 기본 환경 구축<br />
@@ -102,10 +102,10 @@ const Project3 = () => {
                • GCP 환경 배포 및 서비스 실행
              </p>
            </div>
-           <div className="project2-content-section">
+           <div className="project3-content-section">
              <h2>사용 기술</h2>
-             <div className="project2-tech-details">
-               <div className="project2-tech-category">
+             <div className="project3-tech-details">
+               <div className="project3-tech-category">
                  <h3>Backend & Infrastructure</h3>
                  <ul>
                    <li>FastAPI - 비동기 웹 프레임워크</li>
@@ -118,7 +118,7 @@ const Project3 = () => {
                </div>
              </div>
            </div>
-           <div className="project2-content-section">
+           <div className="project3-content-section">
              <h2>느낀 점</h2>
              <p>
                이 프로젝트를 통해 실시간 통신 시스템의 설계와 구현에 대한 깊은 이해를 얻을 수 있었습니다. 
@@ -131,22 +131,22 @@ const Project3 = () => {
            </div>
          </div>
        </div>
-       <div className="project2-architecture-diagram">
+       <div className="project3-architecture-diagram">
          <img src={ArchitectureDiagram} alt="Architecture Diagram" />
        </div>
      </div>
 
      {/* 프로젝트 링크 */}
-     <div className="project2-links">
+     <div className="project3-links">
        <a href="https://github.com/stradivirus/chat"
-          className="project2-link"
+          className="project3-link"
           target="_blank"
           rel="noopener noreferrer">
          <Github size={16} />
          GitHub 저장소
        </a>
        <a href="http://34.47.72.80"
-          className="project2-link"
+          className="project3-link"
           target="_blank"
           rel="noopener noreferrer">
          <Globe size={16} />
@@ -155,7 +155,7 @@ const Project3 = () => {
      </div>
 
      {/* 프로젝트 스크린샷과 동영상 섹션 */}
-     <div className="project2-screenshots">
+     <div className="project3-screenshots">
        <h2>프로젝트 데모</h2>
        <div className="screenshots-grid">
          {screenshots.map(({ id, caption, image }) => (
