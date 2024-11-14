@@ -145,7 +145,7 @@ const Project3 = () => {
          <Github size={16} />
          GitHub 저장소
        </a>
-       <a href="http://34.47.72.80"
+       <a href="http://34.64.132.7"
           className="project3-link"
           target="_blank"
           rel="noopener noreferrer">
