@@ -20,7 +20,7 @@ const Profile = () => {
         </div>
         <div className="certification-item">
           <Award className="cert-icon" size={16} style={{ verticalAlign: 'text-bottom' }} />
-          <span>NCA</span>
+          <span>NAVER Cloud Platform Certified Associate</span>
         </div>
       </div>
       <div className="profile-info">

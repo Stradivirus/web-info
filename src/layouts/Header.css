@@ -1,18 +1,18 @@
 .header {
-    height: 180px;
-    position: fixed;
-    width: 84%;
-    top: 0;
-    z-index: 50;
+  height: 180px;
+  position: fixed;
+  width: 84%;
+  top: 0;
+  z-index: 50;
+}
+
+.header-content {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 92%;
   }
-  
-  .header-content {
-    height: 100%;
-    width: 100%;
-  }
-  
-  @media (max-width: 768px) {
-    .header {
-      width: 92%;
-    }
-  }
+}
