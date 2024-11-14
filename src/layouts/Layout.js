@@ -1,9 +1,9 @@
-// Layout.js
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import Main from './Main';
+import CertificationsPage from '../pages/Certifications';
 import './Layout.css';
 
 const Layout = () => {
@@ -16,6 +16,7 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/project/:id" element={<Main />} />
+            <Route path="/certifications" element={<CertificationsPage />} />
           </Routes>
         </div>
       </div>
