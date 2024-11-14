@@ -96,7 +96,7 @@ const Project1 = () => {
           <Github size={16} />
           GitHub 저장소
         </a>
-        <a href="https://portfolio.example.com"
+        <a href="https://d8d53oijcrep7.cloudfront.net/"
            className="project1-link"
            target="_blank"
            rel="noopener noreferrer">
