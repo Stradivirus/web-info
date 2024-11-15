@@ -57,6 +57,7 @@ const Project2 = () => {
         <span className="project2-tag">Postgresql</span>
         <span className="project2-tag">Docker-Compose</span>
         <span className="project2-tag">GCP</span>
+        <span className="project2-tag">Jenkins</span>
       </div>
 
       {/* 프로젝트 개요와 아키텍처 다이어그램 */}
@@ -104,11 +105,12 @@ const Project2 = () => {
                 <div className="project2-tech-category">
                   <h3>Backend & Infrastructure</h3>
                   <ul>
-                    <li>Django - 웹 애플리케이션 프레임워크</li>
-                    <li>PostgreSQL - 관계형 데이터베이스</li>
                     <li>Nginx - 웹 서버</li>
+                    <li>Django - 웹 애플리케이션 프레임워크</li>
+                    <li>PostgreSQL - 관계형 데이터베이스</li>  
                     <li>Docker & Docker-compose - 컨테이너화</li>
                     <li>Google Cloud Platform - 클라우드 서버</li>
+                    <li>Jenkins - Docker 이미지 자동 빌드 및 배포 자동화</li>
                   </ul>
                 </div>
               </div>
@@ -138,7 +140,7 @@ const Project2 = () => {
           <Github size={16} />
           GitHub 저장소
         </a>
-        <a href="http://34.47.72.80:8001/"
+        <a href="http://34.64.132.7:8001/"
            className="project2-link"
            target="_blank"
            rel="noopener noreferrer">

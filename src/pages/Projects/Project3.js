@@ -58,6 +58,7 @@ const Project3 = () => {
        <span className="project3-tag">Redis</span>
        <span className="project3-tag">Docker-compose</span>
        <span className="project3-tag">GCP</span>
+       <span className="project2-tag">Jenkins</span>
      </div>
 
      {/* 프로젝트 개요와 아키텍처 다이어그램 */}
@@ -67,8 +68,8 @@ const Project3 = () => {
            <div className="project3-content-section">
              <h2>제작 목표</h2>
              <ul className="project3-feature-list">
-               <li>실시간 채팅 서비스를 통한 효율적인 실시간 소통 플랫폼 구축</li>
-               <li>Redis를 활용한 실시간 메시지 처리 및 데이터 동기화 구현</li>
+               <li>실시간 채팅 서비스를 통한 채팅 플랫폼 구축</li>
+               <li>Redis를 활용한 메시지 캐싱 및 데이터 동기화 구현</li>
                <li>WebSocket을 통한 효율적이고 안정적인 양방향 통신 구현</li>
              </ul>
            </div>
@@ -77,7 +78,7 @@ const Project3 = () => {
              <ul className="project3-feature-list">
                <li>WebSocket 기반 실시간 채팅 시스템</li>
                <li>Redis를 활용한 실시간 메시지 캐싱 및 관리</li>
-               <li>사용자 접속 상태 실시간 모니터링</li>
+               <li>사용자 접속자 수 실시간 모니터링</li>
                <li>스팸 메시지 감지 및 차단 기능</li>
                <li>채팅 메시지 영구 저장 및 동기화</li>
              </ul>
@@ -86,15 +87,17 @@ const Project3 = () => {
              <h2>개발 과정</h2>
              <p>
                1. 기본 환경 구축<br />
-               • Nginx, React, FastAPI 기본 환경 구성<br />
-               • Docker 컨테이너 구성 및 연동<br />
+               • 필요한 기술 조사 및 아키텍쳐 구성
+               • Nginx, React, FastAPI, Redis, Postgresql 연동 구현<br />
                • WebSocket 통신 기반 설정<br />
+               • Docker 컨테이너 구성 및 연동<br />
+               
                <br />
                2. 세부 기능 구현<br />
                • WebSocket 기반 실시간 채팅 시스템 개발<br />
                • Redis를 활용한 메시지 캐싱 시스템 구현<br />
                • PostgreSQL 메시지 영구 저장소 구현<br />
-               • PostgreSQL 파티션 구현 및 유저 정보 저장 기능 개발<br />
+               • PostgreSQL 날짜별로 파티션 구현 및 유저 정보 저장 기능 개발<br />
                • 스팸 감지 및 사용자 차단 기능 개발<br />
                <br />
                3. 시스템 배포<br />
@@ -108,12 +111,15 @@ const Project3 = () => {
                <div className="project3-tech-category">
                  <h3>Backend & Infrastructure</h3>
                  <ul>
-                   <li>FastAPI - 비동기 웹 프레임워크</li>
-                   <li>Redis - 실시간 메시지 캐시 및 사용자 관리</li>
-                   <li>PostgreSQL - 메시지 영구 저장소</li>
-                   <li>WebSocket - 실시간 양방향 통신</li>
-                   <li>Docker & Docker-compose - 컨테이너화</li>
-                   <li>Google Cloud Platform - 클라우드 서버</li>
+                  <li>Nginx - 웹 서버 및 리버스 프록시</li>
+                  <li>React - 동적 사용자 인터페이스</li>
+                  <li>WebSocket - 실시간 양방향 통신</li>
+                  <li>FastAPI - 비동기 웹 프레임워크</li>
+                  <li>Redis - 실시간 메시지 캐시 및 사용자 관리</li>
+                  <li>PostgreSQL - 메시지 영구 저장소</li>
+                  <li>Docker & Docker-compose - 컨테이너화</li>
+                  <li>Google Cloud Platform - 클라우드 서버</li>
+                  <li>Jenkins - Docker 이미지 자동 빌드 및 배포 자동화</li>
                  </ul>
                </div>
              </div>

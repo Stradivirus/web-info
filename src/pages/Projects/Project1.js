@@ -56,19 +56,19 @@ const Project1 = () => {
               <h2>사용 기술</h2>
               <div className="project1-tech-details">
                 <div className="project1-tech-category">
-                  <h3>Frontend</h3>
+                <h3>Frontend</h3>
                   <ul>
-                    <li>React</li>
-                    <li>React Router</li>
-                    <li>CSS</li>
+                    <li>React - 사용자 인터페이스 구축</li>
+                    <li>React Router - 클라이언트 사이드 라우팅</li>
+                    <li>CSS - 반응형 디자인 및 스타일링</li>
                   </ul>
                 </div>
                 <div className="project1-tech-category">
                   <h3>Deployment</h3>
-                  <ul>
-                    <li>AWS S3</li>
-                    <li>GitHub Actions</li>
-                  </ul>
+                    <ul>
+                      <li>AWS S3 - 정적 웹사이트 호스팅</li>
+                      <li>GitHub Actions - CI/CD 자동화</li>
+                    </ul>
                 </div>
               </div>
             </div>

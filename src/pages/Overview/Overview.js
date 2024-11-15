@@ -18,14 +18,14 @@ const projects = [
     title: "CBT 까짓것 내가 만든다",
     description: "Django와 Postgresql을 사용한 CBT 제작",
     image: diagram2,
-    tags: ["Docker-compose", "Django", "Postgresql","GCP"]
+    tags: ["Docker-compose", "Django", "Postgresql","GCP","Jenkins"]
   },
   {
     id: 3,
     title: "다소니 - 마음과 마음을 연결합니다",
     description: "websocket, redis를 이용한 채팅",
     image: diagram3,
-    tags: ["Websocket", "Redis", "Fastapi", "Docker-compose"]
+    tags: ["Websocket", "Redis", "Fastapi", "Docker-compose","Jenkins"]
   }
 ];
 
