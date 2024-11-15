@@ -8,7 +8,7 @@ const Navigation = () => {
     <nav className="nav-container">
       <NavLink to="/" className="nav-item" end>
         <Home className="nav-icon" size={18} />
-        <span>개요</span>
+        <span>홈</span>
       </NavLink>
       
       <div className="nav-divider">Projects</div>

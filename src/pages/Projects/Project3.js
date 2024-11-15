@@ -87,7 +87,7 @@ const Project3 = () => {
              <h2>개발 과정</h2>
              <p>
                1. 기본 환경 구축<br />
-               • 필요한 기술 조사 및 아키텍쳐 구성
+               • 필요한 기술 조사 및 아키텍쳐 구성<br />
                • Nginx, React, FastAPI, Redis, Postgresql 연동 구현<br />
                • WebSocket 통신 기반 설정<br />
                • Docker 컨테이너 구성 및 연동<br />
