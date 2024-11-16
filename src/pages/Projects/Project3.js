@@ -125,6 +125,17 @@ const Project3 = () => {
              </div>
            </div>
            <div className="project3-content-section">
+              <h2>문제점 및 해결 과정</h2>
+              <ul className="project3-feature-list">
+                <li>
+                  <strong>Backend 연동 이슈:</strong> Fastapi, Redis, Postgresql 연동 문제
+                  <br />• 해결: 동시에 연결하려던 것을 Fastapi와 Redis부터 해결하고 그 후 Redis와 Postgresql 연동 구현
+                </li>
+                
+              </ul>
+            </div>
+          
+           <div className="project3-content-section">
              <h2>느낀 점</h2>
              <p>
                이 프로젝트를 통해 실시간 통신 시스템의 설계와 구현에 대한 깊은 이해를 얻을 수 있었습니다. 

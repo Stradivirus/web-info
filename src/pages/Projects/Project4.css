@@ -1,5 +1,5 @@
-/* Project3.css */
-.project3-container {
+/* Project4.css */
+.project4-container {
     background-color: #ffffff;
     border-radius: 12px;
     padding: 32px;
@@ -7,7 +7,7 @@
 }
 
 /* 프로젝트 설명 스타일 */
-.project3-description {
+.project4-description {
     font-size: 16px;
     line-height: 1.6;
     color: #4b5563;
@@ -15,7 +15,7 @@
 }
 
 /* 태그 컨테이너 */
-.project3-tags {
+.project4-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -23,7 +23,7 @@
 }
 
 /* 태그 스타일 */
-.project3-tag {
+.project4-tag {
     background-color: #e5e7eb;
     color: #4b5563;
     padding: 6px 12px;
@@ -33,34 +33,34 @@
     transition: all 0.2s ease;
 }
 
-.project3-tag:hover {
+.project4-tag:hover {
     background-color: #2563eb;
     color: #ffffff;
 }
 
 /* 프로젝트 개요 컨테이너 */
-.project3-overview-container {
+.project4-overview-container {
     display: flex;
     gap: 20px;
     align-items: flex-start;
     margin-bottom: 20px;
 }
 
-.project3-details {
-    flex: 7;
+.project4-details {
+    flex: 6;
 }
 
-.project3-architecture-diagram {
-    flex: 3;
+.project4-architecture-diagram {
+    flex: 4;
 }
 
-.project3-architecture-diagram img {
+.project4-architecture-diagram img {
     width: 100%;
     height: auto;
 }
 
 /* 내용 박스 스타일 */
-.project3-content-box {
+.project4-content-box {
     background-color: #f9fafb;
     padding: 24px;
     border-radius: 8px;
@@ -68,40 +68,40 @@
 }
 
 /* 프로젝트 내용 영역 */
-.project3-content-section {
+.project4-content-section {
     margin-bottom: 32px;
 }
 
-.project3-content-section:last-child {
+.project4-content-section:last-child {
     margin-bottom: 0;
 }
 
-.project3-content-section h2 {
+.project4-content-section h2 {
     font-size: 20px;
     font-weight: 600;
     color: #1a1a1a;
     margin-bottom: 16px;
 }
 
-.project3-content-section p {
+.project4-content-section p {
     color: #4b5563;
     line-height: 1.6;
     margin-bottom: 16px;
 }
 
 /* 기능 리스트 스타일 */
-.project3-feature-list {
+.project4-feature-list {
     list-style-type: none;
     padding: 0;
 }
 
-.project3-feature-list li {
+.project4-feature-list li {
     padding: 8px 0;
     position: relative;
     padding-left: 24px;
 }
 
-.project3-feature-list li:before {
+.project4-feature-list li:before {
     content: "•";
     color: #2563eb;
     position: absolute;
@@ -109,38 +109,38 @@
 }
 
 /* 기술 상세 정보 스타일 */
-.project3-tech-details {
+.project4-tech-details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
     margin-top: 16px;
 }
 
-.project3-tech-category h3 {
+.project4-tech-category h3 {
     font-size: 16px;
     font-weight: 600;
     color: #2563eb;
     margin-bottom: 12px;
 }
 
-.project3-tech-category ul {
+.project4-tech-category ul {
     list-style-type: none;
     padding: 0;
 }
 
-.project3-tech-category li {
+.project4-tech-category li {
     padding: 4px 0;
     color: #4b5563;
 }
 
 /* 링크 스타일 */
-.project3-links {
+.project4-links {
     margin-top: 32px;
     display: flex;
     gap: 16px;
 }
 
-.project3-link {
+.project4-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -153,12 +153,12 @@
     transition: background-color 0.2s;
 }
 
-.project3-link:hover {
+.project4-link:hover {
     background-color: #1d4ed8;
 }
 
 /* 스크린샷 섹션 스타일 */
-.project3-screenshots {
+.project4-screenshots {
     margin-top: 32px;
     background-color: #f9fafb;
     border-radius: 8px;
@@ -166,7 +166,7 @@
     padding: 24px;
 }
 
-.project3-screenshots h2 {
+.project4-screenshots h2 {
     font-size: 20px;
     font-weight: 600;
     color: #1a1a1a;
@@ -283,21 +283,21 @@
 }
 
 @media (max-width: 768px) {
-    .project3-container {
+    .project4-container {
         padding: 24px;
     }
 
-    .project3-overview-container {
+    .project4-overview-container {
         flex-direction: column;
     }
 
-    .project3-details,
-    .project3-architecture-diagram {
+    .project4-details,
+    .project4-architecture-diagram {
         flex: none;
         width: 100%;
     }
 
-    .project3-links {
+    .project4-links {
         flex-direction: column;
     }
 }
@@ -307,7 +307,7 @@
         grid-template-columns: 1fr; /* 모바일에서는 1개씩 */
     }
 
-    .project3-screenshots {
+    .project4-screenshots {
         padding: 16px;
         margin-top: 24px;
     }

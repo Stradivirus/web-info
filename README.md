@@ -8,7 +8,7 @@
 새로운 프로젝트를 추가하려면 다음 단계를 따르세요
 1. 프로젝트 파일 생성: src/pages/Projects/ 폴더에 새로운 프로젝트 파일을 생성합니다. 예를 들어, Project3.js라는 파일을 생성합니다.
 
-2. Layout.js 수정: web-info/src/layouts/Layout.js 파일에 새로 추가한 프로젝트를 import 합니다.
+2. Layout.js 수정: web-info/src/layouts/Main.js 파일에 새로 추가한 프로젝트를 import 합니다.
 
 3. Navigation.js 수정: src/components/Navigation/Navigation.js 파일을 열고, 새로운 프로젝트에 대한 NavLink를 추가합니다. 
 

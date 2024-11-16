@@ -26,6 +26,13 @@ const projects = [
     description: "websocket, redis를 이용한 채팅",
     image: diagram3,
     tags: ["Websocket", "Redis", "Fastapi", "Docker-compose","Jenkins"]
+  },
+  {
+    id: 4,
+    title: "사전 예약 시스템 구성",
+    description: "Nodejs로 웹서버 구동과 Django로 admin을 구성한 시스템",
+    //image: diagram3,
+    tags: ["React","Nodejs", "Django", "Postgresql", "Docker-compose","Jenkins","Slack Webhook","Gcp"]
   }
 ];
 

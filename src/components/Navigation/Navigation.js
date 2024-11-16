@@ -25,6 +25,10 @@ const Navigation = () => {
         <FolderOpen className="nav-icon" size={18} />
         <span>다소니 - 마음과 마음을 연결하는 채팅</span>
       </NavLink>
+      <NavLink to="/project/4" className="nav-item">
+        <FolderOpen className="nav-icon" size={18} />
+        <span>사전 예약 시스템</span>
+      </NavLink>
 
       <div className="nav-divider">Certifications</div>
       
