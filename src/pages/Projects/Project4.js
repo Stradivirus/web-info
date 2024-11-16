@@ -6,30 +6,13 @@ import ArchitectureDiagram from './Project4-Architecture.png';
 const Project4 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // 이미지 컨텍스트 생성
-  const imageContext = require.context('./Project4', false, /screenshot\d+\.png$/);
-
-  // 스크린샷 데이터 배열을 동적으로 생성
-  const screenshots = imageContext.keys().map((path, index) => {
-    const id = path.match(/screenshot(\d+)\.png$/)[1];
-    return {
-      id,
-      caption: getCaptionForId(id),
-      image: imageContext(path)
-    };
-  }).sort((a, b) => Number(a.id) - Number(b.id)); // ID 기준으로 정렬
-
-  // ID에 따른 캡션 반환 함수
-  function getCaptionForId(id) {
-    const captions = {
-      '1': "사전 예약 메인 페이지",
-      '2': "사전 예약 등록 완료 페이지",
-      '3': "쿠폰 사용 확인 페이지",
-      '4': "어드민 페이지 (Django)",
-      '5': "데이터 통계 페이지 (Django)"
-    };
-    return captions[id] || `스크린샷 ${id}`;
-  }
+  const screenshots = [
+    { id: '1', caption: "사전 예약 메인 페이지" },
+    { id: '2', caption: "사전 예약 등록 완료 페이지" },
+    { id: '3', caption: "쿠폰 사용 확인 페이지" },
+    { id: '4', caption: "어드민 페이지 (Django)" },
+    { id: '5', caption: "데이터 통계 페이지 (Django)" }
+  ];
 
   // 모달 닫기 함수
   const closeModal = () => {
@@ -37,8 +20,8 @@ const Project4 = () => {
   };
 
   // 이미지 클릭 핸들러
-  const handleImageClick = (image, caption) => {
-    setSelectedImage({ url: image, caption });
+  const handleImageClick = (caption) => {
+    setSelectedImage({ caption });
   };
 
   return (
@@ -111,46 +94,45 @@ const Project4 = () => {
               </p>
             </div>
             <div className="project4-content-section">
-  <h2>기술 스택</h2>
-  <div className="grid grid-cols-2 gap-6">
-    <div className="col-span-1">
-      <div className="project4-tech-category mb-6">
-        <h3 className="text-xl font-bold mb-2">Frontend</h3>
-        <ul className="list-disc pl-5">
-          <li>React - 사용자 인터페이스 구축</li>
-          <li>Tailwind CSS - 스타일링</li>
-        </ul>
-      </div>
-      <div className="project4-tech-category">
-        <h3 className="text-xl font-bold mb-2">Main Backend (Node.js)</h3>
-        <ul className="list-disc pl-5">
-          <li>Express.js - REST API 개발</li>
-          <li>Node-Postgres - DB 연동</li>
-          
-        </ul>
-      </div>
-    </div>
-    <div className="col-span-1">
-      <div className="project4-tech-category mb-6">
-        <h3 className="text-xl font-bold mb-2">Admin Backend (Django)</h3>
-        <ul className="list-disc pl-5">
-          <li>Django Admin - 데이터 조회 인터페이스</li>
-          <li>Django ORM - DB 읽기 전용 연동</li>
-        </ul>
-      </div>
-      <div className="project4-tech-category">
-        <h3 className="text-xl font-bold mb-2">Infrastructure</h3>
-        <ul className="list-disc pl-5">
-          <li>Nginx - 리버스 프록시</li>
-          <li>PostgreSQL - 데이터베이스</li>
-          <li>Docker & Docker-compose - 컨테이너화</li>
-          <li>Jenkins - CI/CD</li>
-          <li>GCP - 클라우드 호스팅</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+              <h2>기술 스택</h2>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="col-span-1">
+                  <div className="project4-tech-category mb-6">
+                    <h3 className="text-xl font-bold mb-2">Frontend</h3>
+                    <ul className="list-disc pl-5">
+                      <li>React - 사용자 인터페이스 구축</li>
+                      <li>Tailwind CSS - 스타일링</li>
+                    </ul>
+                  </div>
+                  <div className="project4-tech-category">
+                    <h3 className="text-xl font-bold mb-2">Main Backend (Node.js)</h3>
+                    <ul className="list-disc pl-5">
+                      <li>Express.js - REST API 개발</li>
+                      <li>Node-Postgres - DB 연동</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-span-1">
+                  <div className="project4-tech-category mb-6">
+                    <h3 className="text-xl font-bold mb-2">Admin Backend (Django)</h3>
+                    <ul className="list-disc pl-5">
+                      <li>Django Admin - 데이터 조회 인터페이스</li>
+                      <li>Django ORM - DB 읽기 전용 연동</li>
+                    </ul>
+                  </div>
+                  <div className="project4-tech-category">
+                    <h3 className="text-xl font-bold mb-2">Infrastructure</h3>
+                    <ul className="list-disc pl-5">
+                      <li>Nginx - 리버스 프록시</li>
+                      <li>PostgreSQL - 데이터베이스</li>
+                      <li>Docker & Docker-compose - 컨테이너화</li>
+                      <li>Jenkins - CI/CD</li>
+                      <li>GCP - 클라우드 호스팅</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="project4-content-section">
               <h2>문제점 및 해결 과정</h2>
               <ul className="project4-feature-list">
@@ -167,12 +149,12 @@ const Project4 = () => {
             <div className="project4-content-section">
               <h2>느낀 점</h2>
               <p>
-              이 프로젝트를 통해 하나의 데이터베이스를 두 개의 서버가 다른 목적으로 활용하는 구조를 경험했습니다.
-    Node.js는 데이터 저장과 API 처리를, Django는 Admin 페이지를 통한 데이터 조회만을 담당하게 하여
-    각 프레임워크의 장점을 살릴 수 있었습니다. Node.js의 경우 빠른 API 개발과 유연한 기능 구현이 가능했고,
-    Django는 별도의 관리자 페이지 개발 없이도 데이터를 효과적으로 조회하고 관리할 수 있었습니다.
-    또한 Docker를 활용한 컨테이너화 덕분에 두 서버의 배포와 관리가 수월했으며,
-    Jenkins를 통한 CI/CD 파이프라인 구축으로 개발과 배포 과정을 효율적으로 자동화할 수 있었습니다.
+                이 프로젝트를 통해 하나의 데이터베이스를 두 개의 서버가 다른 목적으로 활용하는 구조를 경험했습니다.
+                Node.js는 데이터 저장과 API 처리를, Django는 Admin 페이지를 통한 데이터 조회만을 담당하게 하여
+                각 프레임워크의 장점을 살릴 수 있었습니다. Node.js의 경우 빠른 API 개발과 유연한 기능 구현이 가능했고,
+                Django는 별도의 관리자 페이지 개발 없이도 데이터를 효과적으로 조회하고 관리할 수 있었습니다.
+                또한 Docker를 활용한 컨테이너화 덕분에 두 서버의 배포와 관리가 수월했으며,
+                Jenkins를 통한 CI/CD 파이프라인 구축으로 개발과 배포 과정을 효율적으로 자동화할 수 있었습니다.
               </p>
             </div>
           </div>
@@ -204,15 +186,15 @@ const Project4 = () => {
       <div className="project4-screenshots">
         <h2>프로젝트 스크린샷</h2>
         <div className="screenshots-grid">
-          {screenshots.map(({ id, caption, image }) => (
+          {screenshots.map(({ id, caption }) => (
             <div key={id} className="screenshot-item">
-              <img 
-                src={image} 
-                alt={caption} 
-                className="screenshot-image"
-                onClick={() => handleImageClick(image, caption)}
-                style={{ cursor: 'pointer' }}
-              />
+              <div 
+                className="screenshot-image-placeholder"
+                onClick={() => handleImageClick(caption)}
+                style={{ cursor: 'pointer', backgroundColor: '#f3f4f6', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                이미지 준비 중
+              </div>
               <p className="screenshot-caption">{caption}</p>
             </div>
           ))}
@@ -226,11 +208,12 @@ const Project4 = () => {
             <button className="modal-close-button" onClick={closeModal}>
               <X size={24} />
             </button>
-            <img 
-              src={selectedImage.url} 
-              alt={selectedImage.caption} 
-              className="modal-image"
-            />
+            <div 
+              className="modal-image-placeholder"
+              style={{ backgroundColor: '#f3f4f6', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              이미지 준비 중
+            </div>
             <p className="modal-caption">{selectedImage.caption}</p>
           </div>
         </div>
