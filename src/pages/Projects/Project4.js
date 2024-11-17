@@ -53,6 +53,7 @@ const Project4 = () => {
         <span className="project4-tag">GCP</span>
         <span className="project4-tag">Jenkins</span>
         <span className="project4-tag">Nginx</span>
+        <span className="project4-tag">Slack</span>
       </div>
 
       {/* 프로젝트 개요와 아키텍처 다이어그램 */}
@@ -63,16 +64,16 @@ const Project4 = () => {
               <h2>제작 목표</h2>
               <ul className="project4-feature-list">
                 <li>축제에 참가할 사람들 수요 예측</li>
-                <li>신청한 사람들에게 쿠폰 코드 발급</li>
-                <li>어드민 페이지를 통한 데이터 조회 및 관리 확인</li>
+                <li>신청한 사람들에게 추첨권 코드 발급</li>
+                <li>어드민 페이지를 통한 데이터 조회 및 관리</li>
               </ul>
             </div>
             <div className="project4-content-section">
               <h2>주요 기능</h2>
               <ul className="project4-feature-list">
                 <li>사람들로부터 이메일과 전화번호 수집 (Node.js)</li>
-                <li>등록 확인과 쿠폰 번호 발급 (Node.js)</li>
-                <li>쿠폰 사용 확인 (Node.js)</li>
+                <li>등록 확인과 추첨권 번호 발급 (Node.js)</li>
+                <li>추첨권 사용 확인 (Node.js)</li>
                 <li>슬렉 웹훅 연동으로 10명마다 슬렉 알림 (Node.js)</li>
                 <li>어드민 페이지에서 등록자 데이터 조회 및 관리 (Django)</li>
                 <li>간단한 통계 - 총 등록자 수, 일별 등록자 수 (Django)</li>
@@ -137,6 +138,7 @@ const Project4 = () => {
                       <li>Docker & Docker-compose - 컨테이너화</li>
                       <li>Jenkins - CI/CD</li>
                       <li>GCP - 클라우드 호스팅</li>
+                      <li>Slack - 10명마다 알림</li>
                     </ul>
                   </div>
                 </div>
