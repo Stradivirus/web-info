@@ -2,16 +2,25 @@ import React, { useState } from 'react';
 import { Github, Globe, Calendar, X } from 'lucide-react';
 import './Project4.css';
 import ArchitectureDiagram from './Project4-Architecture.png';
+import festival1 from './Project4/festival1.png';
+import festival2 from './Project4/festival2.png';
+import festival3 from './Project4/festival3.png';
+import festival4 from './Project4/festival4.png';
+import festival5 from './Project4/festival5.png';
+import festival6 from './Project4/festival6.png';
+import festival7 from './Project4/festival7.png';
 
 const Project4 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const screenshots = [
-    { id: '1', caption: "사전 예약 메인 페이지" },
-    { id: '2', caption: "사전 예약 등록 완료 페이지" },
-    { id: '3', caption: "쿠폰 사용 확인 페이지" },
-    { id: '4', caption: "어드민 페이지 (Django)" },
-    { id: '5', caption: "데이터 통계 페이지 (Django)" }
+    { id: '1', caption: "사전 예약 메인 페이지", image: festival1 },
+    { id: '2', caption: "사전 예약 완료", image: festival2 },
+    { id: '3', caption: "추첨권 발급 페이지", image: festival3 },
+    { id: '4', caption: "추첨권 사용 페이지", image: festival4 },
+    { id: '5', caption: "추첨권만 있는 경우 직접 입력 페이지", image: festival5 },
+    { id: '6', caption: "어드민 페이지(Django)", image: festival6 },
+    { id: '7', caption: "슬렉 알림", image: festival7 }
   ];
 
   // 모달 닫기 함수
@@ -20,8 +29,8 @@ const Project4 = () => {
   };
 
   // 이미지 클릭 핸들러
-  const handleImageClick = (caption) => {
-    setSelectedImage({ caption });
+  const handleImageClick = (caption, image) => {
+    setSelectedImage({ caption, image });
   };
 
   return (
@@ -144,6 +153,10 @@ const Project4 = () => {
                   <strong>성능 이슈:</strong> Django 어드민에서 대량 데이터 조회 시 속도 저하
                   <br />• 해결: 페이지네이션 구현 및 DB 인덱스 최적화
                 </li>
+                <li>
+                  <strong>이미지 처리 최적화:</strong> 이미지 리사이징 및 전환 과정에서 입력값 초기화
+                  <br />• 해결: 컴포넌트 분리를 통해 해결
+                </li>
               </ul>
             </div>
             <div className="project4-content-section">
@@ -186,14 +199,20 @@ const Project4 = () => {
       <div className="project4-screenshots">
         <h2>프로젝트 스크린샷</h2>
         <div className="screenshots-grid">
-          {screenshots.map(({ id, caption }) => (
+          {screenshots.map(({ id, caption, image }) => (
             <div key={id} className="screenshot-item">
               <div 
                 className="screenshot-image-placeholder"
-                onClick={() => handleImageClick(caption)}
-                style={{ cursor: 'pointer', backgroundColor: '#f3f4f6', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                onClick={() => handleImageClick(caption, image)}
+                style={{ cursor: 'pointer' }}
               >
-                이미지 준비 중
+                {image ? (
+                  <img src={image} alt={caption} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="flex items-center justify-center h-[200px] bg-gray-100">
+                    이미지 준비 중
+                  </div>
+                )}
               </div>
               <p className="screenshot-caption">{caption}</p>
             </div>
@@ -208,12 +227,17 @@ const Project4 = () => {
             <button className="modal-close-button" onClick={closeModal}>
               <X size={24} />
             </button>
-            <div 
-              className="modal-image-placeholder"
-              style={{ backgroundColor: '#f3f4f6', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-              이미지 준비 중
-            </div>
+            {selectedImage.image ? (
+              <img 
+                src={selectedImage.image} 
+                alt={selectedImage.caption}
+                className="modal-image"
+              />
+            ) : (
+              <div className="modal-image-placeholder">
+                이미지 준비 중
+              </div>
+            )}
             <p className="modal-caption">{selectedImage.caption}</p>
           </div>
         </div>
