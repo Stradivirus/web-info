@@ -7,17 +7,20 @@ import demoVideo from './Project3/chat-record.mp4';
 const Project3 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  // 스크린샷 이미지 로드 및 정렬
   const imageContext = require.context('./Project3', false, /screenshot\d+\.png$/);
+  const screenshots = imageContext.keys()
+    .map((path) => {
+      const id = path.match(/screenshot(\d+)\.png$/)[1];
+      return {
+        id,
+        caption: getCaptionForId(id),
+        image: imageContext(path)
+      };
+    })
+    .sort((a, b) => Number(a.id) - Number(b.id));
 
-  const screenshots = imageContext.keys().map((path, index) => {
-    const id = path.match(/screenshot(\d+)\.png$/)[1];
-    return {
-      id,
-      caption: getCaptionForId(id),
-      image: imageContext(path)
-    };
-  }).sort((a, b) => Number(a.id) - Number(b.id));
-
+  // 스크린샷 캡션 매핑
   function getCaptionForId(id) {
     const captions = {
       '1': "로그인 페이지",
@@ -26,12 +29,12 @@ const Project3 = () => {
     return captions[id] || `스크린샷 ${id}`;
   }
 
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
-
   const handleImageClick = (image, caption) => {
     setSelectedImage({ url: image, caption });
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
   };
 
   return (
@@ -161,11 +164,10 @@ const Project3 = () => {
             <div className="project3-content-section">
               <h2>느낀 점</h2>
               <p>
-                이 프로젝트를 통해 실시간 통신 시스템의 설계와 구현에 대한 실질적인 경험을 쌓을 수 있었습니다.
-                특히 WebSocket과 Redis를 활용한 실시간 메시지 처리 시스템 구축 과정에서 많은 기술적 도전과
-                해결 과정이 있었습니다. Docker를 활용한 멀티 컨테이너 환경 구성과 FastAPI의 비동기 처리를
-                통해 확장 가능한 아키텍처 설계의 중요성을 이해하게 되었고, 실시간 서비스의 안정성과
-                성능 최적화에 대한 깊은 통찰을 얻을 수 있었습니다.
+                이 프로젝트를 통해 실시간 통신 시스템의 설계와 구현에 대한 실질적인 경험을 쌓을 수 있었습니다.<br></br>
+                특히 WebSocket과 Redis를 활용한 실시간 메시지 처리 시스템 구축 과정에서 많은 기술적 도전과 해결 과정이 있었습니다. <br></br>
+                Docker를 활용한 멀티 컨테이너 환경 구성과 FastAPI의 비동기 처리를 통해 확장 가능한 아키텍처 설계의 중요성을 이해하게 되었고, <br></br>
+                실시간 서비스의 안정성과 성능 최적화에 대한 깊은 통찰을 얻을 수 있었습니다.
               </p>
             </div>
           </div>
@@ -177,17 +179,21 @@ const Project3 = () => {
       </div>
 
       <div className="project3-links">
-        <a href="https://github.com/stradivirus/chat"
-           className="project3-link"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a 
+          href="https://github.com/stradivirus/chat"
+          className="project3-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Github size={16} />
           GitHub 저장소
         </a>
-        <a href="http://34.64.132.7"
-           className="project3-link"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a 
+          href="http://34.64.132.7"
+          className="project3-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Globe size={16} />
           Live Demo
         </a>
@@ -203,7 +209,6 @@ const Project3 = () => {
                 alt={caption} 
                 className="screenshot-image"
                 onClick={() => handleImageClick(image, caption)}
-                style={{ cursor: 'pointer' }}
               />
               <p className="screenshot-caption">{caption}</p>
             </div>
