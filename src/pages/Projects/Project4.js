@@ -163,6 +163,17 @@ const Project4 = () => {
             </div>
 
             <div className="project4-content-section">
+        <h2>개선점 및 향후 계획</h2>
+        <ul className="project4-feature-list">
+          <li>
+            <strong>서버리스 아키텍처 전환:</strong> 일부 백엔드 기능을 GCP Cloud Run으로 마이그레이션
+            <br />• 추첨권 코드 생성,슬랙 알림 등의 비동기 작업
+            <br />• 확장성 개선 및 운영 비용 최적화
+          </li>  
+        </ul>
+      </div>
+
+            <div className="project4-content-section">
               <h2>느낀 점</h2>
               <p>
                 이 프로젝트를 통해 하나의 데이터베이스를 두 개의 서버가 다른 목적으로 활용하는 구조를 경험했습니다.<br></br>
