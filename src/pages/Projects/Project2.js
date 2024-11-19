@@ -43,8 +43,8 @@ const Project2 = () => {
     <div className="project2-container">
       {/* 프로젝트 헤더 섹션 */}
       <div className="project-header">
-        <h1 className="text-4xl font-bold mb-4">CBT 까짓것 내가 만든다</h1>
-        <div className="flex items-center gap-2 text-gray-600">
+        <h1 className="text-4xl font-bold mb-3">CBT 까짓것 내가 만든다</h1>
+        <div className="flex items-center gap-2 text-gray-600 mb-3">
           <Calendar size={16} />
           <span>2024.6 - 2024.6</span>
         </div>
@@ -68,7 +68,7 @@ const Project2 = () => {
               <h2>제작 목표</h2>
               <ul className="project2-feature-list">
                 <li>기존 TXT/PDF 형식의 시험 문제들을 실제 CBT(Computer Based Test) 환경으로 구현</li>
-                <li>새로운 시험 유형을 쉽게 추가하고 관리할 수 있는 확장 가능한 플랫폼 구축</li>
+                <li>새로운 시험 문제를 쉽게 추가하고 관리할 수 있는 확장 가능한 플랫폼 구축</li>
                 <li>사용자 친화적인 인터페이스를 통한 효율적인 학습 환경 제공</li>
               </ul>
             </div>
@@ -78,8 +78,8 @@ const Project2 = () => {
               <h2>주요 기능</h2>
               <ul className="project2-feature-list">
                 <li>텍스트 기반 시험 문제 데이터베이스 등록 및 관리</li>
-                <li>PDF 문제 세트와 정답 데이터 연동 시스템</li>
                 <li>랜덤 문제 출제 (30문제) 기능</li>
+                <li>PDF 파일과 정답 데이터 연동 시스템</li>
                 <li>시험 점수 확인 및 오답 확인 기능</li>
               </ul>
             </div>
@@ -92,7 +92,7 @@ const Project2 = () => {
                 • Nginx, Django, PostgreSQL 연동 구성<br />
                 • 메인 페이지 및 기본 라우팅 설정<br />
                 <br />
-                2. 핵심 기능 구현<br />
+                2. 단계별 기능 구현<br />
                 • TXT 파일 기반 문제 데이터베이스 등록 시스템 개발<br />
                 • PDF 문제 답안 데이터베이스 등록 및 연동<br />
                 • 랜덤 문제 출제 및 채점 시스템 구현<br />

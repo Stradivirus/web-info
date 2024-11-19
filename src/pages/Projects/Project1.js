@@ -8,8 +8,8 @@ const Project1 = () => {
     <div className="project1-container">
       {/* 프로젝트 헤더 섹션 */}
       <div className="project-header">
-        <h1 className="text-4xl font-bold mb-4">Portfolio Website</h1>
-        <div className="flex items-center gap-2 text-gray-600">
+        <h1 className="text-4xl font-bold mb-3">Portfolio Website</h1>
+        <div className="flex items-center gap-2 text-gray-600 mb-3">
           <Calendar size={16} />
           <span>2024.11 - 2024.11</span>
         </div>
@@ -31,8 +31,7 @@ const Project1 = () => {
             <div className="project1-content-section">
               <h2>제작 목표</h2>
               <ul className="project1-feature-list">
-                <li>포트폴리오 소개</li>
-                <li>제작한 프로젝트 소개</li>
+                <li>프로젝트 이력을 담은 포트폴리오 웹사이트</li>
               </ul>
             </div>
 
@@ -40,7 +39,6 @@ const Project1 = () => {
             <div className="project1-content-section">
               <h2>주요 기능</h2>
               <ul className="project1-feature-list">
-                <li>반응형 웹 디자인</li>
                 <li>GitHub Actions를 통한 CI/CD 구축</li>
                 <li>AWS S3를 활용한 정적 웹사이트 호스팅</li>
                 <li>React Router를 이용한 SPA 구현</li>
@@ -51,11 +49,11 @@ const Project1 = () => {
             <div className="project1-content-section">
               <h2>개발 과정</h2>
               <p>
-                1. AWS S3 설정 및 Nodejs 연동<br />
-                2. GitHub Actions 워크플로우 설정<br />
-                3. 초기 레이아웃 설계 및 컴포넌트 구조화<br />
-                4. 아키텍쳐 이미지 삽입<br />
-                5. 기본 구조 완성 및 배포 자동화
+                1. 초기 레이아웃 설계 및 컴포넌트 구조화<br />
+                2. 기본 구조 완성 및 테스트<br />
+                3. AWS S3 버킷 생성 및 정적 웹 호스팅 설정<br />
+                4. CloudFront 배포<br />
+                5. GitHub Actions 워크플로우 작성 및 배포 자동화 구축
               </p>
             </div>
 

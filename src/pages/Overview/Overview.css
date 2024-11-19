@@ -1,6 +1,6 @@
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 26px;
   margin: 0 auto;
   max-width: 100%;
@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  min-height: 300px;  /* 모든 카드 동일한 최소 높이 */
+  min-height: 400px;  /* 모든 카드 동일한 최소 높이 */
   border: 1px solid #e5e7eb;
   text-align: center;
 }

@@ -4,15 +4,16 @@ import './Overview.css';
 import diagram1 from './Simple Diagram 1.png';
 import diagram2 from './Simple Diagram 2.png';
 import diagram3 from './Simple Diagram 3.png';
-
+import diagram4 from './Simple Diagram 4.png';
 const projects = [
   {
-    id: 1,
-    title: "Portfolio Website",
-    description: "포트폴리오 웹사이트 제작 프로젝트",
-    image: diagram1,
-    tags: ["React", "AWS S3", "AWS Cloudfront", "GitHub Actions"]
+    id: 4,
+    title: "사전 예약 시스템",
+    description: "Nodejs로 웹서버 구동과 Django로 admin을 구성한 시스템",
+    image: diagram4,
+    tags: ["React","Nodejs", "Django", "Postgresql", "Docker-compose","Jenkins","Slack Webhook","Gcp"]
   },
+  
   {
     id: 2,
     title: "CBT 까짓것 내가 만든다",
@@ -28,11 +29,11 @@ const projects = [
     tags: ["Websocket", "Redis", "Fastapi", "Docker-compose","Jenkins"]
   },
   {
-    id: 4,
-    title: "사전 예약 시스템 구성",
-    description: "Nodejs로 웹서버 구동과 Django로 admin을 구성한 시스템",
-    //image: diagram3,
-    tags: ["React","Nodejs", "Django", "Postgresql", "Docker-compose","Jenkins","Slack Webhook","Gcp"]
+    id: 1,
+    title: "Portfolio Website",
+    description: "포트폴리오 웹사이트 제작 프로젝트",
+    image: diagram1,
+    tags: ["React", "AWS S3", "AWS Cloudfront", "GitHub Actions"]
   }
 ];
 

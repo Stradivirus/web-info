@@ -34,8 +34,8 @@ const Project4 = () => {
   return (
     <div className="project4-container">
       <div className="project-header">
-        <h1 className="text-4xl font-bold mb-4">사전 예약 시스템 구성</h1>
-        <div className="flex items-center gap-2 text-gray-600">
+        <h1 className="text-4xl font-bold mb-3">사전 예약 시스템</h1>
+        <div className="flex items-center gap-2 text-gray-600 mb-3">
           <Calendar size={16} />
           <span>2024.9 - 2024.9</span>
         </div>
@@ -83,7 +83,6 @@ const Project4 = () => {
                 1. 기본 환경 구축<br />
                 • Nginx를 통한 프록시 서버 구성<br />
                 • React(프론트엔드) - Node.js(API 서버) - Postgresql - Django(admin) 연동<br />
-                • PostgreSQL 데이터베이스 공유 구성<br />
                 • Docker compose 멀티 컨테이너 환경 구성<br />
                 <br />
                 2. 핵심 기능 구현<br />
@@ -110,7 +109,6 @@ const Project4 = () => {
                     <h3>Frontend</h3>
                     <ul className="list-disc pl-5">
                       <li>React - 사용자 인터페이스 구축</li>
-                      <li>Tailwind CSS - 스타일링</li>
                     </ul>
                   </div>
                   <div className="project4-tech-category">
@@ -126,7 +124,6 @@ const Project4 = () => {
                     <h3>Admin Backend (Django)</h3>
                     <ul className="list-disc pl-5">
                       <li>Django Admin - 데이터 조회 인터페이스</li>
-                      <li>Django ORM - DB 읽기 전용 연동</li>
                     </ul>
                   </div>
                   <div className="project4-tech-category">

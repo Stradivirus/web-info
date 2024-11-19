@@ -40,11 +40,11 @@ const Project3 = () => {
   return (
     <div className="project3-container">
       <div className="project-header">
-        <h1 className="text-4xl font-bold mb-4">다소니</h1>
+        <h1 className="text-4xl font-bold mb-3">다소니</h1>
         <p className="text-gray-600 mb-4">
           사랑하는 사람을 뜻하는 순 우리말. 소중한 인연을 더욱 특별하게 만든다는 의미를 담았다.
         </p>
-        <div className="flex items-center gap-2 text-gray-600">
+        <div className="flex items-center gap-2 text-gray-600 mb-3">
           <Calendar size={16} />
           <span>2024.8 - 2024.8</span>
         </div>
