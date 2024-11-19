@@ -147,7 +147,7 @@ const Project3 = () => {
             </div>
 
             <div className="project3-content-section">
-              <h2>향후 개발 계획</h2>
+              <h2>개선점 및 향후 계획</h2>
               <p>
                 인증 시스템 및 보안 강화:<br />
                 <br />

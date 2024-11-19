@@ -123,7 +123,7 @@ const Project2 = () => {
 
             {/* 개선하고 싶은 점 섹션 */}
             <div className="project2-content-section">
-              <h2>개선하고 싶은 점</h2>
+              <h2>개선점 및 향후 계획</h2>
               <p>
                 현재 PostgreSQL(Docker)에서 MongoDB Atlas로의 마이그레이션 계획<br />
                 <br />
