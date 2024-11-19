@@ -39,7 +39,7 @@ const projects = [
 
 const Overview = () => {
   const navigate = useNavigate();
-///
+
   const handleProjectClick = (projectId) => {
     navigate(`/project/${projectId}`);
   };
