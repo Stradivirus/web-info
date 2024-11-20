@@ -1,5 +1,7 @@
-/* Project2.css */
-.project2-container {
+/* common.css */
+
+/* 기본 컨테이너 스타일 */
+.container {
     background-color: #ffffff;
     border-radius: 12px;
     padding: 32px;
@@ -7,25 +9,15 @@
     font-family: inherit;
 }
 
-/* 프로젝트 설명 스타일 */
-.project2-description {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #4b5563;
-    margin-bottom: 24px;
-    font-family: inherit;
-}
-
-/* 태그 컨테이너 */
-.project2-tags {
+/* 태그 관련 스타일 */
+.tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 32px;
 }
 
-/* 태그 스타일 */
-.project2-tag {
+.tag {
     background-color: #e5e7eb;
     color: #4b5563;
     padding: 6px 12px;
@@ -36,34 +28,26 @@
     font-family: inherit;
 }
 
-.project2-tag:hover {
+.tag:hover {
     background-color: #2563eb;
     color: #ffffff;
 }
 
-/* 프로젝트 개요 컨테이너 */
-.project2-overview-container {
+/* 개요 컨테이너 스타일 */
+.overview-container {
     display: flex;
     gap: 20px;
     align-items: flex-start;
     margin-bottom: 20px;
 }
 
-.project2-details {
-    flex: 6;
-}
-
-.project2-architecture-diagram {
-    flex: 4;
-}
-
-.project2-architecture-diagram img {
+.architecture-diagram img {
     width: 100%;
     height: auto;
 }
 
-/* 내용 박스 스타일 */
-.project2-content-box {
+/* 콘텐츠 박스 스타일 */
+.content-box {
     background-color: #f9fafb;
     padding: 24px;
     border-radius: 8px;
@@ -71,16 +55,16 @@
     font-family: inherit;
 }
 
-/* 프로젝트 내용 영역 */
-.project2-content-section {
+/* 콘텐츠 섹션 스타일 */
+.content-section {
     margin-bottom: 40px;
 }
 
-.project2-content-section:last-child {
+.content-section:last-child {
     margin-bottom: 0;
 }
 
-.project2-content-section h2 {
+.content-section h2 {
     font-size: 20px;
     font-weight: 700;
     color: #1a1a1a;
@@ -88,7 +72,7 @@
     font-family: inherit;
 }
 
-.project2-content-section p {
+.content-section p {
     color: #4b5563;
     line-height: 1.6;
     margin-bottom: 16px;
@@ -97,13 +81,13 @@
 }
 
 /* 기능 리스트 스타일 */
-.project2-feature-list {
+.feature-list {
     list-style-type: none;
     padding: 0;
     font-family: inherit;
 }
 
-.project2-feature-list li {
+.feature-list li {
     padding: 8px 0;
     position: relative;
     padding-left: 24px;
@@ -112,7 +96,7 @@
     font-size: 16px;
 }
 
-.project2-feature-list li:before {
+.feature-list li:before {
     content: "•";
     color: #2563eb;
     position: absolute;
@@ -120,7 +104,7 @@
 }
 
 /* 기술 상세 정보 스타일 */
-.project2-tech-details {
+.tech-details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
@@ -128,7 +112,7 @@
     font-family: inherit;
 }
 
-.project2-tech-category h3 {
+.tech-category h3 {
     font-size: 16px;
     font-weight: 600;
     color: #2563eb;
@@ -136,12 +120,12 @@
     font-family: inherit;
 }
 
-.project2-tech-category ul {
+.tech-category ul {
     list-style-type: none;
     padding: 0;
 }
 
-.project2-tech-category li {
+.tech-category li {
     padding: 4px 0;
     color: #4b5563;
     font-size: 16px;
@@ -149,13 +133,13 @@
 }
 
 /* 링크 스타일 */
-.project2-links {
+.links {
     margin-top: 32px;
     display: flex;
     gap: 16px;
 }
 
-.project2-link {
+.link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -169,12 +153,12 @@
     font-family: inherit;
 }
 
-.project2-link:hover {
+.link:hover {
     background-color: #1d4ed8;
 }
 
 /* 스크린샷 섹션 스타일 */
-.project2-screenshots {
+.screenshots {
     margin-top: 32px;
     background-color: #f9fafb;
     border-radius: 8px;
@@ -182,7 +166,7 @@
     padding: 24px;
 }
 
-.project2-screenshots h2 {
+.screenshots h2 {
     font-size: 20px;
     font-weight: 700;
     color: #1a1a1a;
@@ -275,7 +259,6 @@
     background-color: #f3f4f6;
 }
 
-/* 새로 추가된 네비게이션 버튼 스타일 */
 .modal-nav-button {
     position: absolute;
     top: 50%;
@@ -347,21 +330,21 @@
 }
 
 @media (max-width: 768px) {
-    .project2-container {
+    .container {
         padding: 24px;
     }
 
-    .project2-overview-container {
+    .overview-container {
         flex-direction: column;
     }
 
-    .project2-details,
-    .project2-architecture-diagram {
+    .details,
+    .architecture-diagram {
         flex: none;
         width: 100%;
     }
 
-    .project2-links {
+    .links {
         flex-direction: column;
     }
 }
@@ -371,7 +354,7 @@
         grid-template-columns: 1fr;
     }
 
-    .project2-screenshots {
+    .screenshots {
         padding: 16px;
         margin-top: 24px;
     }
@@ -384,4 +367,21 @@
         width: 32px;
         height: 32px;
     }
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 24px;
+    font-family: inherit;
+}
+
+/* 개요 컨테이너 내부 비율 설정 */
+.details {
+    flex: 6;  /* 기본 6:4 비율 */
+}
+
+.architecture-diagram {
+    flex: 4;  /* 기본 6:4 비율 */
 }

@@ -1,15 +1,69 @@
-프로젝트 구조 설명
-1. src/layouts/Layout.js: 전체 애플리케이션의 레이아웃을 정의하는 컴포넌트입니다.
-2. src/components/Profile/: 사용자 프로필과 관련된 컴포넌트를 포함합니다.
-3. src/components/Navigation/: 사이드바 및 내비게이션 관련 컴포넌트를 포함합니다.
-4. src/pages/Overview/: 개요 페이지의 내용을 포함합니다.
-5. src/pages/Projects/: 각 프로젝트에 대한 상세 정보를 포함하는 페이지입니다.
+# 프로젝트 구조 설명
 
-새로운 프로젝트를 추가하려면 다음 단계를 따르세요
-1. 프로젝트 파일 생성: src/pages/Projects/ 폴더에 새로운 프로젝트 파일을 생성합니다. 예를 들어, Project3.js라는 파일을 생성합니다.
+## 기본 구조
+1. `src/layouts/`
+   - Layout.js: 전체 애플리케이션의 레이아웃 구조
+   - Header.js: 상단 헤더 컴포넌트
+   - Sidebar.js: 사이드바 컴포넌트
+   - Main.js: 메인 컨텐츠 영역 컴포넌트
 
-2. Layout.js 수정: web-info/src/layouts/Main.js 파일에 새로 추가한 프로젝트를 import 합니다.
+2. `src/components/`
+   - common/ProjectDetail/: 프로젝트 상세 페이지를 위한 공통 컴포넌트
+   - Profile/: 사용자 프로필 관련 컴포넌트
+   - Navigation/: 사이드바 및 내비게이션 컴포넌트
 
-3. Navigation.js 수정: src/components/Navigation/Navigation.js 파일을 열고, 새로운 프로젝트에 대한 NavLink를 추가합니다. 
+3. `src/pages/`
+   - Overview/: 프로젝트 개요 페이지
+   - Projects/: 각 프로젝트 상세 정보
+   - Certifications/: 자격증 페이지
 
-4. Overview.js 수정: src/pages/Overview/Overview.js 파일을 열고, projects 배열에 새로운 프로젝트 객체를 추가합니다.
+4. `src/assets/`
+   - images/: 이미지 파일 저장
+   - videos/: 비디오 파일 저장
+
+## 새로운 프로젝트 추가 방법
+
+1. 프로젝트 데이터 및 컴포넌트 생성
+src/pages/Projects/Project[N]/
+├── data.js     # 프로젝트 데이터
+└── index.js    # 프로젝트 컴포넌트
+
+2. 프로젝트 리소스 추가
+- 아키텍처 다이어그램: `src/assets/images/architecture/Project[N]-Architecture.png`
+- 스크린샷: `src/assets/images/project/Project[N]/`
+- 비디오(필요시): `src/assets/videos/project/Project[N]/`
+
+3. Main.js 수정
+- `src/layouts/Main.js` 파일에 새로운 프로젝트 라우트 추가
+
+4. Navigation.js 수정
+- `src/components/Navigation/Navigation.js` 파일에 새로운 프로젝트 NavLink 추가
+
+5. Overview.js 수정
+- `src/pages/Overview/Overview.js` 파일의 projects 배열에 새 프로젝트 정보 추가
+
+## 프로젝트 데이터 구조
+```javascript
+{
+title: "프로젝트 제목",
+period: "프로젝트 기간",
+description: "프로젝트 설명(선택사항)",
+techStack: ["사용 기술"],
+objectives: ["프로젝트 목표"],
+features: ["주요 기능"],
+process: "개발 과정",
+techDetails: [
+ {
+   title: "카테고리",
+   items: ["기술 상세"]
+ }
+],
+improvements: "개선점 및 향후 계획",
+reflection: "느낀 점",
+architectureImg: "아키텍처 다이어그램 경로",
+screenshots: ["스크린샷 정보(선택사항)"],
+links: {
+ github: "GitHub 저장소 링크",
+ demo: "데모 사이트 링크"
+}
+}
