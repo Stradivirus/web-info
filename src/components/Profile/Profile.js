@@ -34,7 +34,7 @@ const Profile = () => {
         <div className="profile-photo">
           <img 
             src={profilePhoto}
-            alt="Profile photo" 
+            alt="Profile" 
             className="profile-image"
           />
         </div>
