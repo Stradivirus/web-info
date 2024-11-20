@@ -1,16 +1,5 @@
 /* ProjectDetail.css */
 
-/* 기본 컨테이너 스타일 */
-.container {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    font-family: inherit;
-    width: 100%;
-    max-width: none;
-}
-
 /* 태그 관련 스타일 */
 .tags {
     display: flex;
@@ -36,12 +25,7 @@
 }
 
 /* 개요 컨테이너 스타일 */
-.overview-container {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
+
 
 .architecture-diagram img {
     width: 100%;
