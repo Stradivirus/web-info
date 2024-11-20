@@ -94,5 +94,10 @@ export const projectData = {
   links: {
     github: "https://github.com/stradivirus/exam",
     demo: "http://34.64.132.7:8001/"
+  },
+
+  overview: {
+    description: "Django와 Postgresql을 사용한 CBT 제작",
+    diagram: "../../assets/images/overview/diagrams/Diagram2.png"
   }
 };

@@ -1,6 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Overview.css';
+
+// 프로젝트 데이터 import
+import { projectData as project1Data } from '../Projects/Project1/data';
+import { projectData as project2Data } from '../Projects/Project2/data';
+import { projectData as project3Data } from '../Projects/Project3/data';
+import { projectData as project4Data } from '../Projects/Project4/data';
+
+// 다이어그램 이미지 import - 경로는 그대로 유지
 import diagram1 from '../../assets/images/overview/diagrams/Diagram1.png';
 import diagram2 from '../../assets/images/overview/diagrams/Diagram2.png';
 import diagram3 from '../../assets/images/overview/diagrams/Diagram3.png';
@@ -9,32 +17,31 @@ import diagram4 from '../../assets/images/overview/diagrams/Diagram4.png';
 const projects = [
   {
     id: 4,
-    title: "사전 예약 시스템",
-    description: "Nodejs로 웹서버 구동과 Django로 admin을 구성한 시스템",
+    title: project4Data.title,
+    description: project4Data.overview.description,
     image: diagram4,
-    tags: ["React","Nodejs", "Django", "Postgresql", "Docker-compose","Jenkins","Slack Webhook","Gcp"]
+    tags: project4Data.techStack
   },
-  
   {
     id: 2,
-    title: "CBT 까짓것 내가 만든다",
-    description: "Django와 Postgresql을 사용한 CBT 제작",
+    title: project2Data.title,
+    description: project2Data.overview.description,
     image: diagram2,
-    tags: ["Docker-compose", "Django", "Postgresql","GCP","Jenkins"]
+    tags: project2Data.techStack
   },
   {
     id: 3,
-    title: "다소니 - 마음과 마음을 연결합니다",
-    description: "websocket, redis를 이용한 채팅",
+    title: project3Data.title,
+    description: project3Data.overview.description,
     image: diagram3,
-    tags: ["Websocket", "Redis", "Fastapi", "Docker-compose","Jenkins"]
+    tags: project3Data.techStack
   },
   {
     id: 1,
-    title: "Portfolio Website",
-    description: "포트폴리오 웹사이트 제작 프로젝트",
+    title: project1Data.title,
+    description: project1Data.overview.description,
     image: diagram1,
-    tags: ["React", "AWS S3", "AWS Cloudfront", "GitHub Actions"]
+    tags: project1Data.techStack
   }
 ];
 

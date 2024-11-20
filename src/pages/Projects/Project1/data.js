@@ -25,7 +25,15 @@ export const projectData = {
 2. 기본 구조 완성 및 테스트
 3. AWS S3 버킷 생성 및 정적 웹 호스팅 설정
 4. CloudFront 배포
-5. GitHub Actions 워크플로우 작성 및 배포 자동화 구축`,
+5. GitHub Actions 워크플로우 작성 및 배포 자동화 구축
+6. 컴포넌트 리팩토링 및 최적화
+- 중복 코드 제거를 위한 공통 컴포넌트 분리 (1400줄 정리)
+ - 각 프로젝트별 데이터와 UI 로직 분리 (data.js로 분리)
+- CSS 최적화
+ - 공통 스타일을 ProjectDetail.css로 통합
+ - 프로젝트별 고유 스타일만 유지
+- 데이터 구조화
+ - Overview 페이지와 데이터 연동`,
 
   techDetails: [
     {
@@ -53,5 +61,10 @@ export const projectData = {
   links: {
     github: "https://github.com/stradivirus/web-info",
     demo: "https://d8d53oijcrep7.cloudfront.net/"
+  },
+  
+  overview: {
+    description: "포트폴리오 웹사이트 제작 프로젝트",
+    diagram: "../../assets/images/overview/diagrams/Diagram1.png"
   }
 };
