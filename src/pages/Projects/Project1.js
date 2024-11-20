@@ -78,7 +78,25 @@ const Project1 = () => {
                 </div>
               </div>
             </div>
-
+            <div className="project1-content-section">
+            <h2>개선점 및 향후 계획</h2>
+ <p>
+   현재 각 프로젝트 별로 나누다보니 컴포넌트 부분이나 CSS부분은 중복되는 부분이 많음<br />
+   <br />
+   • 코드 구조 개선<br />
+   - 현재: 각 프로젝트마다 동일한 컴포넌트와 CSS 코드 중복<br /> 
+   - 개선: 공통 컴포넌트 라이브러리 구축 및 스타일 시스템 구축<br />
+   <br />
+   • 컴포넌트 분리<br />
+   - ImageGallery, Modal 등 재사용 가능한 컴포넌트 추출<br />
+   - 프로젝트별 고유 로직과 UI 분리<br />
+   <br />
+   • CSS 최적화<br />
+   - 공통 스타일을 Base CSS로 분리<br />
+   - CSS-in-JS 또는 Styled Components 도입 검토<br />
+   - 테일윈드 유틸리티 클래스 활용 확대<br />
+ </p>
+</div>
             {/* 느낀 점 섹션 */}
             <div className="project1-content-section">
               <h2>느낀 점</h2>
