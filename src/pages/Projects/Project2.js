@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Github, Globe, Calendar, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project2.css';
 import ArchitectureDiagram from './Project2-Architecture.png';
 
 const Project2 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
 
   // 스크린샷 이미지 로드 및 정렬
   const imageContext = require.context('./Project2', false, /screenshot\d+\.png$/);
@@ -31,13 +32,51 @@ const Project2 = () => {
     return captions[id] || `스크린샷 ${id}`;
   }
 
-  const handleImageClick = (image, caption) => {
+  const handleImageClick = (image, caption, index) => {
     setSelectedImage({ url: image, caption });
+    setCurrentIndex(index);
   };
 
   const closeModal = () => {
     setSelectedImage(null);
+    setCurrentIndex(null);
   };
+
+  const handleKeyDown = (e) => {
+    if (!selectedImage) return;
+
+    if (e.key === 'ArrowLeft') {
+      navigateImage('prev');
+    } else if (e.key === 'ArrowRight') {
+      navigateImage('next');
+    } else if (e.key === 'Escape') {
+      closeModal();
+    }
+  };
+
+  const navigateImage = (direction) => {
+    if (currentIndex === null) return;
+
+    let newIndex;
+    if (direction === 'prev') {
+      newIndex = currentIndex > 0 ? currentIndex - 1 : screenshots.length - 1;
+    } else {
+      newIndex = currentIndex < screenshots.length - 1 ? currentIndex + 1 : 0;
+    }
+
+    setCurrentIndex(newIndex);
+    setSelectedImage({
+      url: screenshots[newIndex].image,
+      caption: screenshots[newIndex].caption
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [currentIndex, selectedImage]);
 
   return (
     <div className="project2-container">
@@ -182,13 +221,13 @@ const Project2 = () => {
       <div className="project2-screenshots">
         <h2>프로젝트 스크린샷</h2>
         <div className="screenshots-grid">
-          {screenshots.map(({ id, caption, image }) => (
+          {screenshots.map(({ id, caption, image }, index) => (
             <div key={id} className="screenshot-item">
               <img 
                 src={image} 
                 alt={caption} 
                 className="screenshot-image"
-                onClick={() => handleImageClick(image, caption)}
+                onClick={() => handleImageClick(image, caption, index)}
               />
               <p className="screenshot-caption">{caption}</p>
             </div>
@@ -202,6 +241,20 @@ const Project2 = () => {
           <div className="image-modal-content" onClick={e => e.stopPropagation()}>
             <button className="modal-close-button" onClick={closeModal}>
               <X size={24} />
+            </button>
+            <button 
+              className="modal-nav-button modal-nav-prev" 
+              onClick={() => navigateImage('prev')}
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              className="modal-nav-button modal-nav-next" 
+              onClick={() => navigateImage('next')}
+              aria-label="Next image"
+            >
+              <ChevronRight size={24} />
             </button>
             <img 
               src={selectedImage.url} 

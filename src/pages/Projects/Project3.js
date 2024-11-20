@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { Github, Globe, Calendar, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project3.css';
 import ArchitectureDiagram from './Project3-Architecture.png';
 import demoVideo from './Project3/chat-record.mp4';
 
 const Project3 = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedMedia, setSelectedMedia] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
 
   // 스크린샷 이미지 로드 및 정렬
   const imageContext = require.context('./Project3', false, /screenshot\d+\.png$/);
@@ -14,11 +15,23 @@ const Project3 = () => {
       const id = path.match(/screenshot(\d+)\.png$/)[1];
       return {
         id,
+        type: 'image',
         caption: getCaptionForId(id),
-        image: imageContext(path)
+        url: imageContext(path)
       };
     })
     .sort((a, b) => Number(a.id) - Number(b.id));
+
+  // 비디오 추가
+  const allMedia = [
+    ...screenshots,
+    {
+      id: 'video1',
+      type: 'video',
+      caption: '채팅 데모 영상',
+      url: demoVideo
+    }
+  ];
 
   // 스크린샷 캡션 매핑
   function getCaptionForId(id) {
@@ -29,13 +42,48 @@ const Project3 = () => {
     return captions[id] || `스크린샷 ${id}`;
   }
 
-  const handleImageClick = (image, caption) => {
-    setSelectedImage({ url: image, caption });
+  const handleMediaClick = (media, index) => {
+    setSelectedMedia(media);
+    setCurrentIndex(index);
   };
 
   const closeModal = () => {
-    setSelectedImage(null);
+    setSelectedMedia(null);
+    setCurrentIndex(null);
   };
+
+  const handleKeyDown = (e) => {
+    if (!selectedMedia) return;
+
+    if (e.key === 'ArrowLeft') {
+      navigateMedia('prev');
+    } else if (e.key === 'ArrowRight') {
+      navigateMedia('next');
+    } else if (e.key === 'Escape') {
+      closeModal();
+    }
+  };
+
+  const navigateMedia = (direction) => {
+    if (currentIndex === null) return;
+
+    let newIndex;
+    if (direction === 'prev') {
+      newIndex = currentIndex > 0 ? currentIndex - 1 : allMedia.length - 1;
+    } else {
+      newIndex = currentIndex < allMedia.length - 1 ? currentIndex + 1 : 0;
+    }
+
+    setCurrentIndex(newIndex);
+    setSelectedMedia(allMedia[newIndex]);
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [currentIndex, selectedMedia]);
 
   return (
     <div className="project3-container">
@@ -202,39 +250,68 @@ const Project3 = () => {
       <div className="project3-screenshots">
         <h2>프로젝트 데모</h2>
         <div className="screenshots-grid">
-          {screenshots.map(({ id, caption, image }) => (
-            <div key={id} className="screenshot-item">
-              <img 
-                src={image} 
-                alt={caption} 
-                className="screenshot-image"
-                onClick={() => handleImageClick(image, caption)}
-              />
-              <p className="screenshot-caption">{caption}</p>
+          {allMedia.map((media, index) => (
+            <div key={media.id} className="screenshot-item">
+              {media.type === 'image' ? (
+                <img 
+                  src={media.url} 
+                  alt={media.caption} 
+                  className="screenshot-image"
+                  onClick={() => handleMediaClick(media, index)}
+                />
+              ) : (
+                <video 
+                  className="screenshot-image" 
+                  controls
+                  onClick={() => handleMediaClick(media, index)}
+                >
+                  <source src={media.url} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
+              <p className="screenshot-caption">{media.caption}</p>
             </div>
           ))}
-          <div className="screenshot-item">
-            <video className="screenshot-image" controls>
-              <source src={demoVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p className="screenshot-caption">채팅 데모 영상</p>
-          </div>
         </div>
       </div>
 
-      {selectedImage && (
+      {selectedMedia && (
         <div className="image-modal-overlay" onClick={closeModal}>
           <div className="image-modal-content" onClick={e => e.stopPropagation()}>
             <button className="modal-close-button" onClick={closeModal}>
               <X size={24} />
             </button>
-            <img 
-              src={selectedImage.url} 
-              alt={selectedImage.caption} 
-              className="modal-image"
-            />
-            <p className="modal-caption">{selectedImage.caption}</p>
+            <button 
+              className="modal-nav-button modal-nav-prev" 
+              onClick={() => navigateMedia('prev')}
+              aria-label="Previous media"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              className="modal-nav-button modal-nav-next" 
+              onClick={() => navigateMedia('next')}
+              aria-label="Next media"
+            >
+              <ChevronRight size={24} />
+            </button>
+            {selectedMedia.type === 'image' ? (
+              <img 
+                src={selectedMedia.url} 
+                alt={selectedMedia.caption} 
+                className="modal-image"
+              />
+            ) : (
+              <video 
+                className="modal-image" 
+                controls 
+                autoPlay
+              >
+                <source src={selectedMedia.url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+            <p className="modal-caption">{selectedMedia.caption}</p>
           </div>
         </div>
       )}

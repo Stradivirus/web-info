@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Github, Globe, Calendar, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project4.css';
 import ArchitectureDiagram from './Project4-Architecture.png';
 import festival1 from './Project4/festival1.png';
@@ -12,6 +12,7 @@ import festival7 from './Project4/festival7.png';
 
 const Project4 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
 
   const screenshots = [
     { id: '1', caption: "사전 예약 메인 페이지", image: festival1 },
@@ -23,13 +24,49 @@ const Project4 = () => {
     { id: '7', caption: "슬렉 알림", image: festival7 }
   ];
 
-  const closeModal = () => {
-    setSelectedImage(null);
+  const handleImageClick = (caption, image, index) => {
+    setSelectedImage({ caption, image });
+    setCurrentIndex(index);
   };
 
-  const handleImageClick = (caption, image) => {
-    setSelectedImage({ caption, image });
+  const closeModal = () => {
+    setSelectedImage(null);
+    setCurrentIndex(null);
   };
+
+  const handleKeyDown = (e) => {
+    if (!selectedImage) return;
+
+    if (e.key === 'ArrowLeft') {
+      navigateImage('prev');
+    } else if (e.key === 'ArrowRight') {
+      navigateImage('next');
+    } else if (e.key === 'Escape') {
+      closeModal();
+    }
+  };
+
+  const navigateImage = (direction) => {
+    if (currentIndex === null) return;
+
+    let newIndex;
+    if (direction === 'prev') {
+      newIndex = currentIndex > 0 ? currentIndex - 1 : screenshots.length - 1;
+    } else {
+      newIndex = currentIndex < screenshots.length - 1 ? currentIndex + 1 : 0;
+    }
+
+    setCurrentIndex(newIndex);
+    const newImage = screenshots[newIndex];
+    setSelectedImage({ caption: newImage.caption, image: newImage.image });
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [currentIndex, selectedImage]);
 
   return (
     <div className="project4-container">
@@ -160,15 +197,15 @@ const Project4 = () => {
             </div>
 
             <div className="project4-content-section">
-        <h2>개선점 및 향후 계획</h2>
-        <ul className="project4-feature-list">
-          <li>
-            <strong>서버리스 아키텍처 전환:</strong> 일부 백엔드 기능을 GCP Cloud Run으로 마이그레이션
-            <br />• 추첨권 코드 생성,슬랙 알림 등의 비동기 작업
-            <br />• 확장성 개선 및 운영 비용 최적화
-          </li>  
-        </ul>
-      </div>
+              <h2>개선점 및 향후 계획</h2>
+              <ul className="project4-feature-list">
+                <li>
+                  <strong>서버리스 아키텍처 전환:</strong> 일부 백엔드 기능을 GCP Cloud Run으로 마이그레이션
+                  <br />• 추첨권 코드 생성,슬랙 알림 등의 비동기 작업
+                  <br />• 확장성 개선 및 운영 비용 최적화
+                </li>  
+              </ul>
+            </div>
 
             <div className="project4-content-section">
               <h2>느낀 점</h2>
@@ -213,11 +250,11 @@ const Project4 = () => {
       <div className="project4-screenshots">
         <h2>프로젝트 스크린샷</h2>
         <div className="screenshots-grid">
-          {screenshots.map(({ id, caption, image }) => (
+          {screenshots.map(({ id, caption, image }, index) => (
             <div key={id} className="screenshot-item">
               <div 
                 className="screenshot-image-placeholder"
-                onClick={() => handleImageClick(caption, image)}
+                onClick={() => handleImageClick(caption, image, index)}
               >
                 {image ? (
                   <img src={image} alt={caption} className="screenshot-image" />
@@ -238,6 +275,20 @@ const Project4 = () => {
           <div className="image-modal-content" onClick={e => e.stopPropagation()}>
             <button className="modal-close-button" onClick={closeModal}>
               <X size={24} />
+            </button>
+            <button 
+              className="modal-nav-button modal-nav-prev" 
+              onClick={() => navigateImage('prev')}
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              className="modal-nav-button modal-nav-next" 
+              onClick={() => navigateImage('next')}
+              aria-label="Next image"
+            >
+              <ChevronRight size={24} />
             </button>
             {selectedImage.image ? (
               <img 
