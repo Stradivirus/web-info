@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project3.css';
 import ArchitectureDiagram from './Project3-Architecture.png';
@@ -10,20 +10,22 @@ const Project3 = () => {
 
   // 스크린샷 이미지 로드 및 정렬
   const imageContext = require.context('./Project3', false, /screenshot\d+\.png$/);
-  const screenshots = imageContext.keys()
-    .map((path) => {
-      const id = path.match(/screenshot(\d+)\.png$/)[1];
-      return {
-        id,
-        type: 'image',
-        caption: getCaptionForId(id),
-        url: imageContext(path)
-      };
-    })
-    .sort((a, b) => Number(a.id) - Number(b.id));
-
-  // 비디오 추가
-  const allMedia = [
+  const screenshots = useMemo(() => {
+    const imageContext = require.context('./Project3', false, /screenshot\d+\.png$/);
+    return imageContext.keys()
+      .map((path) => {
+        const id = path.match(/screenshot(\d+)\.png$/)[1];
+        return {
+          id,
+          type: 'image',
+          caption: getCaptionForId(id),
+          url: imageContext(path)
+        };
+      })
+      .sort((a, b) => Number(a.id) - Number(b.id));
+  }, []);
+  
+  const allMedia = useMemo(() => [
     ...screenshots,
     {
       id: 'video1',
@@ -31,7 +33,7 @@ const Project3 = () => {
       caption: '채팅 데모 영상',
       url: demoVideo
     }
-  ];
+  ], [screenshots]);
 
   // 스크린샷 캡션 매핑
   function getCaptionForId(id) {

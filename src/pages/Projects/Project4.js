@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback,useMemo } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project4.css';
 import ArchitectureDiagram from './Project4-Architecture.png';
@@ -10,11 +10,12 @@ import festival5 from './Project4/festival5.png';
 import festival6 from './Project4/festival6.png';
 import festival7 from './Project4/festival7.png';
 
+
 const Project4 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  const screenshots = [
+  const screenshots = useMemo(() => [
     { id: '1', caption: "사전 예약 메인 페이지", image: festival1 },
     { id: '2', caption: "사전 예약 완료", image: festival2 },
     { id: '3', caption: "추첨권 발급 페이지", image: festival3 },
@@ -22,7 +23,7 @@ const Project4 = () => {
     { id: '5', caption: "추첨권만 있는 경우 직접 입력 페이지", image: festival5 },
     { id: '6', caption: "어드민 페이지(Django)", image: festival6 },
     { id: '7', caption: "슬렉 알림", image: festival7 }
-  ];
+  ], []);
 
   const navigateImage = useCallback((direction) => {
     if (currentIndex === null) return;
