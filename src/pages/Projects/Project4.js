@@ -1,29 +1,36 @@
-import React, { useState, useCallback,useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project4.css';
-import ArchitectureDiagram from './Project4-Architecture.png';
-import festival1 from './Project4/festival1.png';
-import festival2 from './Project4/festival2.png';
-import festival3 from './Project4/festival3.png';
-import festival4 from './Project4/festival4.png';
-import festival5 from './Project4/festival5.png';
-import festival6 from './Project4/festival6.png';
-import festival7 from './Project4/festival7.png';
+import ArchitectureDiagram from '../../assets/images/architecture/Project4-Architecture.png';
 
+// 컴포넌트 외부로 이동
+const imageContext = require.context('../../assets/images/project/Project4', false, /festival\d+\.png$/);
+
+const getCaptionForId = (id) => {
+  const captions = {
+    '1': "사전 예약 메인 페이지",
+    '2': "사전 예약 완료",
+    '3': "추첨권 발급 페이지",
+    '4': "추첨권 사용 페이지",
+    '5': "추첨권만 있는 경우 직접 입력 페이지",
+    '6': "어드민 페이지(Django)",
+    '7': "슬렉 알림"
+  };
+  return captions[id] || `스크린샷 ${id}`;
+};
 
 const Project4 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  const screenshots = useMemo(() => [
-    { id: '1', caption: "사전 예약 메인 페이지", image: festival1 },
-    { id: '2', caption: "사전 예약 완료", image: festival2 },
-    { id: '3', caption: "추첨권 발급 페이지", image: festival3 },
-    { id: '4', caption: "추첨권 사용 페이지", image: festival4 },
-    { id: '5', caption: "추첨권만 있는 경우 직접 입력 페이지", image: festival5 },
-    { id: '6', caption: "어드민 페이지(Django)", image: festival6 },
-    { id: '7', caption: "슬렉 알림", image: festival7 }
-  ], []);
+  const screenshots = useMemo(() => {
+    const images = imageContext.keys().sort();
+    return images.map((path, index) => ({
+      id: String(index + 1),
+      caption: getCaptionForId(String(index + 1)),
+      image: imageContext(path)
+    }));
+  }, []);
 
   const navigateImage = useCallback((direction) => {
     if (currentIndex === null) return;

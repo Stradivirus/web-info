@@ -1,13 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project2.css';
-import ArchitectureDiagram from './Project2-Architecture.png';
+import ArchitectureDiagram from '../../assets/images/architecture/Project2-Architecture.png';
 
 const Project2 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  const imageContext = require.context('./Project2', false, /screenshot\d+\.png$/);
+  const imageContext = require.context('../../assets/images/project/Project2/', false, /screenshot\d+\.png$/);
   const screenshots = imageContext.keys()
     .map((path) => {
       const id = path.match(/screenshot(\d+)\.png$/)[1];

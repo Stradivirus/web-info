@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import 정보처리기능사 from './static/0-20241112160852435.png';
-import AWS from './static/AWS Certified Cloud Practitioner certificate.png';
-import NCP from './static/Naver Cloud Platform.png';
+import 정보처리기능사 from '../../assets/images/certifications/0-20241112160852435.png';
+import AWS from '../../assets/images/certifications/AWS Certified Cloud Practitioner certificate.png';
+import NCP from '../../assets/images/certifications/Naver Cloud Platform.png';
 import './Certifications.css';
 
 const certifications = [

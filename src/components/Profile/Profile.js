@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Award, Github } from 'lucide-react';
 import './Profile.css';
-import profilePhoto from './my-photo.jpg';
+import profilePhoto from '../../assets/images/profile/my-photo.jpg';
 
 const Profile = () => {
   const [isVisible, setIsVisible] = useState(true);

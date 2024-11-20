@@ -1,7 +1,7 @@
 import React from 'react';
 import { Github, Globe, Calendar } from 'lucide-react';
 import './Project1.css';
-import ArchitectureDiagram from './Project1-Architecture.png';
+import ArchitectureDiagram from '../../assets/images/architecture/Project1-Architecture.png';
 
 const Project1 = () => {
   return (

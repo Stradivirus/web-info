@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project3.css';
-import ArchitectureDiagram from './Project3-Architecture.png';
-import demoVideo from './Project3/chat-record.mp4';
+import ArchitectureDiagram from '../../assets/images/architecture/Project3-Architecture.png';
+import demoVideo from '../../assets/videos/project/Project3/chat-record.mp4';
 
 const Project3 = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
@@ -10,7 +10,7 @@ const Project3 = () => {
 
   // 스크린샷 이미지 로드 및 정렬
   const screenshots = useMemo(() => {
-    const imageContext = require.context('./Project3', false, /screenshot\d+\.png$/);
+    const imageContext = require.context('../../assets/images/project/Project3', false, /screenshot\d+\.png$/);
     return imageContext.keys()
       .map((path) => {
         const id = path.match(/screenshot(\d+)\.png$/)[1];

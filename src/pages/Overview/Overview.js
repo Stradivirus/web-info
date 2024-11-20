@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Overview.css';
-import diagram1 from './Simple Diagram 1.png';
-import diagram2 from './Simple Diagram 2.png';
-import diagram3 from './Simple Diagram 3.png';
-import diagram4 from './Simple Diagram 4.png';
+import diagram1 from '../../assets/images/overview/diagrams/Diagram1.png';
+import diagram2 from '../../assets/images/overview/diagrams/Diagram2.png';
+import diagram3 from '../../assets/images/overview/diagrams/Diagram3.png';
+import diagram4 from '../../assets/images/overview/diagrams/Diagram4.png';
+
 const projects = [
   {
     id: 4,
