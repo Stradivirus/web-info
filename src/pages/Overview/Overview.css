@@ -3,7 +3,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 26px;
   margin: 0 auto;
-  max-width: 100%;
+  width: 100%;    /* 추가 */
+  max-width: none;
 }
 
 .project-card {

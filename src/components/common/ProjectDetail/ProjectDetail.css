@@ -1,4 +1,4 @@
-/* common.css */
+/* ProjectDetail.css */
 
 /* 기본 컨테이너 스타일 */
 .container {
@@ -7,6 +7,8 @@
     padding: 32px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     font-family: inherit;
+    width: 100%;
+    max-width: none;
 }
 
 /* 태그 관련 스타일 */
