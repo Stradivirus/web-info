@@ -9,7 +9,6 @@ const Project3 = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   // 스크린샷 이미지 로드 및 정렬
-  const imageContext = require.context('./Project3', false, /screenshot\d+\.png$/);
   const screenshots = useMemo(() => {
     const imageContext = require.context('./Project3', false, /screenshot\d+\.png$/);
     return imageContext.keys()
@@ -24,7 +23,7 @@ const Project3 = () => {
       })
       .sort((a, b) => Number(a.id) - Number(b.id));
   }, []);
-  
+
   const allMedia = useMemo(() => [
     ...screenshots,
     {
@@ -34,6 +33,7 @@ const Project3 = () => {
       url: demoVideo
     }
   ], [screenshots]);
+
 
   // 스크린샷 캡션 매핑
   function getCaptionForId(id) {
