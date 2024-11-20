@@ -45,21 +45,6 @@ export const projectData = {
     }
   ],
 
-  improvements: `현재 각 프로젝트 별로 나누다보니 컴포넌트 부분이나 CSS부분은 중복되는 부분이 많음
-
-• 코드 구조 개선
-- 현재: 각 프로젝트마다 동일한 컴포넌트와 CSS 코드 중복
-- 개선: 공통 컴포넌트 라이브러리 구축 및 스타일 시스템 구축
-
-• 컴포넌트 분리
-- ImageGallery, Modal 등 재사용 가능한 컴포넌트 추출
-- 프로젝트별 고유 로직과 UI 분리
-
-• CSS 최적화
-- 공통 스타일을 Base CSS로 분리
-- CSS-in-JS 또는 Styled Components 도입 검토
-- 테일윈드 유틸리티 클래스 활용 확대`,
-
   reflection: `이 프로젝트를 통해 React 컴포넌트 구조화와 GitHub Actions를 활용한 CI/CD 파이프라인 구축 경험을 쌓을 수 있었습니다.
 특히 AWS 서비스를 활용한 배포 과정에서 많은 것을 배웠습니다.`,
 
