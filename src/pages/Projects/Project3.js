@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project3.css';
 import ArchitectureDiagram from './Project3-Architecture.png';
@@ -42,29 +42,7 @@ const Project3 = () => {
     return captions[id] || `스크린샷 ${id}`;
   }
 
-  const handleMediaClick = (media, index) => {
-    setSelectedMedia(media);
-    setCurrentIndex(index);
-  };
-
-  const closeModal = () => {
-    setSelectedMedia(null);
-    setCurrentIndex(null);
-  };
-
-  const handleKeyDown = (e) => {
-    if (!selectedMedia) return;
-
-    if (e.key === 'ArrowLeft') {
-      navigateMedia('prev');
-    } else if (e.key === 'ArrowRight') {
-      navigateMedia('next');
-    } else if (e.key === 'Escape') {
-      closeModal();
-    }
-  };
-
-  const navigateMedia = (direction) => {
+  const navigateMedia = useCallback((direction) => {
     if (currentIndex === null) return;
 
     let newIndex;
@@ -76,14 +54,34 @@ const Project3 = () => {
 
     setCurrentIndex(newIndex);
     setSelectedMedia(allMedia[newIndex]);
-  };
+  }, [currentIndex, allMedia]);
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+  const closeModal = useCallback(() => {
+    setSelectedMedia(null);
+    setCurrentIndex(null);
+  }, []);
+
+  const handleMediaClick = useCallback((media, index) => {
+    setSelectedMedia(media);
+    setCurrentIndex(index);
+  }, []);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedMedia) return;
+
+      if (e.key === 'ArrowLeft') {
+        navigateMedia('prev');
+      } else if (e.key === 'ArrowRight') {
+        navigateMedia('next');
+      } else if (e.key === 'Escape') {
+        closeModal();
+      }
     };
-  }, [currentIndex, selectedMedia]);
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedMedia, navigateMedia, closeModal]);
 
   return (
     <div className="project3-container">

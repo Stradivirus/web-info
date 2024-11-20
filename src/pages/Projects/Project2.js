@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project2.css';
 import ArchitectureDiagram from './Project2-Architecture.png';
@@ -7,7 +7,6 @@ const Project2 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  // 스크린샷 이미지 로드 및 정렬
   const imageContext = require.context('./Project2', false, /screenshot\d+\.png$/);
   const screenshots = imageContext.keys()
     .map((path) => {
@@ -20,7 +19,6 @@ const Project2 = () => {
     })
     .sort((a, b) => Number(a.id) - Number(b.id));
 
-  // 스크린샷 캡션 매핑
   function getCaptionForId(id) {
     const captions = {
       '1': "메인 페이지",
@@ -32,29 +30,7 @@ const Project2 = () => {
     return captions[id] || `스크린샷 ${id}`;
   }
 
-  const handleImageClick = (image, caption, index) => {
-    setSelectedImage({ url: image, caption });
-    setCurrentIndex(index);
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-    setCurrentIndex(null);
-  };
-
-  const handleKeyDown = (e) => {
-    if (!selectedImage) return;
-
-    if (e.key === 'ArrowLeft') {
-      navigateImage('prev');
-    } else if (e.key === 'ArrowRight') {
-      navigateImage('next');
-    } else if (e.key === 'Escape') {
-      closeModal();
-    }
-  };
-
-  const navigateImage = (direction) => {
+  const navigateImage = useCallback((direction) => {
     if (currentIndex === null) return;
 
     let newIndex;
@@ -69,14 +45,34 @@ const Project2 = () => {
       url: screenshots[newIndex].image,
       caption: screenshots[newIndex].caption
     });
-  };
+  }, [currentIndex, screenshots]);
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+  const closeModal = useCallback(() => {
+    setSelectedImage(null);
+    setCurrentIndex(null);
+  }, []);
+
+  const handleImageClick = useCallback((image, caption, index) => {
+    setSelectedImage({ url: image, caption });
+    setCurrentIndex(index);
+  }, []);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedImage) return;
+
+      if (e.key === 'ArrowLeft') {
+        navigateImage('prev');
+      } else if (e.key === 'ArrowRight') {
+        navigateImage('next');
+      } else if (e.key === 'Escape') {
+        closeModal();
+      }
     };
-  }, [currentIndex, selectedImage]);
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, navigateImage, closeModal]);
 
   return (
     <div className="project2-container">

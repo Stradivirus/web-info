@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Project4.css';
 import ArchitectureDiagram from './Project4-Architecture.png';
@@ -24,29 +24,7 @@ const Project4 = () => {
     { id: '7', caption: "슬렉 알림", image: festival7 }
   ];
 
-  const handleImageClick = (caption, image, index) => {
-    setSelectedImage({ caption, image });
-    setCurrentIndex(index);
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-    setCurrentIndex(null);
-  };
-
-  const handleKeyDown = (e) => {
-    if (!selectedImage) return;
-
-    if (e.key === 'ArrowLeft') {
-      navigateImage('prev');
-    } else if (e.key === 'ArrowRight') {
-      navigateImage('next');
-    } else if (e.key === 'Escape') {
-      closeModal();
-    }
-  };
-
-  const navigateImage = (direction) => {
+  const navigateImage = useCallback((direction) => {
     if (currentIndex === null) return;
 
     let newIndex;
@@ -59,14 +37,34 @@ const Project4 = () => {
     setCurrentIndex(newIndex);
     const newImage = screenshots[newIndex];
     setSelectedImage({ caption: newImage.caption, image: newImage.image });
-  };
+  }, [currentIndex, screenshots]);
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+  const closeModal = useCallback(() => {
+    setSelectedImage(null);
+    setCurrentIndex(null);
+  }, []);
+
+  const handleImageClick = useCallback((caption, image, index) => {
+    setSelectedImage({ caption, image });
+    setCurrentIndex(index);
+  }, []);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedImage) return;
+
+      if (e.key === 'ArrowLeft') {
+        navigateImage('prev');
+      } else if (e.key === 'ArrowRight') {
+        navigateImage('next');
+      } else if (e.key === 'Escape') {
+        closeModal();
+      }
     };
-  }, [currentIndex, selectedImage]);
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, navigateImage, closeModal]);
 
   return (
     <div className="project4-container">
@@ -221,6 +219,7 @@ const Project4 = () => {
             </div>
           </div>
         </div>
+
         <div className="project4-architecture-diagram">
           <img src={ArchitectureDiagram} alt="Architecture Diagram" />
         </div>
@@ -309,4 +308,4 @@ const Project4 = () => {
   );
 };
 
-export default Project4;
+export default Project4
