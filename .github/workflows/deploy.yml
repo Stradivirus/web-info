@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     
+    # 커밋 메시지에 [up]이 포함되어 있는지 확인하는 조건 추가
+    if: contains(github.event.head_commit.message, '[up]')
+    
     steps:
       - uses: actions/checkout@v4
       
