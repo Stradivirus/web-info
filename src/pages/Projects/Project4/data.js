@@ -16,7 +16,8 @@ const screenshots = imageContext.keys().sort().map((path, index) => {
 
   return {
     id,
-    image: imageContext(path),
+    type: 'image',  // 추가
+    url: imageContext(path),  // image를 url로 변경
     caption: captions[id] || `스크린샷 ${id}`
   };
 });
@@ -137,7 +138,7 @@ Jenkins를 통한 CI/CD 파이프라인 구축으로 개발과 배포 과정을 
 
   architectureImg: ArchitectureDiagram,
 
-  screenshots,
+  media: screenshots,
 
   links: {
     github: "https://github.com/stradivirus/reservation",

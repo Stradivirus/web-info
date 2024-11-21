@@ -13,6 +13,52 @@ const LineBreak = ({ text }) => {
   );
 };
 
+const MediaModal = ({ media, onClose, onNavigate }) => {
+  if (!media) return null;
+
+  return (
+    <div className="image-modal-overlay" onClick={onClose}>
+      <div className="image-modal-content" onClick={e => e.stopPropagation()}>
+        <button className="modal-close-button" onClick={onClose}>
+          <X size={24} />
+        </button>
+        {onNavigate && (
+          <>
+            <button 
+              className="modal-nav-button modal-nav-prev" 
+              onClick={() => onNavigate('prev')}
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              className="modal-nav-button modal-nav-next" 
+              onClick={() => onNavigate('next')}
+              aria-label="Next image"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </>
+        )}
+        {media.type === 'video' ? (
+          <video 
+            src={media.url} 
+            controls
+            className="modal-video"
+          />
+        ) : (
+          <img 
+            src={media.url} 
+            alt={media.caption}
+            className="modal-image"
+          />
+        )}
+        <p className="modal-caption">{media.caption}</p>
+      </div>
+    </div>
+  );
+};
+
 const ProjectDetail = ({
   // 기본 정보
   title,
@@ -32,53 +78,56 @@ const ProjectDetail = ({
   
   // 이미지/링크
   architectureImg,
-  screenshots = [],
+  media = [], // screenshots와 video를 포함한 모든 미디어
   links,
   
   // 레이아웃 스타일 (7:3 vs 6:4)
   layoutStyle = 'default'
 }) => {
-  // 이미지 모달 관련 state
-  const [selectedImage, setSelectedImage] = useState(null);
+  // 모달 관련 state
+  const [selectedMedia, setSelectedMedia] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [showArchitectureModal, setShowArchitectureModal] = useState(false);
 
   // 모달 관련 핸들러
-  const handleImageClick = useCallback((image, caption, index) => {
-    setSelectedImage({ image, caption });
+  const handleMediaClick = useCallback((mediaItem, index) => {
+    setSelectedMedia(mediaItem);
     setCurrentIndex(index);
   }, []);
 
-  const closeModal = useCallback(() => {
-    setSelectedImage(null);
-    setCurrentIndex(null);
+  const handleArchitectureClick = useCallback(() => {
+    setShowArchitectureModal(true);
   }, []);
 
-  const navigateImage = useCallback((direction) => {
-    if (!screenshots || currentIndex === null) return;
+  const closeModal = useCallback(() => {
+    setSelectedMedia(null);
+    setCurrentIndex(null);
+    setShowArchitectureModal(false);
+  }, []);
+
+  const navigateMedia = useCallback((direction) => {
+    if (!media || currentIndex === null) return;
 
     let newIndex;
     if (direction === 'prev') {
-      newIndex = currentIndex > 0 ? currentIndex - 1 : screenshots.length - 1;
+      newIndex = currentIndex > 0 ? currentIndex - 1 : media.length - 1;
     } else {
-      newIndex = currentIndex < screenshots.length - 1 ? currentIndex + 1 : 0;
+      newIndex = currentIndex < media.length - 1 ? currentIndex + 1 : 0;
     }
 
     setCurrentIndex(newIndex);
-    setSelectedImage({
-      image: screenshots[newIndex].image,
-      caption: screenshots[newIndex].caption
-    });
-  }, [currentIndex, screenshots]);
+    setSelectedMedia(media[newIndex]);
+  }, [currentIndex, media]);
 
   // 키보드 이벤트 핸들러
   React.useEffect(() => {
     const handleKeyDown = (e) => {
-      if (!selectedImage) return;
+      if (!selectedMedia && !showArchitectureModal) return;
 
-      if (e.key === 'ArrowLeft') {
-        navigateImage('prev');
-      } else if (e.key === 'ArrowRight') {
-        navigateImage('next');
+      if (e.key === 'ArrowLeft' && selectedMedia) {
+        navigateMedia('prev');
+      } else if (e.key === 'ArrowRight' && selectedMedia) {
+        navigateMedia('next');
       } else if (e.key === 'Escape') {
         closeModal();
       }
@@ -86,7 +135,7 @@ const ProjectDetail = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImage, navigateImage, closeModal]);
+  }, [selectedMedia, showArchitectureModal, navigateMedia, closeModal]);
 
   return (
     <div className="container">
@@ -186,8 +235,8 @@ const ProjectDetail = ({
 
         {/* 아키텍처 다이어그램 */}
         {architectureImg && (
-          <div className="architecture-diagram">
-            <img src={architectureImg} alt="Architecture Diagram" />
+          <div className="architecture-diagram" onClick={handleArchitectureClick}>
+            <img src={architectureImg} alt="Architecture Diagram" className="cursor-pointer" />
           </div>
         )}
       </div>
@@ -220,59 +269,53 @@ const ProjectDetail = ({
         </div>
       )}
 
-      {/* 스크린샷 섹션 */}
-      {screenshots.length > 0 && (
-        <div className="screenshots">
-          <h2>프로젝트 스크린샷</h2>
-          <div className="screenshots-grid">
-            {screenshots.map((screenshot, index) => (
-              <div key={screenshot.id} className="screenshot-item">
-                <img 
-                  src={screenshot.image} 
-                  alt={screenshot.caption} 
-                  className="screenshot-image"
-                  onClick={() => handleImageClick(screenshot.image, screenshot.caption, index)}
-                />
-                <p className="screenshot-caption">{screenshot.caption}</p>
+      {/* 미디어 섹션 */}
+      {media.length > 0 && (
+        <div className="media-section">
+          <h2>프로젝트 미디어</h2>
+          <div className="media-grid">
+            {media.map((item, index) => (
+              <div key={item.id} className="media-item">
+                {item.type === 'video' ? (
+                  <video 
+                    src={item.url}
+                    className="media-preview"
+                    onClick={() => handleMediaClick(item, index)}
+                  />
+                ) : (
+                  <img 
+                    src={item.url} 
+                    alt={item.caption} 
+                    className="media-preview"
+                    onClick={() => handleMediaClick(item, index)}
+                  />
+                )}
+                <p className="media-caption">{item.caption}</p>
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* 이미지 모달 */}
-      {selectedImage && (
-        <div className="image-modal-overlay" onClick={closeModal}>
-          <div className="image-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="modal-close-button" onClick={closeModal}>
-              <X size={24} />
-            </button>
-            {screenshots.length > 1 && (
-              <>
-                <button 
-                  className="modal-nav-button modal-nav-prev" 
-                  onClick={() => navigateImage('prev')}
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft size={24} />
-                </button>
-                <button 
-                  className="modal-nav-button modal-nav-next" 
-                  onClick={() => navigateImage('next')}
-                  aria-label="Next image"
-                >
-                  <ChevronRight size={24} />
-                </button>
-              </>
-            )}
-            <img 
-              src={selectedImage.image} 
-              alt={selectedImage.caption}
-              className="modal-image"
-            />
-            <p className="modal-caption">{selectedImage.caption}</p>
-          </div>
-        </div>
+      {/* 미디어 모달 */}
+      {selectedMedia && (
+        <MediaModal 
+          media={selectedMedia}
+          onClose={closeModal}
+          onNavigate={media.length > 1 ? navigateMedia : null}
+        />
+      )}
+
+      {/* 아키텍처 다이어그램 모달 */}
+      {showArchitectureModal && (
+        <MediaModal 
+          media={{ 
+            type: 'image',
+            url: architectureImg,
+            caption: 'Architecture Diagram'
+          }}
+          onClose={closeModal}
+        />
       )}
     </div>
   );

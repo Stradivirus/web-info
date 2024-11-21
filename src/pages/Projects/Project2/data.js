@@ -5,7 +5,7 @@ const imageContext = require.context('../../../assets/images/project/Project2/',
 const screenshots = imageContext.keys()
   .map((path) => {
     const id = path.match(/screenshot(\d+)\.png$/)[1];
-    const image = imageContext(path);
+    const url = imageContext(path);
     const captions = {
       '1': "메인 페이지",
       '2': "NCA 시험 페이지",
@@ -15,7 +15,8 @@ const screenshots = imageContext.keys()
     };
     return {
       id,
-      image,
+      type: 'image',  // 추가
+      url,
       caption: captions[id] || `스크린샷 ${id}`
     };
   })
@@ -89,7 +90,7 @@ export const projectData = {
 
   architectureImg: ArchitectureDiagram,
 
-  screenshots,
+  media: screenshots,
 
   links: {
     github: "https://github.com/stradivirus/exam",
