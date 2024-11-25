@@ -64,7 +64,7 @@ export const projectData = {
   },
   
   overview: {
-    description: "포트폴리오 웹사이트 제작 프로젝트",
+    description: "서버리스로 구현한 포트폴리오 웹사이트 제작 프로젝트",
     diagram: "../../assets/images/overview/diagrams/Diagram1.png"
   }
 };

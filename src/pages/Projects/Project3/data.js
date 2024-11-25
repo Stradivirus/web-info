@@ -137,7 +137,7 @@ Docker를 활용한 멀티 컨테이너 환경 구성과 FastAPI의 비동기 �
   },
 
   overview: {
-    description: "websocket, redis를 이용한 채팅",
+    description: "Websocket, redis를 활용한 채팅",
     diagram: "../../assets/images/overview/diagrams/Diagram3.png"
   }
 };

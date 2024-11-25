@@ -146,7 +146,7 @@ Jenkins를 통한 CI/CD 파이프라인 구축으로 개발과 배포 과정을 
   },
 
   overview: {
-    description: "Nodejs로 웹서버 구동과 Django로 admin을 구성한 시스템",
+    description: "React와 Nodejs로 웹서버 구동과 Django로 admin을 구성한 시스템",
     diagram: "../../assets/images/overview/diagrams/Diagram4.png"
   }
 };

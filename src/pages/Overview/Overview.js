@@ -24,13 +24,6 @@ const projects = [
     tags: project4Data.techStack
   },
   {
-    id: 2,
-    title: project2Data.title,
-    description: project2Data.overview.description,
-    image: diagram2,
-    tags: project2Data.techStack
-  },
-  {
     id: 3,
     title: project3Data.title,
     description: project3Data.overview.description,
@@ -38,11 +31,11 @@ const projects = [
     tags: project3Data.techStack
   },
   {
-    id: 1,
-    title: project1Data.title,
-    description: project1Data.overview.description,
-    image: diagram1,
-    tags: project1Data.techStack
+    id: 2,
+    title: project2Data.title,
+    description: project2Data.overview.description,
+    image: diagram2,
+    tags: project2Data.techStack
   },
   {
     id: 5,
@@ -50,6 +43,14 @@ const projects = [
     description: project5Data.overview.description,
     image: diagram5,
     tags: project5Data.techStack
+  },
+  
+  {
+    id: 1,
+    title: project1Data.title,
+    description: project1Data.overview.description,
+    image: diagram1,
+    tags: project1Data.techStack
   }
 ];
 

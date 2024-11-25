@@ -98,7 +98,7 @@ export const projectData = {
   },
 
   overview: {
-    description: "Django와 Postgresql을 사용한 CBT 제작",
+    description: "Django와 Postgresql, Docker compose를 활용한 CBT 제작",
     diagram: "../../assets/images/overview/diagrams/Diagram2.png"
   }
 };

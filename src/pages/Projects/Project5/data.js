@@ -125,7 +125,7 @@ GitHub Actions를 통한 CI/CD 자동화로 개발 생산성도 크게 향상되
     },
 
     overview: {
-      description: "멀티 클라우드를 활용한 시험 문제 출제 시스템",
+      description: "기존의 CBT를 멀티 클라우드로 재구성한 시스템",
       diagram: "../../assets/images/overview/diagrams/Diagram5.png"
     }
 };
