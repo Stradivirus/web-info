@@ -34,6 +34,10 @@ const Navigation = () => {
         <FolderOpen className="nav-icon" size={18} />
         <span>사전 예약 시스템</span>
       </NavLink>
+      <NavLink to="/project/5" className={getLinkClassName}>
+        <FolderOpen className="nav-icon" size={18} />
+        <span>CBT를 재구성 해 서버리스로 구현</span>
+      </NavLink>
 
       <div className="nav-divider">Certifications</div>
       

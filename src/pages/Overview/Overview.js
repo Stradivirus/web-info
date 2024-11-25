@@ -7,13 +7,14 @@ import { projectData as project1Data } from '../Projects/Project1/data';
 import { projectData as project2Data } from '../Projects/Project2/data';
 import { projectData as project3Data } from '../Projects/Project3/data';
 import { projectData as project4Data } from '../Projects/Project4/data';
+import { projectData as project5Data } from '../Projects/Project5/data';
 
 // 다이어그램 이미지 import - 경로는 그대로 유지
 import diagram1 from '../../assets/images/overview/diagrams/Diagram1.png';
 import diagram2 from '../../assets/images/overview/diagrams/Diagram2.png';
 import diagram3 from '../../assets/images/overview/diagrams/Diagram3.png';
 import diagram4 from '../../assets/images/overview/diagrams/Diagram4.png';
-
+import diagram5 from '../../assets/images/overview/diagrams/Diagram5.png';
 const projects = [
   {
     id: 4,
@@ -42,6 +43,13 @@ const projects = [
     description: project1Data.overview.description,
     image: diagram1,
     tags: project1Data.techStack
+  },
+  {
+    id: 5,
+    title: project5Data.title,
+    description: project5Data.overview.description,
+    image: diagram5,
+    tags: project5Data.techStack
   }
 ];
 

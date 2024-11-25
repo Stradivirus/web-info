@@ -5,6 +5,7 @@ import Project1 from '../pages/Projects/Project1';
 import Project2 from '../pages/Projects/Project2';
 import Project3 from '../pages/Projects/Project3';
 import Project4 from '../pages/Projects/Project4';
+import Project5 from '../pages/Projects/Project5';
 import './Main.css';
 
 const Main = () => {
@@ -22,6 +23,8 @@ const Main = () => {
         return <Project3 />;
       case '4':
         return <Project4 />;
+      case '5':
+        return <Project5 />;  
         default:
         return <Overview />;
     }
