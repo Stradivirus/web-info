@@ -49,17 +49,12 @@ export const projectData = {
     ],
   
     process: `1. 기본 환경 구축
+- MongoDB atlas에 데이터 입력
+- 기존의 Django 코드를 참고해서 GCP의 Cloud run에 Go로 구성된 백엔드 제작
 - Vite + React + TypeScript 프런트엔드 개발 환경 구성
-- WSL + VSCode 개발 환경 설정
-- GitHub Actions CI/CD 파이프라인 구성
+- GitHub Actions CI/CD 파이프라인 구성 및 S3와 CloudFront 연동
 
-2. 클라우드 인프라 구축
-- AWS S3 정적 호스팅 설정
-- CloudFront CDN 연동
-- GCP Cloud Run Go 서버 구축
-- MongoDB Atlas 데이터베이스 구성
-
-3. 핵심 기능 구현
+2. 핵심 기능 구현
 - 프런트엔드:
    - 시험 문제 출제 인터페이스 개발
    - 사용자 응답 처리 구현

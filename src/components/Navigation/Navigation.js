@@ -18,25 +18,25 @@ const Navigation = () => {
       
       <div className="nav-divider">Projects</div>
       
-      <NavLink to="/project/1" className={getLinkClassName}>
+      <NavLink to="/project/4" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>Portfolio Website</span>
-      </NavLink>
-      <NavLink to="/project/2" className={getLinkClassName}>
-        <FolderOpen className="nav-icon" size={18} />
-        <span>Django와 Postgresql로<br></br> 제작한 CBT 사이트</span>
+        <span>사전 예약 시스템</span>
       </NavLink>
       <NavLink to="/project/3" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>다소니<br></br>마음과 마음을 연결하는 채팅</span>
       </NavLink>
-      <NavLink to="/project/4" className={getLinkClassName}>
+      <NavLink to="/project/2" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>사전 예약 시스템</span>
+        <span>Django와 Postgresql로<br></br> 제작한 CBT 사이트</span>
       </NavLink>
       <NavLink to="/project/5" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>CBT를 재구성 해 서버리스로 구현</span>
+      </NavLink>
+      <NavLink to="/project/1" className={getLinkClassName}>
+        <FolderOpen className="nav-icon" size={18} />
+        <span>Portfolio Website</span>
       </NavLink>
 
       <div className="nav-divider">Certifications</div>
