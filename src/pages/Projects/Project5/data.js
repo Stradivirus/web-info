@@ -21,7 +21,7 @@ const screenshots = imageContext.keys().sort().map((path, index) => {
 export const projectData = {
     title: "시험 문제 출제 시스템",
     period: "2024.10 - 2024.11",
-    description: "멀티 클라우드 기반의 효율적인 시험 문제 출제 시스템",
+    description: "멀티 클라우드 기반의 시험 문제 출제 시스템",
   
     techStack: [
       "Vite",
@@ -36,7 +36,7 @@ export const projectData = {
     ],
   
     objectives: [
-        "기존에 만들었던 CBT 사이트를 좀 더 비용 절감을 위해 서버리스로 구축",  
+        "기존에 만들었던 CBT 사이트를 비용 절감을 위해 서버리스로 구축",  
         "서버리스 아키텍처를 통한 운영 부담 최소화",
         "멀티 클라우드 아키텍처를 활용한 비용 효율적인 시스템 구축"
     ],
@@ -55,10 +55,10 @@ export const projectData = {
 - GitHub Actions CI/CD 파이프라인 구성 및 S3와 CloudFront 연동
 
 2. 핵심 기능 구현
-- 프런트엔드:
+- Frontend:
    - 시험 문제 출제 인터페이스 개발
    - 사용자 응답 처리 구현
-- 백엔드:
+- Backend:
    - Go API 서버 개발
    - MongoDB 연동 및 랜덤 문제 출제 로직 구현`,
   
