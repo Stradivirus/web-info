@@ -33,7 +33,7 @@ const allMedia = [
 
 export const projectData = {
     title: "시험 문제 출제 시스템",
-    period: "2024.10 - 2024.11",
+    period: "2024.11 - 2024.11",
     description: "멀티 클라우드 기반의 시험 문제 출제 시스템",
   
     techStack: [

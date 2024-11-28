@@ -89,11 +89,11 @@ export const projectData = {
 
   improvements: `현재 PostgreSQL(Docker)에서 MongoDB Atlas로의 마이그레이션 계획
 
-• 데이터 관리 방식 개선
+데이터 관리 방식 개선
 - 현재: 새로운 문제가 추가 될시 수동으로 SQL과 쉘 스크립트 기반 데이터 관리
 - 개선: MongoDB를 통한 더 유연한 데이터 관리
 
-• 리소스 최적화
+리소스 최적화
 - 텍스트 기반 데이터로 용량 효율적
 - MongoDB Atlas 무료 티어로 충분히 운영 가능`,
 

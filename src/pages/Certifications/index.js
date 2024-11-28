@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import 정보처리기능사 from '../../assets/images/certifications/0-20241112160852435.png';
 import AWS from '../../assets/images/certifications/AWS Certified Cloud Practitioner certificate.png';
-import NCP from '../../assets/images/certifications/Naver Cloud Platform.png';
+import NCA from '../../assets/images/certifications/Naver Cloud Platform.png';
+import NCP from '../../assets/images/certifications/NCP.png';
 import './Certifications.css';
 
 const certifications = [
@@ -24,6 +25,13 @@ const certifications = [
     title: "NAVER Cloud Platform Certified Associate",
     issuer: "NAVER Cloud",
     date: "2024.07",
+    imagePath: NCA,
+  },
+  {
+    id: 4,
+    title: "NAVER Cloud Platform Certified Professional",
+    issuer: "NAVER Cloud",
+    date: "2024.11",
     imagePath: NCP,
   }
 ];
