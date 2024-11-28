@@ -64,7 +64,7 @@ const ProjectDetail = ({
   title,
   period,
   description,
-  
+  overview,
   // 기술 스택
   techStack = [],
   
@@ -77,8 +77,7 @@ const ProjectDetail = ({
   reflection = "",
   
   // 이미지/링크
-  architectureImg,
-  media = [], // screenshots와 video를 포함한 모든 미디어
+  media = [], // screenshots와 video를 포함한 모든 미디어 (아키텍처 다이어그램도 여기 포함)
   links,
   
   // 레이아웃 스타일 (7:3 vs 6:4)
@@ -87,7 +86,6 @@ const ProjectDetail = ({
   // 모달 관련 state
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
-  const [showArchitectureModal, setShowArchitectureModal] = useState(false);
 
   // 모달 관련 핸들러
   const handleMediaClick = useCallback((mediaItem, index) => {
@@ -95,14 +93,9 @@ const ProjectDetail = ({
     setCurrentIndex(index);
   }, []);
 
-  const handleArchitectureClick = useCallback(() => {
-    setShowArchitectureModal(true);
-  }, []);
-
   const closeModal = useCallback(() => {
     setSelectedMedia(null);
     setCurrentIndex(null);
-    setShowArchitectureModal(false);
   }, []);
 
   const navigateMedia = useCallback((direction) => {
@@ -122,7 +115,7 @@ const ProjectDetail = ({
   // 키보드 이벤트 핸들러
   React.useEffect(() => {
     const handleKeyDown = (e) => {
-      if (!selectedMedia && !showArchitectureModal) return;
+      if (!selectedMedia) return;
 
       if (e.key === 'ArrowLeft' && selectedMedia) {
         navigateMedia('prev');
@@ -135,7 +128,7 @@ const ProjectDetail = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedMedia, showArchitectureModal, navigateMedia, closeModal]);
+  }, [selectedMedia, navigateMedia, closeModal]);
 
   return (
     <div className="container">
@@ -151,14 +144,7 @@ const ProjectDetail = ({
         </div>
       </div>
 
-      {/* 기술 스택 태그 */}
-      {techStack.length > 0 && (
-        <div className="tags">
-          {techStack.map((tech, index) => (
-            <span key={index} className="tag">{tech}</span>
-          ))}
-        </div>
-      )}
+      
 
       {/* 프로젝트 링크 */}
       {links && (
@@ -187,12 +173,30 @@ const ProjectDetail = ({
           )}
         </div>
       )}
+      {/* Overview 다이어그램 */}
+{/* 링크 섹션 바로 아래에 추가 */}
+{overview?.diagram && (
+  <div className="overview-diagram-preview">
+    <img 
+      src={overview.diagram} 
+      alt="Overview Diagram"
+      width="100%"
+    />
+  </div>
+)}
 
-
-      {/* 프로젝트 개요와 아키텍처 다이어그램 */}
+      {/* 프로젝트 개요 */}
       <div className="overview-container">
         <div className={`details ${layoutStyle === 'wide' ? 'details-wide' : ''}`}>
           <div className="content-box">
+            {/* 기술 스택 태그 */}
+      {techStack.length > 0 && (
+        <div className="tags">
+          {techStack.map((tech, index) => (
+            <span key={index} className="tag">{tech}</span>
+          ))}
+        </div>
+      )}
             {/* 제작 목표 섹션 */}
             {objectives.length > 0 && (
               <div className="content-section">
@@ -261,13 +265,6 @@ const ProjectDetail = ({
             )}
           </div>
         </div>
-
-        {/* 아키텍처 다이어그램 */}
-        {architectureImg && (
-          <div className="architecture-diagram" onClick={handleArchitectureClick}>
-            <img src={architectureImg} alt="Architecture Diagram" className="cursor-pointer" />
-          </div>
-        )}
       </div>
 
       {/* 미디어 섹션 */}
@@ -304,18 +301,6 @@ const ProjectDetail = ({
           media={selectedMedia}
           onClose={closeModal}
           onNavigate={media.length > 1 ? navigateMedia : null}
-        />
-      )}
-
-      {/* 아키텍처 다이어그램 모달 */}
-      {showArchitectureModal && (
-        <MediaModal 
-          media={{ 
-            type: 'image',
-            url: architectureImg,
-            caption: 'Architecture Diagram'
-          }}
-          onClose={closeModal}
         />
       )}
     </div>

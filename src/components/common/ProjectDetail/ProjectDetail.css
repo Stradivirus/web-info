@@ -27,11 +27,6 @@
 /* 개요 컨테이너 스타일 */
 
 
-.architecture-diagram img {
-    width: 100%;
-    height: auto;
-}
-
 /* 콘텐츠 박스 스타일 */
 .content-box {
     background-color: #f9fafb;
@@ -325,10 +320,6 @@
     }
 
     .details,
-    .architecture-diagram {
-        flex: none;
-        width: 100%;
-    }
 
     .links {
         flex-direction: column;
@@ -376,31 +367,19 @@
     flex: 6;
 }
 
-.architecture-diagram {
-    flex: 4;
-}
+
 
 /* 7:3 비율 설정 */
 .details-wide {
     flex: 7 !important;
 }
 
-.details-wide + .architecture-diagram {
-    flex: 3 !important;
-}
 
 /* 반응형 처리 */
 @media (max-width: 768px) {
     .overview-container {
         flex-direction: column;
-    }
-
-    .details,
-    .details-wide,
-    .architecture-diagram {
-        flex: none !important;
-        width: 100%;
-    }
+    }    
 }
 
 /* 미디어 섹션 스타일 */
@@ -467,19 +446,6 @@
     object-fit: contain;
 }
 
-/* 아키텍처 다이어그램 호버 효과 */
-.architecture-diagram {
-    cursor: pointer;
-}
-
-.architecture-diagram img {
-    transition: transform 0.2s ease;
-}
-
-.architecture-diagram:hover img {
-    transform: scale(1.02);
-}
-
 /* 반응형 미디어 그리드 */
 @media (max-width: 1024px) {
     .media-grid {
@@ -496,4 +462,11 @@
         padding: 16px;
         margin-top: 24px;
     }
+}
+
+.overview-diagram-preview {
+    margin: 24px auto;  /* auto를 사용하여 가운데 정렬 */
+    background: #fff;
+    width: 60%;  /* 가로 길이 70%로 제한 */
+    display: block;  /* 블록 레벨 요소로 설정 */
 }

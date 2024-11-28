@@ -1,4 +1,7 @@
 import ArchitectureDiagram from '../../../assets/images/architecture/Project5-Architecture.png';
+import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram5.png';
+// 아키텍처 이미지 불러오기를 screenshots와 통합
+const architectureImg = require('../../../assets/images/architecture/Project5-Architecture.png');
 
 // 스크린샷 이미지 로드
 const imageContext = require.context('../../../assets/images/project/Project5', false, /Screenshot\d+\.png$/);
@@ -17,6 +20,16 @@ const screenshots = imageContext.keys().sort().map((path, index) => {
     caption: captions[id] || `스크린샷 ${id}`
   };
 });
+
+const allMedia = [
+  {
+    id: 'architecture',
+    type: 'image',
+    url: architectureImg,
+    caption: '시스템 아키텍처'
+  },
+  ...screenshots
+];
 
 export const projectData = {
     title: "시험 문제 출제 시스템",
@@ -112,7 +125,7 @@ GitHub Actions를 통한 CI/CD 자동화로 개발 생산성도 크게 향상되
   
     architectureImg: ArchitectureDiagram,
 
-    media: screenshots,
+    media: allMedia,
   
     links: {
       github: "https://github.com/Stradivirus/exam_serverless",
@@ -121,6 +134,6 @@ GitHub Actions를 통한 CI/CD 자동화로 개발 생산성도 크게 향상되
 
     overview: {
       description: "기존의 CBT를 멀티 클라우드로 재구성한 시스템",
-      diagram: "../../assets/images/overview/diagrams/Diagram5.png"
+      diagram: overviewDiagram
     }
 };

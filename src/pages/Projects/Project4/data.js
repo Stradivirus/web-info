@@ -1,4 +1,7 @@
 import ArchitectureDiagram from '../../../assets/images/architecture/Project4-Architecture.png';
+import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram4.png';
+// 아키텍처 이미지 불러오기를 screenshots와 통합
+const architectureImg = require('../../../assets/images/architecture/Project4-Architecture.png');
 
 // 스크린샷 이미지 로드
 const imageContext = require.context('../../../assets/images/project/Project4', false, /festival\d+\.png$/);
@@ -22,13 +25,24 @@ const screenshots = imageContext.keys().sort().map((path, index) => {
   };
 });
 
+const allMedia = [
+  {
+    id: 'architecture',
+    type: 'image',
+    url: architectureImg,
+    caption: '시스템 아키텍처'
+  },
+  ...screenshots
+];
+
 export const projectData = {
   title: "사전 예약 시스템",
+  description: "Express.js와 Django가 하나의 DB를 공유하여 각각 사전 예약과 관리를 담당하는 축제 예약 시스템",
   period: "2024.9 - 2024.9",
 
   techStack: [
     "React",
-    "Nodejs",
+    "Expressjs",
     "Django",
     "Postgresql",
     "Docker-Compose",
@@ -39,27 +53,27 @@ export const projectData = {
   ],
 
   objectives: [
-    "축제에 참가할 사람들 수요 예측",
-    "신청한 사람들에게 추첨권 코드 발급",
+    "축제 참여 인원 규모 예측",
+    "사전 예약 신청자에게 추첨권 코드 발급",
     "어드민 페이지를 통한 데이터 조회 및 관리"
   ],
 
   features: [
-    "사람들로부터 이메일과 전화번호 수집 (Node.js)",
-    "등록 확인과 추첨권 번호 발급 (Node.js)",
-    "추첨권 사용 확인 (Node.js)",
-    "슬렉 웹훅 연동으로 10명마다 슬렉 알림 (Node.js)",
+    "사람들로부터 이메일과 전화번호 수집 (Express.js)",
+    "등록 확인과 추첨권 번호 발급 (Express.js)",
+    "추첨권 사용 확인 (Express.js)",
+    "슬렉 웹훅 연동으로 10명마다 슬렉 알림 (Express.js)",
     "어드민 페이지에서 등록자 데이터 조회 및 관리 (Django)",
     "간단한 통계 - 총 등록자 수, 일별 등록자 수 (Django)"
   ],
 
   process: `1. 기본 환경 구축
 • Nginx를 통한 프록시 서버 구성
-• React(프론트엔드) - Node.js(API 서버) - Postgresql - Django(admin) 연동
+• React(프론트엔드) - Express.js(API 서버) - Postgresql - Django(admin) 연동
 • Docker compose 멀티 컨테이너 환경 구성
 
 2. 핵심 기능 구현
-• Node.js 백엔드:
+• Express.js 백엔드:
    - 사전 예약 API 개발
    - 쿠폰 발급 및 검증 시스템 구현
    - 슬랙 웹훅 알림 시스템 구현
@@ -80,10 +94,10 @@ export const projectData = {
       ]
     },
     {
-      title: "Main Backend (Node.js)",
+      title: "Main Backend (Express.js)",
       items: [
         "Express.js - REST API 개발",
-        "Node-Postgres - DB 연동"
+        "Express-Postgres - DB 연동"
       ]
     },
     {
@@ -129,16 +143,16 @@ export const projectData = {
    - 확장성 개선 및 운영 비용 최적화`,
 
   reflection: `이 프로젝트를 통해 하나의 데이터베이스를 두 개의 서버가 다른 목적으로 활용하는 구조를 경험했습니다.
-Node.js는 데이터 저장과 API 처리를, Django는 Admin 페이지를 통한 데이터 조회만을 담당하게 하여
+Express.js는 데이터 저장과 API 처리를, Django는 Admin 페이지를 통한 데이터 조회만을 담당하게 하여
 각 프레임워크의 장점을 살릴 수 있었습니다.
-Node.js의 경우 빠른 API 개발과 유연한 기능 구현이 가능했고,
+Express.js의 경우 빠른 API 개발과 유연한 기능 구현이 가능했고,
 Django는 별도의 관리자 페이지 제작을 통해 데이터를 효과적으로 조회하고 관리할 수 있었습니다.
 또한 Docker를 활용한 컨테이너화 덕분에 두 서버의 배포와 관리가 수월했으며,
 Jenkins를 통한 CI/CD 파이프라인 구축으로 개발과 배포 과정을 효율적으로 자동화할 수 있었습니다.`,
 
   architectureImg: ArchitectureDiagram,
 
-  media: screenshots,
+  media: allMedia,
 
   links: {
     github: "https://github.com/stradivirus/reservation",
@@ -146,7 +160,7 @@ Jenkins를 통한 CI/CD 파이프라인 구축으로 개발과 배포 과정을 
   },
 
   overview: {
-    description: "React와 Nodejs로 웹서버 구동과 Django로 admin을 구성한 시스템",
-    diagram: "../../assets/images/overview/diagrams/Diagram4.png"
+    description: "React와 Expressjs로 웹서버 구동과 Django로 admin을 구성한 시스템",
+    diagram: overviewDiagram
   }
 };

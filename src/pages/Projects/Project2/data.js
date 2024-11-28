@@ -1,4 +1,7 @@
 import ArchitectureDiagram from '../../../assets/images/architecture/Project2-Architecture.png';
+import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram2.png';
+// 아키텍처 이미지 불러오기를 screenshots와 통합
+const architectureImg = require('../../../assets/images/architecture/Project2-Architecture.png');
 
 // 스크린샷 이미지 불러오기
 const imageContext = require.context('../../../assets/images/project/Project2/', false, /screenshot\d+\.png$/);
@@ -22,6 +25,16 @@ const screenshots = imageContext.keys()
   })
   .sort((a, b) => Number(a.id) - Number(b.id));
 
+  const allMedia = [
+    {
+      id: 'architecture',
+      type: 'image',
+      url: architectureImg,
+      caption: '시스템 아키텍처'
+    },
+    ...screenshots
+  ];
+  
 export const projectData = {
   title: "CBT 까짓것 내가 만든다",
   period: "2024.6 - 2024.6",
@@ -90,7 +103,7 @@ export const projectData = {
 
   architectureImg: ArchitectureDiagram,
 
-  media: screenshots,
+  media: allMedia,
 
   links: {
     github: "https://github.com/stradivirus/exam",
@@ -99,6 +112,6 @@ export const projectData = {
 
   overview: {
     description: "Django와 Postgresql, Docker compose를 활용한 CBT 제작",
-    diagram: "../../assets/images/overview/diagrams/Diagram2.png"
+    diagram: overviewDiagram
   }
 };

@@ -1,5 +1,9 @@
 import ArchitectureDiagram from '../../../assets/images/architecture/Project3-Architecture.png';
 import demoVideo from '../../../assets/videos/project/Project3/chat-record.mp4';
+import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram3.png';
+
+// 아키텍처 이미지 불러오기를 screenshots와 통합
+const architectureImg = require('../../../assets/images/architecture/Project3-Architecture.png');
 
 // 스크린샷 이미지 로드
 const imageContext = require.context('../../../assets/images/project/Project3', false, /screenshot\d+\.png$/);
@@ -19,8 +23,15 @@ const screenshots = imageContext.keys()
   })
   .sort((a, b) => Number(a.id) - Number(b.id));
 
+
 // 모든 미디어 (이미지 + 비디오)
 const allMedia = [
+  {
+    id: 'architecture',
+    type: 'image',
+    url: architectureImg,
+    caption: '시스템 아키텍처'
+  },
   ...screenshots,
   {
     id: 'video1',
@@ -138,6 +149,6 @@ Docker를 활용한 멀티 컨테이너 환경 구성과 FastAPI의 비동기 �
 
   overview: {
     description: "Websocket, redis를 활용한 채팅",
-    diagram: "../../assets/images/overview/diagrams/Diagram3.png"
+    diagram: overviewDiagram
   }
 };

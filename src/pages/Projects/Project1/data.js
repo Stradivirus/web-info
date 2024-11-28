@@ -1,4 +1,15 @@
 import ArchitectureDiagram from '../../../assets/images/architecture/Project1-Architecture.png';
+import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram1.png';
+const architectureImg = require('../../../assets/images/architecture/Project1-Architecture.png');
+
+const allMedia = [
+  {
+    id: 'architecture',
+    type: 'image',
+    url: architectureImg,
+    caption: '시스템 아키텍처'
+  },
+];
 
 export const projectData = {
   title: "Portfolio Website",
@@ -60,6 +71,8 @@ export const projectData = {
 
   architectureImg: ArchitectureDiagram,
 
+  media: allMedia,
+
   links: {
     github: "https://github.com/stradivirus/web-info",
     demo: "https://d8d53oijcrep7.cloudfront.net/"
@@ -67,6 +80,6 @@ export const projectData = {
   
   overview: {
     description: "서버리스로 구현한 포트폴리오 웹사이트 제작 프로젝트",
-    diagram: "../../assets/images/overview/diagrams/Diagram1.png"
+    diagram: overviewDiagram
   }
 };
