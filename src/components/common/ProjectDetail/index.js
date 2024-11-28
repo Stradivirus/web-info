@@ -73,6 +73,7 @@ const ProjectDetail = ({
   features = [],
   process = "",
   techDetails = [],
+  issues = [],
   improvements = "",
   reflection = "",
   
@@ -248,6 +249,20 @@ const ProjectDetail = ({
               </div>
             )}
 
+            {issues && issues.length > 0 && (
+  <div className="content-section">
+    <h2>Project Issues</h2>
+    <div className="issues-grid">
+      {issues.map((issue, index) => (
+        <div key={index} className="issue-card">
+          <h3>{issue.title}</h3>
+          <p className="issue-problem">문제: {issue.problem}</p>
+          <p className="issue-solution">해결: {issue.solution}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
             {/* 개선점 섹션 */}
             {improvements && (
               <div className="content-section">
