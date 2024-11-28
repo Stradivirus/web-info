@@ -41,7 +41,7 @@ const Profile = () => {
         <div className="profile-details">
           <div className="profile-main">
             <h1>문성종</h1>
-            <div className="profile-sub">Devops Developer</div>
+            <div className="profile-sub">Backend Engineer, Devops Developer</div>
           </div>
           <div className="profile-certifications">
             <div className="certification-item">

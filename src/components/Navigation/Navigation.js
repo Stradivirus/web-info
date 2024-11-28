@@ -20,23 +20,23 @@ const Navigation = () => {
       
       <NavLink to="/project/4" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>사전 예약 시스템</span>
+        <span>React와 Express를 사용한 <br></br>사전 예약 시스템</span>
       </NavLink>
       <NavLink to="/project/3" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>다소니<br></br>마음과 마음을 연결하는 채팅</span>
+        <span>WebSocket과 Redis를 사용한 <br></br>채팅 프로그램</span>
       </NavLink>
       <NavLink to="/project/2" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>Django와 Postgresql로<br></br> 제작한 CBT 사이트</span>
+        <span>Django와 Postgresql를<br></br> 사용한 CBT 사이트</span>
       </NavLink>
       <NavLink to="/project/5" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>CBT를 재구성 해 서버리스로 구현</span>
+        <span>기존의 CBT를 재구성 해 <br></br>서버리스로 구현</span>
       </NavLink>
       <NavLink to="/project/1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>Portfolio Website</span>
+        <span>AwsS3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
       </NavLink>
 
       <div className="nav-divider">Certifications</div>

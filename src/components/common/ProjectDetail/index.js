@@ -160,6 +160,35 @@ const ProjectDetail = ({
         </div>
       )}
 
+      {/* 프로젝트 링크 */}
+      {links && (
+        <div className="links">
+          {links.github && (
+            <a 
+              href={links.github}
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={16} />
+              GitHub 저장소
+            </a>
+          )}
+          {links.demo && (
+            <a 
+              href={links.demo}
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Globe size={16} />
+              Live Demo
+            </a>
+          )}
+        </div>
+      )}
+
+
       {/* 프로젝트 개요와 아키텍처 다이어그램 */}
       <div className="overview-container">
         <div className={`details ${layoutStyle === 'wide' ? 'details-wide' : ''}`}>
@@ -240,34 +269,6 @@ const ProjectDetail = ({
           </div>
         )}
       </div>
-
-      {/* 프로젝트 링크 */}
-      {links && (
-        <div className="links">
-          {links.github && (
-            <a 
-              href={links.github}
-              className="link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github size={16} />
-              GitHub 저장소
-            </a>
-          )}
-          {links.demo && (
-            <a 
-              href={links.demo}
-              className="link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Globe size={16} />
-              Live Demo
-            </a>
-          )}
-        </div>
-      )}
 
       {/* 미디어 섹션 */}
       {media.length > 0 && (
