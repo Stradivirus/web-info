@@ -94,6 +94,17 @@ const ProjectDetail = ({
     setCurrentIndex(index);
   }, []);
 
+  const handleDiagramClick = useCallback(() => {
+    if (overview?.diagram) {
+      setSelectedMedia({
+        type: 'image',
+        url: overview.diagram,
+        caption: 'Overview Diagram'
+      });
+      setCurrentIndex(null); // 다이어그램은 네비게이션이 필요 없으므로 null
+    }
+  }, [overview]);
+
   const closeModal = useCallback(() => {
     setSelectedMedia(null);
     setCurrentIndex(null);
@@ -177,14 +188,18 @@ const ProjectDetail = ({
       {/* Overview 다이어그램 */}
 {/* 링크 섹션 바로 아래에 추가 */}
 {overview?.diagram && (
-  <div className="overview-diagram-preview">
-    <img 
-      src={overview.diagram} 
-      alt="Overview Diagram"
-      width="100%"
-    />
-  </div>
-)}
+        <div 
+          className="overview-diagram-preview cursor-pointer"
+          onClick={handleDiagramClick}
+        >
+          <img 
+            src={overview.diagram} 
+            alt="Overview Diagram"
+            width="100%"
+            style={{ cursor: 'pointer' }}
+          />
+        </div>
+      )}
 
       {/* 프로젝트 개요 */}
       <div className="overview-container">
@@ -315,7 +330,7 @@ const ProjectDetail = ({
         <MediaModal 
           media={selectedMedia}
           onClose={closeModal}
-          onNavigate={media.length > 1 ? navigateMedia : null}
+          onNavigate={currentIndex !== null && media.length > 1 ? navigateMedia : null}
         />
       )}
     </div>
