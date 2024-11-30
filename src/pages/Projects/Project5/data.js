@@ -49,8 +49,7 @@ export const projectData = {
     ],
   
     objectives: [
-        "기존의 CBT 사이트를 비용 절감을 위해 서버리스로 구축",  
-        "서버리스 아키텍처를 통한 운영 부담 최소화",
+        "기존의 CBT 사이트를 비용 절감과 운영 부담 최소화를 위해 서버리스로 구축",  
         "멀티 클라우드 아키텍처를 활용한 비용 효율적인 시스템 구축"
     ],
   
@@ -58,7 +57,7 @@ export const projectData = {
       "MongoDB Atlas에 저장된 시험 문제 풀에서 랜덤 출제",
       "AWS S3 정적 호스팅과 CloudFront를 통한 글로벌 배포",
       "GCP Cloud Run의 Go 서버를 통한 효율적인 API 처리",
-      "GitHub Actions를 통한 자동화된 배포 프로세스"
+      "GitHub Actions를 통한 배포 자동화 및 캐시 무효화"
     ],
   
     process: `1. 기본 환경 구축
