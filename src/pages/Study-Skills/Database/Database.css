@@ -115,8 +115,7 @@
 }
 
 .database-feature-item li {
-  color: #475569;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.9rem;
   line-height: 1;
   font-size: 1.15rem;
 }
@@ -142,7 +141,6 @@
 }
 
 .database-usecase-item p {
-  color: #475569;
   line-height: 1.5;
   font-size: 1.1rem;
 }
@@ -177,7 +175,6 @@
 }
 
 .database-cluster-card p {
-  color: #475569;
   line-height: 1.5;
   margin-bottom: 1.2rem;
   font-size: 1.15rem;
@@ -196,11 +193,10 @@
 }
 
 .database-cluster-details li {
-  color: #475569;
   margin-bottom: 0.25rem;
   line-height: 1;
   font-size: 1.15rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 @media (max-width: 768px) {
