@@ -1,0 +1,189 @@
+.programming-container {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .page-title {
+    font-size: 2.5rem;  /* 크기 증가 */
+    font-weight: 700;   /* 더 두껍게 */
+    margin-bottom: 2rem;
+    color: #1e40af;
+  }
+  
+  .language-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .button-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;  /* 크기 증가 */
+    font-weight: 600;   /* 더 두껍게 */
+  }
+  
+  .language-button:hover {
+    background-color: #f1f5f9;
+  }
+  
+  .language-button.expanded {
+    background-color: #e2e8f0;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .section-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+  
+  .section-card h3 {
+    font-size: 1.8rem;  /* 크기 증가 */
+    font-weight: 700;   /* 더 두껍게 */
+    color: #1e40af;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #1e40af;  /* 밑줄 추가 */
+    padding-bottom: 0.5rem;
+  }
+  
+  .section-card h4 {
+    font-size: 1.4rem;  /* 크기 증가 */
+    font-weight: 600;   /* 더 두껍게 */
+    color: #1e40af;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-card h4.advantages {
+    color: #15803d;  /* 빨간색 */
+  }
+
+  .section-card h4.disadvantages {
+    color: #b91c1c;  /* 빨간색 */
+  }
+
+  .feature-list {
+    margin-top: 1rem;
+  }
+  
+  .feature-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-item h5 {
+    font-size: 1.1rem;  /* 크기 증가 */
+    font-weight: 600;   /* 더 두껍게 */
+    color: #1e40af;
+    margin-bottom: 0.5rem;
+  }
+  
+  .frameworks-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .framework-card {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1rem;
+    padding-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .framework-card h4 {
+    font-size: 1.4rem;  /* 크기 증가 */
+    font-weight: 600;   /* 더 두껍게 */
+    color: #1e40af;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+  
+  .framework-details {
+    margin-top: 0rem;
+  }
+  
+  .pros, .cons {
+    margin-top: 0.5rem;
+  }
+  
+  .pros h5 {
+    font-size: 1.1rem;  /* 크기 증가 */
+    font-weight: 600;   /* 더 두껍게 */
+    color: #15803d;
+  }
+  
+  .cons h5 {
+    font-size: 1.1rem;  /* 크기 증가 */
+    font-weight: 600;   /* 더 두껍게 */
+    color: #b91c1c;
+  }
+  
+  ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  li {
+    margin-bottom: 0.25rem;
+  }
+  
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* 새로운 사용 사례 섹션을 위한 스타일 */
+  .use-cases-section {
+    margin-top: 2rem;
+  }
+  
+  .use-cases-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .use-case-category {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .use-case-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1e40af;
+    margin-bottom: 0.5rem;
+  }
+
+  .best-for {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .best-for h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #eb1f77;
+    margin-bottom: 0.5rem;
+  }

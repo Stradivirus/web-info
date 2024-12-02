@@ -1,10 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, FolderOpen, Award } from 'lucide-react';
+import { Home, FolderOpen, Award, BookOpen } from 'lucide-react';
 import './Navigation.css';
 
 const Navigation = () => {
-  // NavLink의 active 상태를 위한 클래스 설정 함수
   const getLinkClassName = ({ isActive }) => {
     return `nav-item ${isActive ? 'active' : ''}`;
   };
@@ -17,7 +16,6 @@ const Navigation = () => {
       </NavLink>
       
       <div className="nav-divider">Projects</div>
-      
       <NavLink to="/project/4" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>React와 Express를 사용한 <br></br>사전 예약 시스템</span>
@@ -40,11 +38,32 @@ const Navigation = () => {
       </NavLink>
 
       <div className="nav-divider">Certifications</div>
-      
       <NavLink to="/certifications" className={getLinkClassName}>
         <Award className="nav-icon" size={18} />
         <span>자격증</span>
       </NavLink>
+      
+      <div className="nav-divider">Study & Skills</div>
+      <NavLink to="/study-skills/infrastructure" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>Infrastructure</span>
+      </NavLink>
+      <NavLink to="/study-skills/programming" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>Programming Languages</span>
+      </NavLink>
+      <NavLink to="/study-skills/database" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>Database & Message Queue</span>
+      </NavLink>
+      <NavLink to="/study-skills/web-development" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>Web Development</span>
+      </NavLink>
+      <NavLink to="/study-skills/dev-tools" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>Development Tools</span>
+      </NavLink>  
     </nav>
   );
 };

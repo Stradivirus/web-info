@@ -14,20 +14,17 @@ const Main = () => {
   const renderContent = () => {
     if (!id) return <Overview />;
     
-    switch (id) {
-      case '1':
-        return <Project1 />;
-      case '2':
-        return <Project2 />;
-      case '3':
-        return <Project3 />;
-      case '4':
-        return <Project4 />;
-      case '5':
-        return <Project5 />;  
-        default:
-        return <Overview />;
-    }
+    // 프로젝트 ID에 따른 컴포넌트 렌더링
+    const projectComponents = {
+      '1': Project1,
+      '2': Project2,
+      '3': Project3,
+      '4': Project4,
+      '5': Project5
+    };
+    
+    const ProjectComponent = projectComponents[id] || Overview;
+    return <ProjectComponent />;
   };
 
   return (
