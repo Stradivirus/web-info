@@ -10,16 +10,16 @@
     border-radius: 12px;
     padding: 32px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .page-title {
-    font-size: 2.5rem;  /* 크기 증가 */
-    font-weight: 700;   /* 더 두껍게 */
+}
+
+.programming-page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 2rem;
-    color: #1e40af;
-  }
-  
-  .language-button {
+    color: #000000;
+}
+
+.programming-language-button {
     width: 100%;
     padding: 1rem;
     background-color: #f8fafc;
@@ -28,175 +28,222 @@
     cursor: pointer;
     margin-bottom: 1rem;
     transition: all 0.3s ease;
-  }
-  
-  .button-content {
+}
+
+.programming-button-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.6rem;  /* 크기 증가 */
-    font-weight: 600;   /* 더 두껍게 */
-  }
-  
-  .language-button:hover {
+}
+
+.programming-button-content span {
+    font-size: 1.rem;
+    font-weight: 700;
+    color: #1e40af;
+}
+
+.programming-language-button:hover {
     background-color: #f1f5f9;
-  }
-  
-  .language-button.expanded {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.programming-language-button.expanded {
     background-color: #e2e8f0;
-  }
-  
-  .content-grid {
+}
+
+.programming-language-content {
+    animation: slideDown 0.3s ease-out;
+}
+
+.programming-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 1rem;
-  }
-  
-  .section-card {
+}
+
+.programming-section-card {
     background-color: #fff;
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     height: 100%;
-  }
-  
-  .section-card h3 {
-    font-size: 2rem;  /* 크기 증가 */
-    font-weight: 700;   /* 더 두껍게 */
+}
+
+.programming-section-card h3 {
+    font-size: 2rem;
+    font-weight: 700;
     color: #1e40af;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #1e40af;  /* 밑줄 추가 */
+    border-bottom: 2px solid #1e40af;
     padding-bottom: 0.5rem;
-  }
-  
-  .section-card h4 {
-    font-size: 1.7rem;  /* 크기 증가 */
-    font-weight: 600;   /* 더 두껍게 */
+}
+
+.programming-section-card h4 {
+    font-size: 1.7rem;
+    font-weight: 600;
     color: #1e40af;
     margin-top: 2rem;
     margin-bottom: 1rem;
-  }
+}
 
-  .section-card h4.advantages {
-    color: #15803d;  /* 빨간색 */
-  }
+.programming-section-card h4.programming-advantages {
+    color: #15803d;
+}
 
-  .section-card h4.disadvantages {
-    color: #b91c1c;  /* 빨간색 */
-  }
+.programming-section-card h4.programming-disadvantages {
+    color: #b91c1c;
+}
 
-  .feature-list {
+.programming-feature-list {
     margin-top: 1rem;
-  }
-  
-  .feature-item {
+}
+
+.programming-feature-item {
     margin-bottom: 1.5rem;
-  }
-  
-  .feature-item h5 {
-    font-size: 1.2rem;  /* 크기 증가 */
-    font-weight: 600;   /* 더 두껍게 */
+}
+
+.programming-feature-item h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
     color: #1e40af;
     margin-bottom: 0.5rem;
-  }
-  
-  .frameworks-grid {
+}
+
+.programming-frameworks-grid {
     display: grid;
     gap: 1rem;
-  }
-  
-  .framework-card {
+}
+
+.programming-framework-card {
     background-color: #f8fafc;
     border-radius: 8px;
     padding: 1rem;
     padding-top: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #e2e8f0;
-  }
-  
-  .framework-card h4 {
-    font-size: 1.5rem;  /* 크기 증가 */
-    font-weight: 600;   /* 더 두껍게 */
+    transition: all 0.3s ease;
+}
+
+.programming-framework-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.programming-framework-card h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
     color: #1e40af;
     margin-bottom: 1rem;
     margin-top: 0;
-  }
-  
-  .framework-details {
+}
+
+.programming-framework-details {
     margin-top: 0rem;
-  }
-  
-  .pros, .cons {
+}
+
+.programming-pros, .programming-cons {
     margin-top: 0.5rem;
-  }
-  
-  .pros h5 {
-    font-size: 1.3rem;  /* 크기 증가 */
-    font-weight: 600;   /* 더 두껍게 */
+}
+
+.programming-pros h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
     color: #15803d;
-  }
-  
-  .cons h5 {
-    font-size: 1.3rem;  /* 크기 증가 */
-    font-weight: 600;   /* 더 두껍게 */
+}
+
+.programming-cons h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
     color: #b91c1c;
-  }
-  
-  ul {
+}
+
+.programming-section-card ul {
     margin-left: 1.5rem;
     margin-top: 0.5rem;
-  }
-  
-  li {
+}
+
+.programming-section-card li {
     margin-bottom: 0.25rem;
-  }
-  
-  @media (max-width: 768px) {
-    .content-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  /* 새로운 사용 사례 섹션을 위한 스타일 */
-  .use-cases-section {
+}
+
+.programming-use-cases-section {
     margin-top: 2rem;
-  }
-  
-  .use-cases-grid {
+}
+
+.programming-use-cases-grid {
     display: grid;
     gap: 1.5rem;
-  }
-  
-  .use-case-category {
+}
+
+.programming-use-case-category {
     background-color: #f8fafc;
     border-radius: 8px;
     padding: 1rem;
     border: 1px solid #e2e8f0;
-  }
-  
-  .use-case-title {
+    transition: all 0.3s ease;
+}
+
+.programming-use-case-category:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.programming-use-case-title {
     font-size: 1.2rem;
     font-weight: 500;
     color: #1e40af;
     margin-bottom: 0.5rem;
-  }
+}
 
-  .best-for {
+.programming-best-for {
     margin-top: 1.5rem;
     padding-top: 1rem;
     border-top: 1px solid #e2e8f0;
-  }
-  
-  .best-for h5 {
+}
+
+.programming-best-for h5 {
     font-size: 1.3rem;
     font-weight: 600;
     color: #eb1f77;
     margin-bottom: 0.5rem;
-  }
+}
 
-  p {
-    font-size: 1.1rem;  /* 또는 16px */
-  }
+.programming-section-card p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
 
-  
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .programming-content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .programming-button-content span {
+        font-size: 1.5rem;
+    }
+    
+    .programming-page-title {
+        font-size: 2rem;
+    }
+    
+    .programming-section-card h3 {
+        font-size: 1.8rem;
+    }
+    
+    .programming-section-card h4 {
+        font-size: 1.5rem;
+    }
+}

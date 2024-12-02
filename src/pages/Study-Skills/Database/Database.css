@@ -1,0 +1,241 @@
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+
+:root {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 
+  'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+.database-container {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.database-page-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.database-section {
+  margin-bottom: 0.5rem;
+}
+
+.database-section-button {
+  width: 100%;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.database-section-button:hover {
+  background-color: #f1f5f9;
+}
+
+.database-section-button.expanded {
+  background-color: #e2e8f0;
+}
+
+.database-button-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.database-button-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.database-button-left h3 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin: 0;
+}
+
+.database-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+}
+
+.database-section-content {
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 20px;
+  background-color: white;
+}
+
+.database-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.database-feature-card, .database-usecase-card, .database-cluster-card {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.database-feature-card h4, .database-usecase-card h4, .database-cluster-card h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #1e40af;
+}
+
+.database-feature-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.database-feature-item {
+  margin-bottom: 1rem;
+}
+
+.database-feature-item h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+}
+
+.database-feature-item li {
+  color: #475569;
+  margin-bottom: 0.25rem;
+  line-height: 1;
+  font-size: 1.15rem;
+}
+
+.database-usecase-grid {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.database-usecase-item {
+  background-color: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.database-usecase-item h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+}
+
+.database-usecase-item p {
+  color: #475569;
+  line-height: 1.5;
+  font-size: 1.1rem;
+}
+
+.database-suitability-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.database-suitable h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #15803d;
+}
+
+.database-unsuitable h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #b91c1c;
+}
+
+.database-suitable ul, .database-unsuitable ul {
+  margin-left: 1.5rem;
+  list-style-type: disc;
+  margin-top: 0.5rem;
+}
+
+.database-cluster-section {
+  margin-top: 1rem;
+}
+
+.database-cluster-card p {
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  font-size: 1.15rem;
+}
+
+.database-cluster-details h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.database-cluster-details ul {
+  margin-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.database-cluster-details li {
+  color: #475569;
+  margin-bottom: 0.25rem;
+  line-height: 1;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .database-content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .database-suitability-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .database-page-title {
+    font-size: 2rem;
+  }
+  
+  .database-button-left h3 {
+    font-size: 1.5rem;
+  }
+  
+  .database-section-content {
+    padding: 1rem;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.database-section-content {
+  animation: slideDown 0.3s ease-out;
+}

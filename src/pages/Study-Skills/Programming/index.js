@@ -17,7 +17,7 @@ const ProgrammingPage = () => {
     <main className="main-content">
       <div className="main-inner">
         <div className="programming-container">
-          <h2 className="page-title">Programming Languages</h2>
+          <h2 className="programming-page-title">Programming Languages</h2>
           
           <LanguageSection 
             language="Python"
