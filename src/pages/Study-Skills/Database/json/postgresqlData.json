@@ -1,0 +1,207 @@
+{
+    "name": "PostgreSQL",
+    "description": "PostgreSQL은 강력한 오픈소스 객체-관계형 데이터베이스 시스템(ORDBMS)입니다.",
+    "mainFeatures": [
+      {
+        "title": "기본 특징",
+        "details": [
+          "ACID 준수",
+          "복잡한 쿼리 지원",
+          "다양한 인덱스 유형 (B-tree, Hash, GiST, SP-GiST, GIN, BRIN)",
+          "확장 가능한 데이터 타입",
+          "테이블 상속",
+          "다중 버전 동시성 제어 (MVCC)",
+          "저장 프로시저와 트리거",
+          "JSON/JSONB 지원"
+        ]
+      }
+    ],
+    "advantages": [
+      {
+        "title": "데이터 무결성",
+        "details": [
+          "강력한 ACID 트랜잭션 지원",
+          "참조 무결성과 외래 키 제약조건",
+          "테이블 스페이스와 파티셔닝"
+        ]
+      },
+      {
+        "title": "확장성",
+        "details": [
+          "테이블 파티셔닝을 통한 대용량 데이터 처리",
+          "병렬 쿼리 실행",
+          "다중 CPU 아키텍처 지원"
+        ]
+      },
+      {
+        "title": "개발자 친화성",
+        "details": [
+          "풍부한 데이터 타입과 연산자",
+          "사용자 정의 타입과 함수",
+          "다양한 프로그래밍 언어 지원",
+          "강력한 전문 검색 기능"
+        ]
+      },
+      {
+        "title": "고가용성",
+        "details": [
+          "물리적 복제와 논리적 복제",
+          "지연 복제 지원",
+          "다양한 백업 옵션",
+          "Point-in-Time Recovery (PITR)"
+        ]
+      }
+    ],
+    "disadvantages": [
+      {
+        "title": "성능",
+        "details": [
+          "읽기 작업에서 MySQL보다 상대적으로 느릴 수 있음",
+          "메모리 사용량이 높음",
+          "복잡한 설정과 튜닝 필요"
+        ]
+      },
+      {
+        "title": "복잡성",
+        "details": [
+          "초기 설정과 관리가 복잡",
+          "성능 최적화에 전문 지식 필요",
+          "높은 학습 곡선"
+        ]
+      },
+      {
+        "title": "리소스 사용",
+        "details": [
+          "메모리 소비가 높음",
+          "복잡한 쿼리 실행시 CPU 부하 증가",
+          "디스크 공간 사용량이 큼"
+        ]
+      }
+    ],
+    "commandGuide": {
+      "basic": {
+        "title": "기본 명령어",
+        "commands": [
+          {
+            "category": "접속",
+            "examples": [
+              "psql -U username -d dbname    # 데이터베이스 접속",
+              "psql -h hostname -p port -U username -d dbname  # 원격 접속"
+            ]
+          },
+          {
+            "category": "데이터베이스 관리",
+            "examples": [
+              "\\l                 # 데이터베이스 목록",
+              "\\c dbname         # 데이터베이스 선택",
+              "\\dt              # 테이블 목록",
+              "\\d tablename     # 테이블 구조 확인"
+            ]
+          },
+          {
+            "category": "사용자 관리",
+            "examples": [
+              "\\du               # 사용자 목록",
+              "CREATE USER username WITH PASSWORD 'password';",
+              "ALTER USER username WITH PASSWORD 'new_password';"
+            ]
+          }
+        ]
+      },
+      "crud": {
+        "title": "CRUD 작업",
+        "operations": [
+          {
+            "category": "Create",
+            "examples": [
+              "CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100));",
+              "INSERT INTO users (name) VALUES ('John');",
+              "INSERT INTO users (name) VALUES ('Jane'), ('Bob');"
+            ]
+          },
+          {
+            "category": "Read",
+            "examples": [
+              "SELECT * FROM users;",
+              "SELECT name FROM users WHERE id = 1;",
+              "SELECT * FROM users ORDER BY name DESC;",
+              "SELECT COUNT(*) FROM users;"
+            ]
+          },
+          {
+            "category": "Update",
+            "examples": [
+              "UPDATE users SET name = 'John Doe' WHERE id = 1;",
+              "UPDATE users SET active = true WHERE id IN (1, 2, 3);"
+            ]
+          },
+          {
+            "category": "Delete",
+            "examples": [
+              "DELETE FROM users WHERE id = 1;",
+              "DELETE FROM users WHERE active = false;",
+              "TRUNCATE TABLE users;  # 모든 데이터 삭제"
+            ]
+          }
+        ]
+      },
+      "advanced": {
+        "title": "고급 기능",
+        "features": [
+          {
+            "category": "인덱스",
+            "examples": [
+              "CREATE INDEX idx_name ON users(name);",
+              "CREATE UNIQUE INDEX idx_email ON users(email);",
+              "DROP INDEX idx_name;"
+            ]
+          },
+          {
+            "category": "트랜잭션",
+            "examples": [
+              "BEGIN;",
+              "UPDATE accounts SET balance = balance - 100 WHERE id = 1;",
+              "UPDATE accounts SET balance = balance + 100 WHERE id = 2;",
+              "COMMIT;"
+            ]
+          },
+          {
+            "category": "백업 및 복원",
+            "examples": [
+              "pg_dump dbname > backup.sql",
+              "pg_restore -d dbname backup.sql",
+              "pg_dumpall > all_dbs.sql"
+            ]
+          }
+        ]
+      }
+    },
+    "useCases": {
+      "examples": [
+        {
+          "title": "웹 애플리케이션",
+          "details": "복잡한 데이터 모델과 트랜잭션이 필요한 웹 서비스"
+        },
+        {
+          "title": "분석 시스템",
+          "details": "대규모 데이터 분석과 복잡한 쿼리가 필요한 시스템"
+        },
+        {
+          "title": "지리 정보 시스템",
+          "details": "PostGIS 확장을 통한 지리 데이터 처리"
+        }
+      ],
+      "suitable": [
+        "데이터 무결성이 중요한 금융 시스템",
+        "복잡한 쿼리와 데이터 관계가 많은 시스템",
+        "대규모 트랜잭션 처리가 필요한 경우",
+        "사용자 정의 타입과 함수가 필요한 경우"
+      ],
+      "unsuitable": [
+        "단순한 CRUD 작업만 필요한 소규모 애플리케이션",
+        "읽기 작업이 대부분인 높은 트래픽 시스템",
+        "제한된 리소스 환경",
+        "NoSQL 스타일의 유연한 스키마가 필요한 경우"
+      ]
+    }
+  }

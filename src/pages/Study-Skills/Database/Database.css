@@ -13,7 +13,7 @@
 }
 
 .database-page-title {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
   color: #000000;
@@ -25,10 +25,10 @@
 
 .database-section-button {
   width: 100%;
-  padding: 1rem;
+  padding: 0.6rem;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -51,11 +51,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.5rem;
 }
 
 .database-button-left h3 {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #1e40af;
   margin: 0;
@@ -64,6 +63,7 @@
 .database-subtitle {
   font-size: 1.1rem;
   color: #64748b;
+  margin: 0.2rem 0 0 0;
 }
 
 .database-section-content {
@@ -73,6 +73,7 @@
   border-bottom-right-radius: 12px;
   padding: 20px;
   background-color: white;
+  animation: slideDown 0.3s ease-out;
 }
 
 .database-content-grid {
@@ -82,7 +83,9 @@
   margin-bottom: 2rem;
 }
 
-.database-feature-card, .database-usecase-card, .database-cluster-card {
+.database-feature-card, 
+.database-usecase-card, 
+.database-cluster-card {
   background-color: #f8fafc;
   border-radius: 8px;
   padding: 1.5rem;
@@ -90,11 +93,14 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.database-feature-card h4, .database-usecase-card h4, .database-cluster-card h4 {
+.database-feature-card h4, 
+.database-usecase-card h4, 
+.database-cluster-card h4 {
   font-size: 1.8rem;
   font-weight: 600;
   color: #1e40af;
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   border-bottom: 2px solid #1e40af;
 }
 
@@ -114,16 +120,21 @@
   margin-bottom: 0.5rem;
 }
 
+.database-feature-item ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
 .database-feature-item li {
   margin-bottom: 0.9rem;
-  line-height: 1;
+  line-height: 1.5;
   font-size: 1.15rem;
 }
 
 .database-usecase-grid {
   display: grid;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.8rem;
 }
 
 .database-usecase-item {
@@ -140,84 +151,85 @@
   margin-bottom: 0.5rem;
 }
 
-.database-usecase-item p {
-  line-height: 1.5;
-  font-size: 1.1rem;
-}
-
-.database-suitability-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.database-suitable h5 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #15803d;
-}
-
-.database-unsuitable h5 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #b91c1c;
-}
-
-.database-suitable ul, .database-unsuitable ul {
-  margin-left: 1.5rem;
-  list-style-type: disc;
+.database-command-code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.95rem;
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
   margin-top: 0.5rem;
 }
 
-.database-cluster-section {
+.database-command-code code {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+.database-command-code code:last-child {
+  margin-bottom: 0;
+}
+
+.database-atlas-section {
+  margin-top: 2rem;
+}
+
+.database-atlas-card {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
   margin-top: 1rem;
 }
 
-.database-cluster-card p {
-  line-height: 1.5;
-  margin-bottom: 1.2rem;
-  font-size: 1.15rem;
+.database-atlas-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-.database-cluster-details h5 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1e40af;
-  margin: 1rem 0 0.5rem 0;
+.database-atlas-features {
+  margin-top: 1rem;
 }
 
-.database-cluster-details ul {
-  margin-left: 1.5rem;
-  list-style-type: disc;
-}
-
-.database-cluster-details li {
-  margin-bottom: 0.25rem;
-  line-height: 1;
-  font-size: 1.15rem;
-  margin-bottom: 0.9rem;
-}
-
+/* 반응형 스타일 */
 @media (max-width: 768px) {
   .database-content-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .database-suitability-section {
-    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .database-page-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .database-button-left h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  .database-subtitle {
+    font-size: 1rem;
   }
   
   .database-section-content {
     padding: 1rem;
+  }
+
+  .database-feature-card h4, 
+  .database-usecase-card h4, 
+  .database-cluster-card h4 {
+    font-size: 1.5rem;
+  }
+
+  .database-feature-item h5,
+  .database-usecase-item h5 {
+    font-size: 1.1rem;
+  }
+
+  .database-feature-item li {
+    font-size: 1rem;
   }
 }
 
@@ -232,6 +244,77 @@
   }
 }
 
-.database-section-content {
-  animation: slideDown 0.3s ease-out;
-}
+/* Atlas 섹션 스타일 */
+.database-atlas-section {
+    margin-top: 2rem;
+  }
+  
+  .database-atlas-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #334155;
+    margin-bottom: 1.5rem;
+  }
+  
+  .database-atlas-feature {
+    margin-bottom: 2rem;
+  }
+  
+  /* Atlas 장점/단점 스타일 */
+  .database-atlas-advantages,
+  .database-atlas-disadvantages,
+  .database-atlas-pricing {
+    margin-top: 1.5rem;
+  }
+  
+  .database-atlas-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #1e40af;
+    padding-bottom: 0.5rem;
+  }
+  
+  .database-atlas-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 1.5rem 0 0.8rem 0;
+  }
+  
+  /* Atlas 장점 */
+  .database-atlas-advantages h5 {
+    color: #15803d;
+  }
+  
+  /* Atlas 단점 */
+  .database-atlas-disadvantages h5 {
+    color: #b91c1c;
+  }
+  
+  /* Atlas 가격 정책 */
+  .database-atlas-pricing .database-feature-item {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .database-atlas-pricing h5 {
+    color: #1e40af;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .database-atlas-pricing ul {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+  }
+  
+  .database-atlas-pricing li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }

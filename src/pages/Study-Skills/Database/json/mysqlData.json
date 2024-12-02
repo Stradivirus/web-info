@@ -1,0 +1,209 @@
+{
+    "name": "MySQL",
+    "description": "MySQL은 세계에서 가장 널리 사용되는 오픈소스 관계형 데이터베이스 관리 시스템(RDBMS)입니다.",
+    "mainFeatures": [
+      {
+        "title": "기본 특징",
+        "details": [
+          "ACID 트랜잭션 지원",
+          "다중 스토리지 엔진 (InnoDB, MyISAM 등)",
+          "강력한 레플리케이션 기능",
+          "트리거와 저장 프로시저 지원",
+          "다양한 인덱싱 방식",
+          "파티셔닝 지원",
+          "SSL 보안 연결",
+          "캐싱 메커니즘"
+        ]
+      }
+    ],
+    "advantages": [
+      {
+        "title": "성능",
+        "details": [
+          "빠른 읽기 성능",
+          "효율적인 메모리 사용",
+          "쿼리 캐시를 통한 성능 최적화",
+          "높은 동시성 처리 능력"
+        ]
+      },
+      {
+        "title": "관리 용이성",
+        "details": [
+          "직관적인 관리 도구 제공",
+          "풍부한 모니터링 기능",
+          "간편한 백업과 복구",
+          "활성화된 커뮤니티 지원"
+        ]
+      },
+      {
+        "title": "확장성",
+        "details": [
+          "마스터-슬레이브 복제",
+          "수평적 확장 가능",
+          "클러스터링 지원",
+          "다양한 스토리지 엔진 선택 가능"
+        ]
+      },
+      {
+        "title": "비용 효율성",
+        "details": [
+          "무료 오픈소스 라이선스",
+          "낮은 하드웨어 요구사항",
+          "풍부한 기술 자료",
+          "다양한 호스팅 옵션"
+        ]
+      }
+    ],
+    "disadvantages": [
+      {
+        "title": "개발자 기능",
+        "details": [
+          "PostgreSQL 대비 제한적인 데이터 타입",
+          "JSON 지원이 상대적으로 미흡",
+          "stored procedure 성능이 상대적으로 낮음"
+        ]
+      },
+      {
+        "title": "복제 제한",
+        "details": [
+          "비동기 복제로 인한 데이터 불일치 가능성",
+          "복잡한 복제 설정",
+          "슬레이브 지연 문제"
+        ]
+      },
+      {
+        "title": "확장성 제한",
+        "details": [
+          "대규모 분산 환경에서의 한계",
+          "복잡한 쿼리시 성능 저하",
+          "테이블 조인의 제한사항"
+        ]
+      }
+    ],
+    "commandGuide": {
+      "basic": {
+        "title": "기본 명령어",
+        "commands": [
+          {
+            "category": "접속",
+            "examples": [
+              "mysql -u username -p    # 로컬 접속",
+              "mysql -h hostname -u username -p    # 원격 접속"
+            ]
+          },
+          {
+            "category": "데이터베이스 관리",
+            "examples": [
+              "SHOW DATABASES;",
+              "CREATE DATABASE dbname;",
+              "USE dbname;",
+              "DROP DATABASE dbname;"
+            ]
+          },
+          {
+            "category": "테이블 관리",
+            "examples": [
+              "SHOW TABLES;",
+              "DESCRIBE tablename;",
+              "SHOW CREATE TABLE tablename;"
+            ]
+          }
+        ]
+      },
+      "crud": {
+        "title": "CRUD 작업",
+        "operations": [
+          {
+            "category": "Create",
+            "examples": [
+              "CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100));",
+              "INSERT INTO users (name) VALUES ('John');",
+              "INSERT INTO users (name) VALUES ('Jane'), ('Bob');"
+            ]
+          },
+          {
+            "category": "Read",
+            "examples": [
+              "SELECT * FROM users;",
+              "SELECT * FROM users WHERE id = 1;",
+              "SELECT * FROM users ORDER BY name;",
+              "SELECT COUNT(*) FROM users;"
+            ]
+          },
+          {
+            "category": "Update",
+            "examples": [
+              "UPDATE users SET name = 'John Doe' WHERE id = 1;",
+              "UPDATE users SET status = 'active' WHERE id IN (1, 2, 3);"
+            ]
+          },
+          {
+            "category": "Delete",
+            "examples": [
+              "DELETE FROM users WHERE id = 1;",
+              "DELETE FROM users WHERE status = 'inactive';",
+              "TRUNCATE TABLE users;  # 모든 데이터 삭제"
+            ]
+          }
+        ]
+      },
+      "advanced": {
+        "title": "고급 기능",
+        "features": [
+          {
+            "category": "인덱스",
+            "examples": [
+              "CREATE INDEX idx_name ON users(name);",
+              "CREATE UNIQUE INDEX idx_email ON users(email);",
+              "SHOW INDEX FROM users;",
+              "DROP INDEX idx_name ON users;"
+            ]
+          },
+          {
+            "category": "백업 및 복원",
+            "examples": [
+              "mysqldump -u username -p dbname > backup.sql",
+              "mysql -u username -p dbname < backup.sql",
+              "mysqldump --all-databases > all_dbs.sql"
+            ]
+          },
+          {
+            "category": "사용자 관리",
+            "examples": [
+              "CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';",
+              "GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost';",
+              "FLUSH PRIVILEGES;"
+            ]
+          }
+        ]
+      }
+    },
+    "useCases": {
+      "examples": [
+        {
+          "title": "웹 애플리케이션",
+          "details": "일반적인 CRUD 작업이 많은 웹사이트와 애플리케이션"
+        },
+        {
+          "title": "전자상거래",
+          "details": "주문, 재고, 결제 처리가 필요한 상업용 시스템"
+        },
+        {
+          "title": "콘텐츠 관리",
+          "details": "블로그, CMS, 포럼 등의 콘텐츠 기반 시스템"
+        }
+      ],
+      "suitable": [
+        "높은 읽기 처리량이 필요한 웹 서비스",
+        "트랜잭션 처리가 중요한 비즈니스 시스템",
+        "기존 레거시 시스템과의 통합이 필요한 경우",
+        "빠른 개발과 배포가 필요한 프로젝트"
+      ],
+      "unsuitable": [
+        "매우 복잡한 데이터 타입이 필요한 경우",
+        "대규모 분산 처리가 필요한 시스템",
+        "비정형 데이터를 주로 다루는 경우",
+        "지리공간 데이터 처리가 주요 기능인 경우"
+      ]
+    }
+  }
