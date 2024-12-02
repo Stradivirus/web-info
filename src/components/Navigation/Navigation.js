@@ -46,7 +46,7 @@ const Navigation = () => {
       <div className="nav-divider">Study & Skills</div>
       <NavLink to="/study-skills/infrastructure" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
-        <span>Infrastructure</span>
+        <span>Infrastructure(제작 중)</span>
       </NavLink>
       <NavLink to="/study-skills/programming" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
@@ -54,15 +54,15 @@ const Navigation = () => {
       </NavLink>
       <NavLink to="/study-skills/database" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
-        <span>Database & Message Queue</span>
+        <span>Database & Message Queue(제작 중)</span>
       </NavLink>
       <NavLink to="/study-skills/web-development" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
-        <span>Web Development</span>
+        <span>Web Development(제작 중)</span>
       </NavLink>
       <NavLink to="/study-skills/dev-tools" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
-        <span>Development Tools</span>
+        <span>Development Tools(제작 중)</span>
       </NavLink>  
     </nav>
   );

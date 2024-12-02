@@ -33,8 +33,8 @@ src/pages/Projects/Project[N]/
 - 스크린샷: `src/assets/images/project/Project[N]/`
 - 비디오(필요시): `src/assets/videos/project/Project[N]/`
 
-3. Main.js 수정
-- `src/layouts/Main.js` 파일에 새로운 프로젝트 라우트 추가
+3. App.js 수정
+- `src/App.js` 파일에 새로운 프로젝트 라우트 추가
 
 4. Navigation.js 수정
 - `src/components/Navigation/Navigation.js` 파일에 새로운 프로젝트 NavLink 추가
