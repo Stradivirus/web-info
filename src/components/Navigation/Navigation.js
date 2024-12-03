@@ -44,6 +44,14 @@ const Navigation = () => {
       </NavLink>
       
       <div className="nav-divider">Study & Skills</div>
+      <NavLink to="/study-skills/AWS" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>AWS(준비 중)</span>
+      </NavLink>
+      <NavLink to="/study-skills/GitHub" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>GitHub(준비 중)</span>
+      </NavLink>
       <NavLink to="/study-skills/infrastructure" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Infrastructure(준비 중)</span>
@@ -58,12 +66,8 @@ const Navigation = () => {
       </NavLink>
       <NavLink to="/study-skills/web-development" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
-        <span>Web Development(준비 중)</span>
+        <span>DevOps & CI/CD(준비 중)</span>
       </NavLink>
-      <NavLink to="/study-skills/dev-tools" className={getLinkClassName}>
-        <BookOpen className="nav-icon" size={18} />
-        <span>Development Tools(준비 중)</span>
-      </NavLink>  
     </nav>
   );
 };

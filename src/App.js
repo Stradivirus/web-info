@@ -17,9 +17,7 @@ function App() {
          <Route path="/study-skills/database" element={<DatabasePage />} />
          {/* 
          <Route path="/study-skills/infrastructure" element={<InfrastructurePage />} />
-         
-         <Route path="/study-skills/web-development" element={<WebDevPage />} />
-         <Route path="/study-skills/dev-tools" element={<DevToolsPage />} /> 
+         <Route path="/study-skills/DevOps&CI/CD" element={<DevOps&CI/CD />} />
          */}
        </Routes>
      </Layout>
