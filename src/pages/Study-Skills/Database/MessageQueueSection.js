@@ -26,7 +26,7 @@ const MessageQueueSection = ({ name, subtitle, data, isExpanded, onToggle }) => 
                 <div className="database-feature-list">
                   {data.advantages.map((advantage, index) => (
                     <div key={index} className="database-feature-item">
-                      <h5>{advantage.title}</h5>
+                      <h5 className="advantage-title">{advantage.title}</h5>
                       <ul>
                         {advantage.details.map((detail, idx) => (
                           <li key={idx}>{detail}</li>
@@ -40,7 +40,7 @@ const MessageQueueSection = ({ name, subtitle, data, isExpanded, onToggle }) => 
                 <div className="database-feature-list">
                   {data.disadvantages.map((disadvantage, index) => (
                     <div key={index} className="database-feature-item">
-                      <h5>{disadvantage.title}</h5>
+                      <h5 className="disadvantage-title">{disadvantage.title}</h5>
                       <ul>
                         {disadvantage.details.map((detail, idx) => (
                           <li key={idx}>{detail}</li>

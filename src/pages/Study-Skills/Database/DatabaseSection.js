@@ -45,7 +45,7 @@ const DatabaseSection = ({ name, subtitle, data, isExpanded, onToggle }) => {
                 <div className="database-feature-list">
                   {data.advantages.map((advantage, idx) => (
                     <div key={idx} className="database-feature-item">
-                      <h5>{advantage.title}</h5>
+                      <h5 className="advantage-title">{advantage.title}</h5>
                       <ul>
                         {advantage.details.map((detail, i) => (
                           <li key={i}>{detail}</li>
@@ -60,7 +60,7 @@ const DatabaseSection = ({ name, subtitle, data, isExpanded, onToggle }) => {
                 <div className="database-feature-list">
                   {data.disadvantages.map((disadvantage, idx) => (
                     <div key={idx} className="database-feature-item">
-                      <h5>{disadvantage.title}</h5>
+                      <h5 className="disadvantage-title">{disadvantage.title}</h5>
                       <ul>
                         {disadvantage.details.map((detail, i) => (
                           <li key={i}>{detail}</li>
@@ -81,7 +81,7 @@ const DatabaseSection = ({ name, subtitle, data, isExpanded, onToggle }) => {
                       <h4 className="database-atlas-title">Atlas 장점</h4>
                       {data.atlas.advantages.map((adv, idx) => (
                         <div key={idx} className="database-feature-item">
-                          <h5>{adv.title}</h5>
+                          <h5 className="advantage-title">{adv.title}</h5>
                           <ul>
                             {adv.details.map((detail, i) => (
                               <li key={i}>{detail}</li>
@@ -96,7 +96,7 @@ const DatabaseSection = ({ name, subtitle, data, isExpanded, onToggle }) => {
                       <h4 className="database-atlas-title">Atlas 단점</h4>
                       {data.atlas.disadvantages.map((disadv, idx) => (
                         <div key={idx} className="database-feature-item">
-                          <h5>{disadv.title}</h5>
+                          <h5 className="disadvantage-title">{disadv.title}</h5>
                           <ul>
                             {disadv.details.map((detail, i) => (
                               <li key={i}>{detail}</li>
