@@ -1,0 +1,265 @@
+{
+    "services": [
+      {
+        "title": "Amazon EC2 (Elastic Compute Cloud)",
+        "description": "확장 가능한 가상 서버 컴퓨팅 용량을 클라우드에서 제공",
+        "features": [
+          {
+            "title": "인스턴스 유형",
+            "items": [
+              {
+                "name": "On-Demand Instance",
+                "details": [
+                  "필요할 때 즉시 프로비저닝 가능",
+                  "선결제 없이 사용한 시간만큼 과금",
+                  "예측할 수 없는 워크로드에 적합",
+                  "단기 개발/테스트 환경에 이상적"
+                ]
+              },
+              {
+                "name": "Reserved Instance",
+                "details": [
+                  "1년 또는 3년 약정으로 최대 72% 비용 절감",
+                  "예측 가능한 워크로드에 적합",
+                  "Standard/Convertible/Scheduled 옵션 제공",
+                  "선결제, 부분 선결제, 선결제 없음 옵션"
+                ]
+              },
+              {
+                "name": "Spot Instance",
+                "details": [
+                  "AWS의 여유 용량을 활용하여 최대 90% 할인",
+                  "중단 tolerant 워크로드에 적합",
+                  "2분 전 중단 알림 제공",
+                  "배치 처리, 데이터 분석에 적합"
+                ]
+              },
+              {
+                "name": "전용 호스트/인스턴스",
+                "details": [
+                  "전용 물리 서버에서 인스턴스 실행",
+                  "라이선스 요구사항 충족",
+                  "규제 준수 요건 만족",
+                  "기존 서버 바인딩 소프트웨어 라이선스 사용 가능"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "특수 인스턴스",
+            "items": [
+              {
+                "name": "GPU 인스턴스",
+                "details": [
+                  "기계 학습, 고성능 컴퓨팅에 최적화",
+                  "NVIDIA GPU 탑재",
+                  "딥러닝, 3D 시각화 작업에 적합"
+                ]
+              },
+              {
+                "name": "베어메탈 인스턴스",
+                "details": [
+                  "물리 서버에 직접 접근",
+                  "가상화 오버헤드 없음",
+                  "성능 집약적 워크로드에 적합"
+                ]
+              }
+            ]
+          }
+        ],
+        "advantages": [
+          "다양한 인스턴스 타입과 크기로 워크로드 최적화",
+          "Auto Scaling으로 자동 확장/축소 지원",
+          "다중 AZ 배포로 고가용성 보장",
+          "세밀한 과금 체계로 비용 최적화 가능",
+          "글로벌 인프라로 빠른 서비스 배포"
+        ],
+        "disadvantages": [
+          "인프라 관리 책임이 사용자에게 있음",
+          "복잡한 가격 정책으로 비용 예측이 어려울 수 있음",
+          "인스턴스 타입 선택이 복잡할 수 있음",
+          "reserved instance 약정 시 유연성 제한"
+        ]
+      },
+      {
+        "title": "서버리스 컴퓨팅",
+        "description": "서버 관리 없이 애플리케이션 실행 가능한 컴퓨팅 서비스",
+        "services": [
+          {
+            "name": "AWS Lambda",
+            "features": [
+              "이벤트 기반 함수 실행",
+              "자동 확장/축소",
+              "GB-초 단위 과금",
+              "최대 15분 실행 시간",
+              "다양한 런타임 지원"
+            ],
+            "advantages": [
+              "인프라 관리 불필요",
+              "비용 효율적인 과금 구조",
+              "높은 확장성",
+              "다른 AWS 서비스와 쉬운 통합"
+            ],
+            "disadvantages": [
+              "콜드 스타트 지연 발생 가능",
+              "실행 시간 제한",
+              "로컬 테스트의 어려움",
+              "복잡한 애플리케이션 구현의 어려움"
+            ],
+            "additionalFeatures": [
+              {
+                "name": "Lambda@Edge",
+                "details": [
+                  "CloudFront 엣지 로케이션에서 함수 실행",
+                  "글로벌 지연 시간 최소화",
+                  "사용자 위치 기반 콘텐츠 제공"
+                ]
+              },
+              {
+                "name": "계층(Layers)",
+                "details": [
+                  "공통 코드/라이브러리 재사용",
+                  "배포 패키지 크기 감소",
+                  "의존성 관리 용이"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "AWS Fargate",
+            "features": [
+              "서버리스 컨테이너 실행 환경",
+              "ECS/EKS 통합",
+              "컨테이너 단위 과금",
+              "자동 인프라 관리"
+            ],
+            "advantages": [
+              "서버 관리 불필요",
+              "컨테이너 기반 마이크로서비스 구현 용이",
+              "정확한 리소스 할당",
+              "보안 격리"
+            ],
+            "disadvantages": [
+              "EC2 대비 높은 비용",
+              "커스텀 커널/모듈 사용 제한",
+              "네트워크 성능 제약"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "컨테이너 서비스",
+        "description": "컨테이너화된 애플리케이션의 실행과 관리를 위한 서비스",
+        "services": [
+          {
+            "name": "Amazon ECS (Elastic Container Service)",
+            "features": [
+              "컨테이너 오케스트레이션 플랫폼",
+              "EC2/Fargate 실행 모드",
+              "Application Load Balancer 통합",
+              "자동 스케일링"
+            ],
+            "advantages": [
+              "AWS 서비스들과 긴밀한 통합",
+              "간편한 컨테이너 관리",
+              "높은 보안성과 격리",
+              "다양한 배포 옵션"
+            ],
+            "disadvantages": [
+              "AWS 종속성",
+              "Kubernetes 대비 기능 제한",
+              "복잡한 네트워킹 설정"
+            ]
+          },
+          {
+            "name": "Amazon EKS (Elastic Kubernetes Service)",
+            "features": [
+              "관리형 Kubernetes 서비스",
+              "멀티 클라우드/하이브리드 지원",
+              "EC2/Fargate 실행 모드",
+              "자동화된 컨트롤 플레인 관리"
+            ],
+            "advantages": [
+              "Kubernetes 표준 호환",
+              "높은 이식성",
+              "강력한 커뮤니티 지원",
+              "엔터프라이즈급 보안"
+            ],
+            "disadvantages": [
+              "높은 복잡도",
+              "상대적으로 높은 비용",
+              "초기 설정의 어려움"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "특수 목적 컴퓨팅",
+        "description": "특정 사용 사례에 최적화된 컴퓨팅 서비스",
+        "services": [
+          {
+            "name": "AWS Batch",
+            "features": [
+              "배치 컴퓨팅 워크로드 처리",
+              "자동 용량 관리",
+              "작업 스케줄링",
+              "Spot Instance 활용"
+            ],
+            "advantages": [
+              "대규모 병렬 처리 용이",
+              "비용 최적화",
+              "인프라 자동 관리"
+            ],
+            "disadvantages": [
+              "실시간 처리에 부적합",
+              "복잡한 작업 의존성 관리"
+            ]
+          },
+          {
+            "name": "Amazon Lightsail",
+            "features": [
+              "간단한 가상 프라이빗 서버",
+              "예측 가능한 월별 요금",
+              "간편한 관리 인터페이스"
+            ],
+            "advantages": [
+              "쉬운 시작과 관리",
+              "예측 가능한 비용",
+              "기본 리소스 포함"
+            ],
+            "disadvantages": [
+              "제한된 확장성",
+              "고급 기능 제한",
+              "타 AWS 서비스와의 제한된 통합"
+            ]
+          }
+        ]
+      }
+    ],
+    "useCases": {
+      "examples": [
+        {
+          "title": "웹 애플리케이션",
+          "details": "EC2, ECS, Elastic Beanstalk을 활용한 웹 서비스 호스팅"
+        },
+        {
+          "title": "마이크로서비스",
+          "details": "ECS, EKS, Lambda를 활용한 마이크로서비스 아키텍처 구현"
+        },
+        {
+          "title": "배치 처리",
+          "details": "AWS Batch, Spot Instance를 활용한 대규모 데이터 처리"
+        },
+        {
+          "title": "서버리스 애플리케이션",
+          "details": "Lambda, API Gateway를 활용한 서버리스 아키텍처 구현"
+        }
+      ],
+      "bestPractices": [
+        "워크로드 특성에 맞는 적절한 컴퓨팅 서비스 선택",
+        "비용 최적화를 위한 적절한 구매 옵션 활용",
+        "자동 스케일링 설정으로 탄력적인 인프라 운영",
+        "멀티 AZ 구성으로 고가용성 확보"
+      ]
+    }
+  }

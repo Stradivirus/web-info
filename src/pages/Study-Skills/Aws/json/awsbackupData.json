@@ -1,0 +1,208 @@
+{
+    "title": "AWS Backup Services",
+    "services": [
+      {
+        "title": "AWS Backup",
+        "description": "중앙 집중식 백업 관리 서비스",
+        "features": [
+          "자동화된 백업 스케줄링",
+          "중앙 집중식 관리",
+          "교차 리전/계정 백업",
+          "규정 준수 지원",
+          "정책 기반 백업 관리"
+        ],
+        "supportedServices": [
+          {
+            "name": "Amazon EC2",
+            "backupFeatures": [
+              "EBS 스냅샷 자동화",
+              "AMI 생성",
+              "인스턴스 구성 백업",
+              "Windows VSS 지원"
+            ]
+          },
+          {
+            "name": "Amazon EBS",
+            "backupFeatures": [
+              "증분 스냅샷",
+              "빠른 복구",
+              "크로스 리전 복사",
+              "암호화된 볼륨 지원"
+            ]
+          },
+          {
+            "name": "Amazon RDS",
+            "backupFeatures": [
+              "데이터베이스 스냅샷",
+              "트랜잭션 일관성",
+              "암호화된 백업",
+              "특정 시점 복구"
+            ]
+          },
+          {
+            "name": "Amazon DynamoDB",
+            "backupFeatures": [
+              "온디맨드 백업",
+              "특정 시점 복구",
+              "글로벌 테이블 지원",
+              "성능 영향 없는 백업"
+            ]
+          },
+          {
+            "name": "Amazon EFS",
+            "backupFeatures": [
+              "증분 백업",
+              "일관된 파일시스템 백업",
+              "자동 마운트 지원",
+              "백업 중 가용성 유지"
+            ]
+          },
+          {
+            "name": "Amazon FSx",
+            "backupFeatures": [
+              "파일 시스템 백업",
+              "VSS 스냅샷",
+              "증분 백업",
+              "빠른 복구 옵션"
+            ]
+          },
+          {
+            "name": "AWS Storage Gateway",
+            "backupFeatures": [
+              "볼륨 백업",
+              "파일 공유 백업",
+              "테이프 데이터 백업",
+              "증분 백업 지원"
+            ]
+          }
+        ],
+        "backupPlans": {
+          "components": [
+            "백업 규칙",
+            "리소스 할당",
+            "수명주기 관리",
+            "교차 계정 관리"
+          ],
+          "features": [
+            {
+              "name": "태그 기반 백업",
+              "details": [
+                "자동 리소스 식별",
+                "동적 백업 정책 적용",
+                "조직 구조 기반 백업",
+                "비용 할당 추적"
+              ]
+            },
+            {
+              "name": "증분 백업",
+              "details": [
+                "변경된 데이터만 백업",
+                "스토리지 비용 최적화",
+                "백업 시간 단축",
+                "네트워크 사용량 감소"
+              ]
+            },
+            {
+              "name": "암호화",
+              "details": [
+                "KMS 통합",
+                "전송 중 암호화",
+                "저장 시 암호화",
+                "키 관리 자동화"
+              ]
+            }
+          ]
+        },
+        "compliance": {
+          "features": [
+            "감사 기능",
+            "보고서 생성",
+            "규정 준수 검증",
+            "보존 정책 관리"
+          ],
+          "standards": [
+            "HIPAA",
+            "GDPR",
+            "SOC",
+            "PCI DSS"
+          ],
+          "reporting": [
+            "백업 활동 로그",
+            "복구 포인트 상태",
+            "규정 준수 상태",
+            "리소스 사용 보고서"
+          ]
+        },
+        "recovery": {
+          "capabilities": [
+            "특정 시점 복구",
+            "교차 리전 복구",
+            "교차 계정 복구",
+            "선택적 복구"
+          ],
+          "features": {
+            "crossRegion": {
+              "description": "리전 간 복구 기능",
+              "benefits": [
+                "재해 복구 지원",
+                "지역 규정 준수",
+                "지연 시간 최적화",
+                "데이터 주권 준수"
+              ]
+            },
+            "crossAccount": {
+              "description": "계정 간 복구 기능",
+              "benefits": [
+                "중앙 집중식 복구",
+                "조직 전체 관리",
+                "격리된 백업 저장",
+                "보안 경계 유지"
+              ]
+            }
+          }
+        },
+        "monitoring": {
+          "tools": [
+            "AWS CloudWatch 통합",
+            "AWS CloudTrail 로깅",
+            "SNS 알림",
+            "백업 상태 대시보드"
+          ],
+          "metrics": [
+            "백업 작업 상태",
+            "복구 포인트 생성",
+            "저장소 사용량",
+            "복구 시간"
+          ]
+        },
+        "security": {
+          "features": [
+            "IAM 역할 기반 접근 제어",
+            "VPC 엔드포인트 지원",
+            "AWS KMS 암호화",
+            "교차 계정 접근 제어"
+          ],
+          "bestPractices": [
+            "최소 권한 원칙 적용",
+            "백업 암호화 필수화",
+            "정기적인 복구 테스트",
+            "감사 로그 활성화"
+          ]
+        },
+        "costOptimization": {
+          "features": [
+            "수명주기 관리",
+            "콜드 스토리지 계층화",
+            "중복 제거",
+            "보존 기간 관리"
+          ],
+          "strategies": [
+            "증분 백업 활용",
+            "불필요한 백업 정리",
+            "스토리지 클래스 최적화",
+            "태그 기반 비용 할당"
+          ]
+        }
+      }
+    ]
+  }

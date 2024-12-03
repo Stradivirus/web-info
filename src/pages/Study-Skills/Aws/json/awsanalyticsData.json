@@ -1,0 +1,322 @@
+{
+    "title": "AWS Analytics Services",
+    "services": [
+      {
+        "title": "Amazon Redshift",
+        "description": "페타바이트 규모의 데이터 웨어하우스 서비스",
+        "features": [
+          "열 기반 데이터 저장",
+          "대규모 병렬 처리(MPP)",
+          "표준 SQL 쿼리 지원",
+          "자동화된 백업",
+          "크로스 리전 스냅샷"
+        ],
+        "components": {
+          "nodeTypes": [
+            {
+              "name": "RA3",
+              "description": "컴퓨팅과 스토리지 분리",
+              "features": [
+                "관리형 스토리지",
+                "핫/콜드 데이터 자동 계층화",
+                "탄력적인 리사이징"
+              ]
+            },
+            {
+              "name": "DC2",
+              "description": "컴퓨팅 최적화",
+              "features": [
+                "고성능 쿼리 처리",
+                "SSD 스토리지",
+                "높은 I/O 성능"
+              ]
+            }
+          ],
+          "features": {
+            "concurrency": {
+              "name": "동시성 스케일링",
+              "details": [
+                "자동 워크로드 관리",
+                "동시 쿼리 처리 최적화",
+                "사용량 기반 과금"
+              ]
+            },
+            "spectrum": {
+              "name": "Redshift Spectrum",
+              "details": [
+                "S3 데이터 직접 쿼리",
+                "엑사바이트 규모 처리",
+                "데이터 레이크 통합"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "title": "Amazon Athena",
+        "description": "서버리스 대화형 쿼리 서비스",
+        "features": [
+          "S3 데이터 직접 분석",
+          "표준 SQL 사용",
+          "서버리스 아키텍처",
+          "즉시 쿼리 실행",
+          "사용한 만큼만 지불"
+        ],
+        "capabilities": {
+          "dataFormats": [
+            "CSV",
+            "JSON",
+            "ORC",
+            "Avro",
+            "Parquet"
+          ],
+          "integrations": [
+            "AWS Glue Data Catalog",
+            "Amazon QuickSight",
+            "AWS Lambda",
+            "JDBC 연결"
+          ],
+          "features": {
+            "federation": {
+              "description": "데이터 소스 페더레이션",
+              "sources": [
+                "온프레미스 데이터베이스",
+                "NoSQL 데이터베이스",
+                "사용자 정의 데이터 소스"
+              ]
+            },
+            "performance": {
+              "description": "성능 최적화",
+              "features": [
+                "파티셔닝 지원",
+                "압축 데이터 처리",
+                "결과 캐싱"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "title": "AWS Glue",
+        "description": "완전관리형 ETL 서비스",
+        "features": [
+          "서버리스 데이터 통합",
+          "자동 스키마 검색",
+          "작업 북마크 기능",
+          "데이터 카탈로그 통합",
+          "시각적 ETL 편집기"
+        ],
+        "components": {
+          "dataCatalog": {
+            "description": "중앙 집중식 메타데이터 저장소",
+            "features": [
+              "자동 스키마 추론",
+              "버저닝 지원",
+              "권한 관리",
+              "검색 기능"
+            ]
+          },
+          "crawlers": {
+            "description": "자동 데이터 검색",
+            "sources": [
+              "S3",
+              "RDS",
+              "DynamoDB",
+              "JDBC 소스"
+            ]
+          },
+          "studio": {
+            "description": "시각적 ETL 개발",
+            "features": [
+              "드래그 앤 드롭 인터페이스",
+              "데이터 변환 시각화",
+              "작업 모니터링",
+              "디버깅 도구"
+            ]
+          }
+        }
+      },
+      {
+        "title": "Amazon Kinesis",
+        "description": "실시간 데이터 스트리밍 및 분석",
+        "services": [
+          {
+            "name": "Kinesis Data Streams",
+            "features": [
+              "실시간 데이터 수집",
+              "샤드 기반 확장",
+              "데이터 보존 설정",
+              "다중 소비자 지원",
+              "실시간 처리"
+            ],
+            "scaling": {
+              "description": "처리량 조정",
+              "features": [
+                "온디맨드 모드",
+                "프로비저닝된 모드",
+                "동적 샤드 분할"
+              ]
+            }
+          },
+          {
+            "name": "Kinesis Data Firehose",
+            "features": [
+              "실시간 데이터 전송",
+              "자동 확장/축소",
+              "데이터 변환",
+              "배치 처리",
+              "다양한 대상 지원"
+            ],
+            "destinations": [
+              "S3",
+              "Redshift",
+              "Elasticsearch",
+              "Splunk"
+            ]
+          },
+          {
+            "name": "Kinesis Data Analytics",
+            "features": [
+              "SQL 기반 실시간 분석",
+              "Apache Flink 지원",
+              "시계열 분석",
+              "이상 탐지"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Amazon EMR",
+        "description": "관리형 빅데이터 플랫폼",
+        "features": [
+          "탄력적 컴퓨팅 리소스",
+          "다양한 빅데이터 프레임워크 지원",
+          "spot 인스턴스 활용",
+          "보안 및 모니터링"
+        ],
+        "frameworks": [
+          "Apache Spark",
+          "Apache Hadoop",
+          "Apache Hive",
+          "Apache HBase",
+          "Presto"
+        ],
+        "capabilities": {
+          "processing": [
+            "배치 처리",
+            "스트리밍 처리",
+            "대화형 쿼리",
+            "머신 러닝"
+          ],
+          "management": {
+            "features": [
+              "자동 클러스터 조정",
+              "노드 관리",
+              "보안 구성",
+              "리소스 최적화"
+            ]
+          }
+        }
+      },
+      {
+        "title": "Amazon QuickSight",
+        "description": "클라우드 기반 비즈니스 인텔리전스 서비스",
+        "features": [
+          "대화형 대시보드",
+          "ML 기반 인사이트",
+          "임베디드 분석",
+          "모바일 지원",
+          "사용량 기반 과금"
+        ],
+        "capabilities": {
+          "dataSources": [
+            "Redshift",
+            "S3",
+            "Athena",
+            "RDS",
+            "외부 데이터베이스"
+          ],
+          "analysis": {
+            "features": [
+              "ML 기반 이상 탐지",
+              "예측 분석",
+              "What-if 시나리오",
+              "자동 내러티브"
+            ]
+          },
+          "sharing": {
+            "features": [
+              "대시보드 공유",
+              "이메일 보고서",
+              "임베디드 분석",
+              "역할 기반 접근 제어"
+            ]
+          }
+        }
+      },
+      {
+        "title": "AWS Lake Formation",
+        "description": "안전한 데이터 레이크 구축 서비스",
+        "features": [
+          "중앙 집중식 권한 관리",
+          "자동 데이터 분류",
+          "블루프린트 기반 설정",
+          "세분화된 접근 제어"
+        ],
+        "capabilities": {
+          "security": {
+            "features": [
+              "열 수준 보안",
+              "행 수준 필터링",
+              "태그 기반 접근 제어",
+              "암호화"
+            ]
+          },
+          "management": {
+            "features": [
+              "데이터 카탈로그 관리",
+              "데이터 품질 관리",
+              "데이터 계보 추적",
+              "자동 태깅"
+            ]
+          }
+        }
+      },
+      {
+        "title": "AWS Config",
+        "description": "리소스 구성 평가 및 감사",
+        "features": [
+          "구성 변경 추적",
+          "규정 준수 평가",
+          "보안 분석",
+          "리소스 관계 시각화"
+        ],
+        "capabilities": {
+          "tracking": {
+            "features": [
+              "구성 변경사항 기록",
+              "타임라인 뷰",
+              "리소스 관계 매핑",
+              "구성 스냅샷"
+            ]
+          },
+          "compliance": {
+            "features": [
+              "규칙 기반 평가",
+              "실시간 모니터링",
+              "사용자 정의 규칙",
+              "자동 교정"
+            ]
+          },
+          "security": {
+            "features": [
+              "보안 설정 감사",
+              "IAM 정책 평가",
+              "무단 변경 탐지",
+              "알림 설정"
+            ]
+          }
+        }
+      }
+    ]
+  }

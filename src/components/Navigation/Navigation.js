@@ -44,7 +44,7 @@ const Navigation = () => {
       </NavLink>
       
       <div className="nav-divider">Study & Skills</div>
-      <NavLink to="/study-skills/AWS" className={getLinkClassName}>
+      <NavLink to="/study-skills/Aws" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>AWS(준비 중)</span>
       </NavLink>
