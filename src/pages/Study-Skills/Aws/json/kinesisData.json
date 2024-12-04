@@ -1,0 +1,185 @@
+{
+    "name": "Kinesis Data Streams",
+    "description": "실시간 데이터 스트리밍 및 처리를 위한 완전관리형 서비스",
+    "mainFeatures": [
+      {
+        "title": "스트리밍 처리",
+        "details": [
+          "실시간 대규모 데이터 수집 및 처리",
+          "초당 수백만 건의 레코드 처리 가능",
+          "데이터 순서 보장",
+          "샤드 기반의 확장 가능한 처리량",
+          "최대 365일간의 데이터 보존 기간"
+        ]
+      },
+      {
+        "title": "고가용성 및 내구성",
+        "details": [
+          "여러 가용 영역에 걸친 자동 복제",
+          "데이터 손실 방지를 위한 동기식 복제",
+          "자동 장애 복구 기능",
+          "99.999%의 가용성 보장"
+        ]
+      },
+      {
+        "title": "소비자 관리",
+        "details": [
+          "동시에 여러 애플리케이션의 데이터 소비 지원",
+          "Enhanced Fan-Out 기능으로 소비자별 전용 처리량 제공",
+          "소비자 애플리케이션 간 독립적인 처리 속도",
+          "다양한 AWS 서비스와의 통합 (Lambda, Firehose 등)"
+        ]
+      }
+    ],
+    "advantages": [
+      {
+        "title": "실시간 처리 성능",
+        "details": [
+          "200ms 미만의 end-to-end 지연 시간",
+          "순서가 보장된 실시간 데이터 처리",
+          "즉각적인 데이터 사용 가능"
+        ]
+      },
+      {
+        "title": "확장성",
+        "details": [
+          "샤드 단위의 탄력적인 확장",
+          "자동화된 용량 관리",
+          "무제한 데이터 처리량 확장 가능"
+        ]
+      },
+      {
+        "title": "안정성",
+        "details": [
+          "데이터 내구성 보장",
+          "자동화된 복구 메커니즘",
+          "다중 AZ 지원으로 고가용성 확보"
+        ]
+      },
+      {
+        "title": "통합성",
+        "details": [
+          "AWS 서비스들과의 원활한 통합",
+          "다양한 SDK 지원",
+          "서버리스 아키텍처 구성 용이"
+        ]
+      }
+    ],
+    "disadvantages": [
+      {
+        "title": "비용 관리",
+        "details": [
+          "샤드 기반 과금으로 인한 비용 예측 어려움",
+          "유휴 샤드에 대한 지속적인 비용 발생",
+          "데이터 보존 기간에 따른 추가 비용"
+        ]
+      },
+      {
+        "title": "복잡성",
+        "details": [
+          "샤드 관리의 운영 부담",
+          "파티션 키 설계의 중요성",
+          "초기 설정의 복잡성"
+        ]
+      },
+      {
+        "title": "제한사항",
+        "details": [
+          "샤드당 처리량 제한",
+          "API 호출 제한",
+          "리전별 스트림 수 제한"
+        ]
+      }
+    ],
+    "useCases": {
+      "examples": [
+        {
+          "title": "로그 및 이벤트 처리",
+          "details": "애플리케이션 로그, 서버 이벤트, 사용자 활동 로그의 실시간 수집 및 처리"
+        },
+        {
+          "title": "실시간 분석",
+          "details": "실시간 매트릭 모니터링, 이상 감지, 실시간 대시보드 구성"
+        },
+        {
+          "title": "IoT 데이터 처리",
+          "details": "센서 데이터, 텔레메트리 데이터의 실시간 수집 및 분석"
+        },
+        {
+          "title": "실시간 알림",
+          "details": "사용자 행동 기반 실시간 알림, 이상 징후 감지 시 즉각적인 대응"
+        }
+      ],
+      "suitable": [
+        "대규모 실시간 데이터 스트림 처리가 필요한 경우",
+        "데이터의 순서 보장이 중요한 경우",
+        "여러 소비자가 동일한 데이터 스트림을 처리해야 하는 경우",
+        "장기간의 데이터 보존이 필요한 경우",
+        "내구성과 고가용성이 중요한 경우"
+      ],
+      "unsuitable": [
+        "소규모 데이터 처리나 배치 처리가 적합한 경우",
+        "비용 최적화가 최우선인 경우",
+        "단순한 메시지 큐로 충분한 경우",
+        "실시간성이 크게 중요하지 않은 경우"
+      ]
+    },
+    "pricing": {
+      "description": "샤드 시간, PUT 페이로드 단위, 데이터 보존 기간에 따라 비용 발생",
+      "components": [
+        {
+          "name": "샤드 시간",
+          "details": [
+            "시간당 샤드 비용 청구",
+            "프로비저닝된 샤드 수에 따른 과금",
+            "온디맨드 모드 지원"
+          ]
+        },
+        {
+          "name": "PUT 페이로드",
+          "details": [
+            "백만 건의 PUT 요청당 비용",
+            "페이로드 크기에 따른 추가 비용",
+            "Extended 데이터 보존에 대한 추가 비용"
+          ]
+        }
+      ]
+    },
+    "commandGuide": {
+      "basic": {
+        "title": "기본 작업",
+        "commands": [
+          {
+            "category": "스트림 관리",
+            "examples": [
+              "aws kinesis create-stream --stream-name MyStream --shard-count 1",
+              "aws kinesis delete-stream --stream-name MyStream",
+              "aws kinesis list-streams",
+              "aws kinesis describe-stream --stream-name MyStream"
+            ]
+          },
+          {
+            "category": "데이터 작업",
+            "examples": [
+              "aws kinesis put-record --stream-name MyStream --partition-key user1 --data 'hello world'",
+              "aws kinesis get-shard-iterator --stream-name MyStream --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON",
+              "aws kinesis get-records --shard-iterator <iterator-id>"
+            ]
+          }
+        ]
+      },
+      "advanced": {
+        "title": "고급 기능",
+        "features": [
+          {
+            "category": "샤드 관리",
+            "examples": [
+              "aws kinesis update-shard-count --stream-name MyStream --target-shard-count 2 --scaling-type UNIFORM_SCALING",
+              "aws kinesis split-shard --stream-name MyStream --shard-to-split shardId-000000000000 --new-starting-hash-key 10",
+              "aws kinesis merge-shards --stream-name MyStream --shard-to-merge shardId-000000000000 --adjacent-shard-to-merge shardId-000000000001"
+            ]
+          }
+        ]
+      }
+    }
+  }
