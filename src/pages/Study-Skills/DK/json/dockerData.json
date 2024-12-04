@@ -1,0 +1,250 @@
+{
+    "advantages": [
+      {
+        "title": "환경 일관성",
+        "details": [
+          "개발, 테스트, 운영 환경의 완벽한 일치",
+          "의존성 충돌 방지 및 버전 관리 용이"
+        ]
+      },
+      {
+        "title": "리소스 효율성",
+        "details": [
+          "가상머신 대비 가벼운 리소스 사용",
+          "빠른 시작 및 종료 시간",
+          "효율적인 시스템 자원 활용"
+        ]
+      },
+      {
+        "title": "확장성",
+        "details": [
+          "손쉬운 수평적 확장",
+          "마이크로서비스 아키텍처 지원",
+          "클라우드 네이티브 환경 적합"
+        ]
+      }
+    ],
+    "disadvantages": [
+      {
+        "title": "보안 위험",
+        "details": [
+          "컨테이너 격리 수준이 VM보다 낮음",
+          "권한 설정 관리의 중요성",
+          "이미지 취약점 스캔 필요"
+        ]
+      },
+      {
+        "title": "성능 오버헤드",
+        "details": [
+          "네트워킹 레이어 추가로 인한 지연",
+          "볼륨 마운트시 I/O 성능 저하 가능",
+          "윈도우 환경에서의 제한적 성능"
+        ]
+      }
+    ],
+    "bestPractices": {
+      "imageOptimization": [
+        {
+          "title": "멀티스테이지 빌드",
+          "details": "빌드 도구와 런타임 환경 분리로 이미지 크기 최소화"
+        },
+        {
+          "title": "레이어 최적화",
+          "details": "캐시 활용을 위한 효율적인 레이어 구성"
+        },
+        {
+          "title": "베이스 이미지 선택",
+          "details": "alpine 등 경량 이미지 활용"
+        }
+      ],
+      "security": [
+        {
+          "title": "최소 권한 원칙",
+          "details": "필요한 최소한의 권한만 부여"
+        },
+        {
+          "title": "이미지 스캐닝",
+          "details": "보안 취약점 정기적 검사"
+        }
+      ]
+    },
+    "troubleshooting": {
+      "commonIssues": [
+        {
+          "problem": "컨테이너 시작 실패",
+          "solution": "로그 확인 (docker logs), 포트 충돌 검사"
+        },
+        {
+          "problem": "볼륨 마운트 문제",
+          "solution": "권한 설정 확인, 절대 경로 사용"
+        },
+        {
+          "problem": "네트워크 연결 이슈",
+          "solution": "네트워크 설정 검사, DNS 확인"
+        }
+      ],
+      "performanceTips": [
+        "불필요한 파일 복사 방지",
+        "적절한 캐시 설정",
+        "리소스 제한 설정"
+      ]
+    },
+    "commands": {
+      "basic": [
+        {
+          "command": "docker run",
+          "description": "컨테이너 실행",
+          "example": "docker run -d -p 8080:80 nginx"
+        },
+        {
+          "command": "docker build",
+          "description": "이미지 빌드",
+          "example": "docker build -t myapp:latest ."
+        },
+        {
+          "command": "docker ps",
+          "description": "실행 중인 컨테이너 목록",
+          "example": "docker ps -a"
+        }
+      ],
+      "advanced": [
+        {
+          "command": "docker-compose up",
+          "description": "다중 컨테이너 실행",
+          "example": "docker-compose up -d"
+        },
+        {
+          "command": "docker network",
+          "description": "네트워크 관리",
+          "example": "docker network create mynet"
+        }
+      ],
+      "container": [
+        {
+        "command": "docker run [OPTIONS] IMAGE [COMMAND]",
+        "description": "컨테이너 실행",
+        "examples": [
+          "docker run -d -p 8080:80 nginx",
+          "docker run -it --rm ubuntu bash",
+          "docker run -v $(pwd):/app -p 3000:3000 node"
+        ]
+      },
+      {
+        "command": "docker ps",
+        "description": "컨테이너 목록 확인",
+        "examples": [
+          "docker ps",
+          "docker ps -a",
+          "docker ps -q"
+        ]
+      },
+      {
+        "command": "docker stop/start",
+        "description": "컨테이너 중지/시작",
+        "examples": [
+          "docker stop $(docker ps -q)",
+          "docker start my-container"
+        ]
+      },
+      {
+        "command": "docker logs",
+        "description": "컨테이너 로그 확인",
+        "examples": [
+          "docker logs -f container_id",
+          "docker logs --tail 100 container_id"
+        ]
+      },
+      {
+        "command": "docker exec",
+        "description": "실행 중인 컨테이너에 명령어 실행",
+        "examples": [
+          "docker exec -it container_id bash",
+          "docker exec container_id env"
+        ]
+      }
+    ],
+    "image": [
+      {
+        "command": "docker build",
+        "description": "이미지 빌드",
+        "examples": [
+          "docker build -t myapp:latest .",
+          "docker build --no-cache .",
+          "docker build -f custom.dockerfile ."
+        ]
+      },
+      {
+        "command": "docker images",
+        "description": "이미지 목록 확인",
+        "examples": [
+          "docker images",
+          "docker images -q",
+          "docker images --format '{{.Repository}}:{{.Tag}}'"
+        ]
+      },
+      {
+        "command": "docker pull/push",
+        "description": "이미지 다운로드/업로드",
+        "examples": [
+          "docker pull nginx:latest",
+          "docker push myregistry/myapp:v1"
+        ]
+      },
+      {
+        "command": "docker rmi",
+        "description": "이미지 삭제",
+        "examples": [
+          "docker rmi image_id",
+          "docker rmi $(docker images -q)",
+          "docker rmi -f image_id"
+        ]
+      }
+    ],
+    "network": [
+      {
+        "command": "docker network",
+        "description": "네트워크 관리",
+        "examples": [
+          "docker network ls",
+          "docker network create mynet",
+          "docker network connect mynet container_id"
+        ]
+      }
+    ],
+    "volume": [
+      {
+        "command": "docker volume",
+        "description": "볼륨 관리",
+        "examples": [
+          "docker volume ls",
+          "docker volume create myvol",
+          "docker volume rm myvol"
+        ]
+      }
+    ],
+    "compose": [
+      {
+        "command": "docker-compose",
+        "description": "컴포즈 명령어",
+        "examples": [
+          "docker-compose up -d",
+          "docker-compose down",
+          "docker-compose logs -f",
+          "docker-compose ps",
+          "docker-compose build"
+        ]
+      }
+    ],
+    "system": [
+      {
+        "command": "docker system",
+        "description": "시스템 관리",
+        "examples": [
+          "docker system prune",
+          "docker system df",
+          "docker system prune -a --volumes"
+        ]
+      }
+    ]
+  }
+}
