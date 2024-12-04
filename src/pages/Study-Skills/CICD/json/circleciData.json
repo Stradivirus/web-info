@@ -1,0 +1,204 @@
+{
+    "circleci": {
+      "name": "CircleCI",
+      "description": "클라우드 기반의 CI/CD 플랫폼",
+      "mainFeatures": [
+        {
+          "title": "워크플로우",
+          "details": [
+            "오케스트레이션 기능",
+            "리소스 클래스 지정",
+            "SSH 디버깅",
+            "Orbs 재사용"
+          ]
+        },
+        {
+          "title": "실행환경",
+          "details": [
+            "Docker 지원",
+            "VM 실행 환경",
+            "리소스 스케일링",
+            "캐싱 시스템"
+          ]
+        }
+      ],
+      "resourceClasses": {
+        "docker": [
+          {
+            "name": "small",
+            "specs": "1 vCPU, 2GB RAM"
+          },
+          {
+            "name": "medium",
+            "specs": "2 vCPU, 4GB RAM"
+          },
+          {
+            "name": "large",
+            "specs": "4 vCPU, 8GB RAM"
+          }
+        ],
+        "machine": [
+          {
+            "name": "medium",
+            "specs": "2 vCPU, 7.5GB RAM"
+          },
+          {
+            "name": "large",
+            "specs": "4 vCPU, 15GB RAM"
+          }
+        ]
+      },
+      "advantages": [
+        {
+          "title": "성능",
+          "details": [
+            "빠른 빌드 속도",
+            "효율적인 캐싱",
+            "유연한 리소스 할당",
+            "뛰어난 확장성"
+          ]
+        },
+        {
+          "title": "개발자 경험",
+          "details": [
+            "상세한 디버깅 도구",
+            "인사이트 및 분석",
+            "직관적인 UI"
+          ]
+        }
+      ],
+      "disadvantages": [
+        {
+          "title": "복잡성",
+          "details": [
+            "초기 설정의 복잡성",
+            "높은 학습 곡선",
+            "고급 기능의 어려움"
+          ]
+        },
+        {
+          "title": "비용",
+          "details": [
+            "리소스 사용에 따른 높은 비용",
+            "예측하기 어려운 과금",
+            "제한적인 무료 크레딧"
+          ]
+        }
+      ],
+      "useCases": {
+        "suitable": [
+          "마이크로서비스 아키텍처",
+          "컨테이너 기반 애플리케이션",
+          "빠른 피드백이 필요한 애자일 팀",
+          "클라우드 네이티브 개발",
+          "자동화된 테스트가 중요한 프로젝트"
+        ],
+        "unsuitable": [
+          "단순한 빌드 프로세스",
+          "제한된 예산의 소규모 프로젝트",
+          "레거시 시스템 통합",
+          "높은 보안 요구사항",
+          "자체 호스팅 선호"
+        ]
+      },
+      "pricing": {
+        "plans": [
+          {
+            "name": "Free",
+            "cost": "무료",
+            "features": [
+              "6000 빌드 분/월",
+              "1 concurrent job",
+              "리소스 클래스 제한",
+              "커뮤니티 지원"
+            ]
+          },
+          {
+            "name": "Performance",
+            "cost": "$15/user/month",
+            "features": [
+              "30000 빌드 분/월",
+              "3-30 concurrent jobs",
+              "모든 리소스 클래스 사용 가능",
+              "고급 인사이트",
+              "우선 지원"
+            ]
+          },
+          {
+            "name": "Scale",
+            "cost": "사용량 기반",
+            "features": [
+              "무제한 빌드 분",
+              "커스텀 concurrent jobs",
+              "전용 지원",
+              "커스텀 리소스 클래스",
+              "엔터프라이즈 기능"
+            ]
+          }
+        ]
+      },
+      "caching": {
+        "types": [
+          {
+            "name": "소스 캐시",
+            "description": "Git 저장소 클론 결과 캐싱"
+          },
+          {
+            "name": "의존성 캐시",
+            "description": "패키지 매니저의 의존성 다운로드 결과 캐싱"
+          },
+          {
+            "name": "커스텀 캐시",
+            "description": "사용자 정의 캐시 키와 경로 지정 가능"
+          }
+        ],
+        "features": [
+          "레이어드 캐싱",
+          "자동 캐시 무효화",
+          "캐시 복원 최적화",
+          "병렬 캐시 다운로드"
+        ]
+      },
+      "monitoring": {
+        "features": [
+          "실시간 빌드 로그",
+          "성능 메트릭스",
+          "리소스 사용량 추적",
+          "빌드 시간 분석",
+          "실패 분석 도구"
+        ],
+        "integrations": [
+          "Datadog",
+          "Grafana",
+          "CloudWatch",
+          "Custom webhooks"
+        ]
+      },
+      "security": {
+        "features": [
+          "역할 기반 접근 제어",
+          "컨텍스트 기반 시크릿 관리",
+          "IP 제한",
+          "SSO 통합",
+          "감사 로깅"
+        ],
+        "compliance": [
+          "SOC 2",
+          "GDPR",
+          "HIPAA"
+        ]
+      },
+      "supportedLanguages": [
+        "Java",
+        "Python",
+        "Node.js",
+        "Ruby",
+        "PHP",
+        "Go",
+        "Rust",
+        ".NET",
+        "Android",
+        "iOS"
+      ]
+    }
+  }

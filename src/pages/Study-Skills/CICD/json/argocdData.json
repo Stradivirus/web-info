@@ -1,0 +1,131 @@
+{
+    "argocd": {
+      "name": "Argo CD",
+      "description": "Kubernetes를 위한 선언적 GitOps CD 도구",
+      "mainFeatures": [
+        {
+          "title": "GitOps",
+          "details": [
+            "Git 저장소 기반 설정 관리",
+            "자동 동기화",
+            "drift 감지 및 수정",
+            "멀티 클러스터 지원"
+          ]
+        },
+        {
+          "title": "애플리케이션 관리",
+          "details": [
+            "상태 모니터링",
+            "자동 복구",
+            "리소스 프루닝",
+            "웹 UI 대시보드"
+          ]
+        }
+      ],
+      "argoRollouts": {
+        "features": [
+          {
+            "title": "프로그레시브 딜리버리",
+            "details": [
+              "블루/그린 배포",
+              "카나리 분석",
+              "트래픽 관리",
+              "자동 프로모션"
+            ]
+          },
+          {
+            "title": "분석 제공자",
+            "details": [
+              "Prometheus",
+              "Datadog",
+              "New Relic",
+              "CloudWatch"
+            ]
+          }
+        ],
+        "strategies": {
+          "canary": {
+            "steps": [
+              "초기 카나리 배포",
+              "메트릭 분석",
+              "점진적 확장",
+              "완전 교체"
+            ],
+            "analysisTypes": [
+              "기본 메트릭",
+              "커스텀 메트릭",
+              "웹훅 기반",
+              "작업 기반"
+            ]
+          }
+        }
+      },
+      "advantages": [
+        {
+          "title": "쿠버네티스 네이티브",
+          "details": [
+            "CRD 기반 설계",
+            "기존 도구와의 통합",
+            "선언적 설정",
+            "확장 용이성"
+          ]
+        },
+        {
+          "title": "자동화",
+          "details": [
+            "자동 동기화",
+            "자동 복구",
+            "자동 프루닝",
+            "automated rollbacks"
+          ]
+        }
+      ],
+      "disadvantages": [
+        {
+          "title": "범위 제한",
+          "details": [
+            "쿠버네티스 전용",
+            "GitOps 모델 강제",
+            "학습 곡선"
+          ]
+        }
+      ],
+      "security": {
+        "features": [
+          "RBAC 통합",
+          "SSO 지원",
+          "감사 로깅",
+          "시크릿 관리"
+        ],
+        "sso": [
+          "OIDC",
+          "LDAP",
+          "OAuth2",
+          "SAML"
+        ]
+      },
+      "pricing": {
+        "plans": [
+          {
+            "name": "Open Source",
+            "cost": "무료",
+            "features": [
+              "모든 핵심 기능",
+              "커뮤니티 지원",
+              "GitHub 이슈 기반 지원"
+            ]
+          },
+          {
+            "name": "Enterprise",
+            "cost": "구독 기반",
+            "features": [
+              "전문가 지원",
+              "SLA 보장",
+              "고급 보안 기능",
+              "프리미엄 통합 기능"
+            ]
+          }
+        ]
+      }
+    }
+  }

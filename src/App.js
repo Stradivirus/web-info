@@ -5,6 +5,7 @@ import Main from './layouts/Main';
 import CertificationsPage from './pages/Certifications';
 import ProgrammingPage from './pages/Study-Skills/Programming';
 import DatabasePage from './pages/Study-Skills/Database';
+import CICDPage from './pages/Study-Skills/CICD';
 
 function App() {
   return (
@@ -16,12 +17,8 @@ function App() {
           <Route path="/certifications" element={<CertificationsPage />} />
           <Route path="/study-skills/programming" element={<ProgrammingPage />} />
           <Route path="/study-skills/database" element={<DatabasePage />} />
-          
-          {/*
-          <Route path="/study-skills/aws" element={<ComputingPage />} /> 
-          <Route path="/study-skills/infrastructure" element={<InfrastructurePage />} />
-          <Route path="/study-skills/DevOps&CI/CD" element={<DevOps&CI/CD />} />
-          */}
+          <Route path="/study-skills/CICD" element={<CICDPage />} />
+
         </Routes>
       </Layout>
     </Router>

@@ -1,0 +1,131 @@
+{
+    "ansible": {
+      "name": "Ansible",
+      "description": "오픈소스 구성 관리, 배포, 및 응용 프로그램 배포 도구",
+      "mainFeatures": [
+        {
+          "title": "구성 관리",
+          "details": [
+            "Playbook 기반 설정 관리",
+            "YAML 형식의 선언적 구성",
+            "모듈 기반 확장 가능성",
+            "상태 관리"
+          ]
+        },
+        {
+          "title": "자동화된 배포",
+          "details": [
+            "애플리케이션 배포 자동화",
+            "롤백 및 복구 기능",
+            "다중 환경 지원 (개발, 스테이징, 프로덕션)"
+          ]
+        },
+        {
+          "title": "인프라스트럭처 관리",
+          "details": [
+            "서버 구성 및 관리",
+            "네트워크 장비 구성",
+            "클라우드 리소스 관리",
+            "컨테이너 오케스트레이션"
+          ]
+        }
+      ],
+      "advantages": [
+        {
+          "title": "사용 편이성",
+          "details": [
+            "간단한 YAML 구성",
+            "직관적인 Playbook",
+            "빠른 시작 가능",
+            "대규모 인프라스트럭처 관리"
+          ]
+        },
+        {
+          "title": "확장성",
+          "details": [
+            "모듈 기반 확장 가능성",
+            "커뮤니티의 확장 가능성",
+            "다양한 플랫폼 지원",
+            "커스텀 모듈 개발 가능"
+          ]
+        }
+      ],
+      "disadvantages": [
+        {
+          "title": "학습 곡선",
+          "details": [
+            "YAML 및 Playbook 이해 필요",
+            "초기 설정의 복잡성",
+            "대규모 인프라스트럭처 관리의 어려움"
+          ]
+        },
+        {
+          "title": "리소스 관리의 복잡성",
+          "details": [
+            "대규모 리소스 관리의 어려움",
+            "상태 관리의 복잡성",
+            "리소스 의존성 관리"
+          ]
+        }
+      ],
+      "integrations": {
+        "ci_cd": [
+          "Jenkins",
+          "GitHub Actions",
+          "CircleCI",
+          "Travis CI"
+        ],
+        "cloud_providers": [
+          "AWS",
+          "Azure",
+          "GCP",
+          "OpenStack"
+        ],
+        "monitoring": [
+          "Prometheus",
+          "Datadog",
+          "CloudWatch",
+          "Grafana"
+        ]
+      },
+      "pricing": {
+        "plans": [
+          {
+            "name": "Ansible Core",
+            "cost": "무료",
+            "features": [
+              "모든 핵심 기능",
+              "커뮤니티 지원",
+              "GitHub 이슈 기반 지원"
+            ]
+          },
+          {
+            "name": "Ansible Automation Platform",
+            "cost": "구독 기반",
+            "features": [
+              "전문가 지원",
+              "SLA 보장",
+              "고급 보안 기능",
+              "프리미엄 통합 기능",
+              "팀 협업 기능"
+            ]
+          }
+        ]
+      },
+      "useCases": {
+        "suitable": [
+          "대규모 인프라스트럭처 관리",
+          "자동화된 배포 및 구성",
+          "다중 환경 관리",
+          "컨테이너 오케스트레이션",
+          "클라우드 및 온프레미스 하이브리드 환경"
+        ],
+        "unsuitable": [
+          "간단한 인프라스트럭처 설정",
+          "소규모 프로젝트",
+          "리소스가 제한된 환경",
+          "고급 인프라스트럭처 관리가 필요하지 않은 경우"
+        ]
+      }
+    }
+  }

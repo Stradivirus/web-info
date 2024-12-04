@@ -1,0 +1,127 @@
+{
+    "spinnaker": {
+      "name": "Spinnaker",
+      "description": "넷플릭스가 개발한 오픈소스 멀티 클라우드 CD 플랫폼",
+      "mainFeatures": [
+        {
+          "title": "멀티 클라우드 지원",
+          "details": [
+            "AWS, GCP, Azure, OpenStack 등 지원",
+            "쿠버네티스 네이티브 지원",
+            "하이브리드 클라우드 배포",
+            "크로스 리전 배포"
+          ]
+        },
+        {
+          "title": "파이프라인 관리",
+          "details": [
+            "시각적 파이프라인 에디터",
+            "재사용 가능한 파이프라인 템플릿",
+            "조건부 실행",
+            "수동 판단 단계 지원"
+          ]
+        },
+        {
+          "title": "배포 전략",
+          "details": [
+            "Blue/Green 배포",
+            "카나리 배포",
+            "롤링 업데이트",
+            "Red/Black 배포"
+          ]
+        },
+        {
+          "title": "모니터링",
+          "details": [
+            "실시간 파이프라인 상태",
+            "배포 기록 추적",
+            "클라우드 리소스 모니터링",
+            "커스텀 메트릭 통합"
+          ]
+        }
+      ],
+      "deploymentStrategies": {
+        "blueGreen": {
+          "description": "두 개의 동일한 환경을 번갈아가며 배포",
+          "features": [
+            "즉각적인 롤백 가능",
+            "무중단 배포",
+            "사용자 영향 최소화"
+          ]
+        },
+        "canary": {
+          "description": "일부 트래픽만 새 버전으로 전환하여 검증",
+          "features": [
+            "자동화된 분석",
+            "점진적 트래픽 이동",
+            "자동 롤백 지원"
+          ]
+        },
+        "metrics": {
+          "description": "배포 진행 상황을 모니터링하는 지표",
+          "features": [
+            "에러율",
+            "레이턴시",
+            "CPU 사용률",
+            "메모리 사용률"
+            ]
+        }
+      },
+      "advantages": [
+        {
+          "title": "확장성",
+          "details": [
+            "대규모 배포 관리",
+            "복잡한 파이프라인 지원",
+            "다중 계정/리전 배포",
+            "커스텀 스테이지 확장"
+          ]
+        },
+        {
+          "title": "안정성",
+          "details": [
+            "검증된 배포 전략",
+            "자동화된 롤백",
+            "이중화 구성",
+            "장애 격리"
+          ]
+        }
+      ],
+      "disadvantages": [
+        {
+          "title": "복잡성",
+          "details": [
+            "복잡한 초기 설정",
+            "높은 학습 곡선",
+            "많은 구성 요소",
+            "리소스 부하"
+          ]
+        },
+        {
+          "title": "리소스",
+          "details": [
+            "높은 메모리 요구사항",
+            "복잡한 인프라 요구",
+            "관리 부담"
+          ]
+        }
+      ],
+      "supportedPlatforms": {
+        "cloudProviders": [
+          {
+            "name": "AWS",
+            "services": ["EC2", "ECS", "Lambda", "EKS"]
+          },
+          {
+            "name": "GCP",
+            "services": ["GCE", "GKE", "Cloud Functions"]
+          },
+          {
+            "name": "Azure",
+            "services": ["VM", "AKS", "Functions"]
+          }
+        ],
+        "containerPlatforms": ["Kubernetes", "OpenShift", "Docker"]
+      }
+    }
+  }

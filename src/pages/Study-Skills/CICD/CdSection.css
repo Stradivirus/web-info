@@ -1,0 +1,283 @@
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+
+:root {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 
+  'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+.cd-container {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.cd-section {
+  margin-bottom: 0.4rem;
+}
+
+.cd-page-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #000000;
+}
+
+.cd-section-button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cd-section-button:hover {
+  background-color: #f1f5f9;
+}
+
+.cd-section-button.expanded {
+  background-color: #e2e8f0;
+}
+
+.cd-button-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cd-button-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cd-button-left h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.cd-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin: 0.2rem 0 0 0;
+}
+
+.cd-section-content {
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius:12px;
+  padding: 14px;
+  background-color: white;
+  animation: slideDown 0.3s ease-out;
+}
+
+.cd-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cd-feature-card, 
+.cd-pricing-card {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cd-feature-card h4,
+.cd-pricing-card h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1e40af;
+}
+
+.cd-feature-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.cd-feature-item {
+  margin-bottom: 0.2rem;
+}
+
+/* 장점 스타일 */
+.cd-feature-item.advantage h5 {
+  color: #15803d;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+/* 단점 스타일 */
+.cd-feature-item.disadvantage h5 {
+  color: #b91c1c;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.cd-feature-item h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.3rem;
+}
+
+.cd-feature-item > p {
+  font-size: 1.25rem;
+  color: #4b5563;
+  margin: 0.7rem 0;
+  line-height: 1.6;
+}
+
+.cd-feature-item ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.cd-feature-item li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  font-size: 1.15rem;
+}
+
+/* 가격 정책 스타일 */
+.cd-pricing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cd-pricing-item {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.cd-pricing-item h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+}
+
+.cd-pricing-cost {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.cd-pricing-features {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.cd-pricing-features li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+/* 컨테이너 플랫폼 섹션 */
+.cd-container-platforms {
+  margin-top: 1.5rem;
+}
+
+.cd-container-platforms h5,
+.cd-suitable h5 {
+  color: #15803d;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #15803d;
+}
+
+.cd-suitability-section {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.cd-suitable {
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .cd-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cd-container {
+    padding: 1rem;
+  }
+  
+  .cd-page-title {
+    font-size: 1.8rem;
+  }
+  
+  .cd-button-left h3 {
+    font-size: 1.3rem;
+  }
+  
+  .cd-subtitle {
+    font-size: 1rem;
+  }
+  
+  .cd-section-content {
+    padding: 1rem;
+  }
+
+  .cd-feature-card h4,
+  .cd-pricing-card h4 {
+    font-size: 1.5rem;
+  }
+  
+  .cd-feature-item h5 {
+    font-size: 1.1rem;
+  }
+
+  .cd-feature-item li {
+    font-size: 1rem;
+  }
+
+  .cd-suitability-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cd-pricing-item h5 {
+    font-size: 1.1rem;
+  }
+
+  .cd-pricing-cost {
+    font-size: 1rem;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
