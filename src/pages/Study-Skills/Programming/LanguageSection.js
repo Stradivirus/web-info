@@ -19,7 +19,7 @@ const LanguageSection = ({ language, data, isExpanded, onToggle }) => {
           <div className="programming-content-grid">
             <div className="programming-overview-section">
               <div className="programming-section-card">
-                <h3>개요 및 특징</h3>
+                <h3>특징</h3>
                 <h4 className="programming-advantages">장점</h4>
                 <div className="programming-feature-list">
                   {data.advantages.map((advantage, index) => (
