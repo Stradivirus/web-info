@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 정보처리기능사 from '../../assets/images/certifications/0-20241112160852435.png';
 import AWS from '../../assets/images/certifications/AWS Certified Cloud Practitioner certificate.png';
+import AWS_sa from '../../assets/images/certifications/AWS Certified Solutions Architect.png';
 import NCA from '../../assets/images/certifications/Naver Cloud Platform.png';
 import NCP from '../../assets/images/certifications/NCP.png';
 import './Certifications.css';
@@ -19,6 +20,13 @@ const certifications = [
     issuer: "Amazon Web Services",
     date: "2024.11",
     imagePath: AWS,
+  },
+  {
+    id: 5,
+    title: "AWS Certified Solutions Architect",
+    issuer: "Amazon Web Services",
+    date: "2024.12",
+    imagePath: AWS_sa,
   },
   {
     id: 3,
@@ -66,7 +74,7 @@ const CertificationsPage = () => {
                 <h3>{cert.title}</h3>
                 <div className="certification-tags">
                   <span className="certification-tag">{cert.issuer}</span>
-                  <span className="certification-tag">취득일: {cert.date}</span>
+                  <span className="certification-tag">취득월: {cert.date}</span>
                 </div>
               </div>
             </div>
@@ -84,7 +92,7 @@ const CertificationsPage = () => {
               />
               <div className="modal-info">
                 <h3>{selectedImage.title}</h3>
-                <p>{selectedImage.issuer} | 취득일: {selectedImage.date}</p>
+                <p>{selectedImage.issuer} | 취득월: {selectedImage.date}</p>
               </div>
               <button className="modal-close" onClick={closeModal}>×</button>
             </div>
