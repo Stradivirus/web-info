@@ -54,7 +54,15 @@ const Profile = () => {
             </div>
             <div className="certification-item">
               <Award className="cert-icon" size={16} />
-              <span>NAVER Cloud Platform Certified Associate</span>
+              <span>AWS Certified Solutions Architect</span>
+            </div>
+            <div className="certification-item">
+              <Award className="cert-icon" size={16} />
+              <span>NAVER Certified Associate</span>
+            </div>
+            <div className="certification-item">
+              <Award className="cert-icon" size={16} />
+              <span>NAVER Certified Professional</span>
             </div>
           </div>
           <div className="profile-info">
