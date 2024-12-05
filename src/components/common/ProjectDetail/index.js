@@ -289,7 +289,7 @@ const ProjectDetail = ({
             {/* 느낀 점 섹션 */}
             {reflection && (
               <div className="content-section">
-                <h2>느낀 점</h2>
+                <h2>어려웠던 점</h2>
                 <p><LineBreak text={reflection} /></p>
               </div>
             )}

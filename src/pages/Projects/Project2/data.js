@@ -37,6 +37,7 @@ const screenshots = imageContext.keys()
   
 export const projectData = {
   title: "CBT 까짓것 내가 만든다",
+  description: "3-Tier 아키텍처 기반의 시험 문제 관리 플랫폼 (Nginx + Django + PostgreSQL)",
   period: "2024.6 - 2024.6",
 
   techStack: [
@@ -49,13 +50,12 @@ export const projectData = {
 
   objectives: [
     "기존 TXT/PDF 형식의 시험 문제들을 실제 CBT(Computer Based Test) 환경으로 구현",
-    "새로운 시험 문제를 쉽게 추가하고 관리할 수 있는 확장 가능한 플랫폼 구축",
-    "사용자 친화적인 인터페이스를 통한 효율적인 학습 환경 제공"
+    "새로운 시험 문제를 추가하고 관리할 수 있는 확장 가능한 플랫폼 구축"
   ],
 
   features: [
     "텍스트 기반 시험 문제 데이터베이스 등록 및 관리",
-    "랜덤 문제 출제 (30문제) 기능",
+    "랜덤 문제 출제 (20문제) 기능",
     "PDF 파일과 정답 데이터 연동 시스템",
     "시험 점수 확인 및 오답 확인 기능"
   ],
@@ -87,19 +87,11 @@ export const projectData = {
     }
   ],
 
-  improvements: `현재 PostgreSQL(Docker)에서 MongoDB Atlas로의 마이그레이션 계획
+  improvements: `데이터베이스 마이그레이션 계획: PostgreSQL(Docker) → MongoDB Atlas
+• SQL과 쉘 스크립트 기반의 수동 데이터 관리를 MongoDB Atlas의 유연한 관리 방식으로 전환
+• 텍스트 기반 데이터의 특성을 고려하여 MongoDB Atlas 무료 티어 활용으로 운영 효율화`,
 
-데이터 관리 방식 개선
-- 현재: 새로운 문제가 추가 될시 수동으로 SQL과 쉘 스크립트 기반 데이터 관리
-- 개선: MongoDB를 통한 더 유연한 데이터 관리
-
-리소스 최적화
-- 텍스트 기반 데이터로 용량 효율적
-- MongoDB Atlas 무료 티어로 충분히 운영 가능`,
-
-  reflection: `이 프로젝트를 통해 Django와 PostgreSQL을 활용한 웹 애플리케이션 개발의 전반적인 과정을 경험할 수 있었습니다.
-특히 Docker를 활용한 컨테이너화 과정에서 개발 환경과 배포 환경의 일관성 유지의 중요성을 배웠습니다. 
-또한, 기존 학습 자료를 디지털화하는 과정에서 데이터 구조화의 중요성과 사용자 편의성을 고려한 기능 설계의 가치를 깊이 이해하게 되었습니다.`,
+  reflection: `기존 3-Tier 아키텍처를 Docker Compose로 전환하는 과정에서 Nginx, Django, PostgreSQL 컨테이너 간 네트워크 연동 문제를 해결하며 컨테이너 간 통신 구조에 대한 이해도를 높였습니다.`,
 
   architectureImg: ArchitectureDiagram,
 

@@ -13,6 +13,7 @@ const allMedia = [
 
 export const projectData = {
   title: "Portfolio Website",
+  description: "AWS S3를 활용한 서버리스 정적 웹 호스팅",
   period: "2024.11 - 2024.11",
   
   techStack: [
@@ -23,7 +24,7 @@ export const projectData = {
   ],
 
   objectives: [
-    "프로젝트 이력을 담은 포트폴리오 웹사이트"
+    "프로젝트 경험과 기술 스택을 담아낸 개인 개발 아카이브"
   ],
 
   features: [
@@ -32,21 +33,18 @@ export const projectData = {
     "React Router를 이용한 SPA 구현"
   ],
 
-  process: `1. 초기 레이아웃 설계 및 컴포넌트 구조화
-2. 기본 구조 완성 및 테스트
-3. AWS S3 버킷 생성 및 정적 웹 호스팅 설정
-4. CloudFront 배포
-5. GitHub Actions를 활용한 배포 자동화 구축
-- 커밋 메시지에 [up] 태그가 포함된 경우에만 S3 배포 및 CloudFront 무효화가 실행되도록 조건부 배포 구현
-- 이를 통해 의도하지 않은 배포를 방지하고 배포 프로세스의 안정성 확보
-6. 컴포넌트 리팩토링 및 최적화
-- 중복 코드 제거를 위한 공통 컴포넌트 분리 (1400줄 정리)
- - 각 프로젝트별 데이터와 UI 로직 분리 (data.js로 분리)
-- CSS 최적화
- - 공통 스타일을 ProjectDetail.css로 통합
- - 프로젝트별 고유 스타일만 유지
-- 데이터 구조화
- - Overview 페이지와 데이터 연동`,
+  process: `1. 프로젝트 설계 및 구조화
+- 레이아웃 설계 및 컴포넌트 구조화
+- 기본 구조 개발 및 테스트
+
+2. AWS 인프라 구축 및 배포 자동화
+- S3 정적 웹 호스팅 구축
+- CloudFront 배포 설정
+- GitHub Actions를 활용한 조건부 자동 배포([up] 태그 기반)
+
+3. 성능 최적화 및 리팩토링
+- 공통 컴포넌트 분리 및 코드 정리
+- 데이터/UI 로직 분리 및 스타일 최적화`,
 
   techDetails: [
     {
@@ -66,8 +64,8 @@ export const projectData = {
     }
   ],
 
-  reflection: `이 프로젝트를 통해 React 컴포넌트 구조화와 GitHub Actions를 활용한 CI/CD 파이프라인 구축 경험을 쌓을 수 있었습니다.
-특히 AWS 서비스를 활용한 배포 과정에서 많은 것을 배웠습니다.`,
+  reflection: `1. 프로젝트별 데이터 구조 통합 과정에서 발생한 다양한 오류를 해결하며 데이터 정규화에 대한 실질적인 경험을 얻었습니다..
+2. GitHub Actions를 처음 사용하여 워크플로우 설정과 조건부 배포를 구현함으로써 새로운 CI/CD 도구 활용 경험을 쌓았습니다.`,
 
   architectureImg: ArchitectureDiagram,
 
