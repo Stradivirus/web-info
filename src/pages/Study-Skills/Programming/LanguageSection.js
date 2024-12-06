@@ -53,19 +53,25 @@ const LanguageSection = ({ language, data, isExpanded, onToggle }) => {
                   ))}
                 </div>
 
-                <h4>사용이 적합한 경우</h4>
-                <ul>
-                  {data.useCases.suitable.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-
-                <h4>사용이 부적합한 경우</h4>
-                <ul>
-                  {data.useCases.unsuitable.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+                {/* 수정된 적합/부적합 섹션 */}
+                <div className="programming-suitability-section">
+                  <div className="programming-suitable">
+                    <h5>적합한 경우</h5>
+                    <ul>
+                      {data.useCases.suitable.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="programming-unsuitable">
+                    <h5>부적합한 경우</h5>
+                    <ul>
+                      {data.useCases.unsuitable.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
             
