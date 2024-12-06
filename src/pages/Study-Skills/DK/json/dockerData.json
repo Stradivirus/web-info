@@ -42,32 +42,7 @@
         ]
       }
     ],
-    "bestPractices": {
-      "imageOptimization": [
-        {
-          "title": "멀티스테이지 빌드",
-          "details": "빌드 도구와 런타임 환경 분리로 이미지 크기 최소화"
-        },
-        {
-          "title": "레이어 최적화",
-          "details": "캐시 활용을 위한 효율적인 레이어 구성"
-        },
-        {
-          "title": "베이스 이미지 선택",
-          "details": "alpine 등 경량 이미지 활용"
-        }
-      ],
-      "security": [
-        {
-          "title": "최소 권한 원칙",
-          "details": "필요한 최소한의 권한만 부여"
-        },
-        {
-          "title": "이미지 스캐닝",
-          "details": "보안 취약점 정기적 검사"
-        }
-      ]
-    },
+
     "troubleshooting": {
       "commonIssues": [
         {
