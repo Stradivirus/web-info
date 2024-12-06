@@ -56,6 +56,10 @@ const Navigation = () => {
         <BookOpen className="nav-icon" size={18} />
         <span>CI & CD & IaC</span>
       </NavLink>
+      <NavLink to="/study-skills/DevTools" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>DevTools</span>
+      </NavLink>
     </nav>
   );
 };

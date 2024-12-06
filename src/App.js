@@ -6,6 +6,7 @@ import CertificationsPage from './pages/Certifications';
 import ProgrammingPage from './pages/Study-Skills/Programming';
 import DatabasePage from './pages/Study-Skills/Database';
 import CICDPage from './pages/Study-Skills/CICD';
+import DevToolsPage from './pages/Study-Skills/DevTools';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/study-skills/programming" element={<ProgrammingPage />} />
           <Route path="/study-skills/database" element={<DatabasePage />} />
           <Route path="/study-skills/CICD" element={<CICDPage />} />
-
+          <Route path="/study-skills/devtools" element={<DevToolsPage />} />
         </Routes>
       </Layout>
     </Router>
