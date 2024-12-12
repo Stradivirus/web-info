@@ -42,32 +42,36 @@ const DevToolsSection = ({
 
               <div className="devtools-features">
                 <h3 className="devtools-advantages">장점</h3>
-                <ul>
-                  {toolData.advantages.map((advantage, index) => (
-                    <li key={index}>
-                      <strong>{advantage.title}</strong>
-                      <ul>
-                        {advantage.details.map((detail, idx) => (
-                          <li key={idx}>{detail}</li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
+                <div className="advantages-section">
+                  <ul>
+                    {toolData.advantages.map((advantage, index) => (
+                      <li key={index}>
+                        <h5><strong>{advantage.title}</strong></h5>
+                        <ul>
+                          {advantage.details.map((detail, idx) => (
+                            <li key={idx}>{detail}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 <h3 className="devtools-disadvantages">단점</h3>
-                <ul>
-                  {toolData.disadvantages.map((disadvantage, index) => (
-                    <li key={index}>
-                      <strong>{disadvantage.title}</strong>
-                      <ul>
-                        {disadvantage.details.map((detail, idx) => (
-                          <li key={idx}>{detail}</li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
+                <div className="disadvantages-section">
+                  <ul>
+                    {toolData.disadvantages.map((disadvantage, index) => (
+                      <li key={index}>
+                        <h5><strong>{disadvantage.title}</strong></h5>
+                        <ul>
+                          {disadvantage.details.map((detail, idx) => (
+                            <li key={idx}>{detail}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
 
