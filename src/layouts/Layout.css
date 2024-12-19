@@ -10,7 +10,7 @@
 
 .content-wrapper {
   display: flex;
-  padding-top: 180px;
+  padding-top: 10px;
   min-height: calc(100vh - 180px);
 }
 

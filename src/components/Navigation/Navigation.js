@@ -1,6 +1,8 @@
+// Navigation.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, FolderOpen, Award, BookOpen } from 'lucide-react';
+import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github } from 'lucide-react';
+import profilePhoto from '../../assets/images/profile/my-photo.jpg';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -10,6 +12,36 @@ const Navigation = () => {
 
   return (
     <nav className="nav-container">
+      {/* 프로필 섹션 */}
+      <div className="profile-section">
+        <div className="profile-photo">
+          <img src={profilePhoto} alt="Profile" className="profile-image" />
+        </div>
+        <div className="profile-info">
+          <h2 className="profile-name">문성종</h2>
+          <div className="profile-contact">
+            <div className="contact-item">
+              <Mail className="contact-icon" size={16} />
+              <span>stradivirus@naver.com</span>
+            </div>
+            <div className="contact-item">
+              <Phone className="contact-icon" size={16} />
+              <span>010-9875-6325</span>
+            </div>
+            <a 
+              href="https://github.com/stradivirus" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="contact-item contact-link"
+            >
+              <Github className="contact-icon" size={16} />
+              <span>github.com/stradivirus</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* 기존 네비게이션 메뉴 */}
       <NavLink to="/" className={getLinkClassName} end>
         <Home className="nav-icon" size={18} />
         <span>홈</span>
