@@ -53,12 +53,6 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 300px;
-  }
-}
-
 /* 자격증 그리드 레이아웃 */
 .certifications-grid {
   display: grid;
@@ -110,11 +104,18 @@
     margin-left: 0;
     width: 100%;
   }
-}
-
-@media (max-width: 768px) {
+  
   .projects-grid {
-    grid-template-columns: 1fr;  /* 2열에서 1열로 변경 */
-    gap: 10px;  /* 간격도 조금 줄여줄 수 있습니다 */
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .project-card .tag {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .project-card .project-tags {
+    gap: 6px;
   }
 }

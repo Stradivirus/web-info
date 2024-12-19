@@ -61,19 +61,3 @@
   background-color: #2563eb;
   color: #ffffff;
 }
-
-@media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .project-card {
-    padding: 10px;
-  }
-}
