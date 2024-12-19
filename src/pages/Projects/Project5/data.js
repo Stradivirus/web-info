@@ -54,9 +54,6 @@ export const projectData = {
   
     features: [
       "MongoDB Atlas에 저장된 시험 문제 풀에서 랜덤 출제",
-      "AWS S3 정적 호스팅과 CloudFront를 통한 글로벌 배포",
-      "GCP Cloud Run의 Go 서버를 통한 효율적인 API 처리",
-      "GitHub Actions를 통한 배포 자동화 및 캐시 무효화"
     ],
   
     process: `환경 구축
@@ -73,25 +70,25 @@ export const projectData = {
       {
         title: "Frontend",
         items: [
-          "Vite - 빌드 도구",
-          "React + TypeScript - 사용자 인터페이스",
-          "AWS S3 - 정적 호스팅",
-          "CloudFront - CDN 배포"
+          "Vite",
+          "React + TypeScript",
+          "AWS S3",
+          "CloudFront"
         ]
       },
       {
         title: "Backend",
         items: [
-          "Go - API 서버",
-          "GCP Cloud Run - 서버리스 호스팅",
-          "MongoDB Atlas - 데이터베이스"
+          "Go",
+          "GCP Cloud Run",
+          "MongoDB Atlas"
         ]
       },
       {
         title: "DevOps",
         items: [
-          "GitHub Actions - CI/CD",
-          "WSL + VSCode - 개발 환경"
+          "GitHub Actions",
+          "WSL + VSCode"
         ]
       }
     ],

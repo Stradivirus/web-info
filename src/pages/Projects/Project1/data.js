@@ -24,7 +24,7 @@ export const projectData = {
   ],
 
   objectives: [
-    "프로젝트 경험과 기술 스택을 담아낸 개인 개발 아카이브"
+    "프로젝트 경험과 기술 스택을 정리한 개인 개발 아카이브"
   ],
 
   features: [
@@ -35,7 +35,6 @@ export const projectData = {
 
   process: `1. 프로젝트 설계 및 구조화
 - 레이아웃 설계 및 컴포넌트 구조화
-- 기본 구조 개발 및 테스트
 
 2. AWS 인프라 구축 및 배포 자동화
 - S3 정적 웹 호스팅 구축
@@ -50,22 +49,22 @@ export const projectData = {
     {
       title: "Frontend",
       items: [
-        "React - 사용자 인터페이스 구축",
-        "React Router - 클라이언트 사이드 라우팅",
-        "CSS - 반응형 디자인 및 스타일링"
+        "React",
+        "React Router",
+        "CSS"
       ]
     },
     {
       title: "Deployment",
       items: [
-        "AWS S3 - 정적 웹사이트 호스팅",
-        "GitHub Actions - CI/CD 자동화"
+        "AWS S3",
+        "GitHub Actions"
       ]
     }
   ],
 
-  reflection: `1. 프로젝트별 데이터 구조 통합 과정에서 발생한 다양한 오류를 해결하며 데이터 정규화에 대한 실질적인 경험을 얻었습니다..
-2. GitHub Actions를 처음 사용하여 워크플로우 설정과 조건부 배포를 구현함으로써 새로운 CI/CD 도구 활용 경험을 쌓았습니다.`,
+  reflection: `1. 프로젝트별 데이터 구조 통합 과정에서 발생한 오류를 해결하며 데이터 정규화에 대한 경험을 얻었습니다.
+2. GitHub Actions를 처음 사용하여 워크플로우 설정과 조건부 배포를 구현함으로써 새로운 CI/CD 경험을 쌓았습니다.`,
 
   architectureImg: ArchitectureDiagram,
 

@@ -69,7 +69,6 @@ export const projectData = {
   process: `1. 기본 환경 구축
 • Nginx를 통한 프록시 서버 구성
 • React(프론트엔드) - Express.js(API 서버) - Postgresql - Django(admin) 연동
-• Docker compose 멀티 컨테이너 환경 구성
 
 2. 핵심 기능 구현
 Express.js 백엔드:
@@ -89,31 +88,31 @@ Django 어드민:
     {
       title: "Frontend",
       items: [
-        "React - 사용자 인터페이스 구축"
+        "React"
       ]
     },
     {
       title: "Main Backend (Express.js)",
       items: [
-        "Express.js - REST API 개발",
-        "Express-Postgres - DB 연동"
+        "Express.js",
+        "Express-Postgres"
       ]
     },
     {
       title: "Admin Backend (Django)",
       items: [
-        "Django Admin - 데이터 조회 인터페이스"
+        "Django Admin"
       ]
     },
     {
       title: "Infrastructure",
       items: [
-        "Nginx - 리버스 프록시",
-        "PostgreSQL - 데이터베이스",
-        "Docker & Docker-compose - 컨테이너화",
-        "Jenkins - CI/CD",
-        "GCP - 클라우드 호스팅",
-        "Slack - 10명마다 알림"
+        "Nginx",
+        "PostgreSQL",
+        "Docker & Docker-compose",
+        "Jenkins",
+        "GCP",
+        "Slack"
       ]
     }
   ],

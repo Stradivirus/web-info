@@ -318,7 +318,7 @@
 
 @media (max-width: 768px) {
     .container {
-        padding: 24px;
+        padding: 20px;
     }
 
     .overview-container {
@@ -338,7 +338,7 @@
     }
 
     .screenshots {
-        padding: 16px;
+        padding: 12px;
         margin-top: 24px;
     }
 

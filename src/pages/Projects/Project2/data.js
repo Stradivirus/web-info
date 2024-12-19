@@ -62,7 +62,6 @@ export const projectData = {
 
   process: `1. 기본 환경 구축
 • Nginx, Django, PostgreSQL 연동 구성
-• 메인 페이지 및 기본 라우팅 설정
 
 2. 단계별 기능 구현
 • TXT 파일 기반 문제 데이터베이스 등록 시스템 개발
@@ -70,19 +69,18 @@ export const projectData = {
 • 랜덤 문제 출제 및 채점 시스템 구현
 
 3. 시스템 배포
-• Docker 컨테이너화 및 Docker-compose 구성
 • GCP 환경 배포 및 서비스 실행`,
 
   techDetails: [
     {
       title: "Backend & Infrastructure",
       items: [
-        "Nginx - 웹 서버",
-        "Django - 웹 애플리케이션 프레임워크",
-        "PostgreSQL - 관계형 데이터베이스",
-        "Docker & Docker-compose - 컨테이너화",
-        "Google Cloud Platform - 클라우드 서버",
-        "Jenkins - Docker 이미지 자동 빌드 및 배포 자동화"
+        "Nginx",
+        "Django",
+        "PostgreSQL",
+        "Docker & Docker-compose",
+        "Google Cloud Platform",
+        "Jenkins"
       ]
     }
   ],

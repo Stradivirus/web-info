@@ -56,7 +56,7 @@ export const projectData = {
   ],
 
   objectives: [
-    "실시간 양방향 통신 기반의 고성능 채팅 서비스 구축"
+    "실시간 양방향 통신 기반의 채팅 서비스 구축"
   ],
 
   features: [
@@ -66,8 +66,8 @@ export const projectData = {
   ],
 
   process: `1. 기본 환경 구축
-• 아키텍처 설계 및 기술 스택 선정
-• Nginx, React, FastAPI, Redis, PostgreSQL 환경 구성
+• 가장 먼저 배운 프레임워크인 Django로 만들 생각이었지만 Fastapi라는 웹소켓에 어울리는 프레임워크로 변경
+• 메시지 브로커로 Kafka와 Redis를 비교했으나, 실시간 채팅에 적합한 인메모리 기반의 가벼운 Redis 선택
 • WebSocket 기반 실시간 통신 구현
 • Docker 기반 개발 환경 구성
 
@@ -86,25 +86,25 @@ export const projectData = {
     {
       title: "Frontend & Backend",
       items: [
-        "React - 사용자 인터페이스 구현",
-        "FastAPI - 비동기 백엔드 서버",
-        "WebSocket - 실시간 양방향 통신"
+        "React",
+        "FastAPI",
+        "WebSocket"
       ]
     },
     {
       title: "Database & Cache",
       items: [
-        "Redis - 실시간 데이터 캐싱 및 세션 관리",
-        "PostgreSQL - 메시지 및 사용자 데이터 영구 저장"
+        "Redis",
+        "PostgreSQL"
       ]
     },
     {
       title: "Infrastructure",
       items: [
-        "Nginx - 웹 서버 및 리버스 프록시",
-        "Docker & Docker-compose - 컨테이너 관리",
-        "GCP - 클라우드 인프라",
-        "Jenkins - CI/CD 자동화"
+        "Nginx",
+        "Docker & Docker-compose",
+        "GCP",
+        "Jenkins"
       ]
     }
   ],
@@ -116,7 +116,8 @@ export const projectData = {
 • 마이크로서비스 아키텍처 도입
 • 자동 스케일링 및 무중단 배포 체계 구축`,
 
-  reflection: `채팅 내역 저장 과정에서 FastAPI에서 Redis와 PostgreSQL에 동시에 채팅 내역이 저장되는 문제를 FastAPI → Redis → PostgreSQL 순서로 데이터 흐름을 개선하여 해결했습니다.`,
+  reflection: `1. Fastapi와 Postgresql만 사용했을 때 부하 테스트 시 채팅 내역이 제대로 저장 되지 않아 Redis 도입 선택
+  2. 채팅 내역 저장 과정에서 FastAPI에서 Redis와 PostgreSQL에 동시에 채팅 내역이 저장되는 문제를 FastAPI → Redis → PostgreSQL 순서로 데이터 흐름을 개선하여 해결했습니다.`,
 
   architectureImg: ArchitectureDiagram,
   
