@@ -2,10 +2,10 @@ import React from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import './Sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   return (
-    <aside className="sidebar">
-      <div className="sidebar-nav">
+    <aside className={`sidebar ${isOpen ? 'mobile-open' : ''}`} onClick={onClose}>
+      <div className="sidebar-nav" onClick={(e) => e.stopPropagation()}>
         <Navigation />
       </div>
     </aside>
