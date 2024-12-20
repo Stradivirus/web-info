@@ -32,7 +32,7 @@ const allMedia = [
 ];
 
 export const projectData = {
-    title: "시험 문제 출제 시스템",
+    title: "서버리스 CBT",
     period: "2024.11 - 2024.11",
     description: "멀티 클라우드 기반의 시험 문제 출제 시스템",
   

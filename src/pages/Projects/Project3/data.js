@@ -42,7 +42,7 @@ const allMedia = [
 ];
 
 export const projectData = {
-  title: "다소니",
+  title: "다소니 - 채팅 프로그램",
   description: "사랑하는 사람을 뜻하는 순 우리말. 소중한 인연을 더욱 특별하게 만든다는 의미를 담았다.",
   period: "2024.8 - 2024.8",
   techStack: [
