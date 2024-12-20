@@ -25,7 +25,13 @@ jobs:
         
       - name: Set build time
         run: |
-          echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +'%Y년 %m월 %d일 %p %I시')" >> $GITHUB_ENV
+          ampm=$(TZ='Asia/Seoul' date +%p)
+          if [ "$ampm" = "AM" ]; then
+            period="오전"
+          else
+            period="오후"
+          fi
+          echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +"'%Y년 %m월 %d일'") $period $(TZ='Asia/Seoul' date +%I시)" >> $GITHUB_ENV
         
       - name: Build
         env:
