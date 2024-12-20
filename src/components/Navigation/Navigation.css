@@ -68,12 +68,24 @@
   color: #2563eb;
 }
 
-/* 마지막 업데이트 시간은 조금 작게 유지 */
-.contact-item:last-child {
-  font-size: 0.875rem;
-  margin-top: 4px;
+/* 마지막 업데이트 스타일 */
+.update-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.update-label {
   color: #6b7280;
+  font-size: 0.875rem;
   font-weight: normal;
+}
+
+.update-time {
+  color: #2563eb;
+  font-weight: 500;
+  font-size: 0.875rem;
 }
 
 /* 네비게이션 컨테이너 */

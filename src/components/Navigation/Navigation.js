@@ -23,11 +23,11 @@ const Navigation = () => {
           <h2 className="profile-name">문성종의 PortFolio</h2>
           <div className="profile-contact">
             <div className="contact-item">
-              <Mail className="contact-icon" size={16} />
+              <Mail className="contact-icon" size={18} />
               <span>stradivirus@naver.com</span>
             </div>
             <div className="contact-item">
-              <Phone className="contact-icon" size={16} />
+              <Phone className="contact-icon" size={18} />
               <span>010-9875-6325</span>
             </div>
             <a 
@@ -36,12 +36,15 @@ const Navigation = () => {
               rel="noopener noreferrer"
               className="contact-item contact-link"
             >
-              <Github className="contact-icon" size={16} />
+              <Github className="contact-icon" size={18} />
               <span>github.com/stradivirus</span>
             </a>
             <div className="contact-item">
-              <History className="contact-icon" size={16} />
-              <span>마지막 업데이트: {buildTime}</span>
+              <History className="contact-icon" size={18} />
+              <div className="update-info">
+                <span className="update-label">마지막 업데이트</span>
+                <span className="update-time">{buildTime}</span>
+              </div>
             </div>
           </div>
         </div>
