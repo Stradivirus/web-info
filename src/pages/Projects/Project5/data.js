@@ -57,14 +57,13 @@ export const projectData = {
     ],
   
     process: `환경 구축
-• MongoDB Atlas 데이터베이스 구성
+• MongoDB Atlas 데이터베이스 등록
 • Go 백엔드 서버 (GCP Cloud Run) 구축
 • React + TypeScript 프론트엔드 개발
 • GitHub Actions를 통한 조건부 자동 배포 구성
 
 주요 기능 구현
-• 시험 문제 출제 및 응답 처리 UI 개발
-• Go 기반 API 서버와 MongoDB 연동`,
+• 시험 문제 출제 및 응답 처리 UI 개발`,
   
     techDetails: [
       {

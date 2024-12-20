@@ -78,7 +78,6 @@ export const projectData = {
 • 사용자 관리 및 스팸 차단 기능 구현
 
 3. 배포 및 운영
-• Docker-compose 기반 멀티 컨테이너 구성
 • GCP 환경 배포 및 서비스 실행
 • Jenkins를 통한 CI/CD 파이프라인 구축`,
 

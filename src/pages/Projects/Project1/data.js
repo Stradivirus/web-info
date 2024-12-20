@@ -29,8 +29,7 @@ export const projectData = {
 
   features: [
     "GitHub Actions를 통한 CI/CD 구축",
-    "AWS S3를 활용한 정적 웹사이트 호스팅",
-    "React Router를 이용한 SPA 구현"
+    "AWS S3를 활용한 정적 웹사이트 호스팅"
   ],
 
   process: `1. 프로젝트 설계 및 구조화

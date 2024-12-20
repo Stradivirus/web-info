@@ -89,7 +89,8 @@ export const projectData = {
 • SQL과 쉘 스크립트 기반의 수동 데이터 관리를 MongoDB Atlas의 유연한 관리 방식으로 전환
 • 텍스트 기반 데이터의 특성을 고려하여 MongoDB Atlas 무료 티어 활용으로 운영 효율화`,
 
-  reflection: `기존 3-Tier 아키텍처를 Docker Compose로 전환하는 과정에서 Nginx, Django, PostgreSQL 컨테이너 간 네트워크 연동 문제를 해결하며 컨테이너 간 통신 구조에 대한 이해도를 높였습니다.`,
+  reflection: `1. 교육 과정 중 처음으로 만들어 본 프로젝트라서 알파버전은 리눅스 쉘에서 작동 되는 것을 만들었고 새롭게 웹에 띄워보는 것을 목표로 해서 만들었습니다.
+  2.기존 3-Tier 아키텍처를 Docker Compose로 전환하는 과정에서 Nginx, Django, PostgreSQL 컨테이너 간 네트워크 연동 문제를 해결하며 컨테이너 간 통신 구조에 대한 이해도를 높였습니다.`,
 
   architectureImg: ArchitectureDiagram,
 
