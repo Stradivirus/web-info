@@ -29,35 +29,51 @@
   font-size: 1.4rem;
   font-weight: 700;
   color: #1e40af;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
 }
 
 .profile-contact {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.875rem;
+  gap: 12px;
+  font-size: 1rem;
   color: #4b5563;
+  font-weight: 500;
+  transition: all 0.2s;
 }
 
 .contact-icon {
   color: #2563eb;
+  width: 18px;
+  height: 18px;
 }
 
 .contact-link {
   text-decoration: none;
   color: inherit;
-  transition: color 0.2s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s;
 }
 
 .contact-link:hover {
   color: #2563eb;
+}
+
+/* 마지막 업데이트 시간은 조금 작게 유지 */
+.contact-item:last-child {
+  font-size: 0.875rem;
+  margin-top: 4px;
+  color: #6b7280;
+  font-weight: normal;
 }
 
 /* 네비게이션 컨테이너 */

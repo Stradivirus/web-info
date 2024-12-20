@@ -23,7 +23,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
         
+      - name: Set build time
+        run: |
+          echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +'%Y년 %m월 %d일 %p %I시')" >> $GITHUB_ENV
+        
       - name: Build
+        env:
+          REACT_APP_BUILD_TIME: ${{ env.REACT_APP_BUILD_TIME }}
         run: npm run build
         
       - name: Configure AWS Credentials

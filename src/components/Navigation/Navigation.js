@@ -1,7 +1,7 @@
 // Navigation.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github } from 'lucide-react';
+import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History } from 'lucide-react';
 import profilePhoto from '../../assets/images/profile/my-photo.jpg';
 import './Navigation.css';
 
@@ -9,6 +9,8 @@ const Navigation = () => {
   const getLinkClassName = ({ isActive }) => {
     return `nav-item ${isActive ? 'active' : ''}`;
   };
+
+  const buildTime = process.env.REACT_APP_BUILD_TIME || '업데이트 정보 없음';
 
   return (
     <nav className="nav-container">
@@ -18,7 +20,7 @@ const Navigation = () => {
           <img src={profilePhoto} alt="Profile" className="profile-image" />
         </div>
         <div className="profile-info">
-          <h2 className="profile-name">문성종</h2>
+          <h2 className="profile-name">문성종의 PortFolio</h2>
           <div className="profile-contact">
             <div className="contact-item">
               <Mail className="contact-icon" size={16} />
@@ -37,6 +39,10 @@ const Navigation = () => {
               <Github className="contact-icon" size={16} />
               <span>github.com/stradivirus</span>
             </a>
+            <div className="contact-item">
+              <History className="contact-icon" size={16} />
+              <span>마지막 업데이트: {buildTime}</span>
+            </div>
           </div>
         </div>
       </div>
