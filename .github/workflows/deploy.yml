@@ -31,7 +31,7 @@ jobs:
           else
             period="오후"
           fi
-          echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +"'%Y년 %m월 %d일'") $period $(TZ='Asia/Seoul' date +%I시)" >> $GITHUB_ENV
+          echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +%Y년\ %m월\ %d일) $period $(TZ='Asia/Seoul' date +%I시)" >> $GITHUB_ENV
         
       - name: Build
         env:
