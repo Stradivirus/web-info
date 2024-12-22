@@ -107,7 +107,7 @@ const CiSection = () => {
   };
 
   return (
-    <div className="ci-container">
+    <div>
       {ciTools.map(({ id, data }) => (
         <div key={id} className="ci-section">
           <button 

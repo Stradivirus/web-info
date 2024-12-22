@@ -225,7 +225,7 @@ const CdSection = () => {
   };
 
   return (
-    <div className="cd-container">
+    <div>
       {cdTools.map(({ id, data }) => (
         <div key={id} className="cd-section">
           <button 

@@ -147,7 +147,7 @@ const IacSection = () => {
   };
 
   return (
-    <div className="iac-container">
+    <div>
       {iacTools.map(({ id, data }) => (
         <div key={id} className="iac-section">
           <button 
