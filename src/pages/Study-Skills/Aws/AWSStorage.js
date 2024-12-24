@@ -40,8 +40,6 @@ const ServiceSection = ({ data }) => {
             </ul>
           </div>
         ))}
-      </div>
-      <div className="storage-right-column">
         <div className="storage-classes">
           <h4 className="section-title">스토리지 클래스</h4>
           {data.storageClasses?.map((storageClass, index) => (
@@ -51,6 +49,8 @@ const ServiceSection = ({ data }) => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="storage-right-column">
         <div className="object-lock">
           <h4 className="section-title">Object Lock 모드</h4>
           {data.objectLockModes?.map((mode, index) => (
@@ -82,7 +82,7 @@ const ServiceSection = ({ data }) => {
         </div>
       </div>
     </div>
-  );
+);
 
   const renderEBSSection = () => (
     <div className="storage-grid">
