@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import awscomputingData from './json/awscomputingData.json';
 import awsnetworkData from './json/awsnetworkData.json';
+import awsstorageData from './json/awsstorageData.json';
 import AWSComputing from './AWSComputing';
 import AWSNetwork from './AWSNetwork';
+import AWSStorage from './AWSStorage';
 import './AwsInfra.css';
 
 const AWSInfraSection = ({ title, subtitle, isExpanded, onToggle, children }) => {
@@ -62,6 +64,16 @@ const AWSIndex = () => {
             onToggle={() => toggleSection('network')}
           >
             <AWSNetwork data={awsnetworkData} />
+          </AWSInfraSection>
+
+          {/* 스토리지 섹션 */}
+          <AWSInfraSection 
+            title="스토리지 서비스"
+            subtitle="안전하고 확장 가능한 스토리지 서비스 제공"
+            isExpanded={expandedSection === 'storage'}
+            onToggle={() => toggleSection('storage')}
+          >
+            <AWSStorage data={awsstorageData} />
           </AWSInfraSection>
         </div>
       </div>

@@ -249,6 +249,40 @@
     line-height: 1.5;
 }
 
+/* 스토리지 서비스 스타일 */
+.aws-storage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.aws-storage-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.aws-storage-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aws-feature-group {
+    margin-top: 1rem;
+}
+
+.aws-item-subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1e40af;
+    margin: 1rem 0 0.5rem;
+}
+
+.aws-accordion-section {
+    margin-bottom: 1rem;
+}
+
 /* 애니메이션 */
 @keyframes aws-slideDown {
     from {
@@ -263,7 +297,8 @@
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
-    .aws-grid-content {
+    .aws-grid-content,
+    .aws-storage-grid {
         grid-template-columns: 1fr;
     }
 
@@ -324,7 +359,7 @@
     font-weight: 600;
     margin-bottom: 1rem;
     color: #000000;
-  }
+}
 
 @media (max-width: 768px) {
     .aws-main-description {

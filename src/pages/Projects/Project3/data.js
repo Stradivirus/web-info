@@ -115,7 +115,7 @@ export const projectData = {
 • 마이크로서비스 아키텍처 도입
 • 자동 스케일링 및 무중단 배포 체계 구축`,
 
-  reflection: `1. Fastapi와 Postgresql만 사용했을 때 부하 테스트 시 채팅 내역이 제대로 저장 되지 않아 Redis 도입 선택
+  reflection: `1. 처음 아키텍쳐 구성시 Kafka와 Redis를 같이 사용하는 구조였는데 개발 과정에서 순환 참조때문에 CPU 사용량이 100%를 사용 하는 바람에 Kafka를 제거하고 Redis Cluster를 사용하는 것으로 아키텍쳐를 변경했습니다.
   2. 채팅 내역 저장 과정에서 FastAPI에서 Redis와 PostgreSQL에 동시에 채팅 내역이 저장되는 문제를 FastAPI → Redis → PostgreSQL 순서로 데이터 흐름을 개선하여 해결했습니다.`,
 
   architectureImg: ArchitectureDiagram,
