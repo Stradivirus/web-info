@@ -7,7 +7,8 @@ import ProgrammingPage from './pages/Study-Skills/Programming';
 import DatabasePage from './pages/Study-Skills/Database';
 import CICDPage from './pages/Study-Skills/CICD';
 import DevToolsPage from './pages/Study-Skills/DevTools';
-import ContainerPage from './pages/Study-Skills/DK'; // 추가
+import ContainerPage from './pages/Study-Skills/DK';
+import AwsPage from './pages/Study-Skills/Aws';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route path="/study-skills/database" element={<DatabasePage />} />
           <Route path="/study-skills/CICD" element={<CICDPage />} />
           <Route path="/study-skills/devtools" element={<DevToolsPage />} />
-          <Route path="/study-skills/container" element={<ContainerPage />} /> {/* 추가 */}
+          <Route path="/study-skills/container" element={<ContainerPage />} />
+          <Route path="/study-skills/Aws" element={<AwsPage />} />
         </Routes>
       </Layout>
     </Router>

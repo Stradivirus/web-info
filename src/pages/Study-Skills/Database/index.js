@@ -116,8 +116,6 @@ const DatabasePage = () => {
             isExpanded={expandedDatabase === 'mssql'}
             onToggle={() => toggleDatabase('mssql')}
           />
-
-          {/* MySQL은 데이터 파일이 준비되면 추가 */}
         </div>
       </div>
     </main>

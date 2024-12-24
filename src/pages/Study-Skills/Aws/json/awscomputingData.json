@@ -1,7 +1,7 @@
 {
     "services": [
       {
-        "title": "Amazon EC2 (Elastic Compute Cloud)",
+        "title": "EC2 (Elastic Compute Cloud)",
         "description": "확장 가능한 가상 서버 컴퓨팅 용량을 클라우드에서 제공",
         "features": [
           {

@@ -101,6 +101,10 @@ const Navigation = () => {
         <BookOpen className="nav-icon" size={18} />
         <span>CI & CD & IaC</span>
       </NavLink>
+      <NavLink to="/study-skills/Aws" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>Aws (추가 중)</span>
+      </NavLink>
       <NavLink to="/study-skills/DevTools" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>DevTools</span>
