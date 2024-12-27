@@ -111,7 +111,8 @@ export const projectData = {
 • 세션 기반에서 JWT 기반 인증으로 전환
 • Kafka 도입을 통한 데이터 처리 보안 강화
 
-Redis 클러스터의 수동 설정 방식을 docker-compose와 Jenkins를 활용한 자동화 배포 시스템으로 개선하고자 합니다.
+Redis 클러스터 수동 설정의 자동화 구현
+• Jenkins와 docker-compose를 활용한 CI/CD 파이프라인 구축
 
 쿠버네티스(GKE) 기반 인프라 전환
 • 마이크로서비스 아키텍처 도입

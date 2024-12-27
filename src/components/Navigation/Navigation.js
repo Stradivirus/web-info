@@ -1,7 +1,7 @@
 // Navigation.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History } from 'lucide-react';
+import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History, Cake } from 'lucide-react';
 import profilePhoto from '../../assets/images/profile/my-photo.jpg';
 import './Navigation.css';
 
@@ -22,6 +22,10 @@ const Navigation = () => {
         <div className="profile-info">
           <h2 className="profile-name">문성종의 PortFolio</h2>
           <div className="profile-contact">
+            <div className="contact-item">
+              <Cake className="contact-icon" size={18} />
+              <span>1987. 10. 30</span>
+            </div>
             <div className="contact-item">
               <Mail className="contact-icon" size={18} />
               <span>stradivirus@naver.com</span>
