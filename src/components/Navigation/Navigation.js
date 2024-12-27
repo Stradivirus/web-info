@@ -23,10 +23,6 @@ const Navigation = () => {
           <h2 className="profile-name">문성종의 PortFolio</h2>
           <div className="profile-contact">
             <div className="contact-item">
-              <Cake className="contact-icon" size={18} />
-              <span>1987. 10. 30</span>
-            </div>
-            <div className="contact-item">
               <Mail className="contact-icon" size={18} />
               <span>stradivirus@naver.com</span>
             </div>
