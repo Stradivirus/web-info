@@ -1,7 +1,7 @@
 // Navigation.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History, Cake } from 'lucide-react';
+import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History } from 'lucide-react';
 import profilePhoto from '../../assets/images/profile/my-photo.jpg';
 import './Navigation.css';
 
