@@ -111,6 +111,8 @@ export const projectData = {
 • 세션 기반에서 JWT 기반 인증으로 전환
 • Kafka 도입을 통한 데이터 처리 보안 강화
 
+Redis 클러스터의 수동 설정 방식을 docker-compose와 Jenkins를 활용한 자동화 배포 시스템으로 개선하고자 합니다.
+
 쿠버네티스(GKE) 기반 인프라 전환
 • 마이크로서비스 아키텍처 도입
 • 자동 스케일링 및 무중단 배포 체계 구축`,
