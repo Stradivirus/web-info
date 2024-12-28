@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AwsStorage.css';
+import './AwsDatabase.css';
 
 const FeatureList = ({ features }) => {
   if (!features) return null;
@@ -14,268 +14,381 @@ const FeatureList = ({ features }) => {
 };
 
 const ServiceSection = ({ data }) => {
-  const renderS3Section = () => (
-    <div className="storage-grid">
-      <div className="storage-left-column">
-        {data.features?.map((feature, idx) => (
-          <div key={idx} className="storage-feature-item">
-            <h4 className="aws-item-title">{feature.title}</h4>
-            <ul className="aws-item-list">
-              {feature.items?.map((item, itemIdx) => (
-                <li key={itemIdx}>
-                  {typeof item === 'string' ? (
-                    item
-                  ) : (
-                    <>
-                      <h5 className="aws-item-subtitle">{item.name}</h5>
-                      <ul className="aws-item-list">
-                        {item.details?.map((detail, detailIdx) => (
-                          <li key={detailIdx}>{detail}</li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-        <div className="storage-classes">
-          <h4 className="section-title">스토리지 클래스</h4>
-          {data.storageClasses?.map((storageClass, index) => (
-            <div key={index} className="storage-class-item">
-              <h5 className="aws-item-subtitle">{storageClass.name}</h5>
-              <FeatureList features={storageClass.details} />
-            </div>
-          ))}
+  const renderAuroraSection = () => (
+    <div className="aws-grid">
+      <div className="aws-left-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">주요 기능</h4>
+          <FeatureList features={data.features} />
         </div>
-      </div>
-      <div className="storage-right-column">
-        <div className="object-lock">
-          <h4 className="section-title">Object Lock 모드</h4>
-          {data.objectLockModes?.map((mode, index) => (
-            <div key={index} className="storage-mode-item">
-              <h5 className="aws-item-subtitle">{mode.name}</h5>
+        <div className="aws-feature-item">
+          <h4 className="section-title">에디션</h4>
+          {data.editions?.map((edition, index) => (
+            <div key={index} className="aws-db-edition-item">
+              <h5 className="aws-item-subtitle">{edition.name}</h5>
               <div className="feature-group">
                 <h6 className="aws-item-subtitle">특징</h6>
-                <FeatureList features={mode.features} />
+                <FeatureList features={edition.features} />
                 <h6 className="aws-item-subtitle">활용 사례</h6>
-                <FeatureList features={mode.useCases} />
+                <FeatureList features={edition.useCases} />
               </div>
             </div>
           ))}
         </div>
-        <div className="cost-optimization">
-          <h4 className="section-title">비용 최적화</h4>
-          {data.costOptimization?.features.map((feature, index) => (
-            <div key={index} className="storage-feature-item">
-              <h5 className="aws-item-subtitle">{feature.name}</h5>
-              <FeatureList features={feature.details} />
-              {feature.useCases && (
-                <>
-                  <h6 className="aws-item-subtitle">활용 사례</h6>
-                  <FeatureList features={feature.useCases} />
-                </>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
-    </div>
-);
-
-  const renderEBSSection = () => (
-    <div className="storage-grid">
-      <div className="storage-left-column">
-        <div className="storage-feature-item">
-          <h4 className="aws-item-title">주요 기능</h4>
-          <FeatureList features={data.features} />
+      <div className="aws-right-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">안정성</h4>
+          <FeatureList features={data.reliability} />
         </div>
-        {data.additionalFeatures && Object.entries(data.additionalFeatures).map(([key, value], idx) => (
-          <div key={idx} className="storage-feature-item">
-            <h4 className="aws-item-title">{key}</h4>
-            {value.description && <p className="aws-description">{value.description}</p>}
-            <FeatureList features={value.features || value.limitations} />
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">보안</h4>
+          <FeatureList features={data.security} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="section-title">성능</h4>
+          <div className="feature-group">
+            <h5 className="aws-item-subtitle">성능 특징</h5>
+            <FeatureList features={data.performance.features} />
+            <h5 className="aws-item-subtitle">모니터링</h5>
+            <FeatureList features={data.performance.monitoring} />
           </div>
-        ))}
-      </div>
-      <div className="storage-right-column">
-        <h4 className="section-title">볼륨 타입</h4>
-        {data.volumeTypes?.map((volumeType, index) => (
-          <div key={index} className="storage-volume-item">
-            <h5 className="aws-item-subtitle">{volumeType.name}</h5>
-            <p className="aws-description">{volumeType.description}</p>
-            <div className="feature-group">
-              <h6 className="aws-item-subtitle">특징</h6>
-              <FeatureList features={volumeType.features} />
-              <h6 className="aws-item-subtitle">활용 사례</h6>
-              <FeatureList features={volumeType.useCases} />
-            </div>
-          </div>
-        ))}
+        </div>
       </div>
     </div>
   );
 
-  const renderEFSSection = () => (
-    <div className="storage-grid">
-      <div className="storage-left-column">
-        <div className="storage-feature-item">
+  const renderRDSSection = () => (
+    <div className="aws-grid">
+      <div className="aws-left-column">
+        <div className="aws-feature-item">
           <h4 className="aws-item-title">주요 기능</h4>
           <FeatureList features={data.features} />
         </div>
-        <div className="storage-classes">
-          <h4 className="section-title">스토리지 클래스</h4>
-          {data.storageClasses?.map((storageClass, index) => (
-            <div key={index} className="storage-class-item">
-              <h5 className="aws-item-subtitle">{storageClass.name}</h5>
-              <FeatureList features={storageClass.details} />
+        <div className="aws-feature-item">
+          <h4 className="section-title">데이터베이스 엔진</h4>
+          {data.engines?.map((engine, index) => (
+            <div key={index} className="aws-db-engine-item">
+              <h5 className="aws-item-subtitle">{engine.name}</h5>
+              <div className="feature-group">
+                <h6 className="aws-item-subtitle">특징</h6>
+                <FeatureList features={engine.features} />
+                <h6 className="aws-item-subtitle">활용 사례</h6>
+                <FeatureList features={engine.useCases} />
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="storage-right-column">
-        <div className="performance-modes">
-          <h4 className="section-title">성능 모드</h4>
-          {data.performanceModes?.map((mode, index) => (
-            <div key={index} className="storage-mode-item">
-              <h5 className="aws-item-subtitle">{mode.name}</h5>
-              <FeatureList features={mode.details} />
-            </div>
-          ))}
-        </div>
-        <div className="throughput-modes">
-          <h4 className="section-title">처리량 모드</h4>
-          {data.throughputModes?.map((mode, index) => (
-            <div key={index} className="storage-mode-item">
-              <h5 className="aws-item-subtitle">{mode.name}</h5>
-              <FeatureList features={mode.details} />
-            </div>
-          ))}
-        </div>
-        {data.accessPoints && (
-          <div className="storage-feature-item">
-            <h4 className="aws-item-title">액세스 포인트</h4>
-            <p className="aws-description">{data.accessPoints.description}</p>
-            <FeatureList features={data.accessPoints.features} />
+      <div className="aws-right-column">
+        <div className="aws-feature-item">
+          <h4 className="section-title">모니터링</h4>
+          <div className="feature-group">
+            <h5 className="aws-item-subtitle">도구</h5>
+            <FeatureList features={data.monitoring.tools} />
+            <h5 className="aws-item-subtitle">지표</h5>
+            <FeatureList features={data.monitoring.metrics} />
           </div>
-        )}
-      </div>
-    </div>
-);
-
-  const renderStorageGatewaySection = () => (
-    <div className="storage-grid">
-      <div className="storage-left-column">
-        <div className="storage-feature-item">
-          <h4 className="aws-item-title">공통 기능</h4>
-          <FeatureList features={data.commonFeatures} />
         </div>
-      </div>
-      <div className="storage-right-column">
-        {data.gatewayTypes?.map((gateway, index) => (
-          <div key={index} className="gateway-type-item">
-            <h4 className="aws-item-title">{gateway.name}</h4>
-            <div className="feature-group">
-              <h5 className="aws-item-subtitle">특징</h5>
-              <FeatureList features={gateway.features} />
-              <h5 className="aws-item-subtitle">활용 사례</h5>
-              <FeatureList features={gateway.useCases} />
-              {gateway.modes && (
-                <div className="gateway-modes">
-                  <h5 className="aws-item-subtitle">모드</h5>
-                  {gateway.modes.map((mode, modeIdx) => (
-                    <div key={modeIdx} className="storage-mode-item">
-                      <h6 className="aws-item-subtitle">{mode.name}</h6>
-                      <FeatureList features={mode.details} />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
+        <div className="aws-feature-item">
+          <h4 className="section-title">보안</h4>
+          <FeatureList features={data.security.features} />
+        </div>
       </div>
     </div>
   );
 
-  const renderSnowFamilySection = () => (
-    <div className="storage-grid">
-      <div className="storage-left-column">
-        <div className="storage-feature-item">
-          <h4 className="aws-item-title">공통 기능</h4>
-          <FeatureList features={data.commonFeatures} />
+  const renderDynamoDBSection = () => (
+    <div className="aws-grid">
+      <div className="aws-left-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">주요 기능</h4>
+          <FeatureList features={data.features} />
         </div>
-        {data.edgeComputing && (
-          <div className="storage-feature-item">
-            <h4 className="aws-item-title">엣지 컴퓨팅</h4>
-            <FeatureList features={data.edgeComputing.features} />
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">성능</h4>
+          <FeatureList features={data.capabilities.performance} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">내구성</h4>
+          <FeatureList features={data.capabilities.durability} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">데이터 타입</h4>
+          <FeatureList features={data.dataTypes} />
+        </div>
+      </div>
+      <div className="aws-right-column">
+        <div className="aws-feature-item">
+          <h4 className="section-title">인덱스</h4>
+          <div className="feature-group">
+            <h5 className="aws-item-subtitle">유형</h5>
+            <FeatureList features={data.indexes.types} />
+            <h5 className="aws-item-subtitle">특징</h5>
+            <FeatureList features={data.indexes.features} />
+          </div>
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="section-title">추가 기능</h4>
+          <div className="feature-group">
+            <h5 className="aws-item-subtitle">{data.additional.dax.description}</h5>
+            <FeatureList features={data.additional.dax.features} />
+          </div>
+          <div className="feature-group">
+            <h5 className="aws-item-subtitle">{data.additional.streams.description}</h5>
+            <FeatureList features={data.additional.streams.features} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderDocumentDBSection = () => (
+    <div className="aws-grid">
+      <div className="aws-left-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">주요 기능</h4>
+          <FeatureList features={data.features} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">확장성</h4>
+          <h5 className="aws-item-subtitle">{data.capabilities.scaling.description}</h5>
+          <FeatureList features={data.capabilities.scaling.features} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">보안</h4>
+          <FeatureList features={data.capabilities.security.features} />
+        </div>
+      </div>
+      <div className="aws-right-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">활용 사례</h4>
+          <FeatureList features={data.useCases} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">성능</h4>
+          <FeatureList features={data.performance.features} />
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderKeyspacesSection = () => (
+    <div className="aws-grid">
+      <div className="aws-left-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">주요 기능</h4>
+          <FeatureList features={data.features} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">장점</h4>
+          <FeatureList features={data.advantages} />
+        </div>
+      </div>
+      <div className="aws-right-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">활용 사례</h4>
+          <FeatureList features={data.useCases} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">보안</h4>
+          <FeatureList features={data.security.features} />
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderNeptuneSection = () => (
+    <div className="aws-grid">
+      <div className="aws-left-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">주요 기능</h4>
+          <FeatureList features={data.features} />
+        </div>
+        {data.queryLanguages?.map((lang, index) => (
+          <div key={index} className="aws-feature-item">
+            <h4 className="aws-item-title">{lang.name}</h4>
             <h5 className="aws-item-subtitle">활용 사례</h5>
-            <FeatureList features={data.edgeComputing.useCases} />
+            <FeatureList features={lang.useCases} />
           </div>
-        )}
+        ))}
       </div>
-      <div className="storage-right-column">
-        {data.devices?.map((device, index) => (
-          <div key={index} className="snow-device-item">
-            <h4 className="aws-item-title">{device.name}</h4>
+      <div className="aws-right-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">성능</h4>
+          <FeatureList features={data.performance.features} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">보안</h4>
+          <FeatureList features={data.security} />
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderTimestreamSection = () => (
+    <div className="aws-grid">
+      <div className="aws-left-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">주요 기능</h4>
+          <FeatureList features={data.features} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">장점</h4>
+          <FeatureList features={data.advantages} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">활용 사례</h4>
+          <FeatureList features={data.useCases} />
+        </div>
+      </div>
+      <div className="aws-right-column">
+        <div className="aws-feature-item">
+          <h4 className="section-title">데이터 보존</h4>
+          <div className="feature-group">
+            <h5 className="aws-item-subtitle">{data.dataRetention.memory.description}</h5>
+            <FeatureList features={data.dataRetention.memory.features} />
+          </div>
+          <div className="feature-group">
+            <h5 className="aws-item-subtitle">{data.dataRetention.magnetic.description}</h5>
+            <FeatureList features={data.dataRetention.magnetic.features} />
+          </div>
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">분석 기능</h4>
+          <FeatureList features={data.analytics.functions} />
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderQLDBSection = () => (
+    <div className="aws-grid">
+      <div className="aws-left-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">주요 기능</h4>
+          <FeatureList features={data.features} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">{data.capabilities.immutability.description}</h4>
+          <FeatureList features={data.capabilities.immutability.features} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">{data.capabilities.performance.description}</h4>
+          <FeatureList features={data.capabilities.performance.features} />
+        </div>
+      </div>
+      <div className="aws-right-column">
+        <div className="aws-feature-item">
+          <h4 className="aws-item-title">활용 사례</h4>
+          <FeatureList features={data.useCases} />
+        </div>
+        <div className="aws-feature-item">
+          <h4 className="section-title">보안</h4>
+          <div className="feature-group">
+            <h5 className="aws-item-subtitle">기능</h5>
+            <FeatureList features={data.security.features} />
+            <h5 className="aws-item-subtitle">규정 준수</h5>
+            <FeatureList features={data.security.compliance} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderElastiCacheSection = () => (
+  <div className="aws-grid">
+    <div className="aws-left-column">
+      <div className="aws-feature-item">
+        <h4 className="aws-item-title">주요 기능</h4>
+        <FeatureList features={data.features} />
+      </div>
+      <div className="aws-feature-item">
+        <h4 className="section-title">엔진</h4>
+        {data.engines?.map((engine, index) => (
+          <div key={index} className="aws-db-engine-item">
+            <h4 className="aws-item-title">{engine.name}</h4>
             <div className="feature-group">
               <h5 className="aws-item-subtitle">특징</h5>
-              <FeatureList features={device.features} />
-              {device.variants?.map((variant, variantIdx) => (
-                <div key={variantIdx} className="device-variant">
-                  <h5 className="aws-item-subtitle">{variant.name}</h5>
-                  <h6 className="aws-item-subtitle">사양</h6>
-                  <FeatureList features={variant.specs} />
-                  <h6 className="aws-item-subtitle">활용 사례</h6>
-                  <FeatureList features={variant.useCases} />
+              <FeatureList features={engine.features} />
+              <h5 className="aws-item-subtitle">활용 사례</h5>
+              <FeatureList features={engine.useCases} />
+              {engine.dataTypes && (
+                <div className="feature-group">
+                  <h5 className="aws-item-subtitle">데이터 타입</h5>
+                  <FeatureList features={engine.dataTypes} />
                 </div>
-              ))}
+              )}
+              {engine.scaling && (
+                <div className="feature-group">
+                  <h5 className="aws-item-subtitle">스케일링</h5>
+                  <FeatureList features={engine.scaling} />
+                </div>
+              )}
             </div>
           </div>
         ))}
       </div>
     </div>
-  );
-
-  return (
-    <div className="aws-content">
-      <p className="aws-main-description">{data.description}</p>
-      {(() => {
-        if (data.title.includes('S3')) return renderS3Section();
-        if (data.title.includes('EBS')) return renderEBSSection();
-        if (data.title.includes('EFS')) return renderEFSSection();
-        if (data.title.includes('Gateway')) return renderStorageGatewaySection();
-        if (data.title.includes('Snow')) return renderSnowFamilySection();
-        return null;
-      })()}
-    </div>
-  );
-};
-
-const AWSStorage = ({ data }) => {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const activeService = data.services[activeTabIndex];
-
-  return (
-    <div className="aws-computing">
-      <div className="aws-tabs">
-        {data.services.map((service, index) => (
-          <button
-            key={index}
-            className={`aws-tab-button ${activeTabIndex === index ? 'active' : ''}`}
-            onClick={() => setActiveTabIndex(index)}
-          >
-            {service.title.includes('Amazon S3') ? 'S3' : 
-             service.title.includes('EBS') ? 'EBS' : 
-             service.title.includes('EFS') ? 'EFS' : 
-             service.title.includes('Gateway') ? 'Storage Gateway' : 'Snow Family'}
-          </button>
-        ))}
+    <div className="aws-right-column">
+      <div className="aws-feature-item">
+        <h4 className="section-title">모니터링</h4>
+        <div className="feature-group">
+          <h5 className="aws-item-subtitle">지표</h5>
+          <FeatureList features={data.monitoring.metrics} />
+          <h5 className="aws-item-subtitle">도구</h5>
+          <FeatureList features={data.monitoring.tools} />
+        </div>
       </div>
-      <ServiceSection data={activeService} />
     </div>
-  );
+  </div>
+);
+
+return (
+  <div className="aws-content">
+    <p className="aws-main-description">{data.description}</p>
+    {(() => {
+      if (data.title.includes('Aurora')) return renderAuroraSection();
+      if (data.title.includes('RDS')) return renderRDSSection();
+      if (data.title.includes('DynamoDB')) return renderDynamoDBSection();
+      if (data.title.includes('DocumentDB')) return renderDocumentDBSection();
+      if (data.title.includes('Keyspaces')) return renderKeyspacesSection();
+      if (data.title.includes('Neptune')) return renderNeptuneSection();
+      if (data.title.includes('Timestream')) return renderTimestreamSection();
+      if (data.title.includes('QLDB')) return renderQLDBSection();
+      if (data.title.includes('ElastiCache')) return renderElastiCacheSection();
+      return null;
+    })()}
+  </div>
+);
 };
 
-export default AWSStorage;
+const AWSDatabase = ({ data }) => {
+const [activeTabIndex, setActiveTabIndex] = useState(0);
+const activeService = data.services[activeTabIndex];
+
+return (
+  <div className="aws-computing">
+    <div className="aws-tabs">
+      {data.services.map((service, index) => (
+        <button
+          key={index}
+          className={`aws-tab-button ${activeTabIndex === index ? 'active' : ''}`}
+          onClick={() => setActiveTabIndex(index)}
+        >
+          {service.title.includes('Aurora') ? 'Aurora' :
+           service.title.includes('RDS') ? 'RDS' :
+           service.title.includes('DynamoDB') ? 'DynamoDB' :
+           service.title.includes('DocumentDB') ? 'DocumentDB' :
+           service.title.includes('Neptune') ? 'Neptune' :
+           service.title.includes('ElastiCache') ? 'ElastiCache' : 
+           service.title}
+        </button>
+      ))}
+    </div>
+    <ServiceSection data={activeService} />
+  </div>
+);
+};
+
+export default AWSDatabase;

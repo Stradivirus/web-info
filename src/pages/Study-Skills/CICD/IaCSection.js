@@ -16,9 +16,9 @@ const IacSection = () => {
   };
 
   const renderFeatureList = (items, type) => (
-    <div className="iac-feature-list">
+    <div className="devops-feature-list">
       {items.map((item, idx) => (
-        <div key={idx} className={`iac-feature-item ${type}`}>
+        <div key={idx} className={`devops-feature-item ${type}`}>
           <h5>{item.title}</h5>
           <ul>
             {item.details.map((detail, i) => (
@@ -36,12 +36,12 @@ const IacSection = () => {
     return (
       <>
         <h4>가격 정책</h4>
-        <div className="iac-pricing-list">
+        <div className="devops-pricing-list">
           {pricing.plans.map((plan, idx) => (
-            <div key={idx} className="iac-pricing-item">
+            <div key={idx} className="devops-pricing-item">
               <h5>{plan.name}</h5>
-              <p className="iac-pricing-cost">{plan.cost}</p>
-              <ul className="iac-pricing-features">
+              <p className="devops-pricing-cost">{plan.cost}</p>
+              <ul className="devops-pricing-features">
                 {plan.features.map((feature, i) => (
                   <li key={i}>{feature}</li>
                 ))}
@@ -59,27 +59,35 @@ const IacSection = () => {
     return (
       <>
         <h4 className="mt-6">통합 지원</h4>
-        <div className="iac-feature-item">
-          <h5>CI/CD 도구</h5>
-          <ul>
-            {integrations.ci_cd.map((tool, idx) => (
-              <li key={idx}>{tool}</li>
-            ))}
-          </ul>
+        <div className="devops-integration-section">
+          <div className="devops-integration-list">
+            <div className="devops-integration-item">
+              <h5>CI/CD 도구</h5>
+              <ul>
+                {integrations.ci_cd.map((tool, idx) => (
+                  <li key={idx}>{tool}</li>
+                ))}
+              </ul>
+            </div>
 
-          <h5 className="mt-4">클라우드 제공자</h5>
-          <ul>
-            {integrations.cloud_providers.map((provider, idx) => (
-              <li key={idx}>{provider}</li>
-            ))}
-          </ul>
+            <div className="devops-integration-item">
+              <h5>클라우드 제공자</h5>
+              <ul>
+                {integrations.cloud_providers.map((provider, idx) => (
+                  <li key={idx}>{provider}</li>
+                ))}
+              </ul>
+            </div>
 
-          <h5 className="mt-4">모니터링 도구</h5>
-          <ul>
-            {integrations.monitoring.map((tool, idx) => (
-              <li key={idx}>{tool}</li>
-            ))}
-          </ul>
+            <div className="devops-integration-item">
+              <h5>모니터링 도구</h5>
+              <ul>
+                {integrations.monitoring.map((tool, idx) => (
+                  <li key={idx}>{tool}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </>
     );
@@ -91,8 +99,8 @@ const IacSection = () => {
     return (
       <>
         <h4 className="mt-6">활용 사례</h4>
-        <div className="iac-suitability-section">
-          <div className="iac-suitable">
+        <div className="devops-suitability-section">
+          <div className="devops-suitable">
             <h5>적합한 경우</h5>
             <ul>
               {useCases.suitable.map((item, i) => (
@@ -100,7 +108,7 @@ const IacSection = () => {
               ))}
             </ul>
           </div>
-          <div className="iac-unsuitable">
+          <div className="devops-unsuitable">
             <h5>부적합한 경우</h5>
             <ul>
               {useCases.unsuitable.map((item, i) => (
@@ -117,11 +125,11 @@ const IacSection = () => {
     if (!tool) return null;
 
     return (
-      <div className="iac-section-content">
-        <div className="iac-content-grid">
+      <div className="devops-section-content">
+        <div className="devops-content-grid">
           {/* 왼쪽: 주요 특징, 장단점 */}
-          <div className="iac-feature-section">
-            <div className="iac-feature-card">
+          <div className="devops-feature-section">
+            <div className="devops-feature-card">
               <h4>주요 특징</h4>
               {renderFeatureList(tool.mainFeatures)}
 
@@ -134,8 +142,8 @@ const IacSection = () => {
           </div>
 
           {/* 오른쪽: 가격 정책, 통합 지원, 활용 사례 */}
-          <div className="iac-info-section">
-            <div className="iac-feature-card">
+          <div className="devops-info-section">
+            <div className="devops-feature-card">
               {renderPricingSection(tool.pricing)}
               {renderIntegrations(tool.integrations)}
               {renderUseCases(tool.useCases)}
@@ -149,15 +157,15 @@ const IacSection = () => {
   return (
     <div>
       {iacTools.map(({ id, data }) => (
-        <div key={id} className="iac-section">
+        <div key={id} className="devops-section">
           <button 
-            className={`iac-section-button ${expandedTool === id ? 'expanded' : ''}`}
+            className={`devops-section-button ${expandedTool === id ? 'expanded' : ''}`}
             onClick={() => toggleTool(id)}
           >
-            <div className="iac-button-content">
-              <div className="iac-button-left">
+            <div className="devops-button-content">
+              <div className="devops-button-left">
                 <h3>{data.name}</h3>
-                <p className="iac-subtitle">{data.description}</p>
+                <p className="devops-subtitle">{data.description}</p>
               </div>
               {expandedTool === id ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
             </div>

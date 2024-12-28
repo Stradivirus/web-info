@@ -1,0 +1,35 @@
+/* AwsSecurity.css - 컴포넌트 특화 스타일만 유지 */
+.aws-security-policies {
+    margin-top: 1.5rem;
+}
+
+.aws-security-variants {
+    margin-top: 1.5rem;
+}
+
+.aws-security-rules {
+    margin-bottom: 1.5rem;
+}
+
+.aws-security-capabilities {
+    margin-top: 1.5rem;
+}
+
+/* 보안 서비스 특화 헤더 스타일 */
+.aws-security-header {
+    margin-bottom: 1.5rem;
+}
+
+.aws-security-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+/* 특별한 강조 스타일 */
+.aws-security-highlight {
+    background-color: #f1f5f9;
+    padding: 1rem;
+    border-left: 4px solid #1e40af;
+    margin: 1rem 0;
+}

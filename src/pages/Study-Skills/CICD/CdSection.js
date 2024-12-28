@@ -18,9 +18,9 @@ const CdSection = () => {
   };
 
   const renderFeatureList = (items, type) => (
-    <div className="cd-feature-list">
+    <div className="devops-feature-list">
       {items.map((item, idx) => (
-        <div key={idx} className={`cd-feature-item ${type}`}>
+        <div key={idx} className={`devops-feature-item ${type}`}>
           <h5>{item.title}</h5>
           <ul>
             {item.details.map((detail, i) => (
@@ -38,12 +38,12 @@ const CdSection = () => {
     return (
       <>
         <h4>가격 정책</h4>
-        <div className="cd-pricing-list">
+        <div className="devops-pricing-list">
           {pricing.plans.map((plan, idx) => (
-            <div key={idx} className="cd-pricing-item">
+            <div key={idx} className="devops-pricing-item">
               <h5>{plan.name}</h5>
-              <p className="cd-pricing-cost">{plan.cost}</p>
-              <ul className="cd-pricing-features">
+              <p className="devops-pricing-cost">{plan.cost}</p>
+              <ul className="devops-pricing-features">
                 {plan.features.map((feature, i) => (
                   <li key={i}>{feature}</li>
                 ))}
@@ -64,24 +64,26 @@ const CdSection = () => {
         {renderFeatureList(argoRollouts.features)}
         
         <h4 className="mt-4">배포 전략</h4>
-        <div className="cd-feature-item">
+        <div className="devops-feature-item">
           <h5>카나리 배포</h5>
-          <ul>
-            <li>단계:
-              <ul>
-                {argoRollouts.strategies.canary.steps.map((step, idx) => (
-                  <li key={idx}>{step}</li>
-                ))}
-              </ul>
-            </li>
-            <li>분석 유형:
-              <ul>
-                {argoRollouts.strategies.canary.analysisTypes.map((type, idx) => (
-                  <li key={idx}>{type}</li>
-                ))}
-              </ul>
-            </li>
-          </ul>
+          <div className="devops-strategy-details">
+            <ul>
+              <li>단계:
+                <ul>
+                  {argoRollouts.strategies.canary.steps.map((step, idx) => (
+                    <li key={idx}>{step}</li>
+                  ))}
+                </ul>
+              </li>
+              <li>분석 유형:
+                <ul>
+                  {argoRollouts.strategies.canary.analysisTypes.map((type, idx) => (
+                    <li key={idx}>{type}</li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </>
     );
@@ -93,9 +95,9 @@ const CdSection = () => {
     return (
       <>
         <h4 className="mt-6">배포 전략</h4>
-        <div className="cd-feature-item">
+        <div className="devops-feature-item">
           {strategies.blueGreen && (
-            <>
+            <div className="devops-deployment-strategy">
               <h5>Blue/Green 배포</h5>
               <p>{strategies.blueGreen.description}</p>
               <ul>
@@ -103,10 +105,10 @@ const CdSection = () => {
                   <li key={idx}>{feature}</li>
                 ))}
               </ul>
-            </>
+            </div>
           )}
           {strategies.canary && (
-            <>
+            <div className="devops-deployment-strategy">
               <h5 className="mt-4">카나리 배포</h5>
               <p>{strategies.canary.description}</p>
               <ul>
@@ -114,10 +116,10 @@ const CdSection = () => {
                   <li key={idx}>{feature}</li>
                 ))}
               </ul>
-            </>
+            </div>
           )}
           {strategies.metrics && (
-            <>
+            <div className="devops-deployment-strategy">
               <h5 className="mt-4">모니터링 메트릭</h5>
               <p>{strategies.metrics.description}</p>
               <ul>
@@ -125,19 +127,19 @@ const CdSection = () => {
                   <li key={idx}>{metric}</li>
                 ))}
               </ul>
-            </>
+            </div>
           )}
         </div>
       </>
     );
   };
+
   const renderPlatformSupport = (tool) => {
-    // AWS CodeDeploy
     if (tool.deploymentPlatforms) {
       return (
         <>
           <h4 className="mt-6">지원 플랫폼</h4>
-          <div className="cd-feature-item">
+          <div className="devops-feature-item">
             <h5>컴퓨팅 플랫폼</h5>
             <ul>
               {tool.deploymentPlatforms.compute.map((platform, idx) => (
@@ -155,12 +157,11 @@ const CdSection = () => {
       );
     }
     
-    // Spinnaker
     if (tool.supportedPlatforms) {
       return (
         <>
           <h4 className="mt-6">지원 플랫폼</h4>
-          <div className="cd-feature-item">
+          <div className="devops-feature-item">
             <h5>클라우드 제공자</h5>
             <ul>
               {tool.supportedPlatforms.cloudProviders.map((provider, idx) => (
@@ -191,11 +192,11 @@ const CdSection = () => {
     if (!tool) return null;
 
     return (
-      <div className="cd-section-content">
-        <div className="cd-content-grid">
+      <div className="devops-section-content">
+        <div className="devops-content-grid">
           {/* 왼쪽: 주요 특징, 장단점 */}
-          <div className="cd-feature-section">
-            <div className="cd-feature-card">
+          <div className="devops-feature-section">
+            <div className="devops-feature-card">
               <h4>주요 특징</h4>
               {renderFeatureList(tool.mainFeatures)}
 
@@ -208,12 +209,9 @@ const CdSection = () => {
           </div>
 
           {/* 오른쪽: 가격 정책 및 추가 정보 */}
-          <div className="cd-info-section">
-            <div className="cd-feature-card">
-              {/* 가격 정책을 최상단에 배치 */}
+          <div className="devops-info-section">
+            <div className="devops-feature-card">
               {renderPricingSection(tool.pricing)}
-
-              {/* 도구별 특화 정보 */}
               {tool.argoRollouts && renderArgoRollouts(tool.argoRollouts)}
               {tool.deploymentStrategies && renderDeploymentStrategies(tool.deploymentStrategies)}
               {renderPlatformSupport(tool)}
@@ -227,15 +225,15 @@ const CdSection = () => {
   return (
     <div>
       {cdTools.map(({ id, data }) => (
-        <div key={id} className="cd-section">
+        <div key={id} className="devops-section">
           <button 
-            className={`cd-section-button ${expandedTool === id ? 'expanded' : ''}`}
+            className={`devops-section-button ${expandedTool === id ? 'expanded' : ''}`}
             onClick={() => toggleTool(id)}
           >
-            <div className="cd-button-content">
-              <div className="cd-button-left">
+            <div className="devops-button-content">
+              <div className="devops-button-left">
                 <h3>{data.name}</h3>
-                <p className="cd-subtitle">{data.description}</p>
+                <p className="devops-subtitle">{data.description}</p>
               </div>
               {expandedTool === id ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
             </div>

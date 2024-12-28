@@ -1,0 +1,283 @@
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+
+:root {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 
+  'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+/* Common Layout Styles */
+.devops-section {
+  margin-bottom: 0.4rem;
+}
+
+.devops-page-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #000000;
+}
+
+/* Section Button Styles */
+.devops-section-button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.devops-section-button:hover {
+  background-color: #f1f5f9;
+}
+
+.devops-section-button.expanded {
+  background-color: #e2e8f0;
+}
+
+.devops-button-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.devops-button-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.devops-button-left h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.devops-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin: 0.2rem 0 0 0;
+}
+
+/* Section Content Styles */
+.devops-section-content {
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 14px;
+  background-color: white;
+  animation: slideDown 0.3s ease-out;
+}
+
+.devops-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Feature Card Styles */
+.devops-feature-card {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.devops-feature-card h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1e40af;
+}
+
+/* Feature List Styles */
+.devops-feature-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.devops-feature-item {
+  margin-bottom: 0.2rem;
+}
+
+.devops-feature-item h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.3rem;
+}
+
+.devops-feature-item.advantage h5 {
+  color: #15803d;
+}
+
+.devops-feature-item.disadvantage h5 {
+  color: #b91c1c;
+}
+
+.devops-feature-item ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.devops-feature-item li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  font-size: 1.15rem;
+}
+
+/* Pricing Styles */
+.devops-pricing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.devops-pricing-item {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.devops-pricing-item h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+}
+
+.devops-pricing-cost {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.devops-pricing-features {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.devops-pricing-features li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+/* Suitability Section Styles */
+.devops-suitability-section {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.devops-suitable,
+.devops-unsuitable {
+  flex: 1;
+}
+
+.devops-suitable h5 {
+  color: #15803d;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #15803d;
+}
+
+.devops-unsuitable h5 {
+  color: #b91c1c;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #b91c1c;
+}
+
+/* Utility Classes */
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .devops-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .devops-container {
+    padding: 1rem;
+  }
+  
+  .devops-page-title {
+    font-size: 1.8rem;
+  }
+  
+  .devops-button-left h3 {
+    font-size: 1.3rem;
+  }
+  
+  .devops-subtitle {
+    font-size: 1rem;
+  }
+  
+  .devops-section-content {
+    padding: 1rem;
+  }
+
+  .devops-feature-card h4 {
+    font-size: 1.5rem;
+  }
+
+  .devops-feature-item h5 {
+    font-size: 1.1rem;
+  }
+
+  .devops-feature-item li {
+    font-size: 1rem;
+  }
+
+  .devops-suitability-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .devops-pricing-item h5 {
+    font-size: 1.1rem;
+  }
+
+  .devops-pricing-cost {
+    font-size: 1rem;
+  }
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

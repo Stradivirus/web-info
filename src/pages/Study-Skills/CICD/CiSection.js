@@ -20,9 +20,9 @@ const CiSection = () => {
   };
 
   const renderFeatureList = (items, type) => (
-    <div className="ci-feature-list">
+    <div className="devops-feature-list">
       {items.map((item, idx) => (
-        <div key={idx} className={`ci-feature-item ${type}`}>
+        <div key={idx} className={`devops-feature-item ${type}`}>
           <h5>{item.title}</h5>
           <ul>
             {item.details.map((detail, i) => (
@@ -35,12 +35,12 @@ const CiSection = () => {
   );
 
   const renderPricingSection = (pricing) => (
-    <div className="ci-pricing-list">
+    <div className="devops-pricing-list">
       {pricing.plans.map((plan, idx) => (
-        <div key={idx} className="ci-pricing-item">
+        <div key={idx} className="devops-pricing-item">
           <h5>{plan.name}</h5>
-          <p className="ci-pricing-cost">{plan.cost}</p>
-          <ul className="ci-pricing-features">
+          <p className="devops-pricing-cost">{plan.cost}</p>
+          <ul className="devops-pricing-features">
             {plan.features.map((feature, i) => (
               <li key={i}>{feature}</li>
             ))}
@@ -51,8 +51,8 @@ const CiSection = () => {
   );
 
   const renderSuitabilitySection = (useCases) => (
-    <div className="ci-suitability-section">
-      <div className="ci-suitable">
+    <div className="devops-suitability-section">
+      <div className="devops-suitable">
         <h5>적합한 경우</h5>
         <ul>
           {useCases.suitable.map((item, i) => (
@@ -60,7 +60,7 @@ const CiSection = () => {
           ))}
         </ul>
       </div>
-      <div className="ci-unsuitable">
+      <div className="devops-unsuitable">
         <h5>부적합한 경우</h5>
         <ul>
           {useCases.unsuitable.map((item, i) => (
@@ -75,11 +75,11 @@ const CiSection = () => {
     if (!tool) return null;
 
     return (
-      <div className="ci-section-content">
-        <div className="ci-content-grid">
+      <div className="devops-section-content">
+        <div className="devops-content-grid">
           {/* 왼쪽: 주요 특징, 장단점 */}
-          <div className="ci-feature-section">
-            <div className="ci-feature-card">
+          <div className="devops-feature-section">
+            <div className="devops-feature-card">
               <h4>주요 특징</h4>
               {renderFeatureList(tool.mainFeatures)}
 
@@ -92,8 +92,8 @@ const CiSection = () => {
           </div>
 
           {/* 오른쪽: 가격 정책, 활용 사례 */}
-          <div className="ci-info-section">
-            <div className="ci-feature-card">
+          <div className="devops-info-section">
+            <div className="devops-feature-card">
               <h4>가격 정책</h4>
               {renderPricingSection(tool.pricing)}
 
@@ -109,15 +109,15 @@ const CiSection = () => {
   return (
     <div>
       {ciTools.map(({ id, data }) => (
-        <div key={id} className="ci-section">
+        <div key={id} className="devops-section">
           <button 
-            className={`ci-section-button ${expandedTool === id ? 'expanded' : ''}`}
+            className={`devops-section-button ${expandedTool === id ? 'expanded' : ''}`}
             onClick={() => toggleTool(id)}
           >
-            <div className="ci-button-content">
-              <div className="ci-button-left">
+            <div className="devops-button-content">
+              <div className="devops-button-left">
                 <h3>{data.name}</h3>
-                <p className="ci-subtitle">{data.description}</p>
+                <p className="devops-subtitle">{data.description}</p>
               </div>
               {expandedTool === id ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
             </div>

@@ -1,129 +1,74 @@
-.storage-grid {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-  }
-  
-  .storage-left-column,
-  .storage-right-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  /* S3 스타일 */
-  .storage-class-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 1rem;
-  }
-  
-  .storage-mode-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 1rem;
-  }
-  
-  .storage-feature-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 1rem;
-  }
-  
-  .feature-group {
-    margin-top: 1rem;
-  }
-  
-  /* EBS 스타일 */
-  .storage-volume-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 1.5rem;
-  }
-  
-  .storage-volume-types {
-    margin-top: 1.5rem;
-  }
-  
-  /* EFS 스타일 */
-  .performance-modes,
-  .throughput-modes {
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Storage Gateway 스타일 */
-  .gateway-type-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 1.5rem;
-  }
-  
-  .gateway-modes {
-    margin-top: 1rem;
-  }
-  
-  /* Snow Family 스타일 */
+/* AwsStorage.css - 컴포넌트 특화 스타일만 유지 */
+/* S3 스타일 */
+.storage-class-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.storage-mode-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+/* EBS 특화 스타일 */
+.storage-volume-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.storage-volume-types {
+  margin-top: 1.5rem;
+}
+
+/* EFS 특화 스타일 */
+.performance-modes,
+.throughput-modes {
+  margin-bottom: 1.5rem;
+}
+
+/* Storage Gateway 특화 스타일 */
+.gateway-type-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.gateway-modes {
+  margin-top: 1rem;
+}
+
+/* Snow Family 특화 스타일 */
+.snow-device-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.device-variant {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .storage-class-item,
+  .storage-mode-item,
+  .storage-volume-item,
+  .gateway-type-item,
   .snow-device-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 1.5rem;
-  }
-  
-  .device-variant {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e2e8f0;
-  }
-  
-  /* 반응형 디자인 */
-  @media (max-width: 768px) {
-    .storage-grid {
-      flex-direction: column;
-    }
-  
-    .storage-left-column,
-    .storage-right-column {
-      width: 100%;
-    }
-  
-    .storage-class-item,
-    .storage-mode-item,
-    .storage-feature-item,
-    .storage-volume-item,
-    .gateway-type-item,
-    .snow-device-item {
       padding: 1rem;
-    }
   }
-  
-  /* 섹션 타이틀 스타일 보완 */
-  .section-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1e40af;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e2e8f0;
-  }
-  
-  /* 추가적인 여백 관리 */
-  .aws-content .storage-grid {
-    margin-top: 2rem;
-  }
-  
-  .aws-content .aws-instance-item + .aws-instance-item {
-    margin-top: 1.5rem;
-  }
+}

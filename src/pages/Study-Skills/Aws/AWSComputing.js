@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 const ServiceSection = ({ data }) => {
   const renderInstanceTypes = (instances, index) => (
-    <div key={index} className="aws-instance-card">
-      <h3 className="aws-instance-title">{instances.title}</h3>
+    <div key={index} className="aws-feature-item">
+      <h3 className="section-title">{instances.title}</h3>
       {instances.description && (
         <p className="aws-description">{instances.description}</p>
       )}
-      <div className="aws-grid-content">
+      <div className="aws-grid">
         {instances.items?.map((item, idx) => (
-          <div key={idx} className="aws-instance-item">
+          <div key={idx} className="aws-feature-item">
             <h4 className="aws-item-title">{item.name}</h4>
             <ul className="aws-item-list">
               {item.details.map((detail, detailIdx) => (
@@ -23,46 +23,44 @@ const ServiceSection = ({ data }) => {
   );
 
   const renderAdvantagesDisadvantages = (advantages, disadvantages) => (
-    <div className="aws-advantages-section">
-      <div className="aws-grid-content">
-        <div className="aws-advantages">
-          <h3 className="aws-advantages-title">장점</h3>
-          <ul className="aws-list">
-            {advantages.map((adv, index) => (
-              <li key={index}>{adv}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="aws-disadvantages">
-          <h3 className="aws-disadvantages-title">단점</h3>
-          <ul className="aws-list">
-            {disadvantages.map((disadv, index) => (
-              <li key={index}>{disadv}</li>
-            ))}
-          </ul>
-        </div>
+    <div className="aws-grid">
+      <div className="aws-feature-item">
+        <h3 className="aws-advantages-title">장점</h3>
+        <ul className="aws-item-list">
+          {advantages.map((adv, index) => (
+            <li key={index}>{adv}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="aws-feature-item">
+        <h3 className="aws-disadvantages-title">단점</h3>
+        <ul className="aws-item-list">
+          {disadvantages.map((disadv, index) => (
+            <li key={index}>{disadv}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 
   const renderServerless = (services) => (
-    <div className="aws-instance-card">
-      <h3 className="aws-instance-title">서비스 목록</h3>
-      <div className="aws-grid-content">
+    <div className="aws-feature-item">
+      <h3 className="section-title">서비스 목록</h3>
+      <div className="aws-grid">
         {services.map((service, index) => (
-          <div key={index} className="aws-service-item">
-            <h3 className="aws-service-title">{service.name}</h3>
-            <ul className="aws-service-list">
+          <div key={index} className="aws-feature-item">
+            <h3 className="aws-item-title">{service.name}</h3>
+            <ul className="aws-item-list">
               {service.features.map((feature, idx) => (
                 <li key={idx}>{feature}</li>
               ))}
             </ul>
             {service.advantages && (
-              <div className="aws-service-details">
-                <div className="aws-grid-content">
+              <div className="feature-group">
+                <div className="aws-grid">
                   <div>
                     <h4 className="aws-advantages-title">장점</h4>
-                    <ul className="aws-list">
+                    <ul className="aws-item-list">
                       {service.advantages.map((adv, i) => (
                         <li key={i}>{adv}</li>
                       ))}
@@ -70,7 +68,7 @@ const ServiceSection = ({ data }) => {
                   </div>
                   <div>
                     <h4 className="aws-disadvantages-title">단점</h4>
-                    <ul className="aws-list">
+                    <ul className="aws-item-list">
                       {service.disadvantages.map((disadv, i) => (
                         <li key={i}>{disadv}</li>
                       ))}
@@ -106,21 +104,21 @@ const ServiceSection = ({ data }) => {
 };
 
 const UseCasesSection = ({ useCases }) => (
-  <div className="aws-use-cases-section">
-    <h3 className="aws-section-title">활용 사례</h3>
-    <div className="aws-grid-content">
+  <div className="aws-feature-item">
+    <h3 className="section-title">활용 사례</h3>
+    <div className="aws-grid">
       {useCases.examples.map((useCase, index) => (
-        <div key={index} className="aws-card">
-          <h4 className="aws-card-title">{useCase.title}</h4>
-          <p className="aws-card-description">{useCase.details}</p>
+        <div key={index} className="aws-feature-item">
+          <h4 className="aws-item-title">{useCase.title}</h4>
+          <p className="aws-description">{useCase.details}</p>
         </div>
       ))}
     </div>
-    <h3 className="aws-section-title">모범 사례</h3>
-    <div className="aws-grid-content">
+    <h3 className="section-title">모범 사례</h3>
+    <div className="aws-grid">
       {useCases.bestPractices.map((practice, index) => (
-        <div key={index} className="aws-card">
-          <p className="aws-card-description">{practice}</p>
+        <div key={index} className="aws-feature-item">
+          <p className="aws-description">{practice}</p>
         </div>
       ))}
     </div>

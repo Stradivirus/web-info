@@ -15,7 +15,37 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* 카테고리 스타일 */
+/* 공통 그리드 레이아웃 */
+.aws-grid {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.aws-left-column,
+.aws-right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 공통 카드/아이템 스타일 */
+.aws-feature-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.feature-group {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* 공통 타이틀 스타일 */
 .aws-category-title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -25,91 +55,102 @@
   border-bottom: 2px solid #e2e8f0;
 }
 
-/* 섹션 버튼 스타일 */
-.aws-section-button {
-  width: 100%;
-  padding: 0.8rem;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: 1rem;
-}
-
-.aws-section-button:hover {
-  background-color: #f1f5f9;
-}
-
-.aws-section-button.expanded {
-  background-color: #e2e8f0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.aws-button-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.aws-button-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.aws-button-title {
-  font-size: 1.4rem;
+.aws-item-title {
+  font-size: 1.1rem;
   font-weight: 600;
   color: #1e40af;
+  margin-bottom: 0.8rem;
 }
 
-.aws-button-subtitle {
-  font-size: 1.1rem;
+.aws-item-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1e40af;
+  margin: 1rem 0 0.5rem;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* 공통 리스트 스타일 */
+.aws-item-list {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.aws-item-list li {
+  margin-bottom: 0.5rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* 공통 설명 텍스트 스타일 */
+.aws-description,
+.aws-main-description {
+  font-size: 1rem;
   color: #64748b;
-  margin: 0.2rem 0 0 0;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.5;
 }
 
-/* 섹션 컨텐츠 스타일 */
-.aws-section-content {
+/* 탭 네비게이션 스타일 */
+.aws-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.aws-tab-button {
+  padding: 0.75rem 1.5rem;
+  background: white;
   border: 1px solid #e2e8f0;
-  border-top: none;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  padding: 20px;
-  background-color: white;
-  animation: aws-slideDown 0.3s ease-out;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-/* 메인 타이틀과 설명 */
-.aws-main-title {
-  font-size: 2rem;
+.aws-tab-button:hover {
+  background: #f8fafc;
+}
+
+.aws-tab-button.active {
+  background: #1e40af;
+  color: white;
+  border-color: #1e40af;
+}
+
+/* 장단점 섹션 스타일 */
+.aws-advantages-title {
+  color: #059669;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #000000;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #059669;
 }
 
-.aws-main-description {
-  font-size: 1.1rem;
-  color: #64748b;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+.aws-disadvantages-title {
+  color: #dc2626;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #dc2626;
 }
 
-/* 애니메이션 */
-@keyframes aws-slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 반응형 */
+/* 공통 반응형 디자인 */
 @media (max-width: 1024px) {
   .aws-services-list {
     padding: 1.5rem;
@@ -131,31 +172,30 @@
     padding: 1rem;
   }
 
-  .aws-section-button {
+  .aws-grid {
+    flex-direction: column;
+  }
+
+  .aws-left-column,
+  .aws-right-column {
+    width: 100%;
+  }
+
+  .aws-feature-item {
     padding: 1rem;
-  }
-
-  .aws-button-title {
-    font-size: 1.2rem;
-  }
-
-  .aws-button-subtitle {
-    font-size: 1rem;
-  }
-
-  .aws-main-title {
-    font-size: 1.6rem;
-  }
-
-  .aws-main-description {
-    font-size: 1rem;
   }
 
   .aws-category-title {
     font-size: 1.3rem;
   }
 
-  .aws-section-content {
-    padding: 1rem;
+  .aws-item-title {
+    font-size: 1rem;
+  }
+
+  .aws-description,
+  .aws-main-description,
+  .aws-item-list li {
+    font-size: 0.9rem;
   }
 }

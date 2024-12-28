@@ -1,88 +1,27 @@
-.aws-db-grid {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-  }
-  
-  .aws-db-left-column,
-  .aws-db-right-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  /* 공통 아이템 스타일 */
-  .aws-db-feature-item,
-  .aws-db-edition-item,
+/* AwsDatabase.css - 컴포넌트 특화 스타일만 유지 */
+.aws-db-engines {
+  margin-top: 1.5rem;
+}
+
+/* DB 엔진 특화 아이템 스타일 */
+.aws-db-engine-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.aws-db-indexes {
+  margin-bottom: 1.5rem;
+}
+
+.aws-db-additional {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
   .aws-db-engine-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 1rem;
-  }
-  
-  .feature-group {
-    margin-top: 1rem;
-  }
-  
-  /* Aurora 스타일 */
-  .aws-db-editions {
-    margin-top: 1.5rem;
-  }
-  
-  /* RDS 스타일 */
-  .aws-db-engines {
-    margin-top: 1.5rem;
-  }
-  
-  /* DynamoDB 스타일 */
-  .aws-db-capabilities {
-    margin-top: 1.5rem;
-  }
-  
-  .aws-db-indexes {
-    margin-bottom: 1.5rem;
-  }
-  
-  .aws-db-additional {
-    margin-top: 1.5rem;
-  }
-  
-  /* 섹션 타이틀 스타일 */
-  .section-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1e40af;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e2e8f0;
-  }
-  
-  /* 반응형 디자인 */
-  @media (max-width: 768px) {
-    .aws-db-grid {
-      flex-direction: column;
-    }
-  
-    .aws-db-left-column,
-    .aws-db-right-column {
-      width: 100%;
-    }
-  
-    .aws-db-feature-item,
-    .aws-db-edition-item,
-    .aws-db-engine-item {
       padding: 1rem;
-    }
   }
-  
-  /* 추가적인 여백 관리 */
-  .aws-content .aws-db-grid {
-    margin-top: 2rem;
-  }
-  
-  .aws-content .aws-db-feature-item + .aws-db-feature-item {
-    margin-top: 1.5rem;
-  }
+}
