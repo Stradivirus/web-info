@@ -1,4 +1,13 @@
 /* AwsDatabase.css - 컴포넌트 특화 스타일만 유지 */
+/* DB 컨텐츠 컨테이너 */
+.aws-db-container {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+}
+
 .aws-db-engines {
   margin-top: 1.5rem;
 }
@@ -20,8 +29,23 @@
   margin-top: 1.5rem;
 }
 
+/* 그리드 레이아웃 */
+.aws-db-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
 @media (max-width: 768px) {
+  .aws-db-container {
+    padding: 1rem;
+  }
+
   .aws-db-engine-item {
-      padding: 1rem;
+    padding: 1rem;
+  }
+
+  .aws-db-grid {
+    grid-template-columns: 1fr;
   }
 }

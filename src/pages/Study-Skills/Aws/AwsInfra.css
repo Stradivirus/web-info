@@ -79,25 +79,6 @@
     border: 1px solid #e2e8f0;
 }
 
-.aws-item-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1e40af;
-    margin-bottom: 0.8rem;
-}
-
-.aws-item-list {
-    list-style-type: disc;
-    padding-left: 1.2rem;
-    margin: 0;
-}
-
-.aws-item-list li {
-    margin-bottom: 0.5rem;
-    color: #475569;
-    line-height: 1.5;
-}
-
 /* 서비스 아이템 스타일 */
 .aws-service-item {
     background: #f8fafc;
@@ -140,24 +121,6 @@
     border: 1px solid #e2e8f0;
 }
 
-.aws-advantages-title {
-    color: #059669;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #059669;
-}
-
-.aws-disadvantages-title {
-    color: #dc2626;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #dc2626;
-}
-
 /* 활용 사례 섹션 */
 .aws-use-cases-section {
     margin-top: 2rem;
@@ -170,34 +133,6 @@
     margin: 2rem 0 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #e2e8f0;
-}
-
-/* 공통 리스트 스타일 */
-.aws-list {
-    list-style-type: disc;
-    padding-left: 1.2rem;
-    margin: 0;
-}
-
-.aws-list li {
-    margin-bottom: 0.5rem;
-    color: #475569;
-    line-height: 1.5;
-}
-
-/* 공통 설명 스타일 */
-.aws-description {
-    font-size: 1rem;
-    color: #64748b;
-    margin: 0.5rem 0 1rem;
-    line-height: 1.5;
-}
-
-.aws-item-subtitle {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #1e40af;
-    margin: 1rem 0 0.5rem;
 }
 
 /* 반응형 디자인 */
@@ -217,17 +152,12 @@
         font-size: 1.2rem;
     }
 
-    .aws-item-title,
-    .aws-service-title,
-    .aws-card-title {
+    .aws-card-title,
+    .aws-service-title {
         font-size: 1rem;
     }
 
-    .aws-item-list li,
-    .aws-service-list li,
-    .aws-list li,
-    .aws-card-description,
-    .aws-description {
+    .aws-card-description {
         font-size: 0.9rem;
     }
 }
