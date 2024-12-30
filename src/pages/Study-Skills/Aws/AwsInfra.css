@@ -29,135 +29,158 @@
     border-color: #1e40af;
 }
 
-/* 컨텐츠 그리드 레이아웃 */
+/* 컨텐츠 레이아웃 */
+.aws-content {
+    margin-bottom: 1.5rem;
+}
+
+/* 메인 설명 텍스트 */
+.aws-main-description {
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* 2분할 그리드 레이아웃 */
 .aws-grid-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
+    align-items: start;
 }
 
-/* 공통 카드 스타일 */
-.aws-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+/* 3분할 그리드 레이아웃 */
+.aws-grid-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
 }
 
-.aws-card-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #1e40af;
-    margin-bottom: 0.8rem;
+/* 컬럼 스타일 */
+.aws-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.aws-card-description {
-    color: #475569;
-    line-height: 1.6;
-}
-
-/* 인스턴스 카드 스타일 */
-.aws-instance-card {
-    margin-bottom: 2rem;
-}
-
-.aws-instance-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1e40af;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e2e8f0;
-}
-
-.aws-instance-item {
+/* 피처 아이템 스타일 */
+.aws-feature-item {
     background: #f8fafc;
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid #e2e8f0;
-}
-
-/* 서비스 아이템 스타일 */
-.aws-service-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-}
-
-.aws-service-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #1e40af;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e2e8f0;
 }
 
-.aws-service-list {
+/* 피처 그룹 스타일 */
+.feature-group {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.feature-group:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* 제목 스타일 */
+.aws-item-title {
+    color: #1e40af;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.aws-item-subtitle {
+    color: #2563eb;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* 리스트 스타일 */
+.aws-item-list {
     list-style-type: disc;
     padding-left: 1.2rem;
-    margin: 0 0 1rem 0;
+    margin: 0;
 }
 
-.aws-service-list li {
+.aws-item-list li {
     margin-bottom: 0.5rem;
     color: #475569;
     line-height: 1.5;
 }
 
-/* 장단점 섹션 */
-.aws-advantages-section {
-    margin: 2rem 0;
+.aws-item-list li:last-child {
+    margin-bottom: 0;
 }
 
-.aws-advantages,
-.aws-disadvantages {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
+/* 설명 텍스트 스타일 */
+.aws-description {
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 1rem;
 }
 
-/* 활용 사례 섹션 */
-.aws-use-cases-section {
-    margin-top: 2rem;
-}
-
-.aws-section-title {
-    font-size: 1.3rem;
+/* 장점/단점 섹션 스타일 */
+.aws-advantages-title {
+    color: #059669;
+    font-size: 1rem;
     font-weight: 600;
-    color: #1e40af;
-    margin: 2rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+.aws-disadvantages-title {
+    color: #dc2626;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 /* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .aws-grid-three {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media (max-width: 768px) {
-    .aws-grid-content {
+    .aws-grid-content,
+    .aws-grid-three {
         grid-template-columns: 1fr;
     }
 
-    .aws-instance-item,
-    .aws-service-item,
-    .aws-card {
+    .aws-feature-item {
         padding: 1rem;
     }
 
-    .aws-instance-title,
-    .aws-section-title {
-        font-size: 1.2rem;
+    .aws-tabs {
+        flex-wrap: wrap;
     }
 
-    .aws-card-title,
-    .aws-service-title {
+    .aws-tab-button {
+        flex: 1 1 auto;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .aws-item-title {
         font-size: 1rem;
     }
 
-    .aws-card-description {
+    .aws-item-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .aws-description,
+    .aws-main-description {
         font-size: 0.9rem;
     }
 }

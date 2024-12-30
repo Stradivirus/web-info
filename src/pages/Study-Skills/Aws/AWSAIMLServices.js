@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AwsAIML.css';
 
 const FeatureList = ({ features }) => {
   if (!features || features.length === 0) return null;
