@@ -1,4 +1,3 @@
-// Navigation.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History } from 'lucide-react';
@@ -50,7 +49,7 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* 기존 네비게이션 메뉴 */}
+      {/* 네비게이션 메뉴 */}
       <NavLink to="/" className={getLinkClassName} end>
         <Home className="nav-icon" size={18} />
         <span>홈</span>
@@ -88,6 +87,10 @@ const Navigation = () => {
       <NavLink to="/study-skills/programming" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Programming Languages</span>
+      </NavLink>
+      <NavLink to="/study-skills/git" className={getLinkClassName}>
+        <BookOpen className="nav-icon" size={18} />
+        <span>Git</span>
       </NavLink>
       <NavLink to="/study-skills/database" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />

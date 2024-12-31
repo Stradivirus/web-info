@@ -1,0 +1,177 @@
+/* Git 개요 섹션 */
+.git-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .git-definition-card {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .git-definition-card h3,
+  .git-workflow h3,
+  .git-branch-strategy h3 {
+    color: #1e40af;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+  }
+  
+  .git-key-features, 
+  .git-advantages,
+  .git-workflow-basics {
+    margin-top: 1.5rem;
+  }
+  
+  .git-key-features h4,
+  .git-advantages h4,
+  .git-workflow-basics h4 {
+    color: #1e40af;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  
+  .git-workflow-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    background-color: #f8fafc;
+    padding: 0.8rem;
+    border-radius: 6px;
+  }
+  
+  .step-number {
+    background-color: #1e40af;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Git 워크플로우 섹션 */
+  .git-branches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .git-branch-card {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .git-branch-card h5 {
+    color: #1e40af;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  
+  .git-branch-rules {
+    margin-top: 1rem;
+  }
+  
+  .git-branch-workflow {
+    margin-top: 1rem;
+  }
+  
+  .git-branch-workflow h6 {
+    color: #1e40af;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* 버전 관리 섹션 */
+  .git-version-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .git-version-card {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .git-version-card h4 {
+    color: #1e40af;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .git-version-examples {
+    margin-top: 1rem;
+  }
+  
+  /* 자동화 섹션 */
+  .git-automation-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .git-environment-card {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .git-pipeline {
+    margin-top: 1rem;
+  }
+  
+  .git-pipeline h4 {
+    color: #1e40af;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  
+  .git-pipeline-stage {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid #e2e8f0;
+  }
+  
+  .git-pipeline-stage h5 {
+    color: #1e40af;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* 반응형 디자인 추가 */
+  @media (max-width: 768px) {
+    .git-overview-grid,
+    .git-branches-grid,
+    .git-version-content,
+    .git-automation-content {
+      grid-template-columns: 1fr;
+    }
+  
+    .git-branch-card,
+    .git-version-card,
+    .git-environment-card {
+      margin-bottom: 1rem;
+    }
+  }

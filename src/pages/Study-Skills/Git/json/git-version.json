@@ -1,0 +1,223 @@
+{
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2024-03-21",
+      "references": {
+        "workflow": "git-workflow.json",
+        "automation": "git-automation.json"
+      }
+    },
+    "semanticVersioning": {
+      "structure": {
+        "major": {
+          "description": "호환되지 않는 API 변경",
+          "increment": "X.0.0",
+          "trigger": "BREAKING CHANGE",
+          "examples": [
+            "API 응답 구조 변경",
+            "데이터베이스 스키마 변경",
+            "주요 기능 제거"
+          ],
+          "commitExample": "feat(api)!: API 응답 구조를 RESTful 형식으로 변경"
+        },
+        "minor": {
+          "description": "후위 호환성 있는 기능 추가",
+          "increment": "0.Y.0",
+          "trigger": "feat",
+          "examples": [
+            "새로운 기능 추가",
+            "기존 기능 개선",
+            "새로운 API 엔드포인트 추가"
+          ],
+          "commitExample": "feat(auth): 소셜 로그인 기능 추가"
+        },
+        "patch": {
+          "description": "버그 수정",
+          "increment": "0.0.Z",
+          "trigger": "fix",
+          "examples": [
+            "버그 수정",
+            "성능 최적화",
+            "오타 수정"
+          ],
+          "commitExample": "fix(login): 비밀번호 재설정 오류 수정"
+        }
+      },
+      "preReleaseVersions": {
+        "alpha": {
+          "description": "초기 개발 버전",
+          "format": "X.Y.Z-alpha.N",
+          "purpose": "내부 테스트용",
+          "stability": "불안정",
+          "examples": [
+            "1.0.0-alpha.1",
+            "2.0.0-alpha.12"
+          ]
+        },
+        "beta": {
+          "description": "외부 테스트 버전",
+          "format": "X.Y.Z-beta.N",
+          "purpose": "외부 베타 테스터용",
+          "stability": "준안정",
+          "examples": [
+            "1.0.0-beta.1",
+            "1.1.0-beta.3"
+          ]
+        },
+        "rc": {
+          "description": "출시 후보 버전",
+          "format": "X.Y.Z-rc.N",
+          "purpose": "출시 전 최종 테스트",
+          "stability": "안정",
+          "examples": [
+            "1.0.0-rc.1",
+            "2.0.0-rc.2"
+          ]
+        }
+      },
+      "buildMetadata": {
+        "description": "빌드 메타데이터",
+        "format": "X.Y.Z+build.N",
+        "examples": [
+          "1.0.0+build.123",
+          "2.0.0+build.20240321"
+        ]
+      }
+    },
+    "versioningProcess": {
+      "releaseTypes": {
+        "majorRelease": {
+          "timing": "주요 기능 변경 또는 호환성 깨짐",
+          "process": [
+            "변경 사항 검토",
+            "마이그레이션 가이드 작성",
+            "사용자 공지 준비",
+            "테스트 계획 수립"
+          ],
+          "requirements": [
+            "전체 테스트 통과",
+            "성능 테스트",
+            "보안 감사",
+            "문서화 완료"
+          ]
+        },
+        "minorRelease": {
+          "timing": "새로운 기능 추가",
+          "process": [
+            "기능 테스트",
+            "문서 업데이트",
+            "릴리즈 노트 작성"
+          ],
+          "requirements": [
+            "기능 테스트 통과",
+            "하위 호환성 확인",
+            "성능 영향 분석"
+          ]
+        },
+        "patchRelease": {
+          "timing": "버그 수정",
+          "process": [
+            "버그 수정 확인",
+            "패치 노트 작성",
+            "핫픽스 배포"
+          ],
+          "requirements": [
+            "버그 수정 확인",
+            "회귀 테스트",
+            "문서 업데이트"
+          ]
+        }
+      },
+      "releaseAutomation": {
+        "tagCreation": {
+          "triggers": ["버전 변경 감지", "수동 릴리즈 요청"],
+          "steps": [
+            "버전 번호 결정",
+            "태그 생성",
+            "CHANGELOG 업데이트",
+            "릴리즈 노트 생성"
+          ]
+        },
+        "releaseValidation": {
+          "checks": [
+            "버전 번호 형식",
+            "태그 중복 여부",
+            "변경 사항 문서화",
+            "필수 파일 포함"
+          ]
+        }
+      }
+    },
+    "documentation": {
+      "changelog": {
+        "sections": [
+          "Added (새로운 기능)",
+          "Changed (기존 기능 변경)",
+          "Deprecated (곧 제거될 기능)",
+          "Removed (제거된 기능)",
+          "Fixed (버그 수정)",
+          "Security (보안 관련 수정)"
+        ],
+        "format": {
+          "header": "## [버전] - 날짜",
+          "content": [
+            "변경 사항 설명",
+            "기여자 정보",
+            "관련 PR 링크",
+            "영향받는 컴포넌트"
+          ],
+          "example": {
+            "version": "## [1.2.0] - 2024-03-21",
+            "sections": [
+              "### Added",
+              "- 소셜 로그인 기능 추가 (#123)",
+              "### Fixed",
+              "- 비밀번호 재설정 오류 수정 (#456)"
+            ]
+          }
+        }
+      },
+      "releaseNotes": {
+        "template": {
+          "sections": [
+            "## 새로운 기능",
+            "## 주요 변경사항",
+            "## 버그 수정",
+            "## 알려진 이슈",
+            "## 업그레이드 가이드"
+          ],
+          "example": {
+            "version": "# Release 1.2.0",
+            "content": [
+              "## 새로운 기능",
+              "- 소셜 로그인 지원 추가",
+              "## 주요 변경사항",
+              "- 성능 최적화",
+              "## 버그 수정",
+              "- 로그인 관련 버그 수정"
+            ]
+          }
+        }
+      }
+    },
+    "bestPractices": {
+      "versioningTips": [
+        "의미있는 버전 번호 사용",
+        "일관된 버전 관리 정책 유지",
+        "하위 호환성 고려",
+        "명확한 업그레이드 경로 제공"
+      ],
+      "releaseProcess": [
+        "코드 동결 기간 설정",
+        "충분한 테스트 시간 확보",
+        "단계적 배포 전략 사용",
+        "롤백 계획 수립"
+      ],
+      "documentation": [
+        "상세한 변경사항 기록",
+        "업그레이드 가이드 제공",
+        "알려진 이슈 문서화",
+        "API 변경사항 명시"
+      ]
+    }
+  }

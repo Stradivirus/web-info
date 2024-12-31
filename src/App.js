@@ -9,6 +9,7 @@ import CICDPage from './pages/Study-Skills/CICD';
 import DevToolsPage from './pages/Study-Skills/DevTools';
 import ContainerPage from './pages/Study-Skills/DK';
 import AwsPage from './pages/Study-Skills/Aws';
+import GitPage from './pages/Study-Skills/Git';  // 추가됨
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/study-skills/devtools" element={<DevToolsPage />} />
           <Route path="/study-skills/container" element={<ContainerPage />} />
           <Route path="/study-skills/Aws" element={<AwsPage />} />
+          <Route path="/study-skills/git" element={<GitPage />} />  {/* 추가됨 */}
         </Routes>
       </Layout>
     </Router>
