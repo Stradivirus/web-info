@@ -29,19 +29,6 @@
     border-color: #1e40af;
 }
 
-/* 컨텐츠 레이아웃 */
-.aws-content {
-    margin-bottom: 1.5rem;
-}
-
-/* 메인 설명 텍스트 */
-.aws-main-description {
-    font-size: 1rem;
-    color: #64748b;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-}
-
 /* 2분할 그리드 레이아웃 */
 .aws-grid-content {
     display: grid;
@@ -67,15 +54,6 @@
     gap: 1.5rem;
 }
 
-/* 피처 아이템 스타일 */
-.aws-feature-item {
-    background: #f8fafc;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 1rem;
-}
-
 /* 피처 그룹 스타일 */
 .feature-group {
     margin-top: 1rem;
@@ -87,60 +65,6 @@
     margin-top: 0;
     padding-top: 0;
     border-top: none;
-}
-
-/* 제목 스타일 */
-.aws-item-title {
-    color: #1e40af;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.aws-item-subtitle {
-    color: #2563eb;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
-
-/* 리스트 스타일 */
-.aws-item-list {
-    list-style-type: disc;
-    padding-left: 1.2rem;
-    margin: 0;
-}
-
-.aws-item-list li {
-    margin-bottom: 0.5rem;
-    color: #475569;
-    line-height: 1.5;
-}
-
-.aws-item-list li:last-child {
-    margin-bottom: 0;
-}
-
-/* 설명 텍스트 스타일 */
-.aws-description {
-    color: #64748b;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-/* 장점/단점 섹션 스타일 */
-.aws-advantages-title {
-    color: #059669;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.aws-disadvantages-title {
-    color: #dc2626;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
 }
 
 /* 반응형 디자인 */
@@ -156,10 +80,6 @@
         grid-template-columns: 1fr;
     }
 
-    .aws-feature-item {
-        padding: 1rem;
-    }
-
     .aws-tabs {
         flex-wrap: wrap;
     }
@@ -168,19 +88,6 @@
         flex: 1 1 auto;
         text-align: center;
         padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .aws-item-title {
-        font-size: 1rem;
-    }
-
-    .aws-item-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .aws-description,
-    .aws-main-description {
         font-size: 0.9rem;
     }
 }

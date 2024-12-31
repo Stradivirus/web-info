@@ -43,31 +43,33 @@ const CommonUseCases = ({ commonUseCases }) => {
         </div>
       ))}
       {commonUseCases.suitable && (
-        <div className="feature-group">
-          <h5 className="aws-item-subtitle">적합한 사례</h5>
-          <FeatureList features={commonUseCases.suitable} />
-        </div>
-      )}
-      {commonUseCases.unsuitable && (
-        <div className="feature-group">
-          <h5 className="aws-item-subtitle">부적합한 사례</h5>
-          <FeatureList features={commonUseCases.unsuitable} />
+        <div className="use-cases-grid">
+          <div className="suitable-cases">
+            <h5 className="aws-advantages-title">적합한 사례</h5>
+            <FeatureList features={commonUseCases.suitable} />
+          </div>
+          {commonUseCases.unsuitable && (
+            <div className="unsuitable-cases">
+              <h5 className="aws-disadvantages-title">부적합한 사례</h5>
+              <FeatureList features={commonUseCases.unsuitable} />
+            </div>
+          )}
         </div>
       )}
     </div>
   );
 };
 
-const ServiceSection = ({ data }) => {
-  if (!data) return null;
+const ServiceSection = ({ service }) => {
+  if (!service) return null;
 
   return (
     <div className="aws-content">
-      <p className="aws-main-description">{data.description}</p>
+      <p className="aws-main-description">{service.description}</p>
       <div className="aws-grid">
         <div className="aws-left-column">
           {/* 주요 기능 섹션 */}
-          {data.mainFeatures?.map((feature, idx) => (
+          {service.mainFeatures?.map((feature, idx) => (
             <div key={idx} className="aws-feature-item">
               <h4 className="aws-item-title">{feature.title}</h4>
               <FeatureList features={feature.details} />
@@ -75,20 +77,18 @@ const ServiceSection = ({ data }) => {
           ))}
           
           {/* 장점 섹션 */}
-          {data.advantages?.map((advantage, idx) => (
+          {service.advantages?.map((advantage, idx) => (
             <div key={idx} className="aws-feature-item">
               <h4 className="aws-item-title">{advantage.title}</h4>
               <FeatureList features={advantage.details} />
             </div>
           ))}
-        </div>
-        
-        <div className="aws-right-column">
-          {/* 활용 사례 섹션 */}
-          {data.useCases?.examples && (
+
+          {/* 서비스별 활용 사례 섹션 */}
+          {service.useCases?.examples && (
             <div className="aws-feature-item">
               <h4 className="section-title">서비스별 활용 사례</h4>
-              {data.useCases.examples.map((useCase, idx) => (
+              {service.useCases.examples.map((useCase, idx) => (
                 <div key={idx} className="feature-group">
                   <h5 className="aws-item-subtitle">{useCase.title}</h5>
                   <p className="aws-description">{useCase.details}</p>
@@ -102,38 +102,50 @@ const ServiceSection = ({ data }) => {
   );
 };
 
+const CommonSection = ({ commonUseCases, pricing }) => {
+  return (
+    <div className="aws-content">
+      <div className="aws-grid">
+        <div className="aws-left-column">
+          <CommonUseCases commonUseCases={commonUseCases} />
+        </div>
+        <div className="aws-right-column">
+          <PricingSection pricing={pricing} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const AWSAIMLServices = ({ data }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const services = Object.values(data.services);
-  const activeService = services[activeTabIndex];
+  const tabs = [...services, { name: "Common" }];
+  const activeTab = tabs[activeTabIndex];
 
   return (
     <div className="aws-computing">
       {/* 서비스 탭 */}
       <div className="aws-tabs">
-        {services.map((service, index) => (
+        {tabs.map((tab, index) => (
           <button
             key={index}
             className={`aws-tab-button ${activeTabIndex === index ? 'active' : ''}`}
             onClick={() => setActiveTabIndex(index)}
           >
-            {service.name.replace('Amazon ', '')}
+            {tab.name.replace('Amazon ', '')}
           </button>
         ))}
       </div>
 
-      {/* 선택된 서비스 내용 */}
-      <ServiceSection data={activeService} />
-
-      {/* 추가 정보 섹션 */}
-      {activeTabIndex === services.length - 1 && (
-        <>
-          {/* 공통 활용 사례 섹션 */}
-          <CommonUseCases commonUseCases={data.commonUseCases} />
-          
-          {/* 가격 정책 섹션 */}
-          <PricingSection pricing={data.pricing} />
-        </>
+      {/* 선택된 탭 내용 */}
+      {activeTabIndex < services.length ? (
+        <ServiceSection service={activeTab} />
+      ) : (
+        <CommonSection 
+          commonUseCases={data.commonUseCases}
+          pricing={data.pricing}
+        />
       )}
     </div>
   );

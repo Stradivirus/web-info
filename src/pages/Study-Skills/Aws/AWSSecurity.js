@@ -52,7 +52,7 @@ const ServiceSection = ({ data }) => {
   );
 
   const renderDataSecuritySection = () => (
-    <div className="aws-grid">
+    <div className="aws-grid-fullwidth">
       {data.services.map((service, index) => (
         <div key={index} className="aws-feature-item">
           <h4 className="aws-item-title">{service.name}</h4>
@@ -100,7 +100,7 @@ const ServiceSection = ({ data }) => {
   );
 
   const renderThreatDetectionSection = () => (
-    <div className="aws-grid">
+    <div className="aws-grid-fullwidth">
       {data.services.map((service, index) => (
         <div key={index} className="aws-feature-item">
           <h4 className="aws-item-title">{service.name}</h4>
@@ -141,7 +141,7 @@ const ServiceSection = ({ data }) => {
   );
 
   const renderNetworkSecuritySection = () => (
-    <div className="aws-grid">
+    <div className="aws-grid-fullwidth">
       {data.services.map((service, index) => (
         <div key={index} className="aws-feature-item">
           <h4 className="aws-item-title">{service.name}</h4>
