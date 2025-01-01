@@ -1,0 +1,297 @@
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+
+:root {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 
+  'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+.monitoring-info {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.monitoring-page-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #000000;
+}
+
+/* 탭 스타일 */
+.monitoring-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.monitoring-tab {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #64748b;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.monitoring-tab.active {
+  color: #1e40af;
+  border-bottom: 2px solid #1e40af;
+}
+
+/* 섹션 스타일 */
+.monitoring-section {
+  margin-bottom: 0.5rem;
+}
+
+.monitoring-section-button {
+  width: 100%;
+  padding: 0.7rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.monitoring-section-button:hover {
+  background-color: #f1f5f9;
+}
+
+.monitoring-section-button.expanded {
+  background-color: #e2e8f0;
+}
+
+.monitoring-button-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.monitoring-button-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.monitoring-button-left h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.monitoring-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin: 0.2rem 0 0 0;
+}
+
+/* 컨텐츠 영역 스타일 */
+.monitoring-section-content {
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 20px;
+  background-color: white;
+  animation: slideDown 0.3s ease-out;
+}
+
+.monitoring-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 기능 카드 스타일 */
+.monitoring-feature-card,
+.monitoring-info-card {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.monitoring-feature-card h4,
+.monitoring-info-card h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #1e40af;
+}
+
+.monitoring-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* 가격 정책 첫 번째 항목의 점 제거 */
+.monitoring-feature-item ul li:first-child {
+    list-style-type: none;
+    margin-left: -1.5rem;  /* 다른 리스트 항목들과 정렬을 맞추기 위해 */
+}
+
+.monitoring-feature-item {
+  margin-bottom: 1rem;
+}
+
+.monitoring-feature-item h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+}
+
+.monitoring-feature-item h5.advantage-title {
+  color: #15803d;
+}
+
+.monitoring-feature-item h5.disadvantage-title {
+  color: #b91c1c;
+}
+
+.monitoring-feature-item ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.monitoring-feature-item li {
+  margin-bottom: 0.9rem;
+  line-height: 1.5;
+  font-size: 1.15rem;
+}
+
+/* 가이드 스타일 */
+.monitoring-guide-wrapper {
+  padding: 1rem;
+}
+
+.monitoring-guide-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.monitoring-guide-tab {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.3s ease;
+}
+
+.monitoring-guide-tab.active {
+  color: #1e40af;
+  font-weight: 600;
+  border-bottom: 2px solid #1e40af;
+}
+
+.monitoring-guide-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+}
+
+.monitoring-guide-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.monitoring-guide-item {
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.monitoring-guide-category {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 1rem;
+}
+
+.monitoring-guide-item p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.monitoring-guide-item ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.monitoring-guide-item li {
+  margin-bottom: 0.5rem;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .monitoring-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .monitoring-page-title {
+    font-size: 1.8rem;
+  }
+  
+  .monitoring-button-left h3 {
+    font-size: 1.3rem;
+  }
+  
+  .monitoring-subtitle {
+    font-size: 1rem;
+  }
+  
+  .monitoring-section-content {
+    padding: 1rem;
+  }
+
+  .monitoring-feature-card h4,
+  .monitoring-info-card h4,
+  .monitoring-guide-title {
+    font-size: 1.5rem;
+  }
+
+  .monitoring-feature-item h5,
+  .monitoring-guide-category {
+    font-size: 1.2rem;
+  }
+
+  .monitoring-feature-item li {
+    font-size: 1rem;
+  }
+
+  .monitoring-guide-tab {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
