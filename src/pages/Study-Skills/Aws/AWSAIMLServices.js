@@ -63,6 +63,21 @@ const CommonUseCases = ({ commonUseCases }) => {
 const ServiceSection = ({ service }) => {
   if (!service) return null;
 
+  // Transcribe 서비스의 활용 사례를 반으로 나누는 로직
+  const splitUseCases = (useCases) => {
+    if (!useCases?.examples) return { leftUseCases: [], rightUseCases: [] };
+    
+    const midPoint = Math.ceil(useCases.examples.length / 2);
+    return {
+      leftUseCases: useCases.examples.slice(0, midPoint),
+      rightUseCases: useCases.examples.slice(midPoint)
+    };
+  };
+
+  const { leftUseCases, rightUseCases } = service.name === "Amazon Transcribe" 
+    ? splitUseCases(service.useCases)
+    : { leftUseCases: service.useCases?.examples, rightUseCases: [] };
+
   return (
     <div className="aws-content">
       <p className="aws-main-description">{service.description}</p>
@@ -83,12 +98,14 @@ const ServiceSection = ({ service }) => {
               <FeatureList features={advantage.details} />
             </div>
           ))}
+        </div>
 
+        <div className="aws-right-column">
           {/* 서비스별 활용 사례 섹션 */}
-          {service.useCases?.examples && (
+          {(service.name === "Amazon Transcribe" ? leftUseCases : service.useCases?.examples) && (
             <div className="aws-feature-item">
               <h4 className="section-title">서비스별 활용 사례</h4>
-              {service.useCases.examples.map((useCase, idx) => (
+              {(service.name === "Amazon Transcribe" ? [...leftUseCases, ...rightUseCases] : service.useCases?.examples).map((useCase, idx) => (
                 <div key={idx} className="feature-group">
                   <h5 className="aws-item-subtitle">{useCase.title}</h5>
                   <p className="aws-description">{useCase.details}</p>
