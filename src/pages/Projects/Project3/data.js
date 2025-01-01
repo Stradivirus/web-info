@@ -66,8 +66,8 @@ export const projectData = {
   ],
 
   process: `1. 기본 환경 구축
-• 가장 먼저 배운 프레임워크인 Django로 만들 생각이었지만 Fastapi라는 웹소켓에 어울리는 프레임워크로 변경
-• 메시지 브로커로 Kafka와 Redis를 비교했으나, 실시간 채팅에 적합한 인메모리 기반의 가벼운 Redis 선택
+• 당시엔 Django만 배운 상태라 Django로 만들 생각이었지만 Fastapi라는 웹소켓에 어울리는 프레임워크로 변경
+• 메시지 브로커로 Redis 도입
 • WebSocket 기반 실시간 통신 구현
 • Docker 기반 개발 환경 구성
 
@@ -118,8 +118,10 @@ Redis 클러스터 수동 설정의 자동화 구현
 • 마이크로서비스 아키텍처 도입
 • 자동 스케일링 및 무중단 배포 체계 구축`,
 
-  reflection: `1. 초기 아키텍처는 Kafka와 Redis를 함께 사용하도록 설계되었으나, 개발 과정에서 순환 참조로 인해 CPU 사용량이 지속적으로 100%에 달하는 문제가 발생했습니다. 이로 인해 아키텍처를 변경하여 Kafka를 제거하고 Redis Cluster로 대체하게 되었습니다.
-  2. 채팅 내역 저장 과정에서 FastAPI에서 Redis와 PostgreSQL에 동시에 채팅 내역이 저장되는 문제를 FastAPI → Redis → PostgreSQL 순서로 데이터 흐름을 개선하여 해결했습니다.`,
+  reflection: `1. fastapi와 postgresql을 캐싱 없이 바로 연결하니 부하 테스트 시 채팅 내역이 제대로 저장 되지 않은 문제가 생겨 redis와 kafka 도입을 결정했습니다.
+  2. 수정된 아키텍처는 Kafka와 Redis를 함께 사용하도록 설계되었으나, 개발 과정에서 순환 참조로 인해 CPU 사용량이 지속적으로 100%에 달하는 문제가 발생했습니다. 
+  3. 이로 인해 아키텍처를 변경하여 Kafka를 제거하고 Redis Cluster로 대체하게 되었습니다.
+  4. 채팅 내역 저장 과정에서 FastAPI에서 Redis와 PostgreSQL에 동시에 채팅 내역이 저장되는 문제를 FastAPI → Redis → PostgreSQL 순서로 데이터 흐름을 개선하여 해결했습니다.`,
 
   architectureImg: ArchitectureDiagram,
   
