@@ -76,7 +76,7 @@ const Navigation = () => {
       </NavLink>
       <NavLink to="/project/1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>AwsS3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
+        <span>S3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
       </NavLink>
 
       <div className="nav-divider">Certifications</div>
