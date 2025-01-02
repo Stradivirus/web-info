@@ -1,55 +1,84 @@
 name: Deploy to S3 and Invalidate CloudFront
 
 on:
-  push:
-    branches:
-      - master
+ push:
+   branches:
+     - dev
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    
-    # 커밋 메시지에 [up]이 포함되어 있는지 확인하는 조건 추가
-    if: contains(github.event.head_commit.message, '[up]')
-    
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          
-      - name: Install Dependencies
-        run: npm install
-        
-      - name: Set build time
-        run: |
-          ampm=$(TZ='Asia/Seoul' date +%p)
-          if [ "$ampm" = "AM" ]; then
-            period="오전"
-          else
-            period="오후"
-          fi
-          echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +%Y년\ %m월\ %d일) $period $(TZ='Asia/Seoul' date +%I시)" >> $GITHUB_ENV
-        
-      - name: Build
-        env:
-          REACT_APP_BUILD_TIME: ${{ env.REACT_APP_BUILD_TIME }}
-        run: npm run build
-        
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
-          
-      - name: Deploy to S3
-        run: aws s3 sync build/ s3://web-info --delete
-        
-      - name: Invalidate CloudFront
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
+ deploy:
+   runs-on: ubuntu-latest
+   permissions:
+     contents: write
+   steps:
+     - uses: actions/checkout@v4
+       with:
+         fetch-depth: 0
+         token: ${{ secrets.PAT }}
+
+     - name: Setup Node.js
+       uses: actions/setup-node@v4
+       with:
+         node-version: '20'
+
+     - name: Check Deploy Condition
+       id: check
+       run: |
+         if [[ "${{ github.event.head_commit.message }}" == *"[100]"* ]] || [[ "${{ github.event.head_commit.message }}" == *"[010]"* ]]; then
+           echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+         else
+           echo "SHOULD_DEPLOY=false" >> $GITHUB_ENV
+         fi
+
+     - name: Configure Git
+       run: |
+         git config --global user.name 'github-actions[bot]'
+         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+     - name: Merge to master if deploying
+       if: env.SHOULD_DEPLOY == 'true'
+       run: |
+         git fetch origin master:master
+         git checkout master
+         git merge --no-ff dev -m "Merge dev into master for deployment"
+         git push origin master
+
+     - name: Install Dependencies
+       if: env.SHOULD_DEPLOY == 'true'
+       run: npm install
+       
+     - name: Set build time
+       if: env.SHOULD_DEPLOY == 'true'
+       run: |
+         ampm=$(TZ='Asia/Seoul' date +%p)
+         if [ "$ampm" = "AM" ]; then
+           period="오전"
+         else
+           period="오후"
+         fi
+         echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +%Y년\ %m월\ %d일) $period $(TZ='Asia/Seoul' date +%I시)" >> $GITHUB_ENV
+         
+     - name: Build
+       if: env.SHOULD_DEPLOY == 'true'
+       env:
+         REACT_APP_BUILD_TIME: ${{ env.REACT_APP_BUILD_TIME }}
+       run: npm run build
+       
+     - name: Configure AWS Credentials
+       if: env.SHOULD_DEPLOY == 'true'
+       uses: aws-actions/configure-aws-credentials@v4
+       with:
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         aws-region: ap-northeast-2
+         
+     - name: Deploy to S3
+       if: env.SHOULD_DEPLOY == 'true'
+       run: aws s3 sync build/ s3://web-info --delete
+       
+     - name: Invalidate CloudFront
+       if: env.SHOULD_DEPLOY == 'true'
+       run: |
+         aws cloudfront create-invalidation \
+           --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+           --paths "/*"

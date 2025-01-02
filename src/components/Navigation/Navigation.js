@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History } from 'lucide-react';
 import profilePhoto from '../../assets/images/profile/my-photo.jpg';
+import packageJson from '../../../package.json';  // 추가
 import './Navigation.css';
 
 const Navigation = () => {
@@ -43,13 +44,14 @@ const Navigation = () => {
               <div className="update-info">
                 <span className="update-label">마지막 업데이트</span>
                 <span className="update-time">{buildTime}</span>
+                <span className="version-info">v{packageJson.version}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 네비게이션 메뉴 */}
+      {/* 네비게이션 메뉴 - 이전과 동일 */}
       <NavLink to="/" className={getLinkClassName} end>
         <Home className="nav-icon" size={18} />
         <span>홈</span>
@@ -74,7 +76,7 @@ const Navigation = () => {
       </NavLink>
       <NavLink to="/project/1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>AwsS3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
+        <span>S3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
       </NavLink>
 
       <div className="nav-divider">Certifications</div>
