@@ -24,9 +24,12 @@ jobs:
      - name: Version and Deploy Check
        id: check
        run: |
-         # master의 현재 버전 읽기
+         # master의 현재 버전 읽기 (수정된 부분)
          git fetch origin master
-         master_version=$(git show origin/master:package.json | node -p "JSON.parse(process.stdin.read()).version")
+         git checkout origin/master -- package.json
+         master_version=$(node -p "require('./package.json').version")
+         git checkout -- package.json  # 원래 파일로 복구
+         
          IFS='.' read -r major minor patch <<< "$master_version"
          
          echo "Current master version: $master_version"
@@ -44,7 +47,7 @@ jobs:
            echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
            echo "UPDATE_VERSION=true" >> $GITHUB_ENV
          else
-           new_version="$master_version"  # 태그 없으면 버전 유지
+           new_version="$master_version"
            echo "SHOULD_DEPLOY=false" >> $GITHUB_ENV
            echo "UPDATE_VERSION=false" >> $GITHUB_ENV
          fi
