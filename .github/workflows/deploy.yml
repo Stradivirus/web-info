@@ -47,6 +47,8 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
+          git add package.json package-lock.json
+          git commit -m "Update version to ${{ env.NEW_VERSION }}"
           git fetch origin master:master
           git checkout master
           git merge --no-ff dev -m "Merge dev into master for deployment"
