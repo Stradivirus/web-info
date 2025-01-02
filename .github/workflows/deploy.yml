@@ -6,60 +6,37 @@ on:
       - dev
 
 jobs:
-  version_and_deploy:
+  deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Version Update and Deploy Check
-        id: version
+      - name: Check Deploy Condition
+        id: check
         run: |
-          # package.json에서 현재 버전 읽기
-          current_version=$(node -p "require('./package.json').version")
-          IFS='.' read -r major minor patch <<< "$current_version"
-          
-          # 커밋 메시지에 따라 버전 업데이트
-          if [[ "${{ github.event.head_commit.message }}" == *"[100]"* ]]; then
-            new_version="$((major + 1)).0.0"
-            echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
-          elif [[ "${{ github.event.head_commit.message }}" == *"[010]"* ]]; then
-            new_version="$major.$((minor + 1)).0"
+          if [[ "${{ github.event.head_commit.message }}" == *"[100]"* ]] || [[ "${{ github.event.head_commit.message }}" == *"[010]"* ]]; then
             echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
           else
-            new_version="$major.$minor.$((patch + 1))"
             echo "SHOULD_DEPLOY=false" >> $GITHUB_ENV
           fi
-          
-          # package.json 버전 업데이트
-          npm version $new_version --no-git-tag-version
-          
-          # 버전 변경사항 커밋
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add package.json package-lock.json
-          git commit -m "Update version to $new_version"
-          git push
-          
-          echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
 
       - name: Merge to master if deploying
         if: env.SHOULD_DEPLOY == 'true'
         run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git fetch origin master:master
           git checkout master
           git merge --no-ff dev -m "Merge dev into master for deployment"
           git push --set-upstream origin master
-          
+
       - name: Install Dependencies
         if: env.SHOULD_DEPLOY == 'true'
         run: npm install
