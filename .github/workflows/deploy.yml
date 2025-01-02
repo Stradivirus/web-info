@@ -21,22 +21,8 @@ jobs:
        with:
          node-version: '20'
 
-     - name: Check Deploy Condition
+     - name: Version and Deploy Check
        id: check
-       run: |
-         if [[ "${{ github.event.head_commit.message }}" == *"[100]"* ]] || [[ "${{ github.event.head_commit.message }}" == *"[010]"* ]]; then
-           echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
-         else
-           echo "SHOULD_DEPLOY=false" >> $GITHUB_ENV
-         fi
-
-     - name: Configure Git
-       run: |
-         git config --global user.name 'github-actions[bot]'
-         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-     - name: Merge and Update Version
-       if: env.SHOULD_DEPLOY == 'true'
        run: |
          # 현재 버전 읽기
          current_version=$(node -p "require('./package.json').version")
@@ -45,19 +31,42 @@ jobs:
          # 버전 업데이트 체크
          if [[ "${{ github.event.head_commit.message }}" == *"[100]"* ]]; then
            new_version="$((major + 1)).0.0"
-         else
+           echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+         elif [[ "${{ github.event.head_commit.message }}" == *"[010]"* ]]; then
            new_version="$major.$((minor + 1)).0"
+           echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+         elif [[ "${{ github.event.head_commit.message }}" == *"[001]"* ]]; then
+           new_version="$major.$minor.$((patch + 1))"
+           echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+         else
+           # 태그 없는 일반 커밋
+           new_version="$major.$minor.$((patch + 1))"
+           echo "SHOULD_DEPLOY=false" >> $GITHUB_ENV
          fi
          
-         # master로 전환 및 merge
+         echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
+
+     - name: Configure Git
+       run: |
+         git config --global user.name 'github-actions[bot]'
+         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+     - name: Update Version
+       run: |
+         # master에서 버전 업데이트
          git fetch origin master:master
          git checkout master
-         git merge --no-ff dev -m "Merge dev into master for deployment"
-         
-         # master에서만 버전 업데이트
-         npm version $new_version --no-git-tag-version
+         npm version ${{ env.NEW_VERSION }} --no-git-tag-version
          git add package.json package-lock.json
-         git commit -m "Update version to $new_version"
+         git commit -m "Update version to ${{ env.NEW_VERSION }}"
+         git push origin master
+         git checkout dev
+
+     - name: Merge to master if deploying
+       if: env.SHOULD_DEPLOY == 'true'
+       run: |
+         git checkout master
+         git merge --no-ff dev -m "Merge dev into master for deployment"
          git push origin master
 
      - name: Install Dependencies
