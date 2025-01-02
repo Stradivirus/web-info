@@ -88,6 +88,14 @@
   font-size: 0.875rem;
 }
 
+/* 버전 정보 스타일 추가 */
+.version-info {
+  color: #2563eb;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
 /* 네비게이션 컨테이너 */
 .nav-container {
   min-height: 200vh;
@@ -97,6 +105,7 @@
   font-family: inherit;
 }
 
+/* 나머지 스타일은 동일 */
 /* 네비게이션 아이템 */
 .nav-item {
   font-family: 'Noto Sans KR', sans-serif;
