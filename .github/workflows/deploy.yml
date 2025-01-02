@@ -58,8 +58,8 @@ jobs:
           git fetch origin master:master
           git checkout master
           git merge --no-ff dev -m "Merge dev into master for deployment"
-          git push
-
+          git push --set-upstream origin master
+          
       - name: Install Dependencies
         if: env.SHOULD_DEPLOY == 'true'
         run: npm install
