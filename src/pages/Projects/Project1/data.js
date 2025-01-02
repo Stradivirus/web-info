@@ -38,7 +38,7 @@ export const projectData = {
 2. AWS 인프라 구축 및 배포 자동화
 - S3 정적 웹 호스팅 구축
 - CloudFront 배포 설정
-- GitHub Actions를 활용한 조건부 자동 배포([up] 태그 기반)
+- GitHub Actions를 활용한 조건부 자동 배포([] 태그 기반)
 
 3. 성능 최적화 및 리팩토링
 - 공통 컴포넌트 분리 및 코드 정리
@@ -62,8 +62,8 @@ export const projectData = {
     }
   ],
 
-  reflection: `1. 프로젝트별 데이터 구조 통합 과정에서 발생한 오류를 해결하며 데이터 정규화에 대한 경험을 얻었습니다.
-2. GitHub Actions를 처음 사용하여 워크플로우 설정과 조건부 배포를 구현함으로써 새로운 CI/CD 경험을 쌓았습니다.`,
+  reflection: `1. 프로젝트별 데이터 구조 통합 과정에서 발생한 오류를 해결하며 리팩토링에 대한 경험을 얻었습니다.
+2. GitHub Actions를 사용하여 조건부 배포와 버전 정보 업데이트를 구현함으로써 새로운 CI/CD 경험을 쌓았습니다.`,
 
   architectureImg: ArchitectureDiagram,
 
