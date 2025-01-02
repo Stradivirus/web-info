@@ -35,12 +35,29 @@ jobs:
          git config --global user.name 'github-actions[bot]'
          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-     - name: Merge to master if deploying
+     - name: Merge and Update Version
        if: env.SHOULD_DEPLOY == 'true'
        run: |
+         # 현재 버전 읽기
+         current_version=$(node -p "require('./package.json').version")
+         IFS='.' read -r major minor patch <<< "$current_version"
+         
+         # 버전 업데이트 체크
+         if [[ "${{ github.event.head_commit.message }}" == *"[100]"* ]]; then
+           new_version="$((major + 1)).0.0"
+         else
+           new_version="$major.$((minor + 1)).0"
+         fi
+         
+         # master로 전환 및 merge
          git fetch origin master:master
          git checkout master
          git merge --no-ff dev -m "Merge dev into master for deployment"
+         
+         # master에서만 버전 업데이트
+         npm version $new_version --no-git-tag-version
+         git add package.json package-lock.json
+         git commit -m "Update version to $new_version"
          git push origin master
 
      - name: Install Dependencies
