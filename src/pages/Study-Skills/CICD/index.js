@@ -1,9 +1,9 @@
+// index.js
 import React from 'react';
 import CiSection from './CiSection';
 import CdSection from './CdSection';
 import IaCSection from './IaCSection';
 import './index.css';
-import './CiSection.css';
 import './CdSection.css';
 import './IaCSection.css';
 
@@ -16,9 +16,7 @@ const IndexPage = () => {
           <h2 className="devops-page-title">
             CI(Continuous Integration) 도구           
           </h2>
-          <div className="mt-6">
-            <CiSection />
-          </div>
+          <CiSection />
         </div>
 
         {/* CD Container */}
@@ -26,9 +24,7 @@ const IndexPage = () => {
           <h2 className="devops-page-title">
             CD(Continuous Deployment/Delivery) 도구
           </h2>
-          <div className="mt-6">
-            <CdSection />
-          </div>
+          <CdSection />
         </div>
 
         {/* IaC Container */}
@@ -36,9 +32,7 @@ const IndexPage = () => {
           <h2 className="devops-page-title">
             IaC(Infrastructure as Code) 도구
           </h2>
-          <div className="mt-6">
-            <IaCSection />
-          </div>
+          <IaCSection />
         </div>
       </div>
     </main>

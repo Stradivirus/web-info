@@ -19,3 +19,48 @@
   background-color: #f8fafc;
   border-radius: 8px;
 }
+
+.devops-integration-section {
+  margin-top: 1.5rem;
+}
+
+.devops-integration-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.devops-integration-item {
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.devops-integration-item h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.devops-integration-item ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.devops-integration-item li {
+  padding: 0.4rem 0;
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .devops-integration-list {
+    grid-template-columns: 1fr;
+  }
+}
