@@ -14,7 +14,7 @@
   padding: 20px;
   border: 1px solid #e5e7eb;
   text-align: center;
-  height: 400px;
+  height: 440px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -54,9 +54,10 @@
 /* 태그 컨테이너 */
 .certification-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 8px;
   justify-content: center;
+  align-items: center;
   margin-top: auto;
 }
 

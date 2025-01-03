@@ -4,6 +4,7 @@ import AWS from '../../assets/images/certifications/AWS Certified Cloud Practiti
 import AWS_sa from '../../assets/images/certifications/AWS Certified Solutions Architect.png';
 import NCA from '../../assets/images/certifications/Naver Cloud Platform.png';
 import NCP from '../../assets/images/certifications/NCP.png';
+import linux2 from '../../assets/images/certifications/linuxmaster2.png';
 import './Certifications.css';
 
 const certifications = [
@@ -41,6 +42,13 @@ const certifications = [
     issuer: "NAVER Cloud",
     date: "2024.11",
     imagePath: NCP,
+  },
+  {
+    id: 6,
+    title: "리눅스마스터 2급",
+    issuer: "한국정보통신 진흥협회",
+    date: "2025.01",
+    imagePath: linux2,
   }
 ];
 
