@@ -82,14 +82,24 @@
   margin-bottom: 2rem;
 }
 
+/* 각 섹션이 자신의 내용물 크기에 맞게 조절되도록 */
+.database-feature-section,
+.database-usecase-section {
+  height: fit-content;
+  min-height: 0;
+}
+
 .database-feature-card, 
-.database-usecase-card, 
+.database-usecase-card,
 .database-cluster-card {
   background-color: #f8fafc;
   border-radius: 8px;
   padding: 1.5rem;
-  height: 100%;
+  height: fit-content;
+  min-height: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .database-feature-card h4, 
@@ -106,6 +116,8 @@
 .database-feature-list {
   display: flex;
   flex-direction: column;
+  height: fit-content;
+  min-height: 0;
 }
 
 .database-feature-item {
@@ -147,6 +159,8 @@
 .database-usecase-grid {
   display: grid;
   gap: 0.8rem;
+  height: fit-content;
+  min-height: 0;
 }
 
 .database-usecase-item {
@@ -201,20 +215,129 @@
   margin-top: 2rem;
 }
 
-.database-cluster-section h4 {
-  color: #1e40af;
+/* 클러스터링 메인 제목 */
+.database-cluster-section > h4 {
   font-size: 1.8rem;
   font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #1e40af;
+}
+
+/* 클러스터링 설명 텍스트 */
+.database-cluster-section > p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 1.5rem;
+}
+
+/* 클러스터링 상세 내용 */
+.database-cluster-details {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 클러스터링 서브 제목 */
+.database-cluster-details h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin: 1.5rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.database-cluster-details h5:first-child {
+  margin-top: 0;
+}
+
+/* 클러스터링 리스트 스타일 */
+.database-cluster-details ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.database-cluster-details li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  font-size: 1.1rem;
+  color: #475569;
+}
+
+/* Atlas 섹션 관련 스타일 */
+.database-atlas-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.database-atlas-section h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e40af;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #1e40af;
 }
 
-.database-cluster-details h5 {
+.database-atlas-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 1.5rem;
+}
+
+.database-atlas-advantages,
+.database-atlas-disadvantages {
+  margin: 1.5rem 0;
+}
+
+.database-atlas-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Atlas 장점/단점 타이틀 색상 구분 */
+.database-atlas-advantages .database-atlas-title {
+  color: #15803d;
+  border-bottom: 2px solid #15803d;
+}
+
+.database-atlas-disadvantages .database-atlas-title {
+  color: #b91c1c;
+  border-bottom: 2px solid #b91c1c;
+}
+
+/* Atlas 가격 정책 섹션 */
+.database-atlas-pricing {
+  margin-top: 2rem;
+}
+
+.database-atlas-pricing h4 {
+  font-size: 1.6rem;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+}
+
+.database-atlas-pricing .database-feature-item {
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.database-atlas-pricing .database-feature-item h5 {
   color: #1e40af;
   font-size: 1.3rem;
-  font-weight: 600;
-  margin: 1rem 0 0.5rem 0;
+  margin-bottom: 0.8rem;
 }
 
 .database-command-code {
@@ -281,6 +404,40 @@
   .database-suitability-section {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  /* 클러스터링 섹션 모바일 스타일 */
+  .database-cluster-section > h4 {
+    font-size: 1.5rem;
+  }
+  
+  .database-cluster-section > p {
+    font-size: 1rem;
+  }
+  
+  .database-cluster-details h5 {
+    font-size: 1.2rem;
+  }
+  
+  .database-cluster-details li {
+    font-size: 1rem;
+  }
+
+  /* Atlas 섹션 모바일 스타일 */
+  .database-atlas-section h4 {
+    font-size: 1.5rem;
+  }
+  
+  .database-atlas-description {
+    font-size: 1rem;
+  }
+  
+  .database-atlas-title {
+    font-size: 1.3rem;
+  }
+  
+  .database-atlas-pricing h4 {
+    font-size: 1.4rem;
   }
 }
 

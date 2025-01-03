@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// JSON 데이터 import
 import redisData from './json/redisData.json';
 import kafkaData from './json/kafkaData.json';
 import rabbitmqData from './json/rabbitmqData.json';
@@ -9,20 +10,26 @@ import postgresqlData from './json/postgresqlData.json';
 import oracleData from './json/oracleData.json';
 import mssqlData from './json/mssqlData.json';
 import mysqlData from './json/mysqlData.json';
+
+// 컴포넌트 import
 import MessageQueueSection from './MessageQueueSection';
 import DatabaseSection from './DatabaseSection';
 import './Database.css';
 
 const DatabasePage = () => {
-  const [expandedQueue, setExpandedQueue] = useState(null);
-  const [expandedDatabase, setExpandedDatabase] = useState(null);
+  // 하나의 상태로 통합
+  const [expandedSection, setExpandedSection] = useState({
+    type: null, // 'queue' 또는 'database'
+    name: null
+  });
 
-  const toggleQueue = (queue) => {
-    setExpandedQueue(expandedQueue === queue ? null : queue);
-  };
-
-  const toggleDatabase = (database) => {
-    setExpandedDatabase(expandedDatabase === database ? null : database);
+  // 토글 함수 통합
+  const toggleSection = (type, name) => {
+    setExpandedSection(prev => 
+      prev.type === type && prev.name === name 
+        ? { type: null, name: null }
+        : { type, name }
+    );
   };
 
   return (
@@ -36,40 +43,40 @@ const DatabasePage = () => {
             name="Redis"
             subtitle="In-Memory Data Structure Store"
             data={redisData}
-            isExpanded={expandedQueue === 'redis'}
-            onToggle={() => toggleQueue('redis')}
+            isExpanded={expandedSection.type === 'queue' && expandedSection.name === 'redis'}
+            onToggle={() => toggleSection('queue', 'redis')}
           />
 
           <MessageQueueSection 
             name="Kafka"
             subtitle="Distributed Event Streaming Platform"
             data={kafkaData}
-            isExpanded={expandedQueue === 'kafka'}
-            onToggle={() => toggleQueue('kafka')}
+            isExpanded={expandedSection.type === 'queue' && expandedSection.name === 'kafka'}
+            onToggle={() => toggleSection('queue', 'kafka')}
           />
 
           <MessageQueueSection 
             name="RabbitMQ"
             subtitle="Advanced Message Queuing Protocol"
             data={rabbitmqData}
-            isExpanded={expandedQueue === 'rabbitmq'}
-            onToggle={() => toggleQueue('rabbitmq')}
+            isExpanded={expandedSection.type === 'queue' && expandedSection.name === 'rabbitmq'}
+            onToggle={() => toggleSection('queue', 'rabbitmq')}
           />
 
           <MessageQueueSection 
             name="Amazon SQS"
             subtitle="Simple Queue Service"
             data={sqsData}
-            isExpanded={expandedQueue === 'sqs'}
-            onToggle={() => toggleQueue('sqs')}
+            isExpanded={expandedSection.type === 'queue' && expandedSection.name === 'sqs'}
+            onToggle={() => toggleSection('queue', 'sqs')}
           />
 
           <MessageQueueSection 
             name="Amazon SNS"
             subtitle="Simple Notification Service"
             data={snsData}
-            isExpanded={expandedQueue === 'sns'}
-            onToggle={() => toggleQueue('sns')}
+            isExpanded={expandedSection.type === 'queue' && expandedSection.name === 'sns'}
+            onToggle={() => toggleSection('queue', 'sns')}
           />
         </div>
 
@@ -81,40 +88,40 @@ const DatabasePage = () => {
             name="MongoDB"
             subtitle="Document-Oriented NoSQL Database"
             data={mongodbData}
-            isExpanded={expandedDatabase === 'mongodb'}
-            onToggle={() => toggleDatabase('mongodb')}
+            isExpanded={expandedSection.type === 'database' && expandedSection.name === 'mongodb'}
+            onToggle={() => toggleSection('database', 'mongodb')}
           />
 
           <DatabaseSection 
             name="PostgreSQL"
             subtitle="Object-Relational Database Management System"
             data={postgresqlData}
-            isExpanded={expandedDatabase === 'postgresql'}
-            onToggle={() => toggleDatabase('postgresql')}
+            isExpanded={expandedSection.type === 'database' && expandedSection.name === 'postgresql'}
+            onToggle={() => toggleSection('database', 'postgresql')}
           />
         
           <DatabaseSection 
             name="MySQL"
             subtitle="Open-Source Relational Database for Web Applications"
             data={mysqlData}
-            isExpanded={expandedDatabase === 'mysql'}
-            onToggle={() => toggleDatabase('mysql')}
+            isExpanded={expandedSection.type === 'database' && expandedSection.name === 'mysql'}
+            onToggle={() => toggleSection('database', 'mysql')}
           />
 
           <DatabaseSection 
             name="Oracle"
             subtitle="Enterprise-Class Relational Database System"
             data={oracleData}
-            isExpanded={expandedDatabase === 'oracle'}
-            onToggle={() => toggleDatabase('oracle')}
+            isExpanded={expandedSection.type === 'database' && expandedSection.name === 'oracle'}
+            onToggle={() => toggleSection('database', 'oracle')}
           />
 
           <DatabaseSection 
             name="MsSQL"
             subtitle="Robust Database for Mission-Critical Applications"
             data={mssqlData}
-            isExpanded={expandedDatabase === 'mssql'}
-            onToggle={() => toggleDatabase('mssql')}
+            isExpanded={expandedSection.type === 'database' && expandedSection.name === 'mssql'}
+            onToggle={() => toggleSection('database', 'mssql')}
           />
         </div>
       </div>
