@@ -15,6 +15,7 @@ import mysqlData from './json/mysqlData.json';
 import MessageQueueSection from './MessageQueueSection';
 import DatabaseSection from './DatabaseSection';
 import './Database.css';
+import './special-sections.css';
 
 const DatabasePage = () => {
   // 하나의 상태로 통합

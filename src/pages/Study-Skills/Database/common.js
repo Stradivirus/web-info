@@ -73,9 +73,8 @@ export const UseCaseSection = ({ examples, suitable, unsuitable }) => (
 );
 
 export const ClusteringSection = ({ info }) => (
-  <div className="database-cluster-section">
-    <div className="database-cluster-card">
-      <h4>클러스터링</h4>
+    <div className="database-cluster-section">
+      <h3>클러스터링</h3>
       <p>{info.description}</p>
       <div className="database-cluster-details">
         <h5>클러스터 구성의 장점</h5>
@@ -92,8 +91,7 @@ export const ClusteringSection = ({ info }) => (
         </ul>
       </div>
     </div>
-  </div>
-);
+  );
 
 export const ContentSection = ({ type, name, subtitle, data, isExpanded, onToggle }) => {
   if (!data) return null;
