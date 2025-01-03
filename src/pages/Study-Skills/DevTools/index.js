@@ -1,4 +1,3 @@
-// index.js
 import React, { useState } from 'react';
 import devToolsData from './json/DevToolsData.json';
 import DevToolsSection from './DevToolsSection';
@@ -23,9 +22,6 @@ const DevToolsPage = () => {
               toolData={tool}
               isExpanded={expandedTool === tool.name.toLowerCase()}
               onToggle={() => toggleTool(tool.name.toLowerCase())}
-              commonUseCases={devToolsData.commonUseCases}
-              integrationData={devToolsData.developmentIntegration}
-              environmentSetup={devToolsData.environmentSetup}
             />
           ))}
         </div>
