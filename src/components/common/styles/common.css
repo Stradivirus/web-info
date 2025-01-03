@@ -1,0 +1,249 @@
+/* 기본 폰트 설정 */
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+
+:root {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 
+    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+/* 기본 컨테이너 */
+.common-container {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+/* 페이지 타이틀 */
+.common-page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #000000;
+}
+
+/* 섹션 스타일 */
+.common-section {
+    margin-bottom: 0.5rem;
+}
+
+/* 섹션 버튼 */
+.common-section-button {
+    width: 100%;
+    padding: 0.7rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.common-section-button:hover {
+    background-color: #f1f5f9;
+}
+
+.common-section-button.expanded {
+    background-color: #e2e8f0;
+}
+
+/* 버튼 내부 콘텐츠 정렬 */
+.common-button-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.common-button-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* 타이틀과 서브타이틀 */
+.common-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e40af;
+}
+
+.common-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin: 0.2rem 0 0 0;
+}
+
+/* 섹션 콘텐츠 */
+.common-section-content {
+    border: 1px solid #e2e8f0;
+    border-top: none;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 20px;
+    background-color: white;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* 그리드 레이아웃 */
+.common-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 카드 스타일 */
+.common-feature-card {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 카드 제목 */
+.common-card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #1e40af;
+}
+
+/* 리스트 스타일 */
+.common-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.common-feature-item {
+    margin-bottom: 1rem;
+}
+
+.common-feature-item h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 0.5rem;
+}
+
+.common-feature-item ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.common-feature-item li {
+    margin-bottom: 0.9rem;
+    line-height: 1.5;
+    font-size: 1.15rem;
+}
+
+/* 장단점 스타일 */
+.common-advantages-title {
+    color: #15803d;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.common-disadvantages-title {
+    color: #dc2626;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* 적합/부적합 섹션 */
+.common-suitability-section {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.common-suitable,
+.common-unsuitable {
+    flex: 1;
+}
+
+.common-suitable h5 {
+    color: #15803d;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #15803d;
+}
+
+.common-unsuitable h5 {
+    color: #dc2626;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #dc2626;
+}
+
+/* 애니메이션 */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .common-content-grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .common-container {
+        padding: 1rem;
+    }
+    
+    .common-page-title {
+        font-size: 1.8rem;
+    }
+    
+    .common-title {
+        font-size: 1.3rem;
+    }
+    
+    .common-subtitle {
+        font-size: 1rem;
+    }
+    
+    .common-section-content {
+        padding: 1rem;
+    }
+
+    .common-card-title {
+        font-size: 1.5rem;
+    }
+
+    .common-feature-item h5 {
+        font-size: 1.1rem;
+    }
+
+    .common-feature-item li {
+        font-size: 1rem;
+    }
+
+    .common-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .common-suitability-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
