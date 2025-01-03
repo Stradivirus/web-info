@@ -1,9 +1,5 @@
 /* CdSection.css */
-.devops-cd-container {
-  /* CD 특화 스타일이 필요한 경우 여기에 추가 */
-}
-
-/* CD 섹션의 Argo Rollouts 관련 스타일 */
+/* 기존 스타일 */
 .devops-argo-rollout-section {
   margin-top: 2rem;
 }
@@ -16,4 +12,30 @@
   padding: 1rem;
   background-color: #f8fafc;
   border-radius: 8px;
+}
+
+/* 추가해야 할 스타일 */
+.devops-deployment-strategy h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.8rem;
+}
+
+.devops-deployment-strategy p {
+  color: #4b5563;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.devops-deployment-strategy ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.devops-deployment-strategy li {
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
 }

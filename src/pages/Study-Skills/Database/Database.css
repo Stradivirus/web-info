@@ -82,19 +82,27 @@
   margin-bottom: 2rem;
 }
 
+/* 각 섹션이 자신의 내용물 크기에 맞게 조절되도록 */
+.database-feature-section,
+.database-usecase-section {
+  height: fit-content;
+  min-height: 0;
+}
+
 .database-feature-card, 
-.database-usecase-card, 
-.database-cluster-card {
+.database-usecase-card {
   background-color: #f8fafc;
   border-radius: 8px;
   padding: 1.5rem;
-  height: 100%;
+  height: fit-content;
+  min-height: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .database-feature-card h4, 
-.database-usecase-card h4, 
-.database-cluster-card h4 {
+.database-usecase-card h4 {
   font-size: 1.8rem;
   font-weight: 600;
   color: #1e40af;
@@ -106,6 +114,8 @@
 .database-feature-list {
   display: flex;
   flex-direction: column;
+  height: fit-content;
+  min-height: 0;
 }
 
 .database-feature-item {
@@ -147,6 +157,8 @@
 .database-usecase-grid {
   display: grid;
   gap: 0.8rem;
+  height: fit-content;
+  min-height: 0;
 }
 
 .database-usecase-item {
@@ -196,27 +208,6 @@
   border-bottom: 2px solid #b91c1c;
 }
 
-/* 클러스터링 섹션 스타일 */
-.database-cluster-section {
-  margin-top: 2rem;
-}
-
-.database-cluster-section h4 {
-  color: #1e40af;
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #1e40af;
-}
-
-.database-cluster-details h5 {
-  color: #1e40af;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 1rem 0 0.5rem 0;
-}
-
 .database-command-code {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
   font-size: 0.95rem;
@@ -263,8 +254,7 @@
   }
 
   .database-feature-card h4, 
-  .database-usecase-card h4, 
-  .database-cluster-card h4 {
+  .database-usecase-card h4 {
     font-size: 1.5rem;
   }
 
