@@ -59,7 +59,7 @@ const Records = () => {
           <div className="space-y-4">
             <StudyAccordion
               title="쿠버네티스 Jenkins ArgoCD CICD 구축 영상"
-              date="2024.01.08"
+              date="2025.01.08"
               category="DevOps"
               isOpen={openRecords.cicd}
               onToggle={() => toggleRecord('cicd')}
