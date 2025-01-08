@@ -1,7 +1,7 @@
 import React from 'react';
-import cicdVideo from '../../assets/videos/study/cicd.mp4';
+import cicdVideo from '../../../assets/videos/study/cicd.mp4';
 
-export const CICDContent = () => {
+export const StudyContent = () => {
   return (
     <div className="space-y-8">
       <section>

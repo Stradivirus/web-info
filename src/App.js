@@ -2,11 +2,11 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import Main from './layouts/Main';
+import DatabasePage from './pages/Study-Skills/Database';
 
 // 각 페이지를 lazy로 import
 const CertificationsPage = React.lazy(() => import('./pages/Certifications'));
 const ProgrammingPage = React.lazy(() => import('./pages/Study-Skills/Programming'));
-const DatabasePage = React.lazy(() => import('./pages/Study-Skills/Database'));
 const CICDPage = React.lazy(() => import('./pages/Study-Skills/CICD'));
 const DevToolsPage = React.lazy(() => import('./pages/Study-Skills/DevTools'));
 const ContainerPage = React.lazy(() => import('./pages/Study-Skills/DK'));

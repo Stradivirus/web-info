@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Calendar, GitBranch, ChevronDown, ChevronUp } from 'lucide-react';
-import { CICDContent } from './CICD';
+import { StudyContent as CICDContent } from './CICD';
+import { StudyContent as RefactoringContent } from './Refactoring';
 
 const StudyAccordion = ({ title, date, category, isOpen, onToggle, children }) => {
   return (
-    <div className="bg-white rounded-lg shadow overflow-hidden">
+    <div className="bg-slate-50 rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow">
       <button
         className="w-full p-6 text-left border-b border-gray-200 focus:outline-none"
         onClick={onToggle}
@@ -39,6 +40,7 @@ const StudyAccordion = ({ title, date, category, isOpen, onToggle, children }) =
 const Records = () => {
   const [openRecords, setOpenRecords] = useState({
     cicd: false,
+    refactoring: false,
   });
 
   const toggleRecord = (id) => {
@@ -52,17 +54,29 @@ const Records = () => {
     <main className="main-content">
       <div className="main-inner">
         <div className="container">
-          <h1 className="text-3xl font-bold mb-6">Study Records</h1>
+          <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
-          <StudyAccordion
-            title="쿠버네티스 Jenkins ArgoCD CICD 구축기"
-            date="2024.01.08"
-            category="DevOps"
-            isOpen={openRecords.cicd}
-            onToggle={() => toggleRecord('cicd')}
-          >
-            <CICDContent />
-          </StudyAccordion>
+          <div className="space-y-4">
+            <StudyAccordion
+              title="쿠버네티스 Jenkins ArgoCD CICD 구축 영상"
+              date="2024.01.08"
+              category="DevOps"
+              isOpen={openRecords.cicd}
+              onToggle={() => toggleRecord('cicd')}
+            >
+              <CICDContent />
+            </StudyAccordion>
+
+            <StudyAccordion
+              title="리액트 프로젝트 컴포넌트 리팩토링"
+              date="2024.11.20"
+              category="Frontend"
+              isOpen={openRecords.refactoring}
+              onToggle={() => toggleRecord('refactoring')}
+            >
+              <RefactoringContent />
+            </StudyAccordion>
+          </div>
         </div>
       </div>
     </main>
