@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History } from 'lucide-react';
+import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History, BookmarkPlus } from 'lucide-react';
 import profilePhoto from '../../assets/images/profile/my-photo.jpg';
-import packageJson from '../../../package.json';  // 추가
+import packageJson from '../../../package.json';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -51,7 +51,7 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* 네비게이션 메뉴 - 이전과 동일 */}
+      {/* 네비게이션 메뉴 */}
       <NavLink to="/" className={getLinkClassName} end>
         <Home className="nav-icon" size={18} />
         <span>홈</span>
@@ -86,6 +86,10 @@ const Navigation = () => {
       </NavLink>
       
       <div className="nav-divider">Study & Skills</div>
+      <NavLink to="/study-skills/records" className={({ isActive }) => `nav-item study-record ${isActive ? 'active' : ''}`}>
+        <BookmarkPlus className="nav-icon" size={18} />
+        <span>Study Records</span>
+      </NavLink>
       <NavLink to="/study-skills/programming" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Programming Languages</span>
@@ -115,9 +119,12 @@ const Navigation = () => {
         <span>DevTools</span>
       </NavLink>
       <NavLink to="/study-skills/monitoring" className={getLinkClassName}>
-         <BookOpen className="nav-icon" size={18} />
-         <span>Monitoring Tools</span>
+        <BookOpen className="nav-icon" size={18} />
+        <span>Monitoring Tools</span>
       </NavLink>
+
+     
+      
     </nav>
   );
 };

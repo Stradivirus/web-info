@@ -13,6 +13,7 @@ const ContainerPage = React.lazy(() => import('./pages/Study-Skills/DK'));
 const AwsPage = React.lazy(() => import('./pages/Study-Skills/Aws'));
 const GitPage = React.lazy(() => import('./pages/Study-Skills/Git'));
 const MonitoringPage = React.lazy(() => import('./pages/Study-Skills/Monitoring'));
+const StudyRecordsPage = React.lazy(() => import('./pages/Study-Skills/Records'));
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/study-skills/Aws" element={<AwsPage />} />
             <Route path="/study-skills/git" element={<GitPage />} />
             <Route path="/study-skills/monitoring" element={<MonitoringPage />} />
+            <Route path="/study-skills/records" element={<StudyRecordsPage />} />
           </Routes>
         </Suspense>
       </Layout>
