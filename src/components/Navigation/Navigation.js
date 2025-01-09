@@ -78,6 +78,10 @@ const Navigation = () => {
         <FolderOpen className="nav-icon" size={18} />
         <span>AwsS3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
       </NavLink>
+      <NavLink to="/project/6" className={getLinkClassName}>
+        <FolderOpen className="nav-icon" size={18} />
+        <span>Kafka와 PHP를 이용한<br></br>모니터링 시스템</span>
+      </NavLink>
 
       <div className="nav-divider">Certifications</div>
       <NavLink to="/certifications" className={getLinkClassName}>
