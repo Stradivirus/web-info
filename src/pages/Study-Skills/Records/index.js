@@ -1,7 +1,9 @@
+// src/components/study/index.js
 import React, { useState } from 'react';
 import { Calendar, GitBranch, ChevronDown, ChevronUp } from 'lucide-react';
 import { StudyContent as CICDContent } from './CICD';
 import { StudyContent as RefactoringContent } from './Refactoring';
+import { StudyContent as AutoCleanupContent } from './AutoCleanup';
 
 const StudyAccordion = ({ title, date, category, isOpen, onToggle, children }) => {
   return (
@@ -41,6 +43,7 @@ const Records = () => {
   const [openRecords, setOpenRecords] = useState({
     cicd: false,
     refactoring: false,
+    autoCleanup: false
   });
 
   const toggleRecord = (id) => {
@@ -57,6 +60,16 @@ const Records = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
+            <StudyAccordion
+              title="Jenkins를 활용한 System Auto-Cleanup 파이프라인 구축"
+              date="2025.01.10"
+              category="DevOps"
+              isOpen={openRecords.autoCleanup}
+              onToggle={() => toggleRecord('autoCleanup')}
+            >
+              <AutoCleanupContent />
+            </StudyAccordion>
+
             <StudyAccordion
               title="쿠버네티스 Jenkins ArgoCD CICD 구축 영상"
               date="2025.01.08"
