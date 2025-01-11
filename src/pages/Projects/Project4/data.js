@@ -18,8 +18,8 @@ const screenshots = imageContext.keys().sort().map((path, index) => {
 
   return {
     id,
-    type: 'image',  // 추가
-    url: imageContext(path),  // image를 url로 변경
+    type: 'image',
+    url: imageContext(path),
     caption: captions[id] || `스크린샷 ${id}`
   };
 });
@@ -53,10 +53,12 @@ export const projectData = {
 
   objectives: [
     "축제 참여 인원 예측",
-    "사전 예약 신청자에게 추첨권 코드 발급"
+    "사전 예약 신청자에게 추첨권 코드 발급",
+    "안정적인 서비스 제공을 위한 부하 분산"
   ],
 
   features: [
+    "Nginx 로드밸런서를 통한 프론트엔드 서버 3대의 부하분산 (라운드로빈 방식)",
     "사람들로부터 이메일과 전화번호 수집 (Express.js)",
     "등록 확인과 추첨권 번호 발급 (Express.js)",
     "추첨권 사용 확인 (Express.js)",
@@ -65,7 +67,7 @@ export const projectData = {
   ],
 
   process: `1. 기본 환경 구축
-• Nginx를 통한 프록시 서버 구성
+• Nginx를 통한 로드밸런서 구성 (라운드로빈 방식의 3대 프론트엔드 서버)
 • React(프론트엔드) - Express.js(API 서버) - Postgresql - Django(admin) 연동
 
 2. 핵심 기능 구현
@@ -78,13 +80,15 @@ Django 어드민:
    • 데이터 조회 기능 구현
 
 3. 시스템 배포
-• Jenkins를 통한 자동화된 배포 파이프라인 구축`,
+• Jenkins를 통한 자동화된 배포 파이프라인 구축
+• Nginx 로드밸런서를 통한 고가용성 확보`,
 
   techDetails: [
     {
       title: "Frontend",
       items: [
-        "React"
+        "React",
+        "3대의 프론트엔드 서버 구성"
       ]
     },
     {
@@ -118,11 +122,15 @@ Django 어드민:
 • 운영 효율성 및 비용 최적화
 
 데이터 안정성 강화
-• GCP Cloud Storage 기반 자동 백업 시스템 구축`,
+• GCP Cloud Storage 기반 자동 백업 시스템 구축
+
+로드밸런싱 고도화
+• 헬스 체크 기능 추가`,
 
   reflection: `1. 슬랙 웹훅 URL이 노출되어 서비스가 중단되는 보안 문제가 발생했으나, Jenkins Credentials와 환경 변수를 활용하여 민감 정보 관리 체계를 구축했습니다.
 2. Django 어드민에서 대량 데이터 조회 시 발생하는 성능 저하 문제를 페이지네이션 구현과 DB 인덱스 최적화를 통해 개선했습니다.
-3. 이미지 리사이징 및 전환 과정에서 입력값이 초기화되는 문제를 컴포넌트 분리를 통해 해결했습니다.`,
+3. 이미지 리사이징 및 전환 과정에서 입력값이 초기화되는 문제를 컴포넌트 분리를 통해 해결했습니다.
+4. 로드밸런서 도입으로 시스템 안정성이 향상되었으며, 향후 트래픽 증가에도 유연하게 대응할 수 있는 기반을 마련했습니다.`,
 
   architectureImg: ArchitectureDiagram,
 
@@ -134,7 +142,7 @@ Django 어드민:
   },
 
   overview: {
-    description: "React와 Expressjs로 웹서버 구동과 Django로 admin을 구성한 시스템",
+    description: "React와 Expressjs로 웹서버 구동과 Django로 admin을 구성하고, Nginx 로드밸런서를 통해 고가용성을 확보한 시스템",
     diagram: overviewDiagram
   }
 };

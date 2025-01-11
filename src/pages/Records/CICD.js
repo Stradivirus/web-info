@@ -1,5 +1,5 @@
 import React from 'react';
-import cicdVideo from '../../../assets/videos/study/cicd.mp4';
+import cicdVideo from '../../assets/videos/study/cicd.mp4';
 
 export const StudyContent = () => {
   return (

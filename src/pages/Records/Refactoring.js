@@ -1,7 +1,7 @@
 // src/components/StudyContent.tsx
 import React from 'react';
-import refactoringCommit from '../../../assets/images/project/refactoring.png';
-import refactoringCommit2 from '../../../assets/images/project/refactoring2.png';
+import refactoringCommit from '../../assets/images/project/refactoring.png';
+import refactoringCommit2 from '../../assets/images/project/refactoring2.png';
 
 export const StudyContent = () => {
  return (

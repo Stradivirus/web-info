@@ -1,6 +1,6 @@
 import React from 'react';
-import cleanupPipeline from '../../../assets/images/project/clean1.png';
-import cleanupSlack from '../../../assets/images/project/clean2.png';
+import cleanupPipeline from '../../assets/images/project/clean1.png';
+import cleanupSlack from '../../assets/images/project/clean2.png';
 
 export const StudyContent = () => {
  return (
