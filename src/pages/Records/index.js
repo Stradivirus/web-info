@@ -4,6 +4,7 @@ import { Calendar, GitBranch, ChevronDown, ChevronUp } from 'lucide-react';
 import { StudyContent as CICDContent } from './CICD';
 import { StudyContent as RefactoringContent } from './Refactoring';
 import { StudyContent as AutoCleanupContent } from './AutoCleanup';
+import { StudyContent as TerraformContent } from './Terraform';
 
 const StudyAccordion = ({ title, date, category, isOpen, onToggle, children }) => {
   return (
@@ -43,7 +44,8 @@ const Records = () => {
   const [openRecords, setOpenRecords] = useState({
     cicd: false,
     refactoring: false,
-    autoCleanup: false
+    autoCleanup: false,
+    terraform: false
   });
 
   const toggleRecord = (id) => {
@@ -78,6 +80,16 @@ const Records = () => {
               onToggle={() => toggleRecord('cicd')}
             >
               <CICDContent />
+            </StudyAccordion>
+
+            <StudyAccordion
+              title="테라폼으로 AWS 인프라 구축하기"
+              date="2025.01.05"
+              category="DevOps"
+              isOpen={openRecords.terraform}
+              onToggle={() => toggleRecord('terraform')}
+            >
+              <TerraformContent />
             </StudyAccordion>
 
             <StudyAccordion
