@@ -56,79 +56,77 @@ const Navigation = () => {
         <Home className="nav-icon" size={18} />
         <span>홈</span>
       </NavLink>
+
+      <NavLink to="/Records" className={({ isActive }) => `nav-item study-record ${isActive ? 'active' : ''}`}>
+        <BookmarkPlus className="nav-icon" size={18} />
+        <span>기록</span>
+      </NavLink>
       
       <div className="nav-divider">Projects</div>
-      <NavLink to="/project/4" className={getLinkClassName}>
+      <NavLink to="/Project/4" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>React와 Express를 사용한 <br></br>사전 예약 시스템</span>
       </NavLink>
-      <NavLink to="/project/3" className={getLinkClassName}>
+      <NavLink to="/Project/3" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>WebSocket과 Redis를 사용한 <br></br>채팅 프로그램</span>
       </NavLink>
-      <NavLink to="/project/2" className={getLinkClassName}>
+      <NavLink to="/Project/2" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>Django와 Postgresql를<br></br> 사용한 CBT 사이트</span>
       </NavLink>
-      <NavLink to="/project/5" className={getLinkClassName}>
+      <NavLink to="/Project/5" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>기존의 CBT를 재구성 해 <br></br>서버리스로 구현</span>
       </NavLink>
-      <NavLink to="/project/1" className={getLinkClassName}>
+      <NavLink to="/Project/1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>AwsS3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
       </NavLink>
-      <NavLink to="/project/6" className={getLinkClassName}>
+      <NavLink to="/Project/6" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>Kafka와 PHP를 이용한<br></br>모니터링 시스템</span>
       </NavLink>
 
       <div className="nav-divider">Certifications</div>
-      <NavLink to="/certifications" className={getLinkClassName}>
+      <NavLink to="/Certifications" className={getLinkClassName}>
         <Award className="nav-icon" size={18} />
         <span>자격증</span>
       </NavLink>
       
-      <div className="nav-divider">Study & Skills</div>
-      <NavLink to="/study-skills/records" className={({ isActive }) => `nav-item study-record ${isActive ? 'active' : ''}`}>
-        <BookmarkPlus className="nav-icon" size={18} />
-        <span>Study Records</span>
-      </NavLink>
-      <NavLink to="/study-skills/programming" className={getLinkClassName}>
+      <div className="nav-divider">자료 조사</div>
+      <NavLink to="/Research/Programming" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Programming Languages</span>
       </NavLink>
-      <NavLink to="/study-skills/git" className={getLinkClassName}>
+      <NavLink to="/Research/Git" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Git</span>
       </NavLink>
-      <NavLink to="/study-skills/database" className={getLinkClassName}>
+      <NavLink to="/Research/Database" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Database & Message Queue</span>
       </NavLink>
-      <NavLink to="/study-skills/container" className={getLinkClassName}>
+      <NavLink to="/Research/Container" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Container Orchestration</span>
       </NavLink>
-      <NavLink to="/study-skills/CICD" className={getLinkClassName}>
+      <NavLink to="/Research/CICD" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>CI & CD & IaC</span>
       </NavLink>
-      <NavLink to="/study-skills/Aws" className={getLinkClassName}>
+      <NavLink to="/Research/Aws" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Aws</span>
       </NavLink>
-      <NavLink to="/study-skills/DevTools" className={getLinkClassName}>
+      <NavLink to="/Research/DevTools" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>DevTools</span>
       </NavLink>
-      <NavLink to="/study-skills/monitoring" className={getLinkClassName}>
+      <NavLink to="/Research/Monitoring" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Monitoring Tools</span>
       </NavLink>
-
-     
-      
     </nav>
   );
 };
