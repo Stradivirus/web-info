@@ -5,6 +5,7 @@ import { StudyContent as CICDContent } from './CICD';
 import { StudyContent as RefactoringContent } from './Refactoring';
 import { StudyContent as AutoCleanupContent } from './AutoCleanup';
 import { StudyContent as TerraformContent } from './Terraform';
+import { StudyContent as LoadBalancingContent } from './LoadBalancing';
 
 const StudyAccordion = ({ title, date, category, isOpen, onToggle, children }) => {
   return (
@@ -42,6 +43,7 @@ const StudyAccordion = ({ title, date, category, isOpen, onToggle, children }) =
 
 const Records = () => {
   const [openRecords, setOpenRecords] = useState({
+    loadBalancing: false,
     cicd: false,
     refactoring: false,
     autoCleanup: false,
@@ -62,6 +64,16 @@ const Records = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
+            <StudyAccordion
+              title="Nginx를 활용한 프론트엔드 로드밸런싱 구현"
+              date="2025.01.12"
+              category="DevOps"
+              isOpen={openRecords.loadBalancing}
+              onToggle={() => toggleRecord('loadBalancing')}
+            >
+              <LoadBalancingContent />
+            </StudyAccordion>
+
             <StudyAccordion
               title="Jenkins를 활용한 System Auto-Cleanup 파이프라인 구축"
               date="2025.01.10"
