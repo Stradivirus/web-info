@@ -1,8 +1,188 @@
 // src/components/study/Terraform.js
-import React from 'react';
+import React, { useState } from 'react';
 import terraformVideo from '../../assets/videos/study/terraform_test.mp4';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export const StudyContent = () => {
+  const [isCodeVisible, setIsCodeVisible] = useState(false);
+
+  const terraformCode = `terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "ap-northeast-2"  # 서울 리전
+}
+
+# VPC 생성
+resource "aws_vpc" "main" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+
+  tags = {
+    Name = "terraform_test_vpc"
+  }
+}
+
+# 퍼블릭 서브넷
+resource "aws_subnet" "public" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.1.0/24"
+  availability_zone = "ap-northeast-2a"
+
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "terraform_test_public_subnet"
+  }
+}
+
+# 프라이빗 서브넷
+resource "aws_subnet" "private" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.2.0/24"
+  availability_zone = "ap-northeast-2c"
+
+  tags = {
+    Name = "terraform_test_private_subnet"
+  }
+}
+
+# 인터넷 게이트웨이
+resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "terraform_test_igw"
+  }
+}
+
+# NAT 게이트웨이용 EIP
+resource "aws_eip" "nat" {
+  vpc      = true
+  tags = {
+    Name = "terraform_test_nat_eip"
+  }
+}
+
+# NAT 게이트웨이
+resource "aws_nat_gateway" "main" {
+  allocation_id = aws_eip.nat.id
+  subnet_id     = aws_subnet.public.id
+
+  tags = {
+    Name = "terraform_test_nat"
+  }
+}
+
+# 퍼블릭 라우팅 테이블
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.main.id
+  }
+
+  tags = {
+    Name = "terraform_test_public_rt"
+  }
+}
+
+# 프라이빗 라우팅 테이블
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.main.id
+  }
+
+  tags = {
+    Name = "terraform_test_private_rt"
+  }
+}
+
+# 라우팅 테이블 연결
+resource "aws_route_table_association" "public" {
+  subnet_id      = aws_subnet.public.id
+  route_table_id = aws_route_table.public.id
+}
+
+resource "aws_route_table_association" "private" {
+  subnet_id      = aws_subnet.private.id
+  route_table_id = aws_route_table.private.id
+}
+
+# 보안 그룹
+resource "aws_security_group" "main" {
+  name        = "terraform_test_sg"
+  description = "Terraform test security group"
+  vpc_id      = aws_vpc.main.id
+
+  # HTTP 인바운드 허용
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # VPC 내부 통신 허용
+  ingress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    self      = true
+  }
+
+  # 아웃바운드 허용
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "terraform_test_sg"
+  }
+}
+
+# 퍼블릭 인스턴스
+resource "aws_instance" "public" {
+  ami           = "ami-04599ab1182cd7961"  # Ubuntu 22.04 LTS
+  instance_type = "t2.medium"
+  subnet_id     = aws_subnet.public.id
+
+  vpc_security_group_ids = [aws_security_group.main.id]
+
+  tags = {
+    Name = "terraform_test_public"
+  }
+}
+
+# 프라이빗 인스턴스들
+resource "aws_instance" "private" {
+  count = 2
+
+  ami           = "ami-04599ab1182cd7961"  # Ubuntu 22.04 LTS
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.private.id
+
+  vpc_security_group_ids = [aws_security_group.main.id]
+
+  tags = {
+    Name = "terraform_test_private_\${count.index + 1}"
+  }
+}`;
+
   return (
     <div className="space-y-8">
       <section>
@@ -44,6 +224,55 @@ export const StudyContent = () => {
               <p>- 동일한 인프라를 다른 환경에 쉽게 복제 가능</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 className="text-lg font-medium mb-3">테라폼 코드</h3>
+        <div className="relative">
+          <button
+            onClick={() => setIsCodeVisible(!isCodeVisible)}
+            className="w-full bg-gray-50 hover:bg-gray-100 rounded-t-lg border border-gray-200 p-4 text-left transition-colors"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <span className="font-mono text-gray-600">main.tf</span>
+              </div>
+              {isCodeVisible ? 
+                <ChevronUp className="w-5 h-5 text-gray-500" /> : 
+                <ChevronDown className="w-5 h-5 text-gray-500" />
+              }
+            </div>
+          </button>
+          {isCodeVisible && (
+            <div className="border-x border-b border-gray-200 rounded-b-lg">
+              <pre className="p-4 overflow-x-auto bg-gray-50 rounded-b-lg">
+                <code className="text-sm font-mono text-gray-800 whitespace-pre">
+                  {terraformCode.split('\n').map((line, i) => {
+                    if (line.trim().startsWith('#')) {
+                      return <div key={i} className="text-emerald-600">{line}</div>;
+                    }
+                    
+                    const words = line.split(/(\s+|{|}|\[|\]|\(|\)|,|=|"|true|false)/);
+                    return (
+                      <div key={i}>
+                        {words.map((word, j) => {
+                          if (['resource', 'provider', 'terraform', 'tags', 'vpc', 'source', 'version', 'region'].includes(word)) {
+                            return <span key={j} className="text-purple-600">{word}</span>;
+                          } else if (word === 'true' || word === 'false') {
+                            return <span key={j} className="text-blue-600">{word}</span>;
+                          } else if (word.startsWith('"') && word.endsWith('"')) {
+                            return <span key={j} className="text-orange-600">{word}</span>;
+                          }
+                          return <span key={j}>{word}</span>;
+                        })}
+                      </div>
+                    );
+                  })}
+                </code>
+              </pre>
+            </div>
+          )}
         </div>
       </section>
 
