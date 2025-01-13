@@ -3,6 +3,7 @@ import pythonData from './json/pythonData.json';
 import goData from './json/goData.json';
 import javascriptData from './json/javascriptData.json';
 import typescriptData from './json/typescriptData.json';
+import rustData from './json/rustData.json';  // Rust 데이터 import 추가
 import LanguageSection from './LanguageSection';
 import './Programming.css';
 
@@ -45,6 +46,14 @@ const ProgrammingPage = () => {
             data={typescriptData}
             isExpanded={expandedLanguage === 'typescript'}
             onToggle={() => toggleLanguage('typescript')}
+          />
+
+          {/* Rust 섹션 추가 */}
+          <LanguageSection 
+            language="Rust"
+            data={rustData}
+            isExpanded={expandedLanguage === 'rust'}
+            onToggle={() => toggleLanguage('rust')}
           />
         </div>
       </div>
