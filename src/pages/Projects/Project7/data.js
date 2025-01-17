@@ -1,17 +1,12 @@
 // data.js
-import ArchitectureDiagram from '../../../assets/images/architecture/Project7-Architecture.png';
 import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram7.png';
 
-const architectureImg = require('../../../assets/images/architecture/Project7-Architecture.png');
-
-// 스크린샷 이미지 로드
 const imageContext = require.context('../../../assets/images/project/Project7', false, /Screenshot\d+\.png$/);
 const screenshots = imageContext.keys().sort().map((path, index) => {
   const id = String(index + 1);
   const captions = {
     '1': "Grafana 대시보드",
-    '2': "Prometheus 메트릭",
-    '3': "Node Exporter 데이터"
+    '2': "Prometheus 타겟 상태",
   };
 
   return {
@@ -22,20 +17,10 @@ const screenshots = imageContext.keys().sort().map((path, index) => {
   };
 });
 
-const allMedia = [
-  {
-    id: 'architecture',
-    type: 'image',
-    url: architectureImg,
-    caption: '시스템 아키텍처'
-  },
-  ...screenshots
-];
-
 export const projectData = {
     title: "Prometheus & Grafana Monitoring System",
     period: "2025.01 - 진행중", 
-    description: "Prometheus와 Grafana를 활용한 서버 및 애플리케이션 모니터링 시스템",
+    description: "기존 PHP/Kafka 기반 모니터링의 한계를 극복하기 위해 구축한 Prometheus와 Grafana 기반의 전문적인 통합 모니터링 시스템",
  
     techStack: [
         "Prometheus",
@@ -64,67 +49,70 @@ export const projectData = {
             ]
         },
         {
-            title: "Infrastructure",
+            title: "Security",
             items: [
-                "Docker",
-                "Docker Compose",
-                "Nginx"
+                "Grafana Anonymous Access",
+                "Admin Authentication",
+                "RBAC"
             ]
         }
     ],
  
     objectives: [
-        "서버 리소스 및 애플리케이션 상태 통합 모니터링",
-        "알림 시스템 구축",
-        "시각화된 대시보드 제공"
+        "기존 PHP/Kafka 기반 모니터링의 제한된 메트릭 수집 한계 극복",
+        "더 전문적이고 확장 가능한 모니터링 시스템 구축",
+        "세밀한 시스템 메트릭 수집 및 시각화",
+        "읽기 전용 대시보드의 공개 접근성 확보"
     ],
  
     features: [
+        "익명 사용자를 위한 읽기 전용 대시보드",
+        "관리자 전용 대시보드 수정 기능",
         "서버 하드웨어 리소스 모니터링",
-        "컨테이너 리소스 사용량 추적",
+        "도커 컨테이너별 상세 메트릭",
         "커스텀 메트릭 수집",
-        "Slack 알림 연동",
         "실시간 메트릭 대시보드",
-        "HTTP 엔드포인트 상태 모니터링"
     ],
  
-    process: `1. 기본 인프라 구축
+    process: `1. 기존 시스템 분석 및 설계
+ - PHP/Kafka 기반 시스템의 한계점 분석
+ - Prometheus + Grafana 기반 새로운 아키텍처 설계
+ 
+2. 기본 인프라 구축
  - Prometheus + Grafana + Node Exporter 설치 및 구성
  - Docker Compose를 통한 컨테이너 오케스트레이션
  - 메트릭 수집 파이프라인 구성
  
- 2. 모니터링 설정
- - Node Exporter를 통한 서버 메트릭 수집
- - cAdvisor를 통한 컨테이너 메트릭 수집
- - Blackbox Exporter로 HTTP 엔드포인트 모니터링
+3. 보안 및 접근 제어 구현
+ - 익명 사용자용 읽기 전용 접근 설정
+ - 관리자 인증 및 권한 설정
+ - RBAC 구성`,
  
- 3. 알림 시스템 구축
- - AlertManager 설정
- - Slack 웹훅 연동
- - 알림 규칙 및 임계치 설정`,
+    improvements: `- 모니터링 시스템을 별도 인스턴스로 분리하여 시스템 자원 효율화
+ 현재: 애플리케이션과 모니터링 시스템이 동일 인스턴스에서 실행되어 리소스 경합 발생
+ 개선: 모니터링 전용 인스턴스를 구성하여 안정성과 성능 향상 도모
+- 메트릭 데이터 장기 보관을 위한 원격 스토리지 구성
+- 로그 통합을 위한 Loki 도입 검토
+- 슬랙 알림 추가
+- 커스텀 대시보드 템플릿 개발`,
  
-    improvements: `개선 계획
-- Kubernetes 클러스터 모니터링 추가
-- 커스텀 메트릭 익스포터 개발
-- 로그 수집 및 분석을 위한 Loki 통합
-- 메트릭 데이터 장기 보관을 위한 원격 스토리지 구성`,
+    reflection: `1. 기존 PHP/Kafka 시스템 대비 수집 가능한 메트릭의 다양성과 깊이가 크게 향상
+2. 전문적인 모니터링 도구 사용으로 운영 효율성 증가
+3. 보안과 접근성의 균형 있는 설계의 중요성 인식
+4. CPU 사용량 등 메트릭 데이터가 기존 시스템과 다르게 측정되는 현상 발견
+   - 원인: 기존 시스템은 단순 시스템 API 호출로 데이터 수집
+   - Prometheus는 다양한 시스템 지표를 동시에 수집하는 과정에서 추가적인 시스템 리소스 사용
+   - 더 정확하고 포괄적인 모니터링을 위한 트레이드오프로 이해 및 수용`,
  
-    reflection: `1. Prometheus의 Pull 방식 아키텍처의 장단점 파악
-2. 시계열 데이터베이스의 특성과 최적화 방안 학습
-3. PromQL을 활용한 효율적인 메트릭 쿼리 작성 경험
-4. 모니터링 시스템의 안정성과 가용성 확보의 중요성 인식`,
- 
-    architectureImg: ArchitectureDiagram,
-    
-    media: allMedia,
+    media: screenshots,
       
     links: {
-        github: "https://github.com/Stradivirus/prometheus-grafana-monitoring",
-        demo: "https://grafana.yourdomain.com"  // 실제 Grafana 대시보드 URL로 변경 필요
+        github: "https://github.com/Stradivirus/monitoring-prometheus-system",
+        demo: "http://34.64.132.7:3000/"
     },
     
     overview: {
-        description: "Prometheus와 Grafana를 활용한 통합 모니터링 시스템",
+        description: "기존 모니터링 시스템의 한계를 극복하기 위해 구축한 Prometheus와 Grafana 기반의 전문적인 통합 모니터링 시스템",
         diagram: overviewDiagram
     }
 };
