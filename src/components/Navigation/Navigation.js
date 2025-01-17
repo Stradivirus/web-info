@@ -71,21 +71,27 @@ const Navigation = () => {
         <FolderOpen className="nav-icon" size={18} />
         <span>WebSocket과 Redis를 사용한 <br></br>채팅 프로그램</span>
       </NavLink>
-      <NavLink to="/Project/2" className={getLinkClassName}>
+      <NavLink to="/Project/1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>Django와 Postgresql를<br></br> 사용한 CBT 사이트</span>
+        <span>AwsS3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
       </NavLink>
       <NavLink to="/Project/5" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>기존의 CBT를 재구성 해 <br></br>서버리스로 구현</span>
       </NavLink>
-      <NavLink to="/Project/1" className={getLinkClassName}>
+      <NavLink to="/Project/7" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>AwsS3와 Cloudfront로 배포한<br></br> Portfolio Website</span>
+        <span>Prometheus와 Grafana를 이용한 모니터링 시스템</span>
       </NavLink>
+
+      <div className="nav-divider" style={{ fontSize: '14px', backgroundColor: '#f0f9ff' }}>업데이트 종료</div>
       <NavLink to="/Project/6" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>Kafka와 PHP를 이용한<br></br>모니터링 시스템</span>
+      </NavLink>
+      <NavLink to="/Project/2" className={getLinkClassName}>
+        <FolderOpen className="nav-icon" size={18} />
+        <span>Django와 Postgresql를<br></br> 사용한 CBT 사이트</span>
       </NavLink>
 
       <div className="nav-divider">Certifications</div>
