@@ -67,7 +67,7 @@
     "commands": {
       "basic": [
         {
-          "command": "docker run",
+          "command": "Docker run",
           "description": "컨테이너 실행",
           "example": "docker run -d -p 8080:80 nginx"
         },

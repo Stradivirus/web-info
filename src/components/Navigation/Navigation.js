@@ -39,6 +39,15 @@ const Navigation = () => {
               <Github className="contact-icon" size={18} />
               <span>github.com/stradivirus</span>
             </a>
+            <a 
+              href="https://blog.naver.com/stradivirus" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="contact-item contact-link"
+            >
+              <BookOpen className="contact-icon" size={18} />
+              <span>blog.naver.com/stradivirus</span>
+            </a>
             <div className="contact-item">
               <History className="contact-icon" size={18} />
               <div className="update-info">
@@ -100,18 +109,10 @@ const Navigation = () => {
         <span>자격증</span>
       </NavLink>
       
-      <div className="nav-divider">자료 조사</div>
-      <NavLink to="/Research/Programming" className={getLinkClassName}>
-        <BookOpen className="nav-icon" size={18} />
-        <span>Programming Languages</span>
-      </NavLink>
+      <div className="nav-divider">자료 조사 (블로그로 이전 중)</div>
       <NavLink to="/Research/Git" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
         <span>Git</span>
-      </NavLink>
-      <NavLink to="/Research/Database" className={getLinkClassName}>
-        <BookOpen className="nav-icon" size={18} />
-        <span>Database & Message Queue</span>
       </NavLink>
       <NavLink to="/Research/Container" className={getLinkClassName}>
         <BookOpen className="nav-icon" size={18} />
