@@ -5,12 +5,9 @@ import Main from './layouts/Main';
 
 // 각 페이지를 lazy로 import
 const CertificationsPage = React.lazy(() => import('./pages/Certifications'));
-const CICDPage = React.lazy(() => import('./pages/Research/CICD'));
 const DevToolsPage = React.lazy(() => import('./pages/Research/DevTools'));
-const ContainerPage = React.lazy(() => import('./pages/Research/DK'));
 const AwsPage = React.lazy(() => import('./pages/Research/Aws'));
 const GitPage = React.lazy(() => import('./pages/Research/Git'));
-const MonitoringPage = React.lazy(() => import('./pages/Research/Monitoring'));
 const RecordsPage = React.lazy(() => import('./pages/Records'));
 
 function App() {
@@ -27,12 +24,9 @@ function App() {
             <Route path="/Records" element={<RecordsPage />} />
             <Route path="/Project/:id" element={<Main />} />
             <Route path="/Certifications" element={<CertificationsPage />} />
-            <Route path="/Research/CICD" element={<CICDPage />} />
             <Route path="/Research/DevTools" element={<DevToolsPage />} />
-            <Route path="/Research/Container" element={<ContainerPage />} />
             <Route path="/Research/Aws" element={<AwsPage />} />
             <Route path="/Research/Git" element={<GitPage />} />
-            <Route path="/Research/Monitoring" element={<MonitoringPage />} />
           </Routes>
         </Suspense>
       </Layout>
