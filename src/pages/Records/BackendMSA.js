@@ -10,7 +10,7 @@ export const StudyContent = () => {
      <section>
        <h3 className="text-lg font-medium mb-3">리팩토링 배경</h3>
        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-         <li>단일 NestJS 서버에서 모든 백엔드 기능을 처리하던 모놀리식 구조</li>
+         <li>단일 Express 서버에서 모든 백엔드 기능을 처리하던 모놀리식 구조</li>
          <li>사전등록, 알림, 쿠폰 기능이 하나의 서비스에 강하게 결합되어 있음</li>
          <li>각 기능의 독립적인 확장과 관리의 어려움 발생</li>
        </ul>

@@ -183,7 +183,7 @@ networks:
      <section>
        <h3 className="text-lg font-medium mb-3">개선된 점</h3>
        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-         <li>서비스 배포 시간 대폭 단축 (7분 → 1-2분)</li>
+         <li>서비스 배포 시간 대폭 단축 (7분 → 2-3분)</li>
          <li>변경된 부분만 선택적으로 배포하여 리소스 효율성 향상</li>
          <li>각 서비스의 독립적인 스케일링과 관리 가능</li>
          <li>배포 실패 시 영향 범위 최소화</li>
