@@ -1,5 +1,6 @@
 import ArchitectureDiagram from '../../../assets/images/architecture/Project4-Architecture.png';
 import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram4.png';
+
 // 아키텍처 이미지 불러오기를 screenshots와 통합
 const architectureImg = require('../../../assets/images/architecture/Project4-Architecture.png');
 
@@ -36,12 +37,12 @@ const allMedia = [
 
 export const projectData = {
   title: "사전 예약 시스템",
-  description: "Express.js와 Django가 하나의 DB를 공유하여 각각 사전 예약과 관리를 담당하는 축제 예약 시스템",
+  description: "Express.js를 NestJS 기반의 마이크로서비스 아키텍처로 전환하여, 사용자 검증, 쿠폰 관리, 알림 발송을 독립적인 서비스로 운영하는 축제 예약 시스템",
   period: "2024.9 - 2024.9",
 
   techStack: [
     "React",
-    "Expressjs",
+    "NestJS",
     "Django",
     "Postgresql",
     "Docker-Compose",
@@ -54,27 +55,25 @@ export const projectData = {
   objectives: [
     "축제 참여 인원 예측",
     "사전 예약 신청자에게 추첨권 코드 발급",
-    "안정적인 서비스 제공을 위한 부하 분산"
+    "안정적인 서비스 제공을 위한 부하 분산",
+    "마이크로서비스 아키텍처를 통한 서비스 모듈화"
   ],
 
   features: [
     "Nginx 로드밸런서를 통한 프론트엔드 서버 3대의 부하분산 (라운드로빈 방식)",
-    "사람들로부터 이메일과 전화번호 수집 (Express.js)",
-    "등록 확인과 추첨권 번호 발급 (Express.js)",
-    "추첨권 사용 확인 (Express.js)",
-    "슬렉 웹훅 연동으로 10명마다 슬렉 알림 (Express.js)",
+    "사용자 검증 서비스: 이메일과 전화번호 중복 체크 후 다른 서비스 호출 (NestJS)",
+    "쿠폰 서비스: 등록 확인과 추첨권 발급/사용 관리 (NestJS)",
+    "알림 서비스: 슬랙 웹훅 연동으로 10명마다 알림 발송 (NestJS)",
     "어드민 페이지에서 등록자 데이터 조회 및 관리 (Django)"
   ],
 
   process: `1. 기본 환경 구축
 • Nginx를 통한 로드밸런서 구성 (라운드로빈 방식의 3대 프론트엔드 서버)
-• React(프론트엔드) - Express.js(API 서버) - Postgresql - Django(admin) 연동
+• React(프론트엔드) - NestJS(마이크로서비스) - Postgresql - Django(admin) 연동
 
 2. 핵심 기능 구현
-Express.js 백엔드:
-   • 사전 예약 API 개발
-   • 쿠폰 발급 및 검증 시스템 구현
-   • 슬랙 웹훅 알림 시스템 구현
+NestJS 마이크로서비스:
+   • 단일 Express.js 서버를 3개의 NestJS 서비스로 분리
 Django 어드민:
    • 커스텀 어드민 페이지 개발
    • 데이터 조회 기능 구현
@@ -92,10 +91,11 @@ Django 어드민:
       ]
     },
     {
-      title: "Main Backend (Express.js)",
+      title: "Microservices (NestJS)",
       items: [
-        "Express.js",
-        "Express-Postgres"
+        "사용자 검증 서비스",
+        "쿠폰 관리 서비스",
+        "알림 서비스"
       ]
     },
     {
@@ -117,20 +117,27 @@ Django 어드민:
     }
   ],
 
-  improvements: `서버리스 아키텍처 전환
-• 비동기 작업을 GCP Cloud Run으로 마이그레이션
-• 운영 효율성 및 비용 최적화
+  improvements: `데이터베이스 가용성 강화
+• PostgreSQL 읽기 전용 복제본 구성으로 조회 성능 향상
+• 스탠바이 데이터베이스 구축으로 장애 대비 및 무중단 운영 체계 확보
 
-데이터 안정성 강화
-• GCP Cloud Storage 기반 자동 백업 시스템 구축
+성능 최적화
+• Redis 캐싱 계층 도입으로 반복 조회 쿼리 부하 감소
+• 쿠폰 코드 유효성 검증 캐싱으로 응답 속도 개선
+• 실시간 사용자 중복 체크 데이터 캐싱
 
-로드밸런싱 고도화
-• 헬스 체크 기능 추가`,
+메시징 시스템 도입 (Kafka)
+• 이벤트 기반 아키텍처로 전환
+  - 사용자 등록 이벤트
+  - 쿠폰 발급/사용 이벤트
+  - 알림 발송 이벤트
+• 시스템 간 결합도 감소 및 확장성 향상
+• 데이터 파이프라인 구축으로 실시간 모니터링 강화`,
 
   reflection: `1. 슬랙 웹훅 URL이 노출되어 서비스가 중단되는 보안 문제가 발생했으나, Jenkins Credentials와 환경 변수를 활용하여 민감 정보 관리 체계를 구축했습니다.
 2. Django 어드민에서 대량 데이터 조회 시 발생하는 성능 저하 문제를 페이지네이션 구현과 DB 인덱스 최적화를 통해 개선했습니다.
-3. 이미지 리사이징 및 전환 과정에서 입력값이 초기화되는 문제를 컴포넌트 분리를 통해 해결했습니다.
-4. 로드밸런서 도입으로 시스템 안정성이 향상되었으며, 향후 트래픽 증가에도 유연하게 대응할 수 있는 기반을 마련했습니다.`,
+3. Express.js에서 NestJS 마이크로서비스로의 전환 과정에서 서비스 간 통신 구조를 효율적으로 설계하여 시스템 확장성을 확보했습니다.
+4. 로드밸런서 도입과 마이크로서비스 아키텍처 적용으로 시스템 안정성이 향상되었으며, 향후 트래픽 증가에도 유연하게 대응할 수 있는 기반을 마련했습니다.`,
 
   architectureImg: ArchitectureDiagram,
 
@@ -142,7 +149,7 @@ Django 어드민:
   },
 
   overview: {
-    description: "React와 Expressjs로 웹서버 구동과 Django로 admin을 구성하고, Nginx 로드밸런서를 통해 고가용성을 확보한 시스템",
+    description: "React와 NestJS 마이크로서비스로 구성된 백엔드, Django로 admin을 구성하고, Nginx 로드밸런서를 통해 고가용성을 확보한 시스템",
     diagram: overviewDiagram
   }
 };
