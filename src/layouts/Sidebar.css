@@ -11,7 +11,7 @@
 }
 
 .nav-container {
-  min-height: 180vh;
+  min-height: 110vh;
   background-color: #f0f7ff;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
   padding: 12px 0;
@@ -39,7 +39,7 @@
   }
 
   .sidebar-nav {
-    width: 260px;
+    width: 200px;
     height: 100vh;
     background: white;
     position: relative;

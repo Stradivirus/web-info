@@ -108,20 +108,6 @@ const Navigation = () => {
         <Award className="nav-icon" size={18} />
         <span>자격증</span>
       </NavLink>
-      
-      <div className="nav-divider">자료 조사 (블로그로 이전 중)</div>
-      <NavLink to="/Research/Git" className={getLinkClassName}>
-        <BookOpen className="nav-icon" size={18} />
-        <span>Git</span>
-      </NavLink>
-      <NavLink to="/Research/Aws" className={getLinkClassName}>
-        <BookOpen className="nav-icon" size={18} />
-        <span>Aws</span>
-      </NavLink>
-      <NavLink to="/Research/DevTools" className={getLinkClassName}>
-        <BookOpen className="nav-icon" size={18} />
-        <span>DevTools</span>
-      </NavLink>
     </nav>
   );
 };
