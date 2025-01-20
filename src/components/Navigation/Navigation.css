@@ -192,21 +192,3 @@
     height: 120px;
   }
 }
-
-.study-record {
-  background-color: #ebf8ff;
-  border-left: 3px solid #42e172;
-}
-
-.study-record:hover {
-  background-color: #bee3f8;
-}
-
-.study-record.active {
-  background-color: #4299e1;
-  color: white;
-}
-
-.study-record.active .nav-icon {
-  color: white;
-}

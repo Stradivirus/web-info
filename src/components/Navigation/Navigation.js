@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History, BookmarkPlus } from 'lucide-react';
+import { Home, FolderOpen, Award, BookOpen, Mail, Phone, Github, History, BookmarkPlus,UserCircle } from 'lucide-react';
 import profilePhoto from '../../assets/images/profile/my-photo.jpg';
 import packageJson from '../../../package.json';
 import './Navigation.css';
@@ -65,8 +65,11 @@ const Navigation = () => {
         <Home className="nav-icon" size={18} />
         <span>홈</span>
       </NavLink>
-
-      <NavLink to="/Records" className={({ isActive }) => `nav-item study-record ${isActive ? 'active' : ''}`}>
+      <NavLink to="/Introduction" className={getLinkClassName} end>
+        <UserCircle className="nav-icon" size={18} />
+        <span>자기 소개</span>
+      </NavLink>
+      <NavLink to="/Records" className={getLinkClassName} end>
         <BookmarkPlus className="nav-icon" size={18} />
         <span>기록</span>
       </NavLink>
@@ -74,7 +77,7 @@ const Navigation = () => {
       <div className="nav-divider">Projects</div>
       <NavLink to="/Project/4" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>React와 Express를 사용한 <br></br>사전 예약 시스템</span>
+        <span>React와 NestJs를 사용한 <br></br>사전 예약 시스템</span>
       </NavLink>
       <NavLink to="/Project/3" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />

@@ -38,7 +38,7 @@ const allMedia = [
 export const projectData = {
   title: "사전 예약 시스템",
   description: "Express.js를 NestJS 기반의 마이크로서비스 아키텍처로 전환하여, 사용자 검증, 쿠폰 관리, 알림 발송을 독립적인 서비스로 운영하는 축제 예약 시스템",
-  period: "2024.9 - 2024.9",
+  period: "2024.9 - 2025.1",
 
   techStack: [
     "React",
@@ -67,20 +67,22 @@ export const projectData = {
     "어드민 페이지에서 등록자 데이터 조회 및 관리 (Django)"
   ],
 
-  process: `1. 기본 환경 구축
-• Nginx를 통한 로드밸런서 구성 (라운드로빈 방식의 3대 프론트엔드 서버)
-• React(프론트엔드) - NestJS(마이크로서비스) - Postgresql - Django(admin) 연동
+  process: `1. 초기 개발 (인턴 기간)
+- React + Django + PostgreSQL 모놀리식 아키텍처로 구현
+- 사전 예약 및 추첨권 발급 기본 기능 개발
 
-2. 핵심 기능 구현
-NestJS 마이크로서비스:
-   • 단일 Express.js 서버를 3개의 NestJS 서비스로 분리
-Django 어드민:
-   • 커스텀 어드민 페이지 개발
-   • 데이터 조회 기능 구현
+2. 백엔드 분리 및 어드민 독립
+- 저작권 이슈가 있는 미디어 제거 후 완전히 새로운 버전으로 재개발
+- React + Express.js + PostgreSQL + Django 로 백엔드 전환
+- Django Admin을 별도 서비스로 분리하여 관리 기능 강화
 
-3. 시스템 배포
-• Jenkins를 통한 자동화된 배포 파이프라인 구축
-• Nginx 로드밸런서를 통한 고가용성 확보`,
+3. 시스템 확장
+- Nginx 로드밸런서 도입으로 프론트엔드 서버 부하 분산 구현
+- Express.js 백엔드를  Nest.JS로 마이그레이션 후 3개의 독립적인 서비스로 분리
+
+4. Docker Compose 최적화
+- 프론트엔드/백엔드/어드민 서비스별 Docker Compose 분리
+- 독립적인 배포 환경으로 각 서비스 변경 시 해당 부분만 재배포 가능한 구조 구현`,
 
   techDetails: [
     {
