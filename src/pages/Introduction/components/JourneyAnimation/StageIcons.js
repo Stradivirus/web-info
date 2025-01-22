@@ -24,7 +24,7 @@ const StageIcons = ({ stages }) => {
           key={`stage-${index}`}
           className="absolute flex flex-col items-center"
           style={{
-            left: `${12 + index * 17}%`,
+            left: `${10 + index * 16}%`,
             bottom: '20%',
             transform: 'translateX(-50%)',
             width: '120px'

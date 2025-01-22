@@ -16,38 +16,33 @@ const JourneyAnimation = () => {
   const stages = useMemo(() => [
     { 
       name: '클라우드 교육', 
-      description: '프로그래밍 기초 교육', 
       type: 'education',
       color: '#4A90E2',
       showPopup: true
     },
     { 
       name: '팀프로젝트', 
-      description: '팀 프로젝트 진행', 
       type: 'project',
       color: '#4CAF50',
       showPopup: true
     },
     { 
       name: '인턴', 
-      description: 'IT 회사 인턴십', 
       type: 'internship',
       color: '#9C27B0',
-      showPopup: false
+      showPopup: true
     },
     { 
       name: '자격증', 
-      description: 'NCP, AWS, 리눅스마스터, 정보처리기능사', 
       type: 'certification',
       color: '#FF9800',
-      showPopup: false
+      showPopup: true
     },
     { 
       name: '방통대 편입', 
-      description: '컴퓨터 공학과 편입', 
       type: 'education',
       color: '#2196F3',
-      showPopup: false
+      showPopup: true
     }
   ], []);
 
@@ -59,7 +54,7 @@ const JourneyAnimation = () => {
         const newPosition = prev + 0.4;
         
         // 각 아이콘 위치 계산 (15% + index * 15%)
-        const iconPositions = stages.map((_, index) => 12 + index * 17);
+        const iconPositions = stages.map((_, index) => 10 + index * 16);
         
         // 현재 위치가 아이콘 위치와 가까운지 체크
         const isNearIcon = iconPositions.some(
@@ -111,7 +106,7 @@ const JourneyAnimation = () => {
             key={`popup-${index}`}
             style={{
               position: 'absolute',
-              left: `${12 + index * 17}%`,
+              left: `${10 + index * 16}%`,
               bottom: '35%'
             }}
           >

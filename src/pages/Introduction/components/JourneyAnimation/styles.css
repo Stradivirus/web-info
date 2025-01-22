@@ -165,54 +165,36 @@
   background-image: linear-gradient(90deg, rgba(255,255,255,0.2) 50%, transparent 50%);
 }
 
+/* styles.css에 추가할 부분 */
 .education-popup {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: calc(100% + 20px);
   background-color: rgba(255, 255, 255, 0.95);
-  padding: 16px;
+  padding: 12px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 275px;
+  width: fit-content;
+  min-width: fit-content;
   opacity: 0;
   animation: fadeIn 0.3s ease forwards;
 }
 
-.popup-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 12px;
-  text-align: center;
-}
-
 .tech-icons {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.tech-icon {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 8px;
-  border-radius: 8px;
+  gap: 8px;
+}
+
+.tech-item {
   background-color: rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-}
-
-.tech-icon:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-}
-
-.tech-icon span {
-  font-size: 0.8rem;
-  color: #666;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
 }
 
 @keyframes fadeIn {
