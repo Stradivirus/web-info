@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import Main from './layouts/Main';
+import Introduction from './pages/Introduction';
 
 // 각 페이지를 lazy로 import
 const CertificationsPage = React.lazy(() => import('./pages/Certifications'));
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/Records" element={<RecordsPage />} />
             <Route path="/Project/:id" element={<Main />} />
+            <Route path="/Introduction" element={<Introduction />} />
             <Route path="/Certifications" element={<CertificationsPage />} />
           </Routes>
         </Suspense>

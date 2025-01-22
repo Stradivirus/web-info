@@ -14,7 +14,7 @@ const allMedia = [
 export const projectData = {
   title: "Portfolio Website",
   description: "AWS S3를 활용한 서버리스 정적 웹 호스팅",
-  period: "2024.11 - 2024.11",
+  period: "2024.11 - 2024.12",
   
   techStack: [
     "React",
@@ -32,7 +32,7 @@ export const projectData = {
     "AWS S3를 활용한 정적 웹사이트 호스팅"
   ],
 
-  process: `1. 프로젝트 설계 및 구조화
+  process: `1. 프로젝트 설계 및 구조화()
 - 레이아웃 설계 및 컴포넌트 구조화
 
 2. AWS 인프라 구축 및 배포 자동화
@@ -42,7 +42,8 @@ export const projectData = {
 
 3. 성능 최적화 및 리팩토링
 - 공통 컴포넌트 분리 및 코드 정리
-- 데이터/UI 로직 분리 및 스타일 최적화`,
+- 데이터/UI 로직 분리 및 스타일 최적화
+- 개발 과정 중 정리한 기술 문서를 네이버 블로그로 이전 및 lazy import 적용`,
 
   techDetails: [
     {
