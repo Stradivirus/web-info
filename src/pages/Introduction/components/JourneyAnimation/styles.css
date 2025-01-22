@@ -1,4 +1,4 @@
-/* styles.css */
+// styles.css
 .character {
   transition: all 0.5s ease-out;
   image-rendering: pixelated;
@@ -118,4 +118,110 @@
 
 .entrance.open {
   transform: translateX(-50%) rotateY(70deg);
+}
+
+.education-icon {
+  width: 48px;
+  height: 60px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.education-icon::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0 4px 4px 0;
+}
+
+.certificate-icon {
+  width: 48px;
+  height: 60px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%);
+}
+
+.project-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(0deg, rgba(255,255,255,0.2) 50%, transparent 50%);
+}
+
+.internship-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.2) 50%, transparent 50%);
+}
+
+.education-popup {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(100% + 20px);
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 275px;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.popup-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.tech-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.tech-icon:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.tech-icon span {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
