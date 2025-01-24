@@ -18,22 +18,22 @@ const getPopupContent = (index) => {
     case 1: // 팀프로젝트
       return (
         <div className="tech-icons">
-          <div className="tech-item">FastAPI</div>
-          <div className="tech-item">Redis</div>
-          <div className="tech-item">PostgreSQL</div>
-          <div className="tech-item">K8s</div>
-          <div className="tech-item">AWS</div>
+          <div className="tech-item">사전 예약 시스템</div>
+          <div className="tech-item">채팅 시스템</div>
+          <div className="tech-item">서버리스 CBT</div>
+          <div className="tech-item">CBT 시스템</div>
+          <div className="tech-item">모니터링 시스템</div>
         </div>
       );
     case 2: // 인턴
       return (
         <div className="tech-icons">
-        <div className="tech-item">Architecture</div>
-        <div className="tech-item">GCP</div>  
+        <div className="tech-item">Architecture</div> 
         <div className="tech-item">React</div>
         <div className="tech-item">NodeJS</div>
         <div className="tech-item">MySQL</div>
         <div className="tech-item">PostgreSQL</div>
+        <div className="tech-item">GCP</div> 
         <div className="tech-item">Tencent<br></br> Cloud</div> 
       </div>
       );
