@@ -37,3 +37,12 @@
     display: block;
   }
 }
+
+@media screen and (max-width: 1920px) {
+  .layout-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+}

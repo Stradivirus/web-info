@@ -1,8 +1,13 @@
-import React from 'react';
+// src/pages/Records/AutoCleanup.js
+import React, { useEffect } from 'react';
 import cleanupPipeline from '../../assets/images/project/clean1.png';
 import cleanupSlack from '../../assets/images/project/clean2.png';
 
-export const StudyContent = () => {
+export const StudyContent = ({ onImageClick, registerImages }) => {
+ useEffect(() => {
+   registerImages([cleanupPipeline, cleanupSlack]);
+ }, [registerImages]);
+
  return (
    <div className="space-y-8">
      <section>
@@ -89,7 +94,10 @@ export const StudyContent = () => {
              Jenkins Pipeline 코드<br></br>
              매주 일요일 자정에 실행되는 시스템 자동 정리 파이프라인입니다. 디스크 사용량 체크와 Docker 리소스 정리를 수행합니다.
            </p>
-           <div className="rounded-lg overflow-hidden border border-gray-200">
+           <div 
+             className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
+             onClick={() => onImageClick(0)}
+           >
              <img 
                src={cleanupPipeline} 
                alt="시스템 정리 파이프라인 코드" 
@@ -102,7 +110,10 @@ export const StudyContent = () => {
              Slack 알림 결과<br></br>
              파이프라인 실행 결과가 Slack으로 전송됩니다. 디스크 사용량과 정리 작업 완료 상태를 실시간으로 확인할 수 있습니다.
            </p>
-           <div className="rounded-lg overflow-hidden border border-gray-200">
+           <div 
+             className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
+             onClick={() => onImageClick(1)}
+           >
              <img 
                src={cleanupSlack} 
                alt="Slack 알림 결과" 
