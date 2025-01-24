@@ -10,12 +10,10 @@
   overflow-y: auto;
 }
 
-.nav-container {
-  min-height: 110vh;
-  background-color: #f0f7ff;
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
-  padding: 12px 0;
-  font-family: inherit;
+@media screen and (max-width: 1920px) {
+  .sidebar-nav {
+    height: calc(160vh - 48px);  /* FHD에서 더 높게 */
+  }
 }
 
 .sidebar-overlay {

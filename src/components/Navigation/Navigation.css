@@ -98,14 +98,13 @@
 
 /* 네비게이션 컨테이너 */
 .nav-container {
-  min-height: 220vh;
+  min-height: 100vh;
   background-color: #f0f7ff;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
   padding: 0 0 12px 0;
   font-family: inherit;
 }
 
-/* 나머지 스타일은 동일 */
 /* 네비게이션 아이템 */
 .nav-item {
   font-family: 'Noto Sans KR', sans-serif;
@@ -161,6 +160,23 @@
   border-left: 4px solid #2563eb;
   position: relative;
   z-index: 1;
+}
+
+/* 아카이브 섹션 스타일 */
+.archive-header {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.archive-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.archive-content.open {
+  max-height: 500px;
 }
 
 /* 스크롤바 스타일링 */
