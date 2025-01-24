@@ -21,7 +21,7 @@ const JourneyAnimation = () => {
       showPopup: true
     },
     { 
-      name: '팀프로젝트', 
+      name: '프로젝트', 
       type: 'project',
       color: '#4CAF50',
       showPopup: true
@@ -51,7 +51,7 @@ const JourneyAnimation = () => {
     
     const interval = setInterval(() => {
       setPosition(prev => {
-        const newPosition = prev + 0.4;
+        const newPosition = prev + 0.5;
         
         // 각 아이콘 위치 계산 (15% + index * 15%)
         const iconPositions = stages.map((_, index) => 10 + index * 16);
