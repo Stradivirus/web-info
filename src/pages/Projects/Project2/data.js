@@ -99,7 +99,7 @@ export const projectData = {
 
   links: {
     github: "https://github.com/stradivirus/exam",
-    demo: "http://34.64.132.7:8001/"
+    demo: "http://34.64.206.210:8001/"
   },
 
   overview: {
