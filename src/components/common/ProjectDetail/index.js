@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './ProjectDetail.css';
 
@@ -60,15 +60,11 @@ const MediaModal = ({ media, onClose, onNavigate }) => {
 };
 
 const ProjectDetail = ({
-  // 기본 정보
   title,
   period,
   description,
   overview,
-  // 기술 스택
   techStack = [],
-  
-  // 내용 섹션
   objectives = [],
   features = [],
   process = "",
@@ -76,19 +72,18 @@ const ProjectDetail = ({
   issues = [],
   improvements = "",
   reflection = "",
-  
-  // 이미지/링크
-  media = [], // screenshots와 video를 포함한 모든 미디어 (아키텍처 다이어그램도 여기 포함)
+  media = [],
   links,
-  
-  // 레이아웃 스타일 (7:3 vs 6:4)
   layoutStyle = 'default'
 }) => {
-  // 모달 관련 state
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  // 모달 관련 핸들러
+  // Add useEffect to scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleMediaClick = useCallback((mediaItem, index) => {
     setSelectedMedia(mediaItem);
     setCurrentIndex(index);
@@ -101,7 +96,7 @@ const ProjectDetail = ({
         url: overview.diagram,
         caption: 'Overview Diagram'
       });
-      setCurrentIndex(null); // 다이어그램은 네비게이션이 필요 없으므로 null
+      setCurrentIndex(null);
     }
   }, [overview]);
 
@@ -124,8 +119,7 @@ const ProjectDetail = ({
     setSelectedMedia(media[newIndex]);
   }, [currentIndex, media]);
 
-  // 키보드 이벤트 핸들러
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (!selectedMedia) return;
 
@@ -144,7 +138,6 @@ const ProjectDetail = ({
 
   return (
     <div className="container">
-      {/* 헤더 섹션 */}
       <div className="project-header">
         <h1 className="text-4xl font-bold mb-3">{title}</h1>
         {description && (
@@ -156,9 +149,6 @@ const ProjectDetail = ({
         </div>
       </div>
 
-      
-
-      {/* 프로젝트 링크 */}
       {links && (
         <div className="links">
           {links.github && (
@@ -185,9 +175,8 @@ const ProjectDetail = ({
           )}
         </div>
       )}
-      {/* Overview 다이어그램 */}
-{/* 링크 섹션 바로 아래에 추가 */}
-{overview?.diagram && (
+
+      {overview?.diagram && (
         <div 
           className="overview-diagram-preview cursor-pointer"
           onClick={handleDiagramClick}
@@ -201,19 +190,17 @@ const ProjectDetail = ({
         </div>
       )}
 
-      {/* 프로젝트 개요 */}
       <div className="overview-container">
         <div className={`details ${layoutStyle === 'wide' ? 'details-wide' : ''}`}>
           <div className="content-box">
-            {/* 기술 스택 태그 */}
-      {techStack.length > 0 && (
-        <div className="tags">
-          {techStack.map((tech, index) => (
-            <span key={index} className="tag">{tech}</span>
-          ))}
-        </div>
-      )}
-            {/* 제작 목표 섹션 */}
+            {techStack.length > 0 && (
+              <div className="tags">
+                {techStack.map((tech, index) => (
+                  <span key={index} className="tag">{tech}</span>
+                ))}
+              </div>
+            )}
+
             {objectives.length > 0 && (
               <div className="content-section">
                 <h2>제작 목표</h2>
@@ -225,7 +212,6 @@ const ProjectDetail = ({
               </div>
             )}
 
-            {/* 주요 기능 섹션 */}
             {features.length > 0 && (
               <div className="content-section">
                 <h2>주요 기능</h2>
@@ -237,7 +223,6 @@ const ProjectDetail = ({
               </div>
             )}
 
-            {/* 개발 과정 섹션 */}
             {process && (
               <div className="content-section">
                 <h2>개발 과정</h2>
@@ -245,7 +230,6 @@ const ProjectDetail = ({
               </div>
             )}
 
-            {/* 기술 상세 섹션 */}
             {techDetails.length > 0 && (
               <div className="content-section">
                 <h2>사용 기술</h2>
@@ -265,20 +249,20 @@ const ProjectDetail = ({
             )}
 
             {issues && issues.length > 0 && (
-  <div className="content-section">
-    <h2>Project Issues</h2>
-    <div className="issues-grid">
-      {issues.map((issue, index) => (
-        <div key={index} className="issue-card">
-          <h3>{issue.title}</h3>
-          <p className="issue-problem">문제: {issue.problem}</p>
-          <p className="issue-solution">해결: {issue.solution}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-)}
-            {/* 개선점 섹션 */}
+              <div className="content-section">
+                <h2>Project Issues</h2>
+                <div className="issues-grid">
+                  {issues.map((issue, index) => (
+                    <div key={index} className="issue-card">
+                      <h3>{issue.title}</h3>
+                      <p className="issue-problem">문제: {issue.problem}</p>
+                      <p className="issue-solution">해결: {issue.solution}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {improvements && (
               <div className="content-section">
                 <h2>개선점 및 향후 계획</h2>
@@ -286,7 +270,6 @@ const ProjectDetail = ({
               </div>
             )}
 
-            {/* 느낀 점 섹션 */}
             {reflection && (
               <div className="content-section">
                 <h2>기술적 도전과 성과</h2>
@@ -297,7 +280,6 @@ const ProjectDetail = ({
         </div>
       </div>
 
-      {/* 미디어 섹션 */}
       {media.length > 0 && (
         <div className="media-section">
           <h2>프로젝트 미디어</h2>
@@ -325,7 +307,6 @@ const ProjectDetail = ({
         </div>
       )}
 
-      {/* 미디어 모달 */}
       {selectedMedia && (
         <MediaModal 
           media={selectedMedia}

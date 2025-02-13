@@ -130,7 +130,7 @@ Redis 클러스터 수동 설정의 자동화 구현
 
   links: {
     github: "https://github.com/stradivirus/chat",
-    demo: "http://34.64.132.7"
+    demo: "http://34.64.206.210"
   },
 
   overview: {
