@@ -476,3 +476,13 @@
     width: 60%;  /* 가로 길이 70%로 제한 */
     display: block;  /* 블록 레벨 요소로 설정 */
 }
+
+.disabled-link {
+    background-color: #9CA3AF !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+}
+
+.disabled-link:hover {
+    background-color: #9CA3AF !important;
+}
