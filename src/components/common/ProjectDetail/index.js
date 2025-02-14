@@ -79,7 +79,6 @@ const ProjectDetail = ({
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  // Add useEffect to scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -150,31 +149,35 @@ const ProjectDetail = ({
       </div>
 
       {links && (
-        <div className="links">
-          {links.github && (
-            <a 
-              href={links.github}
-              className="link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github size={16} />
-              GitHub 저장소
-            </a>
-          )}
-          {links.demo && (
-            <a 
-              href={links.demo}
-              className="link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Globe size={16} />
-              Live Demo
-            </a>
-          )}
-        </div>
-      )}
+  <div className="links">
+    {links.github && (
+      <a 
+        href={links.github}
+        className="link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Github size={16} />
+        GitHub 저장소
+      </a>
+    )}
+    {links.demo && (
+      <button 
+        className={`link ${!links.demo.isEnabled ? 'disabled-link' : ''}`}
+        disabled={!links.demo.isEnabled}
+        onClick={() => {
+          if (links.demo.isEnabled) {
+            window.open(links.demo.url, '_blank', 'noopener noreferrer');
+          }
+        }}
+        title={!links.demo.isEnabled ? "서비스 종료" : ""}
+      >
+        <Globe size={16} />
+        Live Demo
+      </button>
+    )}
+  </div>
+)}
 
       {overview?.diagram && (
         <div 

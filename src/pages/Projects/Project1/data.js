@@ -72,7 +72,10 @@ export const projectData = {
 
   links: {
     github: "https://github.com/stradivirus/web-info",
-    demo: "https://d8d53oijcrep7.cloudfront.net/"
+    demo: {
+    url: "https://d8d53oijcrep7.cloudfront.net/",
+    isEnabled: true
+    }
   },
   
   overview: {

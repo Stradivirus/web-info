@@ -114,7 +114,10 @@ export const projectData = {
       
     links: {
         github: "https://github.com/Stradivirus/monitoring",
-        demo: "http://34.64.132.7:5173/"
+        demo: {
+        url:"http://34.64.132.7:5173/",
+        isEnabled: false
+        }
     },
     
     overview: {
