@@ -42,6 +42,7 @@ const Navigation = () => {
              <Github className="contact-icon" size={18} />
              <span>github.com/stradivirus</span>
            </a>
+           {/* 
            <a 
              href="https://blog.naver.com/stradivirus" 
              target="_blank" 
@@ -50,7 +51,8 @@ const Navigation = () => {
            >
              <BookOpen className="contact-icon" size={18} />
              <span>blog.naver.com/stradivirus</span>
-           </a>
+           </a> 
+           */}
            <div className="contact-item">
              <History className="contact-icon" size={18} />
              <div className="update-info">
