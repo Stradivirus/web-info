@@ -1,121 +1,120 @@
-name: Deploy to S3 and Invalidate CloudFront
+name: Deploy to Oracle Cloud
 
 on:
- push:
-   branches:
-     - dev
+  push:
+    branches:
+      - dev
 
 jobs:
- deploy:
-   runs-on: ubuntu-latest
-   permissions:
-     contents: write
-   steps:
-     - uses: actions/checkout@v4
-       with:
-         fetch-depth: 0
-         token: ${{ secrets.PAT }}
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
 
-     - name: Setup Node.js
-       uses: actions/setup-node@v4
-       with:
-         node-version: '20'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-     - name: Version and Deploy Check
-       id: check
-       run: |
-         # master의 현재 버전 읽기 (수정된 부분)
-         git fetch origin master
-         git checkout origin/master -- package.json
-         master_version=$(node -p "require('./package.json').version")
-         git checkout -- package.json  # 원래 파일로 복구
-         
-         IFS='.' read -r major minor patch <<< "$master_version"
-         
-         echo "Current master version: $master_version"
-         
-         if [[ "${{ github.event.head_commit.message }}" == *"[100]"* ]]; then
-           new_version="$((major + 1)).0.0"
-           echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
-           echo "UPDATE_VERSION=true" >> $GITHUB_ENV
-         elif [[ "${{ github.event.head_commit.message }}" == *"[010]"* ]]; then
-           new_version="$major.$((minor + 1)).0"
-           echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
-           echo "UPDATE_VERSION=true" >> $GITHUB_ENV
-         elif [[ "${{ github.event.head_commit.message }}" == *"[001]"* ]]; then
-           new_version="$major.$minor.$((patch + 1))"
-           echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
-           echo "UPDATE_VERSION=true" >> $GITHUB_ENV
-         else
-           new_version="$master_version"
-           echo "SHOULD_DEPLOY=false" >> $GITHUB_ENV
-           echo "UPDATE_VERSION=false" >> $GITHUB_ENV
-         fi
-         
-         echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
+      - name: Version and Deploy Check
+        id: check
+        run: |
+          git fetch origin master
+          git checkout origin/master -- package.json
+          master_version=$(node -p "require('./package.json').version")
+          git checkout -- package.json
+          
+          IFS='.' read -r major minor patch <<< "$master_version"
+          
+          echo "Current master version: $master_version"
+          
+          if [[ "${{ github.event.head_commit.message }}" == *"[100]"* ]]; then
+            new_version="$((major + 1)).0.0"
+            echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+            echo "UPDATE_VERSION=true" >> $GITHUB_ENV
+          elif [[ "${{ github.event.head_commit.message }}" == *"[010]"* ]]; then
+            new_version="$major.$((minor + 1)).0"
+            echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+            echo "UPDATE_VERSION=true" >> $GITHUB_ENV
+          elif [[ "${{ github.event.head_commit.message }}" == *"[001]"* ]]; then
+            new_version="$major.$minor.$((patch + 1))"
+            echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+            echo "UPDATE_VERSION=true" >> $GITHUB_ENV
+          else
+            new_version="$master_version"
+            echo "SHOULD_DEPLOY=false" >> $GITHUB_ENV
+            echo "UPDATE_VERSION=false" >> $GITHUB_ENV
+          fi
+          
+          echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
 
-     - name: Configure Git
-       run: |
-         git config --global user.name 'github-actions[bot]'
-         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-     - name: Update Version in Master
-       if: env.UPDATE_VERSION == 'true'
-       run: |
-         git checkout master
-         npm version ${{ env.NEW_VERSION }} --no-git-tag-version
-         git add package.json package-lock.json
-         git commit -m "Update version to ${{ env.NEW_VERSION }}"
-         git push origin master
+      - name: Update Version in Master
+        if: env.UPDATE_VERSION == 'true'
+        run: |
+          git checkout master
+          npm version ${{ env.NEW_VERSION }} --no-git-tag-version
+          git add package.json package-lock.json
+          git commit -m "Update version to ${{ env.NEW_VERSION }}"
+          git push origin master
 
-     - name: Merge to master if deploying
-       if: env.SHOULD_DEPLOY == 'true'
-       run: |
-         git merge --no-ff dev -m "Merge dev into master for deployment"
-         git push origin master
+      - name: Merge to master if deploying
+        if: env.SHOULD_DEPLOY == 'true'
+        run: |
+          git merge --no-ff dev -m "Merge dev into master for deployment"
+          git push origin master
 
-     - name: Return to dev
-       run: |
-         git checkout dev
+      - name: Return to dev
+        run: |
+          git checkout dev
 
-     - name: Install Dependencies
-       if: env.SHOULD_DEPLOY == 'true'
-       run: |
-         git checkout master
-         npm install
+      - name: Install Dependencies
+        if: env.SHOULD_DEPLOY == 'true'
+        run: |
+          git checkout master
+          npm install
        
-     - name: Set build time
-       if: env.SHOULD_DEPLOY == 'true'
-       run: |
-         ampm=$(TZ='Asia/Seoul' date +%p)
-         if [ "$ampm" = "AM" ]; then
-           period="오전"
-         else
-           period="오후"
-         fi
-         echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +%Y년\ %m월\ %d일) $period $(TZ='Asia/Seoul' date +%I시)" >> $GITHUB_ENV
-         
-     - name: Build
-       if: env.SHOULD_DEPLOY == 'true'
-       env:
-         REACT_APP_BUILD_TIME: ${{ env.REACT_APP_BUILD_TIME }}
-       run: npm run build
-       
-     - name: Configure AWS Credentials
-       if: env.SHOULD_DEPLOY == 'true'
-       uses: aws-actions/configure-aws-credentials@v4
-       with:
-         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-         aws-region: ap-northeast-2
-         
-     - name: Deploy to S3
-       if: env.SHOULD_DEPLOY == 'true'
-       run: aws s3 sync build/ s3://web-info --delete
-       
-     - name: Invalidate CloudFront
-       if: env.SHOULD_DEPLOY == 'true'
-       run: |
-         aws cloudfront create-invalidation \
-           --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-           --paths "/*"
+      - name: Set build time
+        if: env.SHOULD_DEPLOY == 'true'
+        run: |
+          ampm=$(TZ='Asia/Seoul' date +%p)
+          if [ "$ampm" = "AM" ]; then
+            period="오전"
+          else
+            period="오후"
+          fi
+          echo "REACT_APP_BUILD_TIME=$(TZ='Asia/Seoul' date +%Y년\ %m월\ %d일) $period $(TZ='Asia/Seoul' date +%I시)" >> $GITHUB_ENV
+          
+      - name: Build
+        if: env.SHOULD_DEPLOY == 'true'
+        env:
+          REACT_APP_BUILD_TIME: ${{ env.REACT_APP_BUILD_TIME }}
+        run: npm run build
+
+      # Oracle Cloud 배포 단계 시작
+      - name: Prepare SSH Key
+        if: env.SHOULD_DEPLOY == 'true'
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/oracle_rsa
+          chmod 600 ~/.ssh/oracle_rsa
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+        env:
+          SSH_KEY: ${{ secrets.ORACLE_SSH_KEY }}
+
+      - name: Deploy Files via SCP
+        if: env.SHOULD_DEPLOY == 'true'
+        run: |
+          scp -i ~/.ssh/oracle_rsa -o UserKnownHostsFile=/dev/null -r build/* ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }}:${{ env.DEPLOY_PATH }}
+          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo systemctl reload nginx"
+        env:
+          DEPLOY_PATH: "/var/www/html"  # 실제 Nginx 루트 경로로 수정
