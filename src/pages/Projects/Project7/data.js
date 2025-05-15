@@ -110,7 +110,7 @@ export const projectData = {
         github: "https://github.com/Stradivirus/monitoring-prometheus-system",
         demo: {
         url:"http://34.64.58.11:8000/",
-        isEnabled: true
+        isEnabled: false
         }
     },
     
