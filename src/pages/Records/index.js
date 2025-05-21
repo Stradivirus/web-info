@@ -8,6 +8,7 @@ import { StudyContent as TerraformContent } from './Terraform';
 import { StudyContent as LoadBalancingContent } from './LoadBalancing';
 import { StudyContent as MSAContent } from './BackendMSA';
 import { StudyContent as DockerComposeContent } from './DockerCompose';
+import { StudyContent as CrawlingContent } from './Crawling';
 
 // 이미지 모달 컴포넌트
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
@@ -131,7 +132,8 @@ const Records = () => {
     cicd: false,
     refactoring: false,
     autoCleanup: false,
-    terraform: false
+    terraform: false,
+    crawling: false // 크롤링 기록 추가
   });
 
   const toggleRecord = (id) => {
@@ -148,6 +150,16 @@ const Records = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
+            <StudyAccordion
+              title="오라클 클라우드 기반 네이버 날씨/뉴스 크롤링 자동화"
+              date="2025.05.22"
+              category="Crawling"
+              isOpen={openRecords.crawling}
+              onToggle={() => toggleRecord('crawling')}
+            >
+              <CrawlingContent />
+            </StudyAccordion>
+            
             <StudyAccordion
               title="Docker Compose 분리를 통한 서비스 배포 최적화"
               date="2025.01.19"
@@ -208,9 +220,10 @@ const Records = () => {
               <TerraformContent />
             </StudyAccordion>
 
+
             <StudyAccordion
-              title="리액트 프로젝트 컴포넌트 리팩토링"
               date="2024.11.20"
+              title="리액트 프로젝트 컴포넌트 리팩토링"
               category="Frontend"
               isOpen={openRecords.refactoring}
               onToggle={() => toggleRecord('refactoring')}
