@@ -41,15 +41,14 @@ export const projectData = {
       "React",
       "TypeScript",
       "Go",
-      "AWS S3",
-      "AWS CloudFront",
+      "Oracle Cloud",
       "GCP Cloud Run",
       "MongoDB Atlas",
       "GitHub Actions"  
     ],
   
     objectives: [
-        "기존의 CBT 사이트를 비용 절감과 운영 부담 최소화를 위해 멀티 클라우드 서버리스로 구축",  
+        "기존의 CBT 사이트를 비용 절감과 운영 부담 최소화를 위해 멀티 클라우드로 구축",  
     ],
   
     features: [
@@ -71,8 +70,7 @@ export const projectData = {
         items: [
           "Vite",
           "React + TypeScript",
-          "AWS S3",
-          "CloudFront"
+          "Oracle Cloud"
         ]
       },
       {
@@ -96,7 +94,8 @@ export const projectData = {
   
     reflection: `1. Go 언어를 처음 도입하는 과정에서 새로운 언어의 동시성 처리와 문법 패턴을 익히는 데 어려움이 있었습니다.
 2. AWS(CloudFront, S3)와 GCP(Cloud Run), MongoDB Atlas를 연동하는 멀티 클라우드 아키텍처 구축 과정에서 각 서비스 간 통신 설정과 보안 구성에 어려움이 있었습니다.
-3. EC2 인스턴스의 Docker 기반 서비스를 서버리스로 마이그레이션하여 인프라 운영 비용을 95% 이상 절감했습니다.`,
+3. EC2 인스턴스의 Docker 기반 서비스를 서버리스로 마이그레이션하여 인프라 운영 비용을 95% 이상 절감했습니다.
+4. Aws 계정 만료로 인해 오라클 클라우드 무료 계정으로 이전하여 사용하고 있습니다.`,
   
     architectureImg: ArchitectureDiagram,
 
