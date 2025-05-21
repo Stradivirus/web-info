@@ -13,13 +13,12 @@ const allMedia = [
 
 export const projectData = {
   title: "Portfolio Website",
-  description: "AWS S3를 활용한 서버리스 정적 웹 호스팅",
+  description: "Oracle Cloud를 활용한 정적 웹 호스팅",
   period: "2024.11 - 2024.12",
   
   techStack: [
     "React",
-    "AWS S3",
-    "AWS Cloudfront",
+    "Oracle Cloud",
     "GitHub Actions"
   ],
 
@@ -29,15 +28,14 @@ export const projectData = {
 
   features: [
     "GitHub Actions를 통한 CI/CD 구축",
-    "AWS S3를 활용한 정적 웹사이트 호스팅"
+    "Oracle Cloud를 활용한 정적 웹사이트 호스팅"
   ],
 
   process: `1. 프로젝트 설계 및 구조화()
 - 레이아웃 설계 및 컴포넌트 구조화
 
-2. AWS 인프라 구축 및 배포 자동화
-- S3 정적 웹 호스팅 구축
-- CloudFront 배포 설정
+2. Oracle Cloud Free Tier를 활용한 정적 웹사이트 호스팅
+- 기존 Aws 계정 만료로 인해 오라클 클라우드 무료 계정으로 이전
 - GitHub Actions를 활용한 조건부 자동 배포([] 태그 기반)
 
 3. 성능 최적화 및 리팩토링
@@ -57,7 +55,7 @@ export const projectData = {
     {
       title: "Deployment",
       items: [
-        "AWS S3",
+        "Oracle Cloud",
         "GitHub Actions"
       ]
     }
@@ -81,7 +79,7 @@ export const projectData = {
   },
   
   overview: {
-    description: "서버리스로 구현한 포트폴리오 웹사이트 제작 프로젝트",
+    description: "Oracle Cloud로 구현한 포트폴리오 웹사이트 제작 프로젝트",
     diagram: overviewDiagram
   }
 };
