@@ -147,7 +147,7 @@ if __name__ == "__main__":
               <h4 className="font-medium mb-2">크롤링 대상</h4>
               <ul className="list-disc pl-5">
                 <li>네이버 날씨: 현재 온도, 미세먼지, 초미세먼지 등 세부 정보 분리</li>
-                <li>네이버 뉴스: 주요 IT 뉴스 추출</li>
+                <li>다음 뉴스: 주요 IT 뉴스 추출</li>
               </ul>
             </div>
             <div>
