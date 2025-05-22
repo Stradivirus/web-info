@@ -165,7 +165,6 @@ if __name__ == "__main__":
           <h3 className="text-lg font-medium mb-3">운영 효과</h3>
           <ul className="list-disc pl-5 space-y-2 text-gray-600">
             <li>주기적으로 날씨와 뉴스를 Slack에서 바로 확인 가능</li>
-            <li>운영 자동화 및 슬랙 연동 경험 축적</li>
           </ul>
         </section>
 
