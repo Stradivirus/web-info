@@ -5,6 +5,7 @@ import AWS_sa from '../../assets/images/certifications/AWS Certified Solutions A
 import NCA from '../../assets/images/certifications/Naver Cloud Platform.png';
 import NCP from '../../assets/images/certifications/NCP.png';
 import linux2 from '../../assets/images/certifications/linuxmaster2.png';
+import sqld from '../../assets/images/certifications/sqld.png';
 import './Certifications.css';
 
 const certifications = [
@@ -49,6 +50,13 @@ const certifications = [
     issuer: "한국정보통신 진흥협회",
     date: "2025.01",
     imagePath: linux2,
+  },
+  {
+    id: 7,
+    title: "SQLD",
+    issuer: "한국데이터 산업진흥원",
+    date: "2025.06",
+    imagePath: sqld,
   }
 ];
 
