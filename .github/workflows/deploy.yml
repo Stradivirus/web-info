@@ -111,6 +111,13 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.ORACLE_SSH_KEY }}
 
+      - name: Clean deploy folder on server
+        if: env.SHOULD_DEPLOY == 'true'
+        run: |
+          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "rm -rf /var/www/html/*"
+        env:
+          DEPLOY_PATH: "/var/www/html"
+
       - name: Deploy Files via SCP
         if: env.SHOULD_DEPLOY == 'true'
         run: |
