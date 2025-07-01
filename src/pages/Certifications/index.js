@@ -6,6 +6,7 @@ import NCA from '../../assets/images/certifications/Naver Cloud Platform.png';
 import NCP from '../../assets/images/certifications/NCP.png';
 import linux2 from '../../assets/images/certifications/linuxmaster2.png';
 import sqld from '../../assets/images/certifications/sqld.png';
+import network_2 from '../../assets/images/certifications/network_manager_2.png';
 import './Certifications.css';
 
 const certifications = [
@@ -57,6 +58,13 @@ const certifications = [
     issuer: "한국데이터 산업진흥원",
     date: "2025.06",
     imagePath: sqld,
+  },
+  {
+    id: 8,
+    title: "네트워크 관리사",
+    issuer: "한국정보통신 진흥협회",
+    date: "2025.07",
+    imagePath: network_2,
   }
 ];
 
