@@ -117,7 +117,7 @@ const Navigation = () => {
         </NavLink>
         <NavLink to="/Project/2" className={getLinkClassName}>
           <FolderOpen className="nav-icon" size={18} />
-          <span>Django와 PostGresql를<br></br> 사용한 CBT 사이트</span>
+          <span>Django와 PostGreSql를<br></br> 사용한 CBT 사이트</span>
         </NavLink>
       </div>
 
