@@ -21,6 +21,14 @@ import diagram6 from '../../assets/images/overview/diagrams/Diagram6.png';
 import diagram7 from '../../assets/images/overview/diagrams/Diagram7.png';
 const projects = [
   {
+    id: 'TP1',
+    title: '로우코드 기반 고객 중심 과제 시스템',
+    description: '팀 프로젝트 상세 내용 작성 예정',
+    image: '', // 이미지가 있다면 경로 추가
+    tags: ['팀프로젝트'],
+    isTeam: true
+  },
+  {
     id: 4,
     title: project4Data.title,
     description: project4Data.overview.description,
@@ -81,11 +89,12 @@ const Overview = () => {
   return (
     <div className="overview-container">
       <div className="projects-grid">
-        {projects.map((project) => (
+        {projects.map((project, idx) => (
           <div 
             key={project.id}
-            className="project-card"
+            className={`project-card${project.isTeam ? ' team-project' : ''}`}
             onClick={() => handleProjectClick(project.id)}
+            style={project.isTeam ? { background: 'rgba(106, 255, 168, 0.25)' } : {}}
           >
             <div className="project-content">
               <h3>{project.title}</h3>

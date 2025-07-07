@@ -79,7 +79,13 @@ const Navigation = () => {
         <span>기록</span>
       </NavLink>
 
-      <div className="nav-divider">Projects</div>
+      <div className="nav-divider" style={{ background: '#e0f7fa', color: '#1976d2', fontWeight: 'bold' }}>팀 프로젝트</div>
+      <NavLink to="/Project/TP1" className={getLinkClassName}>
+        <FolderOpen className="nav-icon" size={18} />
+        <span>로우코드 기반 고객 중심 과제 시스템</span>
+      </NavLink>
+
+      <div className="nav-divider">개인 프로젝트</div>
       <NavLink to="/Project/4" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>React와 NestJs를 사용한 <br></br>사전 예약 시스템</span>
