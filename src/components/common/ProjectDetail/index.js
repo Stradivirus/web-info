@@ -29,6 +29,7 @@ const ProjectDetail = ({
   activeTab: externalActiveTab,
   setActiveTab: externalSetActiveTab,
   tabButtonStyle,
+  isTeamProject = false, // 팀 프로젝트 여부를 구분하는 prop 추가
   ...props
 }) => {
   const [selectedMedia, setSelectedMedia] = useState(null);
@@ -104,30 +105,32 @@ const ProjectDetail = ({
         onNavigate={navigateMedia}
       />
 
-      {/* 탭 버튼 */}
-      <div style={{ display: 'flex', gap: 0, marginBottom: '24px', borderBottom: '2px solid #e5e7eb', justifyContent: 'center' }}>
-        <button
-          style={tabButtonStyle ? tabButtonStyle(activeTab === 'main') : {}}
-          onClick={() => setActiveTab('main')}
-        >
-          메인
-        </button>
-        <button
-          style={tabButtonStyle ? tabButtonStyle(activeTab === 'team') : {}}
-          onClick={() => setActiveTab('team')}
-        >
-          팀원별 개발 파트
-        </button>
-        <button
-          style={tabButtonStyle ? tabButtonStyle(activeTab === 'me') : {}}
-          onClick={() => setActiveTab('me')}
-        >
-          내가 개발한 부분
-        </button>
-      </div>
+      {/* 탭 버튼 - 팀 프로젝트일 때만 표시 */}
+      {isTeamProject && (
+        <div style={{ display: 'flex', gap: 0, marginBottom: '24px', borderBottom: '2px solid #e5e7eb', justifyContent: 'center' }}>
+          <button
+            style={tabButtonStyle ? tabButtonStyle(activeTab === 'main') : {}}
+            onClick={() => setActiveTab('main')}
+          >
+            메인
+          </button>
+          <button
+            style={tabButtonStyle ? tabButtonStyle(activeTab === 'team') : {}}
+            onClick={() => setActiveTab('team')}
+          >
+            팀원별 개발 파트
+          </button>
+          <button
+            style={tabButtonStyle ? tabButtonStyle(activeTab === 'me') : {}}
+            onClick={() => setActiveTab('me')}
+          >
+            내가 개발한 부분
+          </button>
+        </div>
+      )}
 
       {/* 탭별 내용 */}
-      {activeTab === 'main' && (
+      {(!isTeamProject || activeTab === 'main') && (
         <>
           <ProjectHeader 
             title={title}
@@ -160,10 +163,10 @@ const ProjectDetail = ({
           />
         </>
       )}
-      {activeTab === 'team' && props.TeamPartsComponent ? (
+      {isTeamProject && activeTab === 'team' && props.TeamPartsComponent ? (
         props.TeamPartsComponent
       ) : null}
-      {activeTab === 'me' && props.MyPartComponent ? (
+      {isTeamProject && activeTab === 'me' && props.MyPartComponent ? (
         props.MyPartComponent
       ) : null}
     </div>

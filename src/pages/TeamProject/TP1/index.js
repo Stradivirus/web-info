@@ -25,6 +25,7 @@ const Team1 = () => {
     <div>
       <ProjectDetail
         {...projectData}
+        isTeamProject={true}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         tabButtonStyle={tabButtonStyle}
