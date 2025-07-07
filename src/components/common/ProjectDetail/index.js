@@ -1,6 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import './ProjectDetail.css';
+import { Github, Globe, Calendar } from 'lucide-react';
+import './ProjectDetail.base.css';
+import './ProjectDetail.modal.css';
+import './ProjectDetail.media.css';
+import './ProjectDetail.responsive.css';
 
 const LineBreak = ({ text }) => {
   return (
@@ -10,52 +13,6 @@ const LineBreak = ({ text }) => {
         {i < text.split('\n').length - 1 && <br />}
       </React.Fragment>
     ))}</>
-  );
-};
-
-const MediaModal = ({ media, onClose, onNavigate }) => {
-  if (!media) return null;
-
-  return (
-    <div className="image-modal-overlay" onClick={onClose}>
-      <div className="image-modal-content" onClick={e => e.stopPropagation()}>
-        <button className="modal-close-button" onClick={onClose}>
-          <X size={24} />
-        </button>
-        {onNavigate && (
-          <>
-            <button 
-              className="modal-nav-button modal-nav-prev" 
-              onClick={() => onNavigate('prev')}
-              aria-label="Previous image"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button 
-              className="modal-nav-button modal-nav-next" 
-              onClick={() => onNavigate('next')}
-              aria-label="Next image"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </>
-        )}
-        {media.type === 'video' ? (
-          <video 
-            src={media.url} 
-            controls
-            className="modal-video"
-          />
-        ) : (
-          <img 
-            src={media.url} 
-            alt={media.caption}
-            className="modal-image"
-          />
-        )}
-        <p className="modal-caption">{media.caption}</p>
-      </div>
-    </div>
   );
 };
 
@@ -350,14 +307,6 @@ const ProjectDetail = ({
       {activeTab === 'me' && props.MyPartComponent ? (
         props.MyPartComponent
       ) : null}
-
-      {selectedMedia && (
-        <MediaModal 
-          media={selectedMedia}
-          onClose={closeModal}
-          onNavigate={currentIndex !== null && media.length > 1 ? navigateMedia : null}
-        />
-      )}
     </div>
   );
 };

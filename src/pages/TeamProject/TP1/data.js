@@ -1,5 +1,45 @@
 // TP1 팀 프로젝트 데이터 예시
 import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram1.png';
+import ArchitectureDiagram from '../../../assets/images/project/Teamp1/system_overview.png';
+const architectureImg = require('../../../assets/images/project/Teamp1/system_overview.png');
+
+const screenshotContext = require.context('../../../assets/images/project/Teamp1', false, /Screenshot\d+\.png$/);
+const screenshotCaptions = {
+  '1': "김린 - 데이터 그룹화 기능",
+  '2': "문성종 - 게시판",
+  '3': "문성종 - 기능들",
+  '4': "문성종 - 첫 대시보드와 간단한 프로필",
+  '5': "이병철 - 프로젝트 적용 전 개발 화면",
+  '6': "이병철 - 프로젝트 적용 화면",
+  '7': "이상훈 - 그래프(개발팀)",
+  '8': "이주영 - 데이터 CRUD",
+  '9': "홍성현 - 그래프(보안팀, 사업팀)",
+  '10': "홍은교 - 데이터",
+};
+// 숫자 기준으로 정렬
+const screenshotKeys = screenshotContext.keys().sort((a, b) => {
+  const getNum = s => parseInt(s.match(/Screenshot(\d+)\.png$/)[1], 10);
+  return getNum(a) - getNum(b);
+});
+const screenshots = screenshotKeys.map((path, index) => {
+  const id = String(index + 1);
+  return {
+    id,
+    type: 'image',
+    url: screenshotContext(path),
+    caption: screenshotCaptions[id] || '',
+  };
+});
+
+const allMedia = [
+  {
+    id: 'system-overview',
+    type: 'image',
+    url: architectureImg,
+    caption: '전체 기능 소개'
+  },
+  ...screenshots
+];
 
 export const projectData = {
   title: '로우코드 기반 고객 중심 과제 시스템',
@@ -46,24 +86,9 @@ export const projectData = {
   reflection: `1. 컴포넌트 기반 설계와 API 중심 구조의 확장성 체감
   2. 클라우드 기반 MongoDB로 인해 유연한 데이터 관리 및 확장성 확보
   3. 실시간 협업 도구(깃허브, 슬랙) 활용의 중요성 인식`,
-//   architectureImg: require('../../../assets/images/overview/diagrams/TP1_architecture.png'),
-//   media: [
-//     {
-//       type: 'image',
-//       src: require('../../../assets/images/overview/screenshots/TP1_main.png'),
-//       alt: 'TP1 메인화면 스크린샷'
-//     },
-//     {
-//       type: 'image',
-//       src: require('../../../assets/images/overview/screenshots/TP1_dashboard.png'),
-//       alt: 'TP1 대시보드 스크린샷'
-//     },
-//     {
-//       type: 'video',
-//       src: 'https://youtu.be/your-demo-video',
-//       alt: 'TP1 시연 영상'
-//     }
-//   ],
+  
+  architectureImg: ArchitectureDiagram,
+  media: allMedia,
   links: {
     github: 'https://github.com/Stradivirus/blackpink',
     demo: {
