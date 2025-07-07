@@ -90,7 +90,7 @@ const Navigation = () => {
       </NavLink>
       <NavLink to="/Project/1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>AwsS3와 Cloudfront로 배포한 Portfolio Website</span>
+        <span>Oracle Cloud로 배포한 Portfolio Website</span>
       </NavLink>
       <NavLink to="/Project/5" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />

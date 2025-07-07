@@ -14,7 +14,7 @@ const allMedia = [
 export const projectData = {
   title: "Portfolio Website",
   description: "Oracle Cloud를 활용한 정적 웹 호스팅",
-  period: "2024.11 - 2024.12",
+  period: "2024.11 - 2025.07(꾸준히 업데이트 중)",
   
   techStack: [
     "React",
@@ -36,7 +36,7 @@ export const projectData = {
 
 2. Oracle Cloud Free Tier를 활용한 정적 웹사이트 호스팅
 - 기존 Aws 계정 만료로 인해 오라클 클라우드 무료 계정으로 이전
-- GitHub Actions를 활용한 조건부 자동 배포([] 태그 기반)
+- GitHub Actions를 활용한 조건부 자동 배포([xxx] 태그 기반)
 
 3. 성능 최적화 및 리팩토링
 - 공통 컴포넌트 분리 및 코드 정리
