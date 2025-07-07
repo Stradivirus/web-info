@@ -1,7 +1,7 @@
 import React from 'react';
 import ProjectDetail from '../../../components/common/ProjectDetail';
 import { projectData } from './data';
-import { teamMembers } from './teamMembers';
+import { teamMembers, groupCollaborations } from './teamMembers';
 import { TeamParts, MyPart } from '../../../components/common/ProjectDetail/TeamPro';
 
 const tabButtonStyle = (active) => ({
@@ -28,7 +28,7 @@ const Team1 = () => {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         tabButtonStyle={tabButtonStyle}
-        TeamPartsComponent={<TeamParts members={teamMembers} />}
+        TeamPartsComponent={<TeamParts members={teamMembers} collaborations={groupCollaborations} />}
         MyPartComponent={<MyPart />}
       />
     </div>

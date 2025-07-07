@@ -5,16 +5,16 @@ const architectureImg = require('../../../assets/images/project/Teamp1/system_ov
 
 const screenshotContext = require.context('../../../assets/images/project/Teamp1', false, /Screenshot\d+\.png$/);
 const screenshotCaptions = {
-  '1': "김린 - 데이터 그룹화 기능",
+  '1': "김XX - 데이터 그룹화 기능",
   '2': "문성종 - 게시판",
   '3': "문성종 - 기능들",
   '4': "문성종 - 첫 대시보드와 간단한 프로필",
-  '5': "이병철 - 프로젝트 적용 전 개발 화면",
-  '6': "이병철 - 프로젝트 적용 화면",
-  '7': "이상훈 - 그래프(개발팀)",
-  '8': "이주영 - 데이터 CRUD",
-  '9': "홍성현 - 그래프(보안팀, 사업팀)",
-  '10': "홍은교 - 데이터",
+  '5': "이XX - 프로젝트 적용 전 개발 화면",
+  '6': "이XX - 프로젝트 적용 화면",
+  '7': "이XX - 그래프(개발팀)",
+  '8': "이XX - 데이터 CRUD",
+  '9': "홍XX - 그래프(보안팀, 사업팀)",
+  '10': "홍XX - 데이터",
 };
 // 숫자 기준으로 정렬
 const screenshotKeys = screenshotContext.keys().sort((a, b) => {
