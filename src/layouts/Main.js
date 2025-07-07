@@ -8,6 +8,7 @@ import Project4 from '../pages/Projects/Project4';
 import Project5 from '../pages/Projects/Project5';
 import Project6 from '../pages/Projects/Project6';
 import Project7 from '../pages/Projects/Project7';
+import Team1 from '../pages/TeamProject/TP1';
 import './Main.css';
 
 const Main = () => {
@@ -15,8 +16,12 @@ const Main = () => {
   
   const renderContent = () => {
     if (!id) return <Overview />;
-    
-    // 프로젝트 ID에 따른 컴포넌트 렌더링
+
+    // 팀프로젝트는 별도 처리
+    if (id === 'TP1') {
+      return <Team1 />;
+    }
+    // 개인 프로젝트 ID에 따른 컴포넌트 렌더링
     const projectComponents = {
       '1': Project1,
       '2': Project2,
@@ -26,7 +31,6 @@ const Main = () => {
       '6': Project6,
       '7': Project7
     };
-    
     const ProjectComponent = projectComponents[id] || Overview;
     return <ProjectComponent />;
   };

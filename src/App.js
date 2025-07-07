@@ -7,6 +7,7 @@ import Introduction from './pages/Introduction';
 // 각 페이지를 lazy로 import
 const CertificationsPage = React.lazy(() => import('./pages/Certifications'));
 const RecordsPage = React.lazy(() => import('./pages/Records'));
+const Team1 = React.lazy(() => import('./pages/TeamProject/TP1'));
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/Project/:id" element={<Main />} />
             <Route path="/Introduction" element={<Introduction />} />
             <Route path="/Certifications" element={<CertificationsPage />} />
+            <Route path="/TeamProject/tp1" element={<Team1 />} />
           </Routes>
         </Suspense>
       </Layout>

@@ -1,63 +1,14 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Github, Globe, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import './ProjectDetail.css';
-
-const LineBreak = ({ text }) => {
-  return (
-    <>{text.split('\n').map((line, i) => (
-      <React.Fragment key={i}>
-        {line}
-        {i < text.split('\n').length - 1 && <br />}
-      </React.Fragment>
-    ))}</>
-  );
-};
-
-const MediaModal = ({ media, onClose, onNavigate }) => {
-  if (!media) return null;
-
-  return (
-    <div className="image-modal-overlay" onClick={onClose}>
-      <div className="image-modal-content" onClick={e => e.stopPropagation()}>
-        <button className="modal-close-button" onClick={onClose}>
-          <X size={24} />
-        </button>
-        {onNavigate && (
-          <>
-            <button 
-              className="modal-nav-button modal-nav-prev" 
-              onClick={() => onNavigate('prev')}
-              aria-label="Previous image"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button 
-              className="modal-nav-button modal-nav-next" 
-              onClick={() => onNavigate('next')}
-              aria-label="Next image"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </>
-        )}
-        {media.type === 'video' ? (
-          <video 
-            src={media.url} 
-            controls
-            className="modal-video"
-          />
-        ) : (
-          <img 
-            src={media.url} 
-            alt={media.caption}
-            className="modal-image"
-          />
-        )}
-        <p className="modal-caption">{media.caption}</p>
-      </div>
-    </div>
-  );
-};
+import ProjectHeader from './components/ProjectHeader';
+import ProjectLinks from './components/ProjectLinks';
+import OverviewDiagram from './components/OverviewDiagram';
+import ProjectContent from './components/ProjectContent';
+import MediaSection from './components/MediaSection';
+import MediaModal from './components/MediaModal';
+import './ProjectDetail.base.css';
+import './ProjectDetail.media.css';
+import './ProjectDetail.responsive.css';
+import './MediaModal.css';
 
 const ProjectDetail = ({
   title,
@@ -74,10 +25,18 @@ const ProjectDetail = ({
   reflection = "",
   media = [],
   links,
-  layoutStyle = 'default'
+  layoutStyle = 'default',
+  activeTab: externalActiveTab,
+  setActiveTab: externalSetActiveTab,
+  tabButtonStyle,
+  isTeamProject = false, // 팀 프로젝트 여부를 구분하는 prop 추가
+  ...props
 }) => {
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [internalTab, setInternalTab] = useState('main');
+  const activeTab = externalActiveTab ?? internalTab;
+  const setActiveTab = externalSetActiveTab ?? setInternalTab;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -137,186 +96,79 @@ const ProjectDetail = ({
 
   return (
     <div className="container">
-      <div className="project-header">
-        <h1 className="text-4xl font-bold mb-3">{title}</h1>
-        {description && (
-          <p className="text-gray-600 mb-4">{description}</p>
-        )}
-        <div className="flex items-center gap-2 text-gray-600 mb-3">
-          <Calendar size={16} />
-          <span>{period}</span>
+      {/* 미디어 모달 */}
+      <MediaModal
+        selectedMedia={selectedMedia}
+        currentIndex={currentIndex}
+        media={media}
+        onClose={closeModal}
+        onNavigate={navigateMedia}
+      />
+
+      {/* 탭 버튼 - 팀 프로젝트일 때만 표시 */}
+      {isTeamProject && (
+        <div style={{ display: 'flex', gap: 0, marginBottom: '24px', borderBottom: '2px solid #e5e7eb', justifyContent: 'center' }}>
+          <button
+            style={tabButtonStyle ? tabButtonStyle(activeTab === 'main') : {}}
+            onClick={() => setActiveTab('main')}
+          >
+            메인
+          </button>
+          <button
+            style={tabButtonStyle ? tabButtonStyle(activeTab === 'team') : {}}
+            onClick={() => setActiveTab('team')}
+          >
+            팀원별 개발 파트
+          </button>
+          <button
+            style={tabButtonStyle ? tabButtonStyle(activeTab === 'me') : {}}
+            onClick={() => setActiveTab('me')}
+          >
+            내가 개발한 부분
+          </button>
         </div>
-      </div>
+      )}
 
-      {links && (
-  <div className="links">
-    {links.github && (
-      <a 
-        href={links.github}
-        className="link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Github size={16} />
-        GitHub 저장소
-      </a>
-    )}
-    {links.demo && (
-      <button 
-        className={`link ${!links.demo.isEnabled ? 'disabled-link' : ''}`}
-        disabled={!links.demo.isEnabled}
-        onClick={() => {
-          if (links.demo.isEnabled) {
-            window.open(links.demo.url, '_blank', 'noopener noreferrer');
-          }
-        }}
-        title={!links.demo.isEnabled ? "서비스 종료" : ""}
-      >
-        <Globe size={16} />
-        Live Demo
-      </button>
-    )}
-  </div>
-)}
-
-      {overview?.diagram && (
-        <div 
-          className="overview-diagram-preview cursor-pointer"
-          onClick={handleDiagramClick}
-        >
-          <img 
-            src={overview.diagram} 
-            alt="Overview Diagram"
-            width="100%"
-            style={{ cursor: 'pointer' }}
+      {/* 탭별 내용 */}
+      {(!isTeamProject || activeTab === 'main') && (
+        <>
+          <ProjectHeader 
+            title={title}
+            description={description}
+            period={period}
           />
-        </div>
+          
+          <ProjectLinks links={links} />
+          
+          <OverviewDiagram 
+            overview={overview}
+            onDiagramClick={handleDiagramClick}
+          />
+          
+          <ProjectContent
+            techStack={techStack}
+            objectives={objectives}
+            features={features}
+            process={process}
+            techDetails={techDetails}
+            issues={issues}
+            improvements={improvements}
+            reflection={reflection}
+            layoutStyle={layoutStyle}
+          />
+
+          <MediaSection 
+            media={media}
+            onMediaClick={handleMediaClick}
+          />
+        </>
       )}
-
-      <div className="overview-container">
-        <div className={`details ${layoutStyle === 'wide' ? 'details-wide' : ''}`}>
-          <div className="content-box">
-            {techStack.length > 0 && (
-              <div className="tags">
-                {techStack.map((tech, index) => (
-                  <span key={index} className="tag">{tech}</span>
-                ))}
-              </div>
-            )}
-
-            {objectives.length > 0 && (
-              <div className="content-section">
-                <h2>제작 목표</h2>
-                <ul className="feature-list">
-                  {objectives.map((objective, index) => (
-                    <li key={index}>{objective}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {features.length > 0 && (
-              <div className="content-section">
-                <h2>주요 기능</h2>
-                <ul className="feature-list">
-                  {features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {process && (
-              <div className="content-section">
-                <h2>개발 과정</h2>
-                <p><LineBreak text={process} /></p>
-              </div>
-            )}
-
-            {techDetails.length > 0 && (
-              <div className="content-section">
-                <h2>사용 기술</h2>
-                <div className="tech-details">
-                  {techDetails.map((category, index) => (
-                    <div key={index} className="tech-category">
-                      <h3>{category.title}</h3>
-                      <ul>
-                        {category.items.map((item, itemIndex) => (
-                          <li key={itemIndex}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {issues && issues.length > 0 && (
-              <div className="content-section">
-                <h2>Project Issues</h2>
-                <div className="issues-grid">
-                  {issues.map((issue, index) => (
-                    <div key={index} className="issue-card">
-                      <h3>{issue.title}</h3>
-                      <p className="issue-problem">문제: {issue.problem}</p>
-                      <p className="issue-solution">해결: {issue.solution}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {improvements && (
-              <div className="content-section">
-                <h2>개선점 및 향후 계획</h2>
-                <p><LineBreak text={improvements} /></p>
-              </div>
-            )}
-
-            {reflection && (
-              <div className="content-section">
-                <h2>기술적 도전과 성과</h2>
-                <p><LineBreak text={reflection} /></p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {media.length > 0 && (
-        <div className="media-section">
-          <h2>프로젝트 미디어</h2>
-          <div className="media-grid">
-            {media.map((item, index) => (
-              <div key={item.id} className="media-item">
-                {item.type === 'video' ? (
-                  <video 
-                    src={item.url}
-                    className="media-preview"
-                    onClick={() => handleMediaClick(item, index)}
-                  />
-                ) : (
-                  <img 
-                    src={item.url} 
-                    alt={item.caption} 
-                    className="media-preview"
-                    onClick={() => handleMediaClick(item, index)}
-                  />
-                )}
-                <p className="media-caption">{item.caption}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {selectedMedia && (
-        <MediaModal 
-          media={selectedMedia}
-          onClose={closeModal}
-          onNavigate={currentIndex !== null && media.length > 1 ? navigateMedia : null}
-        />
-      )}
+      {isTeamProject && activeTab === 'team' && props.TeamPartsComponent ? (
+        props.TeamPartsComponent
+      ) : null}
+      {isTeamProject && activeTab === 'me' && props.MyPartComponent ? (
+        props.MyPartComponent
+      ) : null}
     </div>
   );
 };
