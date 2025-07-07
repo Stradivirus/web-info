@@ -14,7 +14,7 @@ const allMedia = [
 export const projectData = {
   title: "Portfolio Website",
   description: "Oracle Cloud를 활용한 정적 웹 호스팅",
-  period: "2024.11 - 2024.12",
+  period: "2024.11 - 2025.07(꾸준히 업데이트 중)",
   
   techStack: [
     "React",
