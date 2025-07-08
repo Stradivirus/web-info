@@ -1,5 +1,7 @@
 // TP1 팀 프로젝트 데이터 예시
-import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram1.png';
+import overviewDiagram from '../../../assets/images/overview/diagrams/TeamProject1.png';
+import demoVideo from '../../../assets/videos/project/TeamProject1/Teamproject1_record.mp4';
+
 import ArchitectureDiagram from '../../../assets/images/project/Teamp1/system_overview.png';
 const architectureImg = require('../../../assets/images/project/Teamp1/system_overview.png');
 
@@ -37,6 +39,13 @@ const allMedia = [
     type: 'image',
     url: architectureImg,
     caption: '전체 기능 소개'
+  },
+  // 비디오 추가
+  {
+    id: 'demo-video',
+    type: 'video',
+    url: demoVideo,
+    caption: '시연 영상'
   },
   ...screenshots
 ];
