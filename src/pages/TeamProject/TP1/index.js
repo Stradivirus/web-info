@@ -2,7 +2,7 @@ import React from 'react';
 import ProjectDetail from '../../../components/common/ProjectDetail';
 import { projectData } from './data';
 import { teamMembers, groupCollaborations } from './teamMembers';
-import { TeamParts, MyPart } from '../../../components/common/ProjectDetail/TeamPro';
+import { TeamParts, MyPart } from '../../../components/common/ProjectDetail';
 
 const tabButtonStyle = (active) => ({
   padding: '10px 24px',
