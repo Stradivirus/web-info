@@ -1,15 +1,13 @@
 /* 모달 오버레이 */
 .media-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; 와 동일 */
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  transform: scale(1) !important;
 }
 
 /* 모달 헤더 */
