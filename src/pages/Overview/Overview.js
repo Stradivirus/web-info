@@ -20,12 +20,13 @@ import diagram4 from '../../assets/images/overview/diagrams/Diagram4.png';
 import diagram5 from '../../assets/images/overview/diagrams/Diagram5.png';
 import diagram6 from '../../assets/images/overview/diagrams/Diagram6.png';
 import diagram7 from '../../assets/images/overview/diagrams/Diagram7.png';
+import diagramTP1 from '../../assets/images/overview/diagrams/TeamProject1.png';
 const projects = [
   {
     id: 'TP1',
     title: TP1Data.title,
     description: TP1Data.overview.description,
-    image: TP1Data.overview.diagram,
+    image: diagramTP1,
     tags: TP1Data.techStack,
     isTeam: true
   },
