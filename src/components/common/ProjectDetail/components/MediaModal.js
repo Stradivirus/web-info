@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const MediaModal = ({ 
@@ -32,7 +33,7 @@ const MediaModal = ({
   const hasMultipleMedia = media.length > 1;
   const canNavigate = hasMultipleMedia && currentIndex !== null;
 
-  return (
+  return ReactDOM.createPortal(
     <div 
       className="media-modal-overlay"
       onClick={(e) => e.target === e.currentTarget && onClose()}
@@ -97,7 +98,8 @@ const MediaModal = ({
           />
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
