@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useEffect } from 'react';
 import ProjectHeader from './components/ProjectHeader';
 import ProjectLinks from './components/ProjectLinks';
@@ -10,6 +11,9 @@ import './ProjectDetail.media.css';
 import './ProjectDetail.responsive.css';
 import './MediaModal.css';
 
+export { TeamParts } from './TeamParts';
+export { TeamByRole } from './TeamByRole';
+export { MyPart } from './MyPart';
 const ProjectDetail = ({
   title,
   period,

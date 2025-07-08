@@ -102,7 +102,7 @@ export const myDevelopmentData = {
     {
       id: 'dashboard-system',
       title: '📊 관리자 대시보드 시스템 개발',
-      description: '실시간 데이터 시각화와 팀별 요약 통계를 제공하는 관리자 대시보드를 구축했습니다. Chart.js를 활용한 그래프와 MongoDB 데이터 분석으로 비즈니스 인사이트를 제공합니다.',
+      description: '실시간 데이터 시각화와 팀별 요약 통계를 제공하는 관리자 대시보드를 구축했습니다. Chart.js를 활용한 그래프로 비즈니스 인사이트를 제공합니다.',
       isExpanded: false,
       frontend: {
         title: '프론트엔드 (React + TypeScript + Chart.js)',

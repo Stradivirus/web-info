@@ -44,7 +44,7 @@ const allMedia = [
 export const projectData = {
   title: '로우코드 기반 고객 중심 과제 시스템',
   period: '2025.06 - 2025.07',
-  description: '로우코드 플랫폼을 활용한 고객 과제 관리 시스템. 팀 프로젝트로, 요구사항 수집부터 배포까지 전 과정을 협업.',
+  description: '팀 프로젝트이며 요구사항 수집부터 배포까지 전 과정을 협업.',
   techStack: [
     'React', 'Vite', 'TypeScript', 'Fastapi', 'MongoDB Atlas', 'Docker'
   ],

@@ -77,6 +77,23 @@ export const teamMembers = [
 // 그룹별 협업 내용 데이터
 export const groupCollaborations = [
   {
+    groupName: '소스코드 관리',
+    members: ['문성종 (팀장)'],
+    collaborations: [
+      '전체 프로젝트 코드 구조 설계 및 관리',
+      '팀원별 개발 코드 통합 및 충돌 해결',
+      'Git 브랜치 전략 수립 및 버전 관리',
+      '배포 자동화 및 CI/CD 파이프라인 구축',
+      '코드 주석 및 문서화 작업 총괄'
+    ],
+    achievements: [
+      '안정적인 코드 통합 및 버전 관리 체계 구축',
+      '효율적인 협업을 위한 Git 워크플로우 확립',
+      '코드베이스 유지 및 관리',
+      '성공적인 프로덕션 배포 완료'
+    ]
+  },
+  {
     groupName: '대시보드 개발 그룹',
     members: ['이XX (NCSI)', '홍XX (사업/보안팀)', '이XX (개발팀)'],
     collaborations: [
@@ -108,21 +125,4 @@ export const groupCollaborations = [
       '데이터 품질 관리 체계 구축 및 운영'
     ]
   },
-  {
-    groupName: '소스코드 관리',
-    members: ['문성종 (팀장)'],
-    collaborations: [
-      '전체 프로젝트 코드 구조 설계 및 관리',
-      '팀원별 개발 코드 통합 및 충돌 해결',
-      'Git 브랜치 전략 수립 및 버전 관리',
-      '배포 자동화 및 CI/CD 파이프라인 구축',
-      '코드 주석 및 문서화 작업 총괄'
-    ],
-    achievements: [
-      '안정적인 코드 통합 및 버전 관리 체계 구축',
-      '효율적인 협업을 위한 Git 워크플로우 확립',
-      '코드베이스 유지 및 관리',
-      '성공적인 프로덕션 배포 완료'
-    ]
-  }
 ];
