@@ -39,13 +39,6 @@ const certifications = [
     imagePath: AWS_sa,
   },
   {
-    id: 4,
-    title: "NAVER Cloud Platform Certified Professional",
-    issuer: "NAVER Cloud",
-    date: "2024.11",
-    imagePath: NCP,
-  },
-  {
     id: 2,
     title: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services",
@@ -53,11 +46,11 @@ const certifications = [
     imagePath: AWS,
   },
   {
-    id: 1,
-    title: "정보처리기능사",
-    issuer: "한국산업인력공단",
-    date: "2024.07",
-    imagePath: 정보처리기능사,
+    id: 4,
+    title: "NAVER Cloud Platform Certified Professional",
+    issuer: "NAVER Cloud",
+    date: "2024.11",
+    imagePath: NCP,
   },
   {
     id: 3,
@@ -65,7 +58,15 @@ const certifications = [
     issuer: "NAVER Cloud",
     date: "2024.07",
     imagePath: NCA,
+  },
+  {
+    id: 1,
+    title: "정보처리기능사",
+    issuer: "한국산업인력공단",
+    date: "2024.07",
+    imagePath: 정보처리기능사,
   }
+  
 ];
 
 const CertificationsPage = () => {
