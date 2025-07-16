@@ -88,7 +88,7 @@ const Navigation = () => {
       <div className="nav-divider">개인 프로젝트</div>
       <NavLink to="/Project/4" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>React와 NestJs를 사용한 <br></br>사전 예약 시스템</span>
+        <span>React와 SpringBoot를 사용한 <br></br>사전 예약 시스템</span>
       </NavLink>
       <NavLink to="/Project/3" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
