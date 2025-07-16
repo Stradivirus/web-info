@@ -9,6 +9,7 @@ import { StudyContent as LoadBalancingContent } from './LoadBalancing';
 import { StudyContent as MSAContent } from './BackendMSA';
 import { StudyContent as DockerComposeContent } from './DockerCompose';
 import { StudyContent as CrawlingContent } from './Crawling';
+import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfig';
 
 // 이미지 모달 컴포넌트
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
@@ -133,7 +134,8 @@ const Records = () => {
     refactoring: false,
     autoCleanup: false,
     terraform: false,
-    crawling: false // 크롤링 기록 추가
+    crawling: false,
+    cloudPostgresConfig: false // 추가
   });
 
   const toggleRecord = (id) => {
@@ -150,6 +152,16 @@ const Records = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
+            <StudyAccordion
+              title="오라클 클라우드 PostgreSQL 분리 및 운영 설정"
+              date="2025.07.16"
+              category="DevOps"
+              isOpen={openRecords.cloudPostgresConfig}
+              onToggle={() => toggleRecord('cloudPostgresConfig')}
+            >
+              <CloudPostgresConfigContent />
+            </StudyAccordion>
+
             <StudyAccordion
               title="오라클 클라우드 기반 네이버 날씨/뉴스 크롤링 자동화"
               date="2025.05.22"
