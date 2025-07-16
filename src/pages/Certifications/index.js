@@ -11,46 +11,11 @@ import './Certifications.css';
 
 const certifications = [
   {
-    id: 1,
-    title: "정보처리기능사",
-    issuer: "한국산업인력공단",
-    date: "2024.07",
-    imagePath: 정보처리기능사,
-  },
-  {
-    id: 2,
-    title: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    date: "2024.11",
-    imagePath: AWS,
-  },
-  {
-    id: 5,
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "2024.12",
-    imagePath: AWS_sa,
-  },
-  {
-    id: 3,
-    title: "NAVER Cloud Platform Certified Associate",
-    issuer: "NAVER Cloud",
-    date: "2024.07",
-    imagePath: NCA,
-  },
-  {
-    id: 4,
-    title: "NAVER Cloud Platform Certified Professional",
-    issuer: "NAVER Cloud",
-    date: "2024.11",
-    imagePath: NCP,
-  },
-  {
-    id: 6,
-    title: "리눅스마스터 2급",
+    id: 8,
+    title: "네트워크 관리사",
     issuer: "한국정보통신 진흥협회",
-    date: "2025.01",
-    imagePath: linux2,
+    date: "2025.07",
+    imagePath: network_2,
   },
   {
     id: 7,
@@ -60,11 +25,46 @@ const certifications = [
     imagePath: sqld,
   },
   {
-    id: 8,
-    title: "네트워크 관리사",
+    id: 6,
+    title: "리눅스마스터 2급",
     issuer: "한국정보통신 진흥협회",
-    date: "2025.07",
-    imagePath: network_2,
+    date: "2025.01",
+    imagePath: linux2,
+  },
+  {
+    id: 5,
+    title: "AWS Certified Solutions Architect",
+    issuer: "Amazon Web Services",
+    date: "2024.12",
+    imagePath: AWS_sa,
+  },
+  {
+    id: 4,
+    title: "NAVER Cloud Platform Certified Professional",
+    issuer: "NAVER Cloud",
+    date: "2024.11",
+    imagePath: NCP,
+  },
+  {
+    id: 2,
+    title: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    date: "2024.11",
+    imagePath: AWS,
+  },
+  {
+    id: 1,
+    title: "정보처리기능사",
+    issuer: "한국산업인력공단",
+    date: "2024.07",
+    imagePath: 정보처리기능사,
+  },
+  {
+    id: 3,
+    title: "NAVER Cloud Platform Certified Associate",
+    issuer: "NAVER Cloud",
+    date: "2024.07",
+    imagePath: NCA,
   }
 ];
 
