@@ -47,14 +47,14 @@ const certifications = [
   },
   {
     id: 4,
-    title: "NAVER Cloud Platform Certified Professional",
+    title: "NAVER Cloud Certified Professional",
     issuer: "NAVER Cloud",
     date: "2024.11",
     imagePath: NCP,
   },
   {
     id: 3,
-    title: "NAVER Cloud Platform Certified Associate",
+    title: "NAVER Cloud Certified Associate",
     issuer: "NAVER Cloud",
     date: "2024.07",
     imagePath: NCA,
