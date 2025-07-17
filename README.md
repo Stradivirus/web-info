@@ -45,12 +45,10 @@ src/pages/Projects/Project[N]/
 - `src/pages/Overview/Overview.js` 파일의 projects 배열에 새 프로젝트 정보 추가
 
 ## Certifications(자격증) 페이지
-- 위치: `src/pages/Certifications/`
 - 구현: `src/pages/Certifications/index.js`에서 직접 관리
 - 설명: 보유 자격증 목록과 상세 이미지를 모달로 확인할 수 있는 페이지
 
 ## Records(학습 기록) 페이지
-- 위치: `src/pages/Records/`
 - 구현: `src/pages/Records/index.js`에서 직접 관리
 - 설명: DevOps, Backend, Frontend 등 다양한 주제의 학습/실습 기록을 아코디언 UI와 이미지 모달로 제공
 
