@@ -114,7 +114,7 @@ jobs:
       - name: Clean deploy folder on server
         if: env.SHOULD_DEPLOY == 'true'
         run: |
-          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "rm -rf /var/www/html/*"
+          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo rm -rf /var/www/html/*"
         env:
           DEPLOY_PATH: "/var/www/html"
 
