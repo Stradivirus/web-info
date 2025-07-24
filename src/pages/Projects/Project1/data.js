@@ -73,7 +73,7 @@ export const projectData = {
   links: {
     github: "https://github.com/stradivirus/web-info",
     demo: {
-    url: "http://217.142.233.232",
+    url: "https://문쫑.홈페이지.한국",
     isEnabled: true
     }
   },
