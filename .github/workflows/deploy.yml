@@ -123,6 +123,6 @@ jobs:
         run: |
           scp -i ~/.ssh/oracle_rsa -o UserKnownHostsFile=/dev/null -r build/* ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }}:/home/${{ secrets.SSH_USER }}/tmp/
           ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo mv /home/${{ secrets.SSH_USER }}/tmp/* /var/www/html/"
-          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo systemctl restart nginx"
+          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo systemctl restart caddy"
         env:
-          DEPLOY_PATH: "/var/www/html"  # 실제 Nginx 루트 경로로 수정
+          DEPLOY_PATH: "/var/www/html"  # Caddy 경로
