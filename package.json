@@ -1,6 +1,6 @@
 {
   "name": "web-info",
-  "version": "8.2.10",
+  "version": "8.2.11",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
