@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="562f3ab1-c12c-48be-bdd5-c407aede938a" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="302ZQ7wJgvsIcUOL5PfZMhbCdtv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Merge Requests" />
+      <window_info id="Welcome to GitHub Copilot" />
+      <window_info id="Backup and Sync History" />
+      <window_info id="Commit_Guest" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.38180274" visible="true" weight="0.14505208" />
+      <window_info x="476" y="1" width="480" height="970" id="Commit" order="1" show_stripe_button="false" weight="0.13463542" />
+      <window_info x="0" y="519" width="1838" height="343" id="Profiler" order="2" side_tool="true" weight="0.1627604" />
+      <window_info id="Learn" order="3" side_tool="true" weight="0.1627604" />
+      <window_info id="Services" order="4" side_tool="true" weight="0.1627604" />
+      <window_info id="Problems View" order="5" side_tool="true" weight="0.1627604" />
+      <window_info id="Version Control" order="6" sideWeight="0.4996124" side_tool="true" weight="0.1627604" />
+      <window_info id="Structure" order="7" weight="0.13463542" />
+      <window_info id="Pull Requests" order="8" show_stripe_button="false" sideWeight="0.5003876" weight="0.13463542" />
+      <window_info id="TODO" order="9" side_tool="true" weight="0.32473958" />
+      <window_info id="GitHub Copilot MCP Log" order="10" show_stripe_button="false" side_tool="true" weight="0.32473958" />
+      <window_info id="npm" order="11" sideWeight="0.6181973" side_tool="true" weight="0.18932292" />
+      <window_info id="Bookmarks" order="12" side_tool="true" weight="0.32473958" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="File Transfer" />
+      <window_info anchor="bottom" id="Problems" order="0" />
+      <window_info anchor="bottom" id="Run" order="1" weight="0.33028847" />
+      <window_info anchor="right" id="Notifications" order="0" weight="0.21640626" />
+      <window_info anchor="right" id="AIAssistant" order="1" show_stripe_button="false" weight="0.25" />
+      <window_info anchor="right" id="Database" order="2" weight="0.21640626" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+      <window_info active="true" anchor="right" x="794" y="35" width="332" height="970" id="Terminal" order="5" sideWeight="0.335567" side_tool="true" visible="true" weight="0.19609375" />
+      <window_info anchor="right" id="Coverage" order="6" side_tool="true" weight="0.18411458" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="7" weight="0.21640626" />
+      <window_info anchor="right" id="Endpoints" order="8" weight="0.21640626" />
+      <window_info active="true" anchor="right" id="GitHub Copilot Chat" order="9" sideWeight="0.664433" visible="true" weight="0.19609375" />
+    </layout>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23591.19" />
+        <option value="bundled-js-predefined-d6986cc7102b-6be00b7b0f42-JavaScript-IU-252.23591.19" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="562f3ab1-c12c-48be-bdd5-c407aede938a" name="변경" comment="" />
+      <created>1752827610732</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1752827610732</updated>
+      <workItem from="1752827614052" duration="603000" />
+      <workItem from="1752828289970" duration="618000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
