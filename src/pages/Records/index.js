@@ -10,6 +10,7 @@ import { StudyContent as MSAContent } from './BackendMSA';
 import { StudyContent as DockerComposeContent } from './DockerCompose';
 import { StudyContent as CrawlingContent } from './Crawling';
 import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfig';
+import WebserverMigrationContent from './webserver';
 
 // 이미지 모달 컴포넌트
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
@@ -127,6 +128,7 @@ const StudyAccordion = ({ title, date, category, isOpen, onToggle, children }) =
 
 const Records = () => {
   const [openRecords, setOpenRecords] = useState({
+    webserver: false,
     dockercompose: false,
     msa: false,
     loadBalancing: false,
@@ -135,7 +137,7 @@ const Records = () => {
     autoCleanup: false,
     terraform: false,
     crawling: false,
-    cloudPostgresConfig: false // 추가
+    cloudPostgresConfig: false
   });
 
   const toggleRecord = (id) => {
@@ -152,6 +154,17 @@ const Records = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
+            {/* 웹서버 마이그레이션 기록 아코디언 */}
+            <StudyAccordion
+              title="Nginx → Caddy 웹서버 마이그레이션 기록"
+              date="2025.07.30"
+              category="DevOps"
+              isOpen={openRecords.webserver}
+              onToggle={() => toggleRecord('webserver')}
+            >
+              <WebserverMigrationContent />
+            </StudyAccordion>
+
             <StudyAccordion
               title="오라클 클라우드 PostgreSQL 분리 및 운영 설정"
               date="2025.07.16"
