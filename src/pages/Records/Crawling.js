@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import News from '../../assets/images/project/News.png';
-import Weather from '../../assets/images/project/Weather.png';
+import News from '../../assets/images/records/News.png';
+import Weather from '../../assets/images/records/Weather.png';
 
 export const StudyContent = ({ onImageClick, registerImages }) => {
   const [openFile, setOpenFile] = useState(null);
