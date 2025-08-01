@@ -1,7 +1,7 @@
 // src/pages/Records/AutoCleanup.js
 import React, { useEffect } from 'react';
-import cleanupPipeline from '../../assets/images/project/clean1.png';
-import cleanupSlack from '../../assets/images/project/clean2.png';
+import cleanupPipeline from '../../assets/images/records/clean1.png';
+import cleanupSlack from '../../assets/images/records/clean2.png';
 
 export const StudyContent = ({ onImageClick, registerImages }) => {
  useEffect(() => {

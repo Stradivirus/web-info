@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import nginxImg from '../../assets/images/project/nginx.png';
-import caddyImg from '../../assets/images/project/caddy.png';
+import nginxImg from '../../assets/images/records/nginx.png';
+import caddyImg from '../../assets/images/records/caddy.png';
 
 const nginxConfig = `#server {
 #    listen 80;

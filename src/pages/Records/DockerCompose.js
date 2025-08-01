@@ -1,7 +1,7 @@
 // src/components/study/DockerCompose.js
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import composeTime from '../../assets/images/project/Time.png';
+import composeTime from '../../assets/images/records/Time.png';
 
 export const StudyContent = ({ onImageClick, registerImages }) => {
   const [isBackendCodeVisible, setIsBackendCodeVisible] = useState(false);
