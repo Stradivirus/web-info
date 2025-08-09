@@ -101,7 +101,7 @@ export const projectData = {
   links: {
     github: 'https://github.com/Stradivirus/blackpink',
     demo: {
-      url: 'http://34.64.160.67:8002/',
+      url: 'http://34.64.60.39:8002/',
       isEnabled: true
     },
   },
