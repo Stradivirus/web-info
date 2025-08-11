@@ -104,7 +104,7 @@ export const projectData = {
     links: {
       github: "https://github.com/Stradivirus/exam_serverless",
       demo: {
-      url:"http://217.142.233.232:8008",
+      url:"https://d21ut8ed26cdxg.cloudfront.net/",
       isEnabled: true
     }
     },
