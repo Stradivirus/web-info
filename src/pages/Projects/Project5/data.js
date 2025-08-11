@@ -37,12 +37,9 @@ export const projectData = {
     description: "멀티 클라우드 기반의 시험 문제 출제 시스템",
   
     techStack: [
-      "Vite",
       "React",
-      "TypeScript",
-      "Go",
-      "Oracle Cloud",
-      "GCP Cloud Run",
+      "Aws S3 + CloudFront",
+      "Aws Lambda",
       "MongoDB Atlas",
       "GitHub Actions"  
     ],
@@ -57,7 +54,7 @@ export const projectData = {
   
     process: `환경 구축
 • MongoDB Atlas 데이터베이스 등록
-• Go 백엔드 서버 (GCP Cloud Run) 구축
+• Python 백엔드 서버 (AWS Lambda) 구축
 • React + TypeScript 프론트엔드 개발
 • GitHub Actions를 통한 조건부 자동 배포 구성
 
@@ -68,16 +65,14 @@ export const projectData = {
       {
         title: "Frontend",
         items: [
-          "Vite",
-          "React + TypeScript",
-          "Oracle Cloud"
+          "React + Vite + TypeScript",
+          "Aws S3 + CloudFront"
         ]
       },
       {
         title: "Backend",
         items: [
-          "Go",
-          "GCP Cloud Run",
+          "Aws Lambda",
           "MongoDB Atlas"
         ]
       },
@@ -91,12 +86,13 @@ export const projectData = {
     ],
     improvements: `서비스 확장 계획:
 - MongoDB Atlas에 시험 문제 추가`,
-  
-    reflection: `1. Go 언어를 처음 도입하는 과정에서 새로운 언어의 동시성 처리와 문법 패턴을 익히는 데 어려움이 있었습니다.
-2. AWS(CloudFront, S3)와 GCP(Cloud Run), MongoDB Atlas를 연동하는 멀티 클라우드 아키텍처 구축 과정에서 각 서비스 간 통신 설정과 보안 구성에 어려움이 있었습니다.
-3. EC2 인스턴스의 Docker 기반 서비스를 서버리스로 마이그레이션하여 인프라 운영 비용을 95% 이상 절감했습니다.
-4. Aws 계정 만료로 인해 오라클 클라우드 무료 계정으로 이전하여 사용하고 있습니다.`,
-  
+
+    reflection: `1. 초기에는 GCP Cloud Run + Go 언어로 개발을 진행했습니다.
+    2. AWS Lambda로 이전하는 과정에서 Go 언어 지원 제한으로 인해 Python으로 마이그레이션했습니다.
+    3. AWS(CloudFront, S3)와 AWS Lambda, MongoDB Atlas를 연동하는 멀티 클라우드 아키텍처 구축 과정에서 각 서비스 간 권한 설정과 보안 구성에 어려움이 있었습니다.
+    4. 인스턴스의 Docker 기반 서비스를 서버리스로 마이그레이션하여 인프라 운영 비용을 95% 이상 절감했습니다.
+    5. AWS 무료 티어를 활용하여 CloudFront + S3, Lambda 기반의 완전 서버리스 아키텍처로 구축하여 운영 비용을 최소화했습니다.`,
+
     architectureImg: ArchitectureDiagram,
 
     media: allMedia,
