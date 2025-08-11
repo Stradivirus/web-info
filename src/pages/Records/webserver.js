@@ -64,7 +64,7 @@ const WebserverMigrationContent = ({ onImageClick, registerImages }) => {
             <b>Nginx</b>: 고성능 오픈소스 웹 서버이자 리버스 프록시 서버. 정적 파일 서빙, 로드밸런싱, 다양한 플러그인 지원 등으로 널리 사용됨.
           </li>
           <li>
-            <b>Caddy</b>: 자동 HTTPS(무료 SSL), 간결한 설정, 모던 기능(리버스 프록시, 정적 파일, 인증 등)을 기본 제공하는 신생 웹서버. 설정이 매우 직관적이고 자동화에 강점.
+            <b>Caddy</b>: 자동 HTTPS(무료 SSL), 간결한 설정, 모던 기능(리버스 프록시, 정적 파일, 인증 등)을 기본 제공하는 신생 웹서버. 설정이 간편하고 자동화에 강점.
           </li>
         </ul>
         <div className="bg-white border border-blue-100 rounded p-4 mb-4">
