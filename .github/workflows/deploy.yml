@@ -125,4 +125,4 @@ jobs:
           ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo mv /home/${{ secrets.SSH_USER }}/tmp/* /var/www/html/"
           ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo systemctl restart caddy"
         env:
-          DEPLOY_PATH: "/var/www/html"  # Caddy 경로
+          DEPLOY_PATH: "/home/web/portfolio"
