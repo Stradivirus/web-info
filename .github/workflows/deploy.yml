@@ -114,15 +114,15 @@ jobs:
       - name: Clean deploy folder on server
         if: env.SHOULD_DEPLOY == 'true'
         run: |
-          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo rm -rf /home/web/portfolio/*"
+          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo rm -rf /var/web/portfolio/*"
         env:
-          DEPLOY_PATH: "/home/web/portfolio"
+          DEPLOY_PATH: "/var/web/portfolio"
 
       - name: Deploy Files via SCP
         if: env.SHOULD_DEPLOY == 'true'
         run: |
           scp -i ~/.ssh/oracle_rsa -o UserKnownHostsFile=/dev/null -r build/* ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }}:/home/${{ secrets.SSH_USER }}/tmp/
-          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo mv /home/${{ secrets.SSH_USER }}/tmp/* /home/web/portfolio/"
+          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo mv /home/${{ secrets.SSH_USER }}/tmp/* /var/web/portfolio/"
           ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo systemctl restart caddy"
         env:
-          DEPLOY_PATH: "/home/web/portfolio"
+          DEPLOY_PATH: "/var/web/portfolio"
