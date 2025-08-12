@@ -13,7 +13,7 @@ export const StudyContent = ({ onImageClick, registerImages }) => {
      <section>
        <h3 className="text-lg font-medium mb-3">리팩토링 배경</h3>
        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-         <li>포트폴리오에 포함된 5개의 프로젝트 코드에서 중복되는 부분이 많이 발견됨</li>
+         <li>포트폴리오에 기록된 5개의 프로젝트 코드에서 중복되는 부분이 많이 발견됨</li>
          <li>각 프로젝트마다 비슷한 UI 컴포넌트와 스타일이 반복되어 있었음</li>
          <li>프로젝트 데이터(제목, 설명, 기간 등)가 컴포넌트 내부에 하드코딩되어 있었음</li>
          <li>코드 유지보수와 추후 프로젝트 추가를 위해 구조 개선이 필요했음</li>
