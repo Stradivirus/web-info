@@ -55,7 +55,7 @@ export const projectData = {
   period: '2025.06 - 2025.07',
   description: '팀 프로젝트이며 요구사항 수집부터 배포까지 전 과정을 협업으로 진행.',
   techStack: [
-    'React', 'Vite', 'TypeScript', 'Fastapi', 'MongoDB Atlas', 'Docker'
+    'React', 'Vite', 'TypeScript', 'Fastapi', 'MongoDB Atlas', 'Docker Compose'
   ],
   techDetails: [
     {
@@ -68,7 +68,7 @@ export const projectData = {
     },
     {
       title: 'Infra',
-      items: ['MongoDB Atlas', 'Docker', 'Jenkins']
+      items: ['MongoDB Atlas', 'Docker Compose', 'Jenkins']
     }
   ],
   objectives: [

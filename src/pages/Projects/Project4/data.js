@@ -45,7 +45,7 @@ export const projectData = {
     "Django",
     "Postgresql",
     "Docker-Compose",
-    "GCP",
+    "Oracle Cloud",
     "Jenkins",
     "Nginx",
   ],
@@ -109,7 +109,7 @@ export const projectData = {
         "PostgreSQL",
         "Docker & Docker-compose",
         "Jenkins",
-        "GCP",
+        "Oracle Cloud",
       ]
     }
   ],

@@ -51,7 +51,7 @@ export const projectData = {
     "Postgresql",
     "Redis",
     "Docker-compose",
-    "GCP",
+    "Oracle Cloud",
     "Jenkins"
   ],
 
@@ -78,7 +78,7 @@ export const projectData = {
 • 사용자 관리 및 스팸 차단 기능 구현
 
 3. 배포 및 운영
-• GCP 환경 배포 및 서비스 실행
+• Oracle Cloud 환경 배포 및 서비스 실행
 • Jenkins를 통한 CI/CD 파이프라인 구축
 • 오라클 무료 인스턴스를 사용해 DB를 분리하여 안정성 및 성능 향상`,
 
@@ -103,7 +103,7 @@ export const projectData = {
       items: [
         "Nginx",
         "Docker & Docker-compose",
-        "GCP",
+        "Oracle Cloud",
         "Jenkins"
       ]
     }
