@@ -51,7 +51,7 @@ const allMedia = [
 ];
 
 export const projectData = {
-  title: '로우코드 기반 통합 관리 시스템',
+  title: 'Fastapi 기반 통합 관리 시스템',
   period: '2025.06 - 2025.07',
   description: '팀 프로젝트이며 요구사항 수집부터 배포까지 전 과정을 협업으로 진행.',
   techStack: [
