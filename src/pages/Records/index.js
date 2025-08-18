@@ -11,6 +11,7 @@ import { StudyContent as DockerComposeContent } from './DockerCompose';
 import { StudyContent as CrawlingContent } from './Crawling';
 import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfig';
 import WebserverMigrationContent from './webserver';
+import { StudyContent as PostgreSQLReplicationContent } from './PostgreSQLReplication';
 
 // 이미지 모달 컴포넌트
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
@@ -154,6 +155,17 @@ const Records = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
+            {/* PostgreSQL 복제 추가 */}
+            <StudyAccordion
+              title="PostgreSQL 17 스트리밍 복제 구축"
+              date="2025.08.18"
+              category="Database"
+              isOpen={openRecords.postgresqlReplication}
+              onToggle={() => toggleRecord('postgresqlReplication')}
+            >
+              <PostgreSQLReplicationContent />
+            </StudyAccordion>
+            
             {/* 웹서버 마이그레이션 기록 아코디언 */}
             <StudyAccordion
               title="Nginx → Caddy 웹서버 마이그레이션 기록"
