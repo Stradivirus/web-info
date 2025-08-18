@@ -82,7 +82,7 @@ const Navigation = () => {
       <div className="nav-divider" style={{ background: '#e0f7fa', color: '#1976d2', fontWeight: 'bold' }}>팀 프로젝트</div>
       <NavLink to="/Project/TP1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>Fastapi 기반 통합 관리 시스템</span>
+        <span>FastApi 기반 통합 관리 시스템</span>
       </NavLink>
 
       <div className="nav-divider">개인 프로젝트</div>
