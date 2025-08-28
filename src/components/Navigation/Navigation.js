@@ -104,7 +104,7 @@ const Navigation = () => {
       </NavLink>
       <NavLink to="/Project/8" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>Oracle Cloud 인프라 운용 관리 시스템</span>
+        <span>Oracle Cloud 인프라 관리 시스템</span>
       </NavLink>
 
 
