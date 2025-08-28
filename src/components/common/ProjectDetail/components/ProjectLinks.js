@@ -7,15 +7,20 @@ const ProjectLinks = ({ links }) => {
   return (
     <div className="links">
       {links.github && (
-        <a 
-          href={links.github}
-          className="link"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button 
+          className={`link ${typeof links.github === 'object' && !links.github.isEnabled ? 'disabled-link' : ''}`}
+          disabled={typeof links.github === 'object' && !links.github.isEnabled}
+          onClick={() => {
+            const url = typeof links.github === 'string' ? links.github : links.github.url;
+            if (typeof links.github === 'string' || links.github.isEnabled) {
+              window.open(url, '_blank', 'noopener noreferrer');
+            }
+          }}
+          title={typeof links.github === 'object' && !links.github.isEnabled ? "비공개 저장소" : ""}
         >
           <Github size={16} />
           GitHub 저장소
-        </a>
+        </button>
       )}
       {links.demo && (
         <button 

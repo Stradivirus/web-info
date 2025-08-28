@@ -121,7 +121,10 @@ export const projectData = {
     media: screenshots,
       
     links: {
-        github: "https://github.com/Stradivirus/oracle-cloud-infrastructure",
+        github: {
+            url: "https://github.com/Stradivirus/oracle-cloud-infrastructure",
+            isEnabled: false
+        },
         demo: {
             url:"http://stradivirus.kro.kr",
             isEnabled: false
