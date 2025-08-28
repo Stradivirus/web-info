@@ -102,6 +102,10 @@ const Navigation = () => {
         <FolderOpen className="nav-icon" size={18} />
         <span>기존의 CBT를 재구성 해 <br></br>서버리스로 구현</span>
       </NavLink>
+      <NavLink to="/Project/8" className={getLinkClassName}>
+        <FolderOpen className="nav-icon" size={18} />
+        <span>Oracle Cloud 인프라 운용 관리 시스템</span>
+      </NavLink>
 
 
       <div
