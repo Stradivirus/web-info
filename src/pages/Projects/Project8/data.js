@@ -18,7 +18,7 @@ const screenshots = imageContext.keys().sort().map((path, index) => {
 });
 
 export const projectData = {
-    title: "Oracle Cloud 인프라 운용 관리 시스템",
+    title: "Oracle Cloud 인프라 관리 시스템",
     period: "2025.05 - 꾸준히 관리 중", 
     description: "Oracle Cloud 무료 인스턴스 4개로 구축한 엔터프라이즈급 인프라의 실제 운용 관리 경험과 자동화 시스템 구축",
  
@@ -71,7 +71,6 @@ export const projectData = {
         "무료 클라우드 리소스를 활용한 효율적인 인프라 운용 방안 구축",
         "고가용성 데이터베이스 시스템의 실제 운용 및 관리 경험",
         "CI/CD 파이프라인을 통한 완전 자동화된 운용 환경 구축", 
-        "분산 시스템의 실제 운용에서의 확장성 및 안정성 확보",
         "Git 기반 설정 관리를 통한 효율적인 운용 자동화"
     ],
  
