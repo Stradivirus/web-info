@@ -7,6 +7,7 @@ import { projectData as project1Data } from '../Projects/Project1/data';
 import { projectData as project3Data } from '../Projects/Project3/data';
 import { projectData as project4Data } from '../Projects/Project4/data';
 import { projectData as project5Data } from '../Projects/Project5/data';
+import { projectData as project8Data } from '../Projects/Project8/data';
 import { projectData as TP1Data } from '../TeamProject/TP1/data';
 
 // import { projectData as project2Data } from '../Projects/Project2/data';
@@ -18,6 +19,7 @@ import diagram1 from '../../assets/images/overview/diagrams/Diagram1.png';
 import diagram3 from '../../assets/images/overview/diagrams/Diagram3.png';
 import diagram4 from '../../assets/images/overview/diagrams/Diagram4.png';
 import diagram5 from '../../assets/images/overview/diagrams/Diagram5.png';
+import diagram8 from '../../assets/images/overview/diagrams/Diagram8.png';
 import diagramTP1 from '../../assets/images/overview/diagrams/TeamProject1.png';
 
 // import diagram2 from '../../assets/images/overview/diagrams/Diagram2.png';
@@ -60,6 +62,13 @@ const projects = [
     description: project1Data.overview.description,
     image: diagram1,
     tags: project1Data.techStack
+  },
+  {
+    id: 8,
+    title: project8Data.title,
+    description: project8Data.overview.description,
+    image: diagram8,
+    tags: project8Data.techStack
   },
   // {
   //   id: 7,
