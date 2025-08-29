@@ -3,14 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, GitBranch, ChevronDown, ChevronUp } from 'lucide-react';
 import { StudyContent as CICDContent } from './CICD';
 import { StudyContent as RefactoringContent } from './Refactoring';
-import { StudyContent as AutoCleanupContent } from './AutoCleanup';
 import { StudyContent as TerraformContent } from './Terraform';
 import { StudyContent as LoadBalancingContent } from './LoadBalancing';
 import { StudyContent as MSAContent } from './BackendMSA';
 import { StudyContent as DockerComposeContent } from './DockerCompose';
-import { StudyContent as CrawlingContent } from './Crawling';
 import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfig';
-import WebserverMigrationContent from './webserver';
 import { StudyContent as PostgreSQLReplicationContent } from './PostgreSQLReplication';
 
 // 이미지 모달 컴포넌트
@@ -165,17 +162,6 @@ const Records = () => {
             >
               <PostgreSQLReplicationContent />
             </StudyAccordion>
-            
-            {/* 웹서버 마이그레이션 기록 아코디언 */}
-            <StudyAccordion
-              title="Nginx → Caddy 웹서버 마이그레이션 기록"
-              date="2025.07.30"
-              category="DevOps"
-              isOpen={openRecords.webserver}
-              onToggle={() => toggleRecord('webserver')}
-            >
-              <WebserverMigrationContent />
-            </StudyAccordion>
 
             <StudyAccordion
               title="오라클 클라우드 PostgreSQL 분리 및 운영 설정"
@@ -187,16 +173,6 @@ const Records = () => {
               <CloudPostgresConfigContent />
             </StudyAccordion>
 
-            <StudyAccordion
-              title="오라클 클라우드 기반 네이버 날씨/뉴스 크롤링 자동화"
-              date="2025.05.22"
-              category="Crawling"
-              isOpen={openRecords.crawling}
-              onToggle={() => toggleRecord('crawling')}
-            >
-              <CrawlingContent />
-            </StudyAccordion>
-            
             <StudyAccordion
               title="Docker Compose 분리를 통한 서비스 배포 최적화"
               date="2025.01.19"
@@ -225,16 +201,6 @@ const Records = () => {
               onToggle={() => toggleRecord('loadBalancing')}
             >
               <LoadBalancingContent />
-            </StudyAccordion>
-
-            <StudyAccordion
-              title="Jenkins를 활용한 System Auto-Cleanup 파이프라인 구축"
-              date="2025.01.10"
-              category="DevOps"
-              isOpen={openRecords.autoCleanup}
-              onToggle={() => toggleRecord('autoCleanup')}
-            >
-              <AutoCleanupContent />
             </StudyAccordion>
 
             <StudyAccordion
