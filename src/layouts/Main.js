@@ -6,8 +6,6 @@ import Project2 from '../pages/Projects/Project2';
 import Project3 from '../pages/Projects/Project3';
 import Project4 from '../pages/Projects/Project4';
 import Project5 from '../pages/Projects/Project5';
-import Project6 from '../pages/Projects/Project6';
-import Project7 from '../pages/Projects/Project7';
 import Project8 from '../pages/Projects/Project8';
 
 import Team1 from '../pages/TeamProject/TP1';
@@ -30,8 +28,6 @@ const Main = () => {
       '3': Project3,
       '4': Project4,
       '5': Project5,
-      '6': Project6,
-      '7': Project7,
       '8': Project8
     };
     const ProjectComponent = projectComponents[id] || Overview;

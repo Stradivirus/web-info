@@ -117,14 +117,6 @@ const Navigation = () => {
       </div>
 
       <div className={`archive-content ${isArchiveOpen ? 'open' : ''}`}>
-        <NavLink to="/Project/7" className={getLinkClassName}>
-          <FolderOpen className="nav-icon" size={18} />
-          <span>Prometheus와 Grafana를 이용한 모니터링 시스템</span>
-        </NavLink>
-        <NavLink to="/Project/6" className={getLinkClassName}>
-          <FolderOpen className="nav-icon" size={18} />
-          <span>Kafka와 PHP를 이용한<br></br>모니터링 시스템</span>
-        </NavLink>
         <NavLink to="/Project/2" className={getLinkClassName}>
           <FolderOpen className="nav-icon" size={18} />
           <span>Django와 PostGreSql를<br></br> 사용한 CBT 사이트</span>
