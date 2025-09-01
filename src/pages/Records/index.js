@@ -9,6 +9,7 @@ import { StudyContent as MSAContent } from './BackendMSA';
 import { StudyContent as DockerComposeContent } from './DockerCompose';
 import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfig';
 import { StudyContent as PostgreSQLReplicationContent } from './PostgreSQLReplication';
+import { StudyContent as WebserverContent } from './webserver';
 
 // 이미지 모달 컴포넌트
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
@@ -171,6 +172,16 @@ const Records = () => {
               onToggle={() => toggleRecord('cloudPostgresConfig')}
             >
               <CloudPostgresConfigContent />
+            </StudyAccordion>
+
+            <StudyAccordion
+              title="Nginx에서 Caddy로 웹서버 마이그레이션"
+              date="2025.06.16"
+              category="Frontend"
+              isOpen={openRecords.webserver}
+              onToggle={() => toggleRecord('webserver')}
+            >
+              <WebserverContent />
             </StudyAccordion>
 
             <StudyAccordion
