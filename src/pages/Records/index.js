@@ -10,6 +10,7 @@ import { StudyContent as DockerComposeContent } from './DockerCompose';
 import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfig';
 import { StudyContent as PostgreSQLReplicationContent } from './PostgreSQLReplication';
 import { StudyContent as WebserverContent } from './webserver';
+import { StudyContent as JenkinsContent } from './jenkins';
 
 // 이미지 모달 컴포넌트
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
@@ -136,8 +137,10 @@ const Records = () => {
     autoCleanup: false,
     terraform: false,
     crawling: false,
-    cloudPostgresConfig: false
+    cloudPostgresConfig: false,
+    jenkins: false
   });
+            
 
   const toggleRecord = (id) => {
     setOpenRecords(prev => ({
@@ -153,7 +156,17 @@ const Records = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
-            {/* PostgreSQL 복제 추가 */}
+
+            <StudyAccordion
+              title="Jenkins 기반 서버 운영 자동화 파이프라인 구축"
+              date="2025.09.01"
+              category="DevOps"
+              isOpen={openRecords.jenkins}
+              onToggle={() => toggleRecord('jenkins')}
+            >
+              <JenkinsContent />
+            </StudyAccordion>
+
             <StudyAccordion
               title="PostgreSQL 17 스트리밍 복제 구축"
               date="2025.08.18"
