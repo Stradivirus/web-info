@@ -189,7 +189,7 @@ const Records = () => {
 
             <StudyAccordion
               title="Nginx에서 Caddy로 웹서버 마이그레이션"
-              date="2025.06.16"
+              date="2025.06.30"
               category="Frontend"
               isOpen={openRecords.webserver}
               onToggle={() => toggleRecord('webserver')}
