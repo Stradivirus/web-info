@@ -15,14 +15,14 @@ const getPopupContent = (index) => {
           <div className="tech-item">AWS</div>
         </div>
       );
-    case 1: // 팀프로젝트
+    case 1: // 프로젝트
       return (
         <div className="tech-icons">
           <div className="tech-item">사전 예약 시스템</div>
           <div className="tech-item">채팅 시스템</div>
           <div className="tech-item">서버리스 CBT</div>
           <div className="tech-item">CBT 시스템</div>
-          <div className="tech-item">모니터링 시스템</div>
+          <div className="tech-item">인프라 관리 시스템</div>
         </div>
       );
     case 2: // 인턴
@@ -40,10 +40,12 @@ const getPopupContent = (index) => {
     case 3: // 자격증
       return (
         <div className="tech-icons">
-          <div className="tech-item">NCP</div>
+          <div className="tech-item">네트워크 관리사 2급</div>
           <div className="tech-item">AWS SAA</div>
           <div className="tech-item">리눅스마스터 2급</div>
           <div className="tech-item">정보처리기능사</div>
+          <div className="tech-item">SQLD</div>
+          <div className="tech-item">데이터 분석 준전문가</div>
         </div>
       );
     case 4: // 방통대 편입
