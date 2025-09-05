@@ -7,9 +7,17 @@ import NCP from '../../assets/images/certifications/NCP.png';
 import linux2 from '../../assets/images/certifications/linuxmaster2.png';
 import sqld from '../../assets/images/certifications/sqld.png';
 import network_2 from '../../assets/images/certifications/network_manager_2.png';
+import adsp from '../../assets/images/certifications/adsp.png';
 import './Certifications.css';
 
 const certifications = [
+  {
+    id: 9,
+    title: "데이터 분석 준전문가",
+    issuer: "한국데이터 산업진흥원",
+    date: "2025.09",
+    imagePath: adsp,
+  },
   {
     id: 8,
     title: "네트워크 관리사",
