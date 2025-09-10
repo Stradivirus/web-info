@@ -96,7 +96,7 @@ CREATE USER replicator WITH REPLICATION ENCRYPTED PASSWORD 'replpass_password';
                   <div>
                     <h5 className="font-semibold mb-1">2. postgresql.conf 설정</h5>
                     <pre className="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
-{`sudo nano /var/lib/pgsql/data/postgresql.conf
+{`sudo vi /var/lib/pgsql/data/postgresql.conf
 
 # 복제 설정
 wal_level = replica
@@ -108,7 +108,7 @@ listen_addresses = '*'`}
                   <div>
                     <h5 className="font-semibold mb-1">3. pg_hba.conf 설정</h5>
                     <pre className="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
-{`sudo nano /var/lib/pgsql/data/pg_hba.conf
+{`sudo vi /var/lib/pgsql/data/pg_hba.conf
 
 # Standby 서버 접근 허용
 host replication replicator 10.0.0.0/16 md5
