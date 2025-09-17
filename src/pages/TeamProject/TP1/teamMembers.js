@@ -1,6 +1,7 @@
 // TP1 팀원별 역할 및 담당 기능 데이터
 export const teamMembers = [
   {
+    id: 'moon',
     name: '문성종',
     role: '팀장 / 프로젝트 관리',
     parts: [
@@ -12,6 +13,7 @@ export const teamMembers = [
     ]
   },
   {
+    id: 'lee_ncsi',
     name: '이XX',
     role: 'NCSI 크롤링 및 지표 개발',
     parts: [
@@ -22,6 +24,7 @@ export const teamMembers = [
     ]
   },
   {
+    id: 'hong_security',
     name: '홍XX',
     role: '사업팀/보안팀 대시보드 개발',
     parts: [
@@ -32,6 +35,7 @@ export const teamMembers = [
     ]
   },
   {
+    id: 'lee_dev',
     name: '이XX',
     role: '개발팀 대시보드 개발',
     parts: [
@@ -42,6 +46,7 @@ export const teamMembers = [
     ]
   },
   {
+    id: 'hong_ui',
     name: '홍XX',
     role: 'UI/UX 및 데이터 관리',
     parts: [
@@ -53,6 +58,7 @@ export const teamMembers = [
     ]
   },
   {
+    id: 'lee_ui',
     name: '이XX',
     role: 'UI/UX 및 데이터 관리',
     parts: [
@@ -64,6 +70,7 @@ export const teamMembers = [
     ]
   },
   {
+    id: 'kim',
     name: '김XX',
     role: '회사 데이터 관리',
     parts: [
@@ -78,7 +85,7 @@ export const teamMembers = [
 export const groupCollaborations = [
   {
     groupName: '소스코드 관리',
-    members: ['문성종 (팀장)'],
+    memberIds: ['moon'],
     collaborations: [
       '전체 프로젝트 코드 구조 설계 및 관리',
       '팀원별 개발 코드 통합 및 충돌 해결',
@@ -95,7 +102,7 @@ export const groupCollaborations = [
   },
   {
     groupName: '대시보드 개발 그룹',
-    members: ['이XX (NCSI)', '홍XX (사업/보안팀)', '이XX (개발팀)'],
+    memberIds: ['lee_ncsi', 'hong_security', 'lee_dev'],
     collaborations: [
       'Atlas DB 연계 작업 공동 진행 및 데이터 표준화',
       '각 팀별 대시보드 간 일관된 UI/UX 설계 협의',
@@ -111,7 +118,7 @@ export const groupCollaborations = [
   },
   {
     groupName: '데이터 관리 그룹',
-    members: ['홍XX (UI/UX)', '이XX (UI/UX)', '김XX (회사 데이터)'],
+    memberIds: ['hong_ui', 'lee_ui', 'kim'],
     collaborations: [
       '데이터베이스 스키마 공동 설계 및 정규화',
       'CRUD 기능의 일관된 인터페이스 설계',
