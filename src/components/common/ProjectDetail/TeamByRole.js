@@ -1,13 +1,11 @@
 export const TeamByRole = ({ members = [], collaborations = [] }) => {
-  // 그룹명 기준으로 팀원 매핑
+  // 그룹명 기준으로 팀원 매핑 (ID 기반)
   const groupMap = {};
   collaborations.forEach(collab => {
     groupMap[collab.groupName] = {
-      members: collab.members.map(nameWithRole => {
-        // 이름(역할)에서 이름만 추출
-        const name = nameWithRole.split(' ')[0];
-        // members에서 해당 이름의 멤버 객체 찾기
-        return members.find(m => m.name === name);
+      members: collab.memberIds.map(id => {
+        // memberIds에서 해당 ID의 멤버 객체 찾기
+        return members.find(m => m.id === id);
       }).filter(Boolean),
       collab
     };
@@ -36,7 +34,7 @@ export const TeamByRole = ({ members = [], collaborations = [] }) => {
             {/* 팀원 목록 */}
             <div style={{ marginBottom: '16px' }}>
               {groupMembers.map((member, idx) => (
-                <div key={idx} style={{ marginBottom: '8px' }}>
+                <div key={member.id || idx} style={{ marginBottom: '8px' }}>
                   <div style={{ fontWeight: 'bold', color: '#374151' }}>
                     {member.name}
                   </div>
