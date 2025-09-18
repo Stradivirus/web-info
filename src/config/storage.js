@@ -10,3 +10,13 @@ export const getImageUrl = (path) => {
 export const getRecordsImage = (filename) => {
   return getImageUrl(`records/${filename}`);
 };
+
+// Diagram 폴더 이미지 전용 함수
+export const getDiagramImage = (filename) => {
+  return getImageUrl(`diagram/${filename}`);
+};
+
+// Certifications 폴더 이미지 전용 함수
+export const getCertificationImage = (filename) => {
+  return getImageUrl(`certifications/${filename}`);
+};

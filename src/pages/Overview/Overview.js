@@ -10,21 +10,15 @@ import { projectData as project5Data } from '../Projects/Project5/data';
 import { projectData as project8Data } from '../Projects/Project8/data';
 import { projectData as TP1Data } from '../TeamProject/TP1/data';
 
-// import { projectData as project2Data } from '../Projects/Project2/data';
-// import { projectData as project6Data } from '../Projects/Project6/data';
-// import { projectData as project7Data } from '../Projects/Project7/data';
+// 다이어그램 이미지 import - Oracle Storage 사용
+import { getDiagramImage } from '../../config/storage';
 
-// 다이어그램 이미지 import - 경로는 그대로 유지
-import diagram1 from '../../assets/images/overview/diagrams/Diagram1.png';
-import diagram3 from '../../assets/images/overview/diagrams/Diagram3.png';
-import diagram4 from '../../assets/images/overview/diagrams/Diagram4.png';
-import diagram5 from '../../assets/images/overview/diagrams/Diagram5.png';
-import diagram8 from '../../assets/images/overview/diagrams/Diagram8.png';
-import diagramTP1 from '../../assets/images/overview/diagrams/TeamProject1.png';
-
-// import diagram2 from '../../assets/images/overview/diagrams/Diagram2.png';
-// import diagram6 from '../../assets/images/overview/diagrams/Diagram6.png';
-// import diagram7 from '../../assets/images/overview/diagrams/Diagram7.png';
+const diagram1 = getDiagramImage('Diagram1.png');
+const diagram3 = getDiagramImage('Diagram3.png');
+const diagram4 = getDiagramImage('Diagram4.png');
+const diagram5 = getDiagramImage('Diagram5.png');
+const diagram8 = getDiagramImage('Diagram8.png');
+const diagramTP1 = getDiagramImage('TeamProject1.png');
 
 const projects = [
   {
@@ -70,27 +64,6 @@ const projects = [
     image: diagram8,
     tags: project8Data.techStack
   },
-  // {
-  //   id: 7,
-  //   title: project7Data.title,
-  //   description: project7Data.overview.description,
-  //   image: diagram7,
-  //   tags: project7Data.techStack
-  // },
-  // {
-  //   id: 6,
-  //   title: project6Data.title,
-  //   description: project6Data.overview.description,
-  //   image: diagram6,
-  //   tags: project6Data.techStack
-  // },
-  // {
-  //   id: 2,
-  //   title: project2Data.title,
-  //   description: project2Data.overview.description,
-  //   image: diagram2,
-  //   tags: project2Data.techStack
-  // },
 ];
 
 const Overview = () => {
