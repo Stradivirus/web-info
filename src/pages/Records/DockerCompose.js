@@ -5,7 +5,7 @@ import { getRecordsImage } from '../../config/storage';
 
 const composeTime = getRecordsImage('Time.png');
 
-export const StudyContent = ({ onImageClick, registerImages }) => {
+export const StudyContent = ({ registerImages }) => {
   const [isBackendCodeVisible, setIsBackendCodeVisible] = useState(false);
   const [isJenkinsCodeVisible, setIsJenkinsCodeVisible] = useState(false);
 

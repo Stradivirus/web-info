@@ -5,7 +5,7 @@ import { getRecordsImage } from '../../config/storage';
 const refactoringCommit = getRecordsImage('refactoring.png');
 const refactoringCommit2 = getRecordsImage('refactoring2.png');
 
-export const StudyContent = ({ onImageClick, registerImages }) => {
+export const StudyContent = ({ registerImages }) => {
  useEffect(() => {
    registerImages([refactoringCommit, refactoringCommit2]);
  }, [registerImages]);

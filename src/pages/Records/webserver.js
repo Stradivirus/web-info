@@ -48,7 +48,7 @@ const caddyConfig = `:80, :443, 문쫑.홈페이지.한국, xn--z92b88z.xn--hu5b
 }
 `;
 
-const WebserverMigrationContent = ({ onImageClick, registerImages }) => {
+const WebserverMigrationContent = ({ registerImages }) => {
   const [isNginxOpen, setIsNginxOpen] = useState(false);
   const [isCaddyOpen, setIsCaddyOpen] = useState(false);
 

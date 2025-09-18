@@ -6,7 +6,7 @@ import { getRecordsImage } from '../../config/storage';
 const loadBalancer1 = getRecordsImage('Loadbalancer1.png');
 const loadBalancer2 = getRecordsImage('Loadbalancer2.png');
 
-export const StudyContent = ({ onImageClick, registerImages }) => {
+export const StudyContent = ({ registerImages }) => {
  const [isConfigVisible, setIsConfigVisible] = useState(false);
 
  useEffect(() => {
