@@ -52,10 +52,7 @@ export const StudyContent = ({ onImageClick, registerImages }) => {
         <div className="flex gap-8">
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">pg_hba.conf 설정</p>
-            <div
-              className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-              onClick={() => onImageClick(0)}
-            >
+            <div className="rounded-lg overflow-hidden border border-gray-200">
               <img
                 src={pgHbaImg}
                 alt="pg_hba.conf 설정"
@@ -65,10 +62,7 @@ export const StudyContent = ({ onImageClick, registerImages }) => {
           </div>
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">postgresql.conf 설정</p>
-            <div
-              className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-              onClick={() => onImageClick(1)}
-            >
+            <div className="rounded-lg overflow-hidden border border-gray-200">
               <img
                 src={pgConfImg}
                 alt="postgresql.conf 설정"

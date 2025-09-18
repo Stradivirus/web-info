@@ -1,5 +1,6 @@
-import { getDiagramImage } from '../../../config/storage';
-import demoVideo from '../../../assets/videos/project/Project3/chat-record.mp4';
+import { getDiagramImage, getVideoUrl } from '../../../config/storage';
+
+const demoVideo = getVideoUrl('chat-record.mp4');
 const overviewDiagram = getDiagramImage('Diagram3.png');
 
 // 스크린샷 이미지 로드

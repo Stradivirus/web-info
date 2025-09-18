@@ -25,3 +25,8 @@ export const getCertificationImage = (filename) => {
 export const getPixelImage = (filename) => {
   return getImageUrl(`pixel/${filename}`);
 };
+
+// Video 폴더 비디오 전용 함수
+export const getVideoUrl = (filename) => {
+  return getImageUrl(`video/${filename}`);
+};

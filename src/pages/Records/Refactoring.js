@@ -54,10 +54,7 @@ export const StudyContent = ({ onImageClick, registerImages }) => {
            <p className="mb-2 text-base text-gray-800">
              Portfolio 리팩토링<br></br>총 18개 파일이 변경되었으며, 컴포넌트와 데이터의 분리를 통해 889줄이 추가되고 2077줄이 제거되었습니다.
            </p>
-           <div 
-             className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-             onClick={() => onImageClick(0)}
-           >
+           <div className="rounded-lg overflow-hidden border border-gray-200">
              <img 
                src={refactoringCommit} 
                alt="포트폴리오 리팩토링 커밋 내역" 
@@ -69,10 +66,7 @@ export const StudyContent = ({ onImageClick, registerImages }) => {
            <p className="mb-2 text-base text-gray-800">
              Exam_serverless 리팩토링<br></br> 총 15개 파일이 변경되었으며, 공통 컴포넌트 분리를 통해 796줄이 추가되고 1171줄이 제거되었습니다.
            </p>
-           <div 
-             className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-             onClick={() => onImageClick(1)}
-           >
+           <div className="rounded-lg overflow-hidden border border-gray-200">
              <img 
                src={refactoringCommit2} 
                alt="exam_serverless 리팩토링 커밋 내역" 

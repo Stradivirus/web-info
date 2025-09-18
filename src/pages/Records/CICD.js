@@ -1,5 +1,7 @@
 import React from 'react';
-import cicdVideo from '../../assets/videos/study/cicd.mp4';
+import { getVideoUrl } from '../../config/storage';
+
+const cicdVideo = getVideoUrl('cicd.mp4');
 
 export const StudyContent = () => {
   return (

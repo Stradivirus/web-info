@@ -340,8 +340,7 @@ def verifyServices(serverName, ipAddress) {
           <img 
             src={nodesDashboard} 
             alt="Jenkins 노드 모니터링 대시보드" 
-            className="w-full cursor-pointer hover:opacity-90 transition-opacity"
-            onClick={() => onImageClick && onImageClick(nodesDashboard)}
+            className="w-full"
           />
         </div>
       </section>

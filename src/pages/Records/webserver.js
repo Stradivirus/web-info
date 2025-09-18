@@ -147,19 +147,13 @@ const WebserverMigrationContent = ({ onImageClick, registerImages }) => {
         <div className="flex gap-8 mb-8">
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">nginx 성능</p>
-            <div
-              className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-              onClick={() => onImageClick && onImageClick(0)}
-            >
+            <div className="rounded-lg overflow-hidden border border-gray-200">
               <img src={nginxImg} alt="nginx 설정 구조" className="w-full" />
             </div>
           </div>
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">caddy 성능</p>
-            <div
-              className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-              onClick={() => onImageClick && onImageClick(1)}
-            >
+            <div className="rounded-lg overflow-hidden border border-gray-200">
               <img src={caddyImg} alt="caddy 설정 구조" className="w-full" />
             </div>
           </div>
