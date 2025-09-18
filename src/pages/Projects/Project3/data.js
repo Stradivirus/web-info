@@ -1,6 +1,7 @@
+import { getDiagramImage } from '../../../config/storage';
 import ArchitectureDiagram from '../../../assets/images/architecture/Project3-Architecture.png';
 import demoVideo from '../../../assets/videos/project/Project3/chat-record.mp4';
-import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram3.png';
+const overviewDiagram = getDiagramImage('Diagram3.png');
 
 // 아키텍처 이미지 불러오기를 screenshots와 통합
 const architectureImg = require('../../../assets/images/architecture/Project3-Architecture.png');

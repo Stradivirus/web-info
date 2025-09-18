@@ -1,5 +1,6 @@
 // data.js
-import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram8.png';
+import { getDiagramImage } from '../../../config/storage';
+const overviewDiagram = getDiagramImage('Diagram8.png');
 
 const imageContext = require.context('../../../assets/images/project/Project8', false, /Screenshot\d+\.png$/);
 const screenshots = imageContext.keys().sort().map((path, index) => {

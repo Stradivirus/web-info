@@ -1,5 +1,6 @@
+import { getDiagramImage } from '../../../config/storage';
 import ArchitectureDiagram from '../../../assets/images/architecture/Project4-Architecture.png';
-import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram4.png';
+const overviewDiagram = getDiagramImage('Diagram4.png');
 
 // 아키텍처 이미지 불러오기를 screenshots와 통합
 const architectureImg = require('../../../assets/images/architecture/Project4-Architecture.png');

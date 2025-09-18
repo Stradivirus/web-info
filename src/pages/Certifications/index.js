@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import 정보처리기능사 from '../../assets/images/certifications/0-20241112160852435.png';
-import AWS from '../../assets/images/certifications/AWS Certified Cloud Practitioner certificate.png';
-import AWS_sa from '../../assets/images/certifications/AWS Certified Solutions Architect.png';
-import NCA from '../../assets/images/certifications/Naver Cloud Platform.png';
-import NCP from '../../assets/images/certifications/NCP.png';
-import linux2 from '../../assets/images/certifications/linuxmaster2.png';
-import sqld from '../../assets/images/certifications/sqld.png';
-import network_2 from '../../assets/images/certifications/network_manager_2.png';
-import adsp from '../../assets/images/certifications/adsp.png';
+import { getCertificationImage } from '../../config/storage';
 import './Certifications.css';
 
 const certifications = [
@@ -16,63 +8,63 @@ const certifications = [
     title: "데이터 분석 준전문가",
     issuer: "한국데이터 산업진흥원",
     date: "2025.09",
-    imagePath: adsp,
+    imagePath: getCertificationImage('adsp.png'),
   },
   {
     id: 8,
     title: "네트워크 관리사",
     issuer: "한국정보통신 진흥협회",
     date: "2025.07",
-    imagePath: network_2,
+    imagePath: getCertificationImage('network_manager_2.png'),
   },
   {
     id: 7,
     title: "SQLD",
     issuer: "한국데이터 산업진흥원",
     date: "2025.06",
-    imagePath: sqld,
+    imagePath: getCertificationImage('sqld.png'),
   },
   {
     id: 6,
     title: "리눅스마스터 2급",
     issuer: "한국정보통신 진흥협회",
     date: "2025.01",
-    imagePath: linux2,
+    imagePath: getCertificationImage('linuxmaster2.png'),
   },
   {
     id: 5,
     title: "AWS Certified Solutions Architect",
     issuer: "Amazon Web Services",
     date: "2024.12",
-    imagePath: AWS_sa,
+    imagePath: getCertificationImage('AWS Certified Solutions Architect.png'),
   },
   {
     id: 2,
     title: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services",
     date: "2024.11",
-    imagePath: AWS,
+    imagePath: getCertificationImage('AWS Certified Cloud Practitioner certificate.png'),
   },
   {
     id: 4,
     title: "NAVER Cloud Certified Professional",
     issuer: "NAVER Cloud",
     date: "2024.11",
-    imagePath: NCP,
+    imagePath: getCertificationImage('NCP.png'),
   },
   {
     id: 3,
     title: "NAVER Cloud Certified Associate",
     issuer: "NAVER Cloud",
     date: "2024.07",
-    imagePath: NCA,
+    imagePath: getCertificationImage('Naver Cloud Platform.png'),
   },
   {
     id: 1,
     title: "정보처리기능사",
     issuer: "한국산업인력공단",
     date: "2024.07",
-    imagePath: 정보처리기능사,
+    imagePath: getCertificationImage('0-20241112160852435.png'),
   }
   
 ];

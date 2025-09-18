@@ -1,6 +1,8 @@
+import { getDiagramImage } from '../../../config/storage';
 import ArchitectureDiagram from '../../../assets/images/architecture/Project1-Architecture.png';
-import overviewDiagram from '../../../assets/images/overview/diagrams/Diagram1.png';
 const architectureImg = require('../../../assets/images/architecture/Project1-Architecture.png');
+
+const overviewDiagram = getDiagramImage('Diagram1.png');
 
 const allMedia = [
   {
