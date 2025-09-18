@@ -294,7 +294,7 @@ const screenshots = [1, 2].map(num => ({
                 <h3 className="text-lg font-medium mb-3">Oracle Cloud 스크린샷</h3>
                 <div className="grid grid-cols-4 gap-6">
                     <div className="col-span-1">
-                        <p className="mb-3 text-base text-gray-800">Object Storage 폴더 구조</p>
+                        <p className="mb-3 text-base text-gray-800">폴더 구조로 파일 관리</p>
                         <div className="rounded-lg overflow-hidden border border-gray-200">
                             <img
                                 src={oracleObjectStorage}
@@ -302,13 +302,10 @@ const screenshots = [1, 2].map(num => ({
                                 className="w-full hover:opacity-90 transition-opacity"
                             />
                         </div>
-                        <p className="mt-2 text-sm text-gray-600">
-                            폴더 구조로 에셋 관리
-                        </p>
                     </div>
                     
                     <div className="col-span-3">
-                        <p className="mb-3 text-base text-gray-800">API 사용량 실시간 모니터링</p>
+                        <p className="mb-3 text-base text-gray-800">API 사용량 모니터링</p>
                         <div className="rounded-lg overflow-hidden border border-gray-200">
                             <img
                                 src={oracleApiMonitoring}
@@ -316,9 +313,6 @@ const screenshots = [1, 2].map(num => ({
                                 className="w-full hover:opacity-90 transition-opacity"
                             />
                         </div>
-                        <p className="mt-2 text-sm text-gray-600">
-                            * 개발/테스트 과정에서 105건의 API 요청 사용
-                        </p>
                     </div>
                 </div>
             </section>
