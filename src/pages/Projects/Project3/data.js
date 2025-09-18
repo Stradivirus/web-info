@@ -1,25 +1,20 @@
-import { getDiagramImage, getVideoUrl } from '../../../config/storage';
+import { getDiagramImage, getVideoUrl, getProject3Image } from '../../../config/storage';
 
 const demoVideo = getVideoUrl('chat-record.mp4');
 const overviewDiagram = getDiagramImage('Diagram3.png');
 
-// 스크린샷 이미지 로드
-const imageContext = require.context('../../../assets/images/project/Project3', false, /screenshot\d+\.png$/);
-const screenshots = imageContext.keys()
-  .map((path) => {
-    const id = path.match(/screenshot(\d+)\.png$/)[1];
-    const captions = {
-      '1': "로그인 페이지",
-      '2': "채팅 작동 화면"
-    };
-    return {
-      id,
-      type: 'image',
-      caption: captions[id] || `스크린샷 ${id}`,
-      url: imageContext(path)
-    };
-  })
-  .sort((a, b) => Number(a.id) - Number(b.id));
+// 스크린샷 이미지를 Oracle Storage에서 가져오기
+const captions = {
+  '1': "로그인 페이지",
+  '2': "채팅 작동 화면"
+};
+
+const screenshots = [1, 2].map(num => ({
+  id: String(num),
+  type: 'image',
+  caption: captions[String(num)] || `스크린샷 ${num}`,
+  url: getProject3Image(`screenshot${num}.png`)
+}));
 
 
 // 모든 미디어 (이미지 + 비디오)
