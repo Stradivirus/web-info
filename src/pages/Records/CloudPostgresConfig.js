@@ -4,7 +4,7 @@ import { getRecordsImage } from '../../config/storage';
 const pgHbaImg = getRecordsImage('pg_hba_conf.png');
 const pgConfImg = getRecordsImage('postgresql_conf.png');
 
-export const StudyContent = ({ onImageClick, registerImages }) => {
+export const StudyContent = ({ registerImages }) => {
   useEffect(() => {
     registerImages([pgHbaImg, pgConfImg]);
   }, [registerImages]);

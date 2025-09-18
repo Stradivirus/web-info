@@ -1,4 +1,3 @@
-import React from 'react';
 import { getVideoUrl } from '../../config/storage';
 
 const cicdVideo = getVideoUrl('cicd.mp4');

@@ -4,7 +4,7 @@ import { getRecordsImage } from '../../config/storage';
 
 const nodesDashboard = getRecordsImage('jenkins_nodes.png');
 
-export const StudyContent = ({ onImageClick, registerImages }) => {
+export const StudyContent = ({ registerImages }) => {
   const [isPipelineVisible, setIsPipelineVisible] = useState(false);
 
   useEffect(() => {

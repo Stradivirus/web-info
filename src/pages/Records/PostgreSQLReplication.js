@@ -6,7 +6,7 @@ import { getRecordsImage } from '../../config/storage';
 const postgres_main = getRecordsImage('Postgres_main.png');
 const postgres_stanby = getRecordsImage('Postgres_stanby.png');
 
-export const StudyContent = ({ onImageClick, registerImages }) => {
+export const StudyContent = ({ registerImages }) => {
   const [isArchitectureVisible, setIsArchitectureVisible] = useState(false);
   const [isPrimarySetupVisible, setIsPrimarySetupVisible] = useState(false);
   const [isVerificationVisible, setIsVerificationVisible] = useState(false);
