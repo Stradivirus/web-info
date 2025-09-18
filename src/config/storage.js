@@ -1,5 +1,5 @@
 // Oracle Cloud Object Storage 설정
-const BUCKET_BASE_URL = 'https://objectstorage.ap-osaka-1.oraclecloud.com/n/axt322c13ce3/b/PortFolio/o/';
+const BUCKET_BASE_URL = 'https://axt322c13ce3.objectstorage.ap-osaka-1.oci.customer-oci.com/p/-hBVFia2EFUl12RcRNNIS20YdYD0OlX6WG5AZuxuatVZWfvaqTk03J3XDH6L0t5d/n/axt322c13ce3/b/PortFolio/o/';
 
 // 기본 이미지 URL 생성 함수
 export const getImageUrl = (path) => {
