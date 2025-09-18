@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Home, FolderOpen, Award, Mail, Phone, Github, History, BookmarkPlus, UserCircle } from 'lucide-react';
-import profilePhoto from '../../assets/images/profile/my-photo.jpg';
+import { getProfileImage } from '../../config/storage';
 import packageJson from '../../../package.json';
 import './Navigation.css';
+
+const profilePhoto = getProfileImage('my-photo.jpg');
 
 const Navigation = () => {
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);

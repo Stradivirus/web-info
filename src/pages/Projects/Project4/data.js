@@ -1,25 +1,21 @@
-import { getDiagramImage } from '../../../config/storage';
+import { getDiagramImage, getProject4Image } from '../../../config/storage';
 const overviewDiagram = getDiagramImage('Diagram4.png');
 
-// 스크린샷 이미지 로드
-const imageContext = require.context('../../../assets/images/project/Project4', false, /festival\d+\.png$/);
-const screenshots = imageContext.keys().sort().map((path, index) => {
-  const id = String(index + 1);
-  const captions = {
-    '1': "사전 예약 메인 페이지",
-    '2': "추첨권 발급 페이지",
-    '3': "추첨권 사용 페이지",
-    '4': "추첨권만 있는 경우 직접 입력 페이지",
-    '5': "어드민 페이지(Django)",
-  };
+// 스크린샷 이미지를 Oracle Storage에서 가져오기
+const captions = {
+  '1': "사전 예약 메인 페이지",
+  '2': "추첨권 발급 페이지",
+  '3': "추첨권 사용 페이지",
+  '4': "추첨권만 있는 경우 직접 입력 페이지",
+  '5': "어드민 페이지(Django)",
+};
 
-  return {
-    id,
-    type: 'image',
-    url: imageContext(path),
-    caption: captions[id] || `스크린샷 ${id}`
-  };
-});
+const screenshots = [1, 2, 3, 4, 5].map(num => ({
+  id: String(num),
+  type: 'image',
+  url: getProject4Image(`festival${num}.png`),
+  caption: captions[String(num)] || `스크린샷 ${num}`
+}));
 
 const allMedia = [
   ...screenshots

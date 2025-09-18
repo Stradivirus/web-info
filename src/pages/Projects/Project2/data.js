@@ -1,31 +1,25 @@
-import { getDiagramImage } from '../../../config/storage';
+import { getDiagramImage, getProject2Image } from '../../../config/storage';
 const overviewDiagram = getDiagramImage('Diagram2.png');
 
-// 스크린샷 이미지 불러오기
-const imageContext = require.context('../../../assets/images/project/Project2/', false, /screenshot\d+\.png$/);
-const screenshots = imageContext.keys()
-  .map((path) => {
-    const id = path.match(/screenshot(\d+)\.png$/)[1];
-    const url = imageContext(path);
-    const captions = {
-      '1': "메인 페이지",
-      '2': "NCA 시험 페이지",
-      '3': "NCA 결과 및 오답 확인 페이지", 
-      '4': "리눅스 마스터 1급 시험 페이지",
-      '5': "리눅스 마스터 1급 결과 페이지"
-    };
-    return {
-      id,
-      type: 'image',  // 추가
-      url,
-      caption: captions[id] || `스크린샷 ${id}`
-    };
-  })
-  .sort((a, b) => Number(a.id) - Number(b.id));
+// 스크린샷 이미지를 Oracle Storage에서 가져오기
+const captions = {
+  '1': "메인 페이지",
+  '2': "NCA 시험 페이지",
+  '3': "NCA 결과 및 오답 확인 페이지", 
+  '4': "리눅스 마스터 1급 시험 페이지",
+  '5': "리눅스 마스터 1급 결과 페이지"
+};
 
-  const allMedia = [
-    ...screenshots
-  ];
+const screenshots = [1, 2, 3, 4, 5].map(num => ({
+  id: String(num),
+  type: 'image',
+  url: getProject2Image(`screenshot${num}.png`),
+  caption: captions[String(num)] || `스크린샷 ${num}`
+}));
+
+const allMedia = [
+  ...screenshots
+];
   
 export const projectData = {
   title: "CBT 까짓것 내가 만든다",

@@ -1,22 +1,19 @@
 // data.js
-import { getDiagramImage } from '../../../config/storage';
+import { getDiagramImage, getProject8Image } from '../../../config/storage';
 const overviewDiagram = getDiagramImage('Diagram8.png');
 
-const imageContext = require.context('../../../assets/images/project/Project8', false, /Screenshot\d+\.png$/);
-const screenshots = imageContext.keys().sort().map((path, index) => {
-  const id = String(index + 1);
-  const captions = {
-    '1': "Oracle Cloud 인스턴스 구성도",
-    '2': "Jenkins 분산 빌드 노드 구성",
-  };
+// 스크린샷 이미지를 Oracle Storage에서 가져오기
+const captions = {
+  '1': "Oracle Cloud 인스턴스 구성도",
+  '2': "Jenkins 분산 빌드 노드 구성",
+};
 
-  return {
-    id,
-    type: 'image',
-    url: imageContext(path),
-    caption: captions[id] || `스크린샷 ${id}`
-  };
-});
+const screenshots = [1, 2].map(num => ({
+  id: String(num),
+  type: 'image',
+  url: getProject8Image(`Screenshot${num}.png`),
+  caption: captions[String(num)] || `스크린샷 ${num}`
+}));
 
 export const projectData = {
     title: "Oracle Cloud 인프라 관리 시스템",

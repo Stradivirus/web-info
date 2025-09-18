@@ -1,23 +1,19 @@
-import { getDiagramImage } from '../../../config/storage';
+import { getDiagramImage, getProject5Image } from '../../../config/storage';
 const overviewDiagram = getDiagramImage('Diagram5.png');
 
-// 스크린샷 이미지 로드
-const imageContext = require.context('../../../assets/images/project/Project5', false, /Screenshot\d+\.png$/);
-const screenshots = imageContext.keys().sort().map((path, index) => {
-  const id = String(index + 1);
-  const captions = {
-    '1': "시험 문제 출제 페이지",
-    '2': "Cloud Run에 등록된 Go 함수",
-    '3': "MongoDB Atlas에 등록된 데이터"
-  };
+// 스크린샷 이미지를 Oracle Storage에서 가져오기
+const captions = {
+  '1': "시험 문제 출제 페이지",
+  '2': "AWS에 등록된 파이썬 함수",
+  '3': "MongoDB Atlas에 등록된 데이터"
+};
 
-  return {
-    id,
-    type: 'image',
-    url: imageContext(path),
-    caption: captions[id] || `스크린샷 ${id}`
-  };
-});
+const screenshots = [1, 2, 3].map(num => ({
+  id: String(num),
+  type: 'image',
+  url: getProject5Image(`Screenshot${num}.png`),
+  caption: captions[String(num)] || `스크린샷 ${num}`
+}));
 
 const allMedia = [
   ...screenshots

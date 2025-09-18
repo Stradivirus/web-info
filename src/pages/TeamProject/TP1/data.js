@@ -1,15 +1,12 @@
 // TP1 팀 프로젝트 데이터 예시
-import { getDiagramImage, getVideoUrl } from '../../../config/storage';
+import { getDiagramImage, getVideoUrl, getTeamP1Image } from '../../../config/storage';
 
-
-import ArchitectureDiagram from '../../../assets/images/project/Teamp1/system_overview.png';
-const architectureImg = require('../../../assets/images/project/Teamp1/system_overview.png');
-
-// Oracle Storage에서 다이어그램 불러오기
+// Oracle Storage에서 데이터 불러오기
 const demoVideo = getVideoUrl('Teamproject1_record.mp4');
 const overviewDiagram = getDiagramImage('TeamProject1.png');
+const architectureImg = getTeamP1Image('system_overview.png');
 
-const screenshotContext = require.context('../../../assets/images/project/Teamp1', false, /Screenshot\d+\.png$/);
+// 스크린샷 이미지를 Oracle Storage에서 가져오기
 const screenshotCaptions = {
   '1': "김XX - 데이터 그룹화 기능",
   '2': "문성종 - 게시판",
@@ -22,20 +19,13 @@ const screenshotCaptions = {
   '9': "홍XX - 그래프(보안팀, 사업팀)",
   '10': "홍XX - 데이터",
 };
-// 숫자 기준으로 정렬
-const screenshotKeys = screenshotContext.keys().sort((a, b) => {
-  const getNum = s => parseInt(s.match(/Screenshot(\d+)\.png$/)[1], 10);
-  return getNum(a) - getNum(b);
-});
-const screenshots = screenshotKeys.map((path, index) => {
-  const id = String(index + 1);
-  return {
-    id,
-    type: 'image',
-    url: screenshotContext(path),
-    caption: screenshotCaptions[id] || '',
-  };
-});
+
+const screenshots = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => ({
+  id: String(num),
+  type: 'image',
+  url: getTeamP1Image(`Screenshot${num}.png`),
+  caption: screenshotCaptions[String(num)] || ''
+}));
 
 const allMedia = [
   {
@@ -100,7 +90,7 @@ export const projectData = {
   2. 클라우드 기반 MongoDB로 인해 유연한 데이터 관리 및 확장성 확보
   3. 실시간 협업 도구(깃허브, 슬랙) 활용의 중요성 인식`,
   
-  architectureImg: ArchitectureDiagram,
+  architectureImg,
   media: allMedia,
   links: {
     github: 'https://github.com/Stradivirus/blackpink',

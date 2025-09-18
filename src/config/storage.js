@@ -30,3 +30,34 @@ export const getPixelImage = (filename) => {
 export const getVideoUrl = (filename) => {
   return getImageUrl(`video/${filename}`);
 };
+
+// Profile 폴더 이미지 전용 함수
+export const getProfileImage = (filename) => {
+  return getImageUrl(`profile/${filename}`);
+};
+
+// Project 별 폴더 이미지 전용 함수들
+export const getProject2Image = (filename) => {
+  return getImageUrl(`project/2/${filename}`);
+};
+
+export const getProject3Image = (filename) => {
+  return getImageUrl(`project/3/${filename}`);
+};
+
+export const getProject4Image = (filename) => {
+  return getImageUrl(`project/4/${filename}`);
+};
+
+export const getProject5Image = (filename) => {
+  return getImageUrl(`project/5/${filename}`);
+};
+
+export const getProject8Image = (filename) => {
+  return getImageUrl(`project/8/${filename}`);
+};
+
+// TeamProject 별 폴더 이미지 전용 함수들
+export const getTeamP1Image = (filename) => {
+  return getImageUrl(`project/TeamP1/${filename}`);
+};
