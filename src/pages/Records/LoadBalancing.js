@@ -1,8 +1,10 @@
 // src/pages/Records/LoadBalancing.js
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import loadBalancer1 from '../../assets/images/records/Loadbalancer1.png';
-import loadBalancer2 from '../../assets/images/records/Loadbalancer2.png';
+import { getRecordsImage } from '../../config/storage';
+
+const loadBalancer1 = getRecordsImage('Loadbalancer1.png');
+const loadBalancer2 = getRecordsImage('Loadbalancer2.png');
 
 export const StudyContent = ({ onImageClick, registerImages }) => {
  const [isConfigVisible, setIsConfigVisible] = useState(false);

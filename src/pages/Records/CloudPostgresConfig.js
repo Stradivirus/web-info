@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import pgHbaImg from '../../assets/images/records/pg_hba_conf.png'; // 준비한 설정 스샷
-import pgConfImg from '../../assets/images/records/postgresql_conf.png'; // 준비한 설정 스샷
+import { getRecordsImage } from '../../config/storage';
+
+const pgHbaImg = getRecordsImage('pg_hba_conf.png');
+const pgConfImg = getRecordsImage('postgresql_conf.png');
 
 export const StudyContent = ({ onImageClick, registerImages }) => {
   useEffect(() => {

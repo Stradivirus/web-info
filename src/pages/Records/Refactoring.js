@@ -1,7 +1,9 @@
 // src/pages/Records/Refactoring.js
 import React, { useEffect } from 'react';
-import refactoringCommit from '../../assets/images/records/refactoring.png';
-import refactoringCommit2 from '../../assets/images/records/refactoring2.png';
+import { getRecordsImage } from '../../config/storage';
+
+const refactoringCommit = getRecordsImage('refactoring.png');
+const refactoringCommit2 = getRecordsImage('refactoring2.png');
 
 export const StudyContent = ({ onImageClick, registerImages }) => {
  useEffect(() => {
