@@ -1,8 +1,5 @@
 import { getDiagramImage } from '../../../config/storage';
-import ArchitectureDiagram from '../../../assets/images/architecture/Project2-Architecture.png';
 const overviewDiagram = getDiagramImage('Diagram2.png');
-// 아키텍처 이미지 불러오기를 screenshots와 통합
-const architectureImg = require('../../../assets/images/architecture/Project2-Architecture.png');
 
 // 스크린샷 이미지 불러오기
 const imageContext = require.context('../../../assets/images/project/Project2/', false, /screenshot\d+\.png$/);
@@ -27,12 +24,6 @@ const screenshots = imageContext.keys()
   .sort((a, b) => Number(a.id) - Number(b.id));
 
   const allMedia = [
-    {
-      id: 'architecture',
-      type: 'image',
-      url: architectureImg,
-      caption: '시스템 아키텍처'
-    },
     ...screenshots
   ];
   
@@ -93,8 +84,6 @@ export const projectData = {
   reflection: `1. 교육 과정 중 처음으로 만들어 본 프로젝트라서 알파버전은 리눅스 쉘에서 작동 되는 것을 만들었고 새롭게 웹에 띄워보는 것을 목표로 해서 만들었습니다.
   2. 기존 3-Tier 아키텍처를 Docker Compose로 전환하는 과정에서 Nginx, Django, PostgreSQL 컨테이너 간 네트워크 연동 문제를 해결하며 컨테이너 간 통신 구조에 대한 이해도를 높였습니다.
   3. 초기 구조에서는 데이터 추가가 복잡하고 시간이 많이 소요되었으나, 서버리스 전환으로 이러한 문제점들이 해결되어 프로젝트를 성공적으로 마무리할 수 있었습니다.`,
-
-  architectureImg: ArchitectureDiagram,
 
   media: allMedia,
 

@@ -1,10 +1,6 @@
 import { getDiagramImage } from '../../../config/storage';
-import ArchitectureDiagram from '../../../assets/images/architecture/Project3-Architecture.png';
 import demoVideo from '../../../assets/videos/project/Project3/chat-record.mp4';
 const overviewDiagram = getDiagramImage('Diagram3.png');
-
-// 아키텍처 이미지 불러오기를 screenshots와 통합
-const architectureImg = require('../../../assets/images/architecture/Project3-Architecture.png');
 
 // 스크린샷 이미지 로드
 const imageContext = require.context('../../../assets/images/project/Project3', false, /screenshot\d+\.png$/);
@@ -27,12 +23,6 @@ const screenshots = imageContext.keys()
 
 // 모든 미디어 (이미지 + 비디오)
 const allMedia = [
-  {
-    id: 'architecture',
-    type: 'image',
-    url: architectureImg,
-    caption: '시스템 아키텍처'
-  },
   ...screenshots,
   {
     id: 'video1',
@@ -125,8 +115,6 @@ Redis 클러스터 수동 설정의 자동화 구현
   3. 이로 인해 아키텍처를 변경하여 Kafka를 제거하고 Redis Cluster로 대체하게 되었습니다.
   4. 채팅 내역 저장 과정에서 FastAPI에서 Redis와 PostgreSQL에 동시에 채팅 내역이 저장되는 문제를 FastAPI → Redis → PostgreSQL 순서로 데이터 흐름을 개선하여 해결했습니다.
   5. 부하 테스트 시 로커스트를 이용해서 단순 접속은 950명까지 채팅은 110명까지 되는걸 확인했습니다.`,
-
-  architectureImg: ArchitectureDiagram,
   
   media: allMedia,  // 이미지와 비디오를 포함한 모든 미디어
 

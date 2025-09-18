@@ -1,9 +1,5 @@
 import { getDiagramImage } from '../../../config/storage';
-import ArchitectureDiagram from '../../../assets/images/architecture/Project4-Architecture.png';
 const overviewDiagram = getDiagramImage('Diagram4.png');
-
-// 아키텍처 이미지 불러오기를 screenshots와 통합
-const architectureImg = require('../../../assets/images/architecture/Project4-Architecture.png');
 
 // 스크린샷 이미지 로드
 const imageContext = require.context('../../../assets/images/project/Project4', false, /festival\d+\.png$/);
@@ -26,12 +22,6 @@ const screenshots = imageContext.keys().sort().map((path, index) => {
 });
 
 const allMedia = [
-  {
-    id: 'architecture',
-    type: 'image',
-    url: architectureImg,
-    caption: '시스템 아키텍처'
-  },
   ...screenshots
 ];
 
@@ -131,8 +121,6 @@ export const projectData = {
   reflection: `1. Django 어드민에서 대량 데이터 조회 시 발생하는 성능 저하 문제를 페이지네이션 구현과 DB 인덱스 최적화를 통해 개선했습니다.
   3. NestJS로 MSA 구조로 만들어봤으나, 복잡한 의존성 문제로 인해 유지보수가 어려워졌습니다.
   2. NestJS 이후 SpringBoot로 마이그레이션 해보면서 Spring에 대한 구조와 이해를 높일 수 있었습니다.`,
-
-  architectureImg: ArchitectureDiagram,
 
   media: allMedia,
 

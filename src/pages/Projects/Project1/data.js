@@ -1,16 +1,8 @@
 import { getDiagramImage } from '../../../config/storage';
-import ArchitectureDiagram from '../../../assets/images/architecture/Project1-Architecture.png';
-const architectureImg = require('../../../assets/images/architecture/Project1-Architecture.png');
 
 const overviewDiagram = getDiagramImage('Diagram1.png');
 
 const allMedia = [
-  {
-    id: 'architecture',
-    type: 'image',
-    url: architectureImg,
-    caption: '시스템 아키텍처'
-  },
 ];
 
 export const projectData = {
@@ -66,9 +58,6 @@ export const projectData = {
   reflection: `1. 프로젝트별 데이터 구조 통합 과정에서 발생한 오류를 해결하며 리팩토링에 대한 경험을 얻었습니다.
 2. GitHub Actions를 사용하여 조건부 배포와 버전 정보 업데이트를 구현함으로써 새로운 CI/CD 경험을 쌓았습니다.
 3. 현재 Aws 계정 만료로 인해 오라클 클라우드 무료 계정으로 이전하여 사용하고 있습니다.`,
-
-
-  architectureImg: ArchitectureDiagram,
 
   media: allMedia,
 

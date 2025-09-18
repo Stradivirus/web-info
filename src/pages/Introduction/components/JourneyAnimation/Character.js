@@ -1,6 +1,8 @@
 // Character.js
 import React from 'react';
-import characterImage from '../../../../assets/images/pixel/little_boy_pixel.png';
+import { getPixelImage } from '../../../../config/storage';
+
+const characterImage = getPixelImage('little_boy_pixel.png');
 
 const Character = ({ position, isWalking, className = '', zIndex = 1 }) => {
   return (
