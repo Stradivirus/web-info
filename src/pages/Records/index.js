@@ -162,7 +162,7 @@ const Records = () => {
             <StudyAccordion
               title="React 앱의 정적 에셋을 Oracle Cloud Storage로 마이그레이션"
               date="2025.09.18"
-              category="Frontend"
+              category="Cloud"
               isOpen={openRecords.assetMigration}
               onToggle={() => toggleRecord('assetMigration')}
             >
