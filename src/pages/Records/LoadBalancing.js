@@ -151,8 +151,7 @@ http {
        <div className="flex gap-4">
          <div className="w-[70%] space-y-2">
            <div 
-             className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-             onClick={() => onImageClick(0)}  // 첫 번째 이미지
+             className="rounded-lg overflow-hidden border border-gray-200"
            >
              <img 
                src={loadBalancer1} 
@@ -168,8 +167,7 @@ http {
 
          <div className="w-[30%] space-y-2">
            <div 
-             className="rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-             onClick={() => onImageClick(1)}  // 두 번째 이미지
+             className="rounded-lg overflow-hidden border border-gray-200"
            >
              <img 
                src={loadBalancer2} 

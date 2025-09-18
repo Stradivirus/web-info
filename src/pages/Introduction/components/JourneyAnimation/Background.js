@@ -1,6 +1,8 @@
 // Background.js
 import React from 'react';
-import backgroundImage from '../../../../assets/images/pixel/pixel_art_8-bit.png';
+import { getPixelImage } from '../../../../config/storage';
+
+const backgroundImage = getPixelImage('pixel_art_8-bit.png');
 
 const Background = () => {
   return (

@@ -1,11 +1,12 @@
 // TP1 팀 프로젝트 데이터 예시
-import { getDiagramImage } from '../../../config/storage';
-import demoVideo from '../../../assets/videos/project/TeamProject1/Teamproject1_record.mp4';
+import { getDiagramImage, getVideoUrl } from '../../../config/storage';
+
 
 import ArchitectureDiagram from '../../../assets/images/project/Teamp1/system_overview.png';
 const architectureImg = require('../../../assets/images/project/Teamp1/system_overview.png');
 
 // Oracle Storage에서 다이어그램 불러오기
+const demoVideo = getVideoUrl('Teamproject1_record.mp4');
 const overviewDiagram = getDiagramImage('TeamProject1.png');
 
 const screenshotContext = require.context('../../../assets/images/project/Teamp1', false, /Screenshot\d+\.png$/);

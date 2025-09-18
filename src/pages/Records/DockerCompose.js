@@ -200,8 +200,7 @@ networks:
         <h3 className="text-lg font-medium mb-3">배포 시간 개선 결과</h3>
         <div className="space-y-2">
           <div 
-            className="w-1/2 rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
-            onClick={() => onImageClick(0)}
+            className="w-1/2 rounded-lg overflow-hidden border border-gray-200"
           >
             <img 
               src={composeTime} 

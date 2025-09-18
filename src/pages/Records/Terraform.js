@@ -1,7 +1,9 @@
 // src/components/study/Terraform.js
 import React, { useState } from 'react';
-import terraformVideo from '../../assets/videos/study/terraform_test.mp4';
+import { getVideoUrl } from '../../config/storage';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+
+const terraformVideo = getVideoUrl('terraform_test.mp4');
 
 export const StudyContent = () => {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
