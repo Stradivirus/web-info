@@ -11,6 +11,7 @@ import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfi
 import { StudyContent as PostgreSQLReplicationContent } from './PostgreSQLReplication';
 import { StudyContent as WebserverContent } from './webserver';
 import { StudyContent as JenkinsContent } from './jenkins';
+import { StudyContent as AssetMigrationContent } from './AssetMigration';
 
 // 이미지 모달 컴포넌트
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
@@ -138,7 +139,8 @@ const Records = () => {
     terraform: false,
     crawling: false,
     cloudPostgresConfig: false,
-    jenkins: false
+    jenkins: false,
+    assetMigration: false
   });
             
 
@@ -156,6 +158,16 @@ const Records = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
+
+            <StudyAccordion
+              title="React 앱의 정적 에셋을 Oracle Cloud Storage로 마이그레이션"
+              date="2025.09.18"
+              category="Frontend"
+              isOpen={openRecords.assetMigration}
+              onToggle={() => toggleRecord('assetMigration')}
+            >
+              <AssetMigrationContent />
+            </StudyAccordion>
 
             <StudyAccordion
               title="Jenkins 기반 서버 운영 자동화 파이프라인 구축"
@@ -246,7 +258,6 @@ const Records = () => {
             >
               <TerraformContent />
             </StudyAccordion>
-
 
             <StudyAccordion
               date="2024.11.20"
