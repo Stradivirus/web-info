@@ -5,7 +5,7 @@ import { getRecordsImage } from '../../config/storage';
 const oracleApiMonitoring = getRecordsImage('OracleApiMonitoring.png');
 const oracleObjectStorage = getRecordsImage('OracleBucket.png');
 
-export const StudyContent = ({ onImageClick, registerImages }) => {
+export const StudyContent = ({ registerImages }) => {
   const [isStorageCodeVisible, setIsStorageCodeVisible] = useState(false);
   const [isCaddyCodeVisible, setIsCaddyCodeVisible] = useState(false);
   const [isBeforeAfterVisible, setIsBeforeAfterVisible] = useState(false);
@@ -299,11 +299,11 @@ const screenshots = [1, 2].map(num => ({
                             <img
                                 src={oracleObjectStorage}
                                 alt="Oracle Cloud Object Storage 폴더 구조"
-                                className="w-full cursor-pointer hover:opacity-90 transition-opacity"
+                                className="w-full hover:opacity-90 transition-opacity"
                             />
                         </div>
                         <p className="mt-2 text-sm text-gray-600">
-                            * 폴더 구조로 에셋 관리: certifications, diagram, pixel, profile, project, records, video
+                            폴더 구조로 에셋 관리
                         </p>
                     </div>
                     
@@ -313,11 +313,11 @@ const screenshots = [1, 2].map(num => ({
                             <img
                                 src={oracleApiMonitoring}
                                 alt="Oracle Cloud API 사용량 모니터링 그래프"
-                                className="w-full cursor-pointer hover:opacity-90 transition-opacity"
+                                className="w-full hover:opacity-90 transition-opacity"
                             />
                         </div>
                         <p className="mt-2 text-sm text-gray-600">
-                            * 개발/테스트 과정에서 250건의 API 요청 사용 (월 한도 50,000건의 0.5%)
+                            * 개발/테스트 과정에서 105건의 API 요청 사용
                         </p>
                     </div>
                 </div>
