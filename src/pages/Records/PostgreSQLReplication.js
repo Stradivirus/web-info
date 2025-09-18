@@ -1,8 +1,10 @@
 // src/components/study/PostgreSQLReplication.js
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Database, Server, CheckCircle } from 'lucide-react';
-import postgres_main from '../../assets/images/records/Postgres_main.png';
-import postgres_stanby from '../../assets/images/records/Postgres_stanby.png';
+import { getRecordsImage } from '../../config/storage';
+
+const postgres_main = getRecordsImage('Postgres_main.png');
+const postgres_stanby = getRecordsImage('Postgres_stanby.png');
 
 export const StudyContent = ({ onImageClick, registerImages }) => {
   const [isArchitectureVisible, setIsArchitectureVisible] = useState(false);

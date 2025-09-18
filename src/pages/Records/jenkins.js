@@ -1,6 +1,8 @@
 // src/pages/Records/jenkins.js
 import React, { useState, useEffect } from 'react';
-import nodesDashboard from '../../assets/images/records/jenkins_nodes.png';
+import { getRecordsImage } from '../../config/storage';
+
+const nodesDashboard = getRecordsImage('jenkins_nodes.png');
 
 export const StudyContent = ({ onImageClick, registerImages }) => {
   const [isPipelineVisible, setIsPipelineVisible] = useState(false);
