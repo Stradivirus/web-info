@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation/Navigation';
-import './Sidebar.css';
+import './Sidebar.scss';
 
 type SidebarProps = {
   isOpen: boolean;
