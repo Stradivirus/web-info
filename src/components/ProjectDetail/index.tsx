@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import ProjectHeader from './components/ProjectHeader';
-import ProjectLinks from './components/ProjectLinks';
-import OverviewDiagram from './components/OverviewDiagram';
-import ProjectContent from './components/ProjectContent';
-import MediaSection from './components/MediaSection';
-import MediaModal from './components/MediaModal';
+import ProjectHeader from './common/ProjectHeader';
+import ProjectLinks from './common/ProjectLinks';
+import OverviewDiagram from './common/OverviewDiagram';
+import ProjectContent from './common/ProjectContent';
+import MediaSection from './common/MediaSection';
+import MediaModal from './common/MediaModal';
 import './teamp/ProjectDetail.base.css';
 import './teamp/ProjectDetail.media.css';
 import './teamp/ProjectDetail.responsive.css';
