@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Home, FolderOpen, Award, Mail, Phone, Github, History, BookmarkPlus, UserCircle } from 'lucide-react';
 import { getProfileImage } from '../../config/storage';
 import packageJson from '../../../package.json';
-import './Navigation.css';
+import './Navigation.scss';
 
 const profilePhoto = getProfileImage('my-photo.jpg');
 
