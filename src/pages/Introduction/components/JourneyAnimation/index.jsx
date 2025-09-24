@@ -1,9 +1,9 @@
 // index.js
 import React, { useState, useEffect, useMemo } from 'react';
-import Background from './Background';
-import Character from './Character';
-import StageIcons from './StageIcons';
-import Popup from './Popup';
+import Background from './Background.jsx';
+import Character from './Character.jsx';
+import StageIcons from './StageIcons.jsx';
+import Popup from './Popup.jsx';
 import './styles.css';
 
 const JourneyAnimation = () => {

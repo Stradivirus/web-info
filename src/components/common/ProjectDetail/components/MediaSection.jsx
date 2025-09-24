@@ -1,5 +1,3 @@
-import React from 'react';
-
 const MediaSection = ({ media = [], onMediaClick }) => {
   if (media.length === 0) return null;
 

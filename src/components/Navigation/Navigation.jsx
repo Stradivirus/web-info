@@ -15,7 +15,7 @@ const Navigation = () => {
     return `nav-item ${isActive ? 'active' : ''}`;
   };
 
-  const buildTime = process.env.REACT_APP_BUILD_TIME || '업데이트 정보 없음';
+const buildTime = import.meta.env.VITE_BUILD_TIME || '업데이트 정보 없음';
 
   return (
     <nav className="nav-container">

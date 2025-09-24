@@ -1,4 +1,3 @@
-import React from 'react';
 import { Github, Globe } from 'lucide-react';
 
 const ProjectLinks = ({ links }) => {
