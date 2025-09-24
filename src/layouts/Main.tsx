@@ -9,7 +9,7 @@ import Project5 from '../pages/Projects/Project5';
 import Project8 from '../pages/Projects/Project8';
 
 import Team1 from '../pages/TeamProject/TP1';
-import './Main.css';
+import './Main.scss';
 
 const Main: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
