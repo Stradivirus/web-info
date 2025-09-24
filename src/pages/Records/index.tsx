@@ -219,7 +219,7 @@ const Records: React.FC = () => {
             </StudyAccordion>
 
             <StudyAccordion
-              title="오라클 클라우드 PostgreSQL 분리 및 운영 설정"
+              title="오라클 클라우드를 활용해 PostgreSQL 분리 및 운영 설정"
               date="2025.07.16"
               category="DevOps"
               isOpen={openRecords.cloudPostgresConfig}
