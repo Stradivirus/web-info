@@ -5,14 +5,14 @@ import OverviewDiagram from './components/OverviewDiagram';
 import ProjectContent from './components/ProjectContent';
 import MediaSection from './components/MediaSection';
 import MediaModal from './components/MediaModal';
-import './ProjectDetail.base.css';
-import './ProjectDetail.media.css';
-import './ProjectDetail.responsive.css';
-import './MediaModal.css';
+import './teamp/ProjectDetail.base.css';
+import './teamp/ProjectDetail.media.css';
+import './teamp/ProjectDetail.responsive.css';
+import './teamp/MediaModal.css';
 
-export { TeamParts } from './TeamParts';
-export { TeamByRole } from './TeamByRole';
-export { MyPart } from './MyPart';
+export { TeamParts } from './teamp/TeamParts';
+export { TeamByRole } from './teamp/TeamByRole';
+export { MyPart } from './teamp/MyPart';
 
 type OverviewType = {
   diagram?: string;
