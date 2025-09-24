@@ -18,7 +18,7 @@ const screenshots = [1, 2].map(num => ({
 export const projectData = {
     title: "Oracle Cloud 인프라 관리 시스템",
     period: "2025.05 - 꾸준히 관리 중", 
-    description: "Oracle Cloud 무료 인스턴스 4개로 구축한 엔터프라이즈급 인프라의 실제 운용 관리 경험과 자동화 시스템 구축",
+    description: "Oracle Cloud 무료 인스턴스 4개로 구축한 인프라의 실제 운용 관리 경험과 자동화 시스템 구축",
  
     techStack: [
         "Oracle Cloud Infrastructure",
