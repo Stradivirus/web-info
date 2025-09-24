@@ -1,17 +1,17 @@
 // src/components/study/index.js
 import React, { useState, useEffect } from 'react';
 import { Calendar, GitBranch, ChevronDown, ChevronUp } from 'lucide-react';
-import { StudyContent as CICDContent } from './CICD';
-import { StudyContent as RefactoringContent } from './Refactoring';
-import { StudyContent as TerraformContent } from './Terraform';
-import { StudyContent as LoadBalancingContent } from './LoadBalancing';
-import { StudyContent as MSAContent } from './BackendMSA';
-import { StudyContent as DockerComposeContent } from './DockerCompose';
-import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfig';
-import { StudyContent as PostgreSQLReplicationContent } from './PostgreSQLReplication';
-import { StudyContent as WebserverContent } from './webserver';
-import { StudyContent as JenkinsContent } from './jenkins';
-import { StudyContent as AssetMigrationContent } from './AssetMigration';
+import { StudyContent as CICDContent } from './CICD.jsx';
+import { StudyContent as RefactoringContent } from './Refactoring.jsx';
+import { StudyContent as TerraformContent } from './Terraform.jsx';
+import { StudyContent as LoadBalancingContent } from './LoadBalancing.jsx';
+import { StudyContent as MSAContent } from './BackendMSA.jsx';
+import { StudyContent as DockerComposeContent } from './DockerCompose.jsx';
+import { StudyContent as CloudPostgresConfigContent } from './CloudPostgresConfig.jsx';
+import { StudyContent as PostgreSQLReplicationContent } from './PostgreSQLReplication.jsx';
+import { StudyContent as WebserverContent } from './webserver.jsx';
+import { StudyContent as JenkinsContent } from './jenkins.jsx';
+import { StudyContent as AssetMigrationContent } from './AssetMigration.jsx';
 
 // 이미지 모달 컴포넌트
 const ImageModal = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
