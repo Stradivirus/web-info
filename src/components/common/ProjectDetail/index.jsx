@@ -1,19 +1,18 @@
-
 import React, { useState, useCallback, useEffect } from 'react';
-import ProjectHeader from './components/ProjectHeader';
-import ProjectLinks from './components/ProjectLinks';
-import OverviewDiagram from './components/OverviewDiagram';
-import ProjectContent from './components/ProjectContent';
-import MediaSection from './components/MediaSection';
-import MediaModal from './components/MediaModal';
+import ProjectHeader from './components/ProjectHeader.jsx';
+import ProjectLinks from './components/ProjectLinks.jsx';
+import OverviewDiagram from './components/OverviewDiagram.jsx';
+import ProjectContent from './components/ProjectContent.jsx';
+import MediaSection from './components/MediaSection.jsx';
+import MediaModal from './components/MediaModal.jsx';
 import './ProjectDetail.base.css';
 import './ProjectDetail.media.css';
 import './ProjectDetail.responsive.css';
 import './MediaModal.css';
 
-export { TeamParts } from './TeamParts';
-export { TeamByRole } from './TeamByRole';
-export { MyPart } from './MyPart';
+export { TeamParts } from './TeamParts.jsx';
+export { TeamByRole } from './TeamByRole.jsx';
+export { MyPart } from './MyPart.jsx';
 const ProjectDetail = ({
   title,
   period,

@@ -1,5 +1,5 @@
 import { teamMembers } from '../../../pages/TeamProject/TP1/teamMembers';
-import { TeamByRole } from './TeamByRole';
+import { TeamByRole } from './TeamByRole.jsx';
 
 export const TeamParts = ({ members = teamMembers, collaborations = [] }) => (
   <div style={{ 

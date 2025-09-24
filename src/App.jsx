@@ -5,9 +5,9 @@ import Main from './layouts/Main';
 import Introduction from './pages/Introduction';
 
 // 각 페이지를 lazy로 import
-const CertificationsPage = React.lazy(() => import('./pages/Certifications'));
-const RecordsPage = React.lazy(() => import('./pages/Records'));
-const Team1 = React.lazy(() => import('./pages/TeamProject/TP1'));
+const CertificationsPage = React.lazy(() => import('./pages/Certifications/index.jsx'));
+const RecordsPage = React.lazy(() => import('./pages/Records/index.jsx'));
+const Team1 = React.lazy(() => import('./pages/TeamProject/TP1/index.jsx'));
 
 function App() {
   return (

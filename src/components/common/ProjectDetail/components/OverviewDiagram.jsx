@@ -1,5 +1,3 @@
-import React from 'react';
-
 const OverviewDiagram = ({ overview, onDiagramClick }) => {
   if (!overview?.diagram) return null;
 
