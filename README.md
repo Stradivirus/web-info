@@ -31,9 +31,7 @@ src/pages/Projects/Project[N]/
 └── index.js    # 프로젝트 컴포넌트
 
 2. 프로젝트 리소스 추가
-- 아키텍처 다이어그램: `src/assets/images/architecture/Project[N]-Architecture.png`
-- 스크린샷: `src/assets/images/project/Project[N]/`
-- 비디오(필요시): `src/assets/videos/project/Project[N]/`
+- 오라클 스토리지로 이전
 
 3. App.js 수정
 - `src/App.js` 파일에 새로운 프로젝트 라우트 추가

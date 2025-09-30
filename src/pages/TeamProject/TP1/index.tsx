@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ProjectDetail from '../../../components/common/ProjectDetail';
+import ProjectDetail from '../../../components/ProjectDetail';
 import { projectData } from './data';
 import { teamMembers, groupCollaborations } from './teamMembers';
-import { TeamParts, MyPart } from '../../../components/common/ProjectDetail';
+import { TeamParts, MyPart } from '../../../components/ProjectDetail';
 
 const tabButtonStyle = (active: boolean): React.CSSProperties => ({
   padding: '10px 24px',

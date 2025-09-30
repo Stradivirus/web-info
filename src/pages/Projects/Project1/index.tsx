@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectDetail from '../../../components/common/ProjectDetail';
+import ProjectDetail from '../../../components/ProjectDetail';
 import { projectData } from './data';
 
 const Project1: React.FC = () => {
