@@ -1,5 +1,5 @@
 import React from 'react';
-import { getPixelImage } from '../../../../config/storage';
+import { getPixelImage } from '../../config/storage';
 
 const backgroundImage = getPixelImage('pixel_art_8-bit.png');
 

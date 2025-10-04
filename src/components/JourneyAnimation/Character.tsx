@@ -1,5 +1,5 @@
 import React from 'react';
-import { getPixelImage } from '../../../../config/storage';
+import { getPixelImage } from '../../config/storage';
 
 const characterImage = getPixelImage('little_boy_pixel.png');
 

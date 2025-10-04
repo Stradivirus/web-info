@@ -1,5 +1,5 @@
 import React from 'react';
-import JourneyAnimation from './components/JourneyAnimation';
+import JourneyAnimation from '../../components/JourneyAnimation';
 
 const Introduction: React.FC = () => {
   return (
