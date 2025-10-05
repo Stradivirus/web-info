@@ -20,36 +20,11 @@ const JourneyAnimation: React.FC = () => {
   const [activePopups, setActivePopups] = useState<Set<number>>(new Set());
 
   const stages: Stage[] = useMemo(() => [
-    { 
-      name: '클라우드 교육', 
-      type: 'education',
-      color: '#4A90E2',
-      showPopup: true
-    },
-    { 
-      name: '프로젝트', 
-      type: 'project',
-      color: '#4CAF50',
-      showPopup: true
-    },
-    { 
-      name: '인턴', 
-      type: 'internship',
-      color: '#9C27B0',
-      showPopup: true
-    },
-    { 
-      name: '자격증', 
-      type: 'certification',
-      color: '#FF9800',
-      showPopup: true
-    },
-    { 
-      name: '방통대 편입', 
-      type: 'education',
-      color: '#2196F3',
-      showPopup: true
-    }
+    { name: '클라우드', type: 'education', color: '#4A90E2', showPopup: true },
+    { name: '풀스택', type: 'education', color: '#e5f321ff', showPopup: true },
+    { name: '빅데이터', type: 'education', color: '#00BCD4', showPopup: true },
+    { name: '프로젝트', type: 'project', color: '#4CAF50', showPopup: true },
+    { name: '자격증', type: 'certification', color: '#FF9800', showPopup: true },
   ], []);
 
   useEffect(() => {
