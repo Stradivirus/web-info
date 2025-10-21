@@ -70,29 +70,33 @@ const Navigation: React.FC = () => {
       </NavLink>
 
       <div className="nav-divider" style={{ background: '#e0f7fa', color: '#1976d2', fontWeight: 'bold' }}>팀 프로젝트</div>
-      <NavLink to="/Project/TP1" className={getLinkClassName}>
+      <NavLink to="/project/TP1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>FastApi 기반 통합 관리 시스템</span>
       </NavLink>
+      <NavLink to="/project/TP2" className={getLinkClassName}>
+        <FolderOpen className="nav-icon" size={18} />
+        <span>Cron을 이용한 실시간 환율 정보 대시보드</span>
+      </NavLink>
 
       <div className="nav-divider">개인 프로젝트</div>
-      <NavLink to="/Project/4" className={getLinkClassName}>
+      <NavLink to="/project/4" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>React와 SpringBoot를 사용한 <br />사전 예약 시스템</span>
       </NavLink>
-      <NavLink to="/Project/3" className={getLinkClassName}>
+      <NavLink to="/project/3" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>WebSocket과 Redis를 사용한 <br />채팅 프로그램</span>
       </NavLink>
-      <NavLink to="/Project/1" className={getLinkClassName}>
+      <NavLink to="/project/1" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>Oracle Cloud로 배포한 Portfolio Website</span>
       </NavLink>
-      <NavLink to="/Project/5" className={getLinkClassName}>
+      <NavLink to="/project/5" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>기존의 CBT를 재구성 해 <br />서버리스로 구현</span>
       </NavLink>
-      <NavLink to="/Project/8" className={getLinkClassName}>
+      <NavLink to="/project/8" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>Oracle Cloud 인프라 관리 시스템</span>
       </NavLink>
@@ -106,7 +110,7 @@ const Navigation: React.FC = () => {
       </div>
 
       <div className={`archive-content ${isArchiveOpen ? 'open' : ''}`}>
-        <NavLink to="/Project/2" className={getLinkClassName}>
+        <NavLink to="/project/2" className={getLinkClassName}>
           <FolderOpen className="nav-icon" size={18} />
           <span>Django와 PostGreSql를<br /> 사용한 CBT 사이트</span>
         </NavLink>

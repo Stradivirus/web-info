@@ -9,6 +9,7 @@ import { projectData as project4Data } from '../Projects/Project4/data';
 import { projectData as project5Data } from '../Projects/Project5/data';
 import { projectData as project8Data } from '../Projects/Project8/data';
 import { projectData as TP1Data } from '../TeamProject/TP1/data';
+import { projectData as TP2Data } from '../TeamProject/TP2/data';
 
 // 다이어그램 이미지 import - Oracle Storage 사용
 import { getDiagramImage } from '../../config/storage';
@@ -19,6 +20,7 @@ const diagram4 = getDiagramImage('Diagram4.png');
 const diagram5 = getDiagramImage('Diagram5.png');
 const diagram8 = getDiagramImage('Diagram8.png');
 const diagramTP1 = getDiagramImage('TeamProject1.png');
+const diagramTP2 = getDiagramImage('TeamProject2.png');
 
 type ProjectType = {
   id: string | number;
@@ -27,6 +29,7 @@ type ProjectType = {
   image: string;
   tags: string[];
   isTeam?: boolean;
+  isInfra?: boolean;
 };
 
 const projects: ProjectType[] = [
@@ -37,6 +40,22 @@ const projects: ProjectType[] = [
     image: diagramTP1,
     tags: TP1Data.techStack,
     isTeam: true
+  },
+  {
+    id: 'TP2',
+    title: TP2Data.title,
+    description: TP2Data.overview.description,
+    image: diagramTP2,
+    tags: TP2Data.techStack,
+    isTeam: true
+  },
+  {
+    id: 8,
+    title: project8Data.title,
+    description: project8Data.overview.description,
+    image: diagram8,
+    tags: project8Data.techStack,
+    isInfra: true
   },
   {
     id: 4,
@@ -66,13 +85,6 @@ const projects: ProjectType[] = [
     image: diagram1,
     tags: project1Data.techStack
   },
-  {
-    id: 8,
-    title: project8Data.title,
-    description: project8Data.overview.description,
-    image: diagram8,
-    tags: project8Data.techStack
-  },
 ];
 
 const Overview: React.FC = () => {
@@ -88,9 +100,15 @@ const Overview: React.FC = () => {
         {projects.map((project, idx) => (
           <div 
             key={project.id}
-            className={`project-card${project.isTeam ? ' team-project' : ''}`}
+            className={`project-card${project.isTeam ? ' team-project' : ''}${project.isInfra ? ' infra-project' : ''}`}
             onClick={() => handleProjectClick(project.id)}
-            style={project.isTeam ? { border: '3px solid #6AFFA8' } : {}}
+            style={
+              project.isTeam 
+                ? { border: '3px solid #6AFFA8' } 
+                : project.isInfra 
+                ? { border: '3px solid #FFA500' } 
+                : {}
+            }
           >
             <div className="project-content">
               <h3>{project.title}</h3>
