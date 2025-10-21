@@ -21,3 +21,4 @@ export const getProject8Image = (filename: string): string => getImageUrl(`proje
 
 //팀 프로젝트
 export const getTeamP1Image = (filename: string): string => getImageUrl(`project/TeamP1/${filename}`);
+export const getTeamP2Image = (filename: string): string => getImageUrl(`project/TeamP2/${filename}`);
