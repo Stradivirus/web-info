@@ -9,16 +9,16 @@ const CertificationsPage = React.lazy(() => import('../pages/Certifications'));
 const RecordsPage = React.lazy(() => import('../pages/Records'));
 
 // Project components
-const Project1 = React.lazy(() => import('../pages/Projects/Project1'));
-const Project2 = React.lazy(() => import('../pages/Projects/Project2'));
-const Project3 = React.lazy(() => import('../pages/Projects/Project3'));
-const Project4 = React.lazy(() => import('../pages/Projects/Project4'));
-const Project5 = React.lazy(() => import('../pages/Projects/Project5'));
-const Project8 = React.lazy(() => import('../pages/Projects/Project8'));
+import Project1 from '../pages/Projects/Project1';
+import Project2 from '../pages/Projects/Project2';
+import Project3 from '../pages/Projects/Project3';
+import Project4 from '../pages/Projects/Project4';
+import Project5 from '../pages/Projects/Project5';
+import Project8 from '../pages/Projects/Project8';
 
 // Team Project components
-const Team1 = React.lazy(() => import('../pages/TeamProject/TP1'));
-const Team2 = React.lazy(() => import('../pages/TeamProject/TP2'));
+import Team1 from '../pages/TeamProject/TP1';
+import Team2 from '../pages/TeamProject/TP2';
 
 export const AppRouter: React.FC = () => {
   return (

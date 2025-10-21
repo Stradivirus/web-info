@@ -76,7 +76,7 @@ const Navigation: React.FC = () => {
       </NavLink>
       <NavLink to="/project/TP2" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
-        <span>Cron을 이용한 실시간 환율 정보 대시보드</span>
+        <span>Cron을 이용한 환율 예측 프로젝트</span>
       </NavLink>
 
       <div className="nav-divider">개인 프로젝트</div>
