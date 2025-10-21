@@ -98,7 +98,7 @@ export const projectData: ProjectData = {
     },
     {
       title: 'Infra',
-      items: ['PostgreSQL', 'Cron', 'Docker']
+      items: ['MongoDB', 'PostgreSQL', 'Cron', 'Docker']
     }
   ],
   objectives: [
