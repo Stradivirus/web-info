@@ -67,7 +67,6 @@ export const projectData: ProjectData = {
     "PostgreSQL",
     "Jenkins",
     "Docker & Docker Compose",
-    "Nginx",
     "Caddy",
     "GitHub Actions",
     "Rocky Linux"

@@ -1,4 +1,4 @@
-import { getDiagramImage, getVideoUrl, getTeamP2Image } from '../../../config/storage';
+import { getDiagramImage, getTeamP2Image } from '../../../config/storage';
 
 export interface ProjectMedia {
   id: string;
@@ -36,7 +36,6 @@ export interface ProjectData {
   process: string;
   improvements: string;
   reflection: string;
-  architectureImg: string;
   media: ProjectMedia[];
   links: ProjectLinks;
   overview: ProjectOverview;
