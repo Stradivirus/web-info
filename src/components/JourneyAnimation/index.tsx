@@ -39,7 +39,7 @@ const JourneyAnimation: React.FC = () => {
         
         // 현재 위치가 아이콘 위치와 가까운지 체크
         const isNearIcon = iconPositions.some(
-          iconPos => Math.abs(newPosition - iconPos) < 0.5
+          iconPos => Math.abs(newPosition - iconPos) < 0.4
         );
 
         if (isNearIcon) {
@@ -47,7 +47,7 @@ const JourneyAnimation: React.FC = () => {
           setIsWalking(false);
           // 현재 아이콘의 인덱스를 찾아서 activePopups에 추가
           const currentIconIndex = iconPositions.findIndex(
-            iconPos => Math.abs(newPosition - iconPos) < 0.5
+            iconPos => Math.abs(newPosition - iconPos) < 0.4
           );
           if (stages[currentIconIndex].showPopup) {
             setActivePopups(prev => new Set([...prev, currentIconIndex]));
