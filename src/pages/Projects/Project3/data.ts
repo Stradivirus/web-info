@@ -5,7 +5,6 @@ const overviewDiagram = getDiagramImage('Diagram3.png');
 
 const captions: Record<string, string> = {
   '1': "로그인 페이지",
-  '2': "채팅 작동 화면"
 };
 
 export type MediaItem = {
@@ -15,7 +14,7 @@ export type MediaItem = {
   url: string;
 };
 
-const screenshots: MediaItem[] = [1, 2].map(num => ({
+const screenshots: MediaItem[] = [1].map(num => ({
   id: String(num),
   type: 'image',
   caption: captions[String(num)] || `스크린샷 ${num}`,

@@ -32,7 +32,7 @@ const JourneyAnimation: React.FC = () => {
     
     const interval = setInterval(() => {
       setPosition(prev => {
-        const newPosition = prev + 0.5;
+        const newPosition = prev + 0.7;  // 이 부분이 이동 속도
         
         // 각 아이콘 위치 계산 (15% + index * 15%)
         const iconPositions = stages.map((_, index) => 10 + index * 16);
