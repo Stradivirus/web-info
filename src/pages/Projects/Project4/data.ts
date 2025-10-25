@@ -3,9 +3,9 @@ const overviewDiagram = getDiagramImage('Diagram4.png');
 
 const captions: Record<string, string> = {
   '1': "사전 예약 메인 페이지",
-  '2': "추첨권 발급 페이지",
-  '3': "추첨권 사용 페이지",
-  '4': "추첨권만 있는 경우 직접 입력 페이지",
+  '2': "사전 등록 페이지",
+  '3': "추첨권 발급 페이지",
+  '4': "추첨권 사용 페이지",
   '5': "어드민 페이지(Django)",
 };
 
