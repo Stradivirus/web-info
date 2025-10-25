@@ -47,6 +47,8 @@ const dashboardImage: string = getTeamP2Image('Screenshot1.png');
 const datasetImage: string = getTeamP2Image('Screenshot2.png');
 const visualizationImage: string = getTeamP2Image('Screenshot3.png');
 const cronSettingImage: string = getTeamP2Image('Screenshot4.png');
+const mongoDBImage: string = getTeamP2Image('Screenshot5.png');
+const postgreSQLImage: string = getTeamP2Image('Screenshot6.png');
 
 const allMedia: ProjectMedia[] = [
   {
@@ -72,7 +74,19 @@ const allMedia: ProjectMedia[] = [
     type: 'image',
     url: cronSettingImage,
     caption: 'Cron 설정'
-  }
+  },
+  {
+    id: 'mongoDBImage',
+    type: 'image',
+    url: mongoDBImage,
+    caption: 'MongoDB 저장 데이터'
+  },
+  {
+    id: 'postgreSQLImage',
+    type: 'image',
+    url: postgreSQLImage,
+    caption: 'PostgreSQL 저장 데이터'
+  },
 ];
 
 export const projectData: ProjectData = {
