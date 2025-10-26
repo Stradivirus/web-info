@@ -19,6 +19,7 @@ export type LinkEnabled = {
 export type ProjectLink = {
   github?: string | LinkEnabled;
   demo?: LinkEnabled;
+  document?: string; // 프로젝트 자료 (PDF, PPT 등)
 };
 
 export type TechDetail = {

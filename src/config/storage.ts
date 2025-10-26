@@ -4,13 +4,14 @@ export const getImageUrl = (path: string): string => {
   return `${BUCKET_BASE_URL}${path}`;
 };
 
-//기록, 다이어그램, 자격증, 픽셀아트, 비디오, 프로필 사진
+//기록, 다이어그램, 자격증, 픽셀아트, 비디오, 프로필 사진, PPT, PDF
 export const getRecordsImage = (filename: string): string => getImageUrl(`records/${filename}`);
 export const getDiagramImage = (filename: string): string => getImageUrl(`diagram/${filename}`);
 export const getCertificationImage = (filename: string): string => getImageUrl(`certifications/${filename}`);
 export const getPixelImage = (filename: string): string => getImageUrl(`pixel/${filename}`);
 export const getVideoUrl = (filename: string): string => getImageUrl(`video/${filename}`);
 export const getProfileImage = (filename: string): string => getImageUrl(`profile/${filename}`);
+export const getPPTUrl = (filename: string): string => getImageUrl(`ppt/${filename}`);
 
 //개인 프로젝트
 export const getProject2Image = (filename: string): string => getImageUrl(`project/2/${filename}`);
