@@ -11,7 +11,7 @@ export const getCertificationImage = (filename: string): string => getImageUrl(`
 export const getPixelImage = (filename: string): string => getImageUrl(`pixel/${filename}`);
 export const getVideoUrl = (filename: string): string => getImageUrl(`video/${filename}`);
 export const getProfileImage = (filename: string): string => getImageUrl(`profile/${filename}`);
-export const getPPTUrl = (filename: string): string => getImageUrl(`ppt/${filename}`);
+export const getPDFUrl = (filename: string): string => getImageUrl(`pdf/${filename}`);
 
 //개인 프로젝트
 export const getProject2Image = (filename: string): string => getImageUrl(`project/2/${filename}`);
