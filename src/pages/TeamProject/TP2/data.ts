@@ -1,4 +1,4 @@
-import { getDiagramImage, getTeamP2Image, getPPTUrl } from '../../../config/storage';
+import { getDiagramImage, getTeamP2Image, getPDFUrl } from '../../../config/storage';
 import type { MediaItem, ProjectData } from '../../../types/types';
 
 // Oracle Storage에서 데이터 불러오기
@@ -106,7 +106,7 @@ export const projectData: ProjectData = {
       url: 'http://140.83.49.106:8005',
       isEnabled: true
     },
-    document: getPPTUrl('financial independence.pptx'),
+    document: getPDFUrl('financial independence.pdf'),
   },
   overview: {
     description: 'Cron으로 자동 수집된 정보를 기반으로 환율 데이터를 제공하고 환율 계산 및 예측 기능을 제공하는 대시보드입니다.',

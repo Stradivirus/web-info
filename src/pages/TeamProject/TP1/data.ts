@@ -1,4 +1,4 @@
-import { getDiagramImage, getVideoUrl, getTeamP1Image, getPPTUrl } from '../../../config/storage';
+import { getDiagramImage, getVideoUrl, getTeamP1Image, getPDFUrl } from '../../../config/storage';
 import type { MediaItem, ProjectData as BaseProjectData } from '../../../types/types';
 
 // Team Project는 공용 ProjectData에 추가 필드를 포함합니다.
@@ -102,7 +102,7 @@ export const projectData: TeamProjectData = {
       url: 'http://140.83.49.106:8002/',
       isEnabled: true
     },
-    document: getPPTUrl('blackpink.pdf'),
+    document: getPDFUrl('blackpink.pdf'),
   },
   overview: {
     description: '기업 관리자와 고객이 실시간 협업, 데이터 관리, 시각화, 권한 기반 접근을 모두 경험할 수 있는 통합 플랫폼.',
