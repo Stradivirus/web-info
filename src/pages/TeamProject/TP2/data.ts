@@ -1,45 +1,5 @@
 import { getDiagramImage, getTeamP2Image } from '../../../config/storage';
-
-export interface ProjectMedia {
-  id: string;
-  type: 'image' | 'video';
-  url: string;
-  caption: string;
-}
-
-export interface TechDetail {
-  title: string;
-  items: string[];
-}
-
-export interface ProjectLinks {
-  github: string;
-  demo: {
-    url: string;
-    isEnabled: boolean;
-  };
-}
-
-export interface ProjectOverview {
-  description: string;
-  diagram: string;
-}
-
-export interface ProjectData {
-  title: string;
-  period: string;
-  description: string;
-  techStack: string[];
-  techDetails: TechDetail[];
-  objectives: string[];
-  features: string[];
-  process: string;
-  improvements: string;
-  reflection: string;
-  media: ProjectMedia[];
-  links: ProjectLinks;
-  overview: ProjectOverview;
-}
+import type { MediaItem, ProjectData } from '../../../types/types';
 
 // Oracle Storage에서 데이터 불러오기
 const overviewDiagram: string = getDiagramImage('TeamProject2.png');
@@ -50,7 +10,7 @@ const cronSettingImage: string = getTeamP2Image('Screenshot4.png');
 const mongoDBImage: string = getTeamP2Image('Screenshot5.png');
 const postgreSQLImage: string = getTeamP2Image('Screenshot6.png');
 
-const allMedia: ProjectMedia[] = [
+const allMedia: MediaItem[] = [
   {
     id: 'dashboard',
     type: 'image',

@@ -1,4 +1,5 @@
 import { getDiagramImage, getProject8Image } from '../../../config/storage';
+import type { MediaItem, ProjectData } from '../../../types/types';
 const overviewDiagram = getDiagramImage('Diagram8.png');
 
 const captions: Record<string, string> = {
@@ -6,12 +7,6 @@ const captions: Record<string, string> = {
   '2': "Jenkins 분산 빌드 노드 구성",
 };
 
-export type MediaItem = {
-  id: string;
-  type: string;
-  url: string;
-  caption: string;
-};
 
 const screenshots: MediaItem[] = [1, 2].map(num => ({
   id: String(num),
@@ -20,42 +15,6 @@ const screenshots: MediaItem[] = [1, 2].map(num => ({
   caption: captions[String(num)] || `스크린샷 ${num}`
 }));
 
-export type ProjectLink = {
-  github?: {
-    url: string;
-    isEnabled: boolean;
-  };
-  demo?: {
-    url: string;
-    isEnabled: boolean;
-  };
-};
-
-export type TechDetail = {
-  title: string;
-  items: string[];
-};
-
-export type ProjectOverview = {
-  description: string;
-  diagram: string;
-};
-
-export type ProjectData = {
-  title: string;
-  period: string;
-  description: string;
-  techStack: string[];
-  techDetails: TechDetail[];
-  objectives: string[];
-  features: string[];
-  process: string;
-  improvements?: string;
-  reflection: string;
-  media: MediaItem[];
-  links: ProjectLink;
-  overview: ProjectOverview;
-};
 
 export const projectData: ProjectData = {
   title: "Oracle Cloud 인프라 관리 시스템",

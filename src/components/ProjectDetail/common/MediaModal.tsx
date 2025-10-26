@@ -1,13 +1,7 @@
 import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-
-type MediaItem = {
-  id?: string;
-  type: 'image' | 'video';
-  url: string;
-  caption?: string;
-};
+import type { MediaItem } from '../../../types/types';
 
 interface MediaModalProps {
   selectedMedia: MediaItem | null;

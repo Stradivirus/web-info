@@ -1,41 +1,9 @@
 import { getDiagramImage } from '../../../config/storage';
+import type { MediaItem, ProjectData } from '../../../types/types';
 
 const overviewDiagram = getDiagramImage('Diagram1.png');
 
-const allMedia: any[] = [];
-
-export type ProjectLink = {
-  github?: string;
-  demo?: {
-    url: string;
-    isEnabled: boolean;
-  };
-};
-
-export type TechDetail = {
-  title: string;
-  items: string[];
-};
-
-export type ProjectOverview = {
-  description: string;
-  diagram: string;
-};
-
-export type ProjectData = {
-  title: string;
-  description: string;
-  period: string;
-  techStack: string[];
-  objectives: string[];
-  features: string[];
-  process: string;
-  techDetails: TechDetail[];
-  reflection: string;
-  media: any[];
-  links: ProjectLink;
-  overview: ProjectOverview;
-};
+const allMedia: MediaItem[] = [];
 
 export const projectData: ProjectData = {
   title: "Portfolio Website",
