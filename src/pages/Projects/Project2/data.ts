@@ -1,4 +1,5 @@
 import { getDiagramImage, getProject2Image } from '../../../config/storage';
+import type { MediaItem, ProjectData } from '../../../types/types';
 const overviewDiagram = getDiagramImage('Diagram2.png');
 
 const captions: Record<string, string> = {
@@ -9,12 +10,6 @@ const captions: Record<string, string> = {
   '5': "리눅스 마스터 1급 결과 페이지"
 };
 
-export type MediaItem = {
-  id: string;
-  type: string;
-  url: string;
-  caption: string;
-};
 
 const screenshots: MediaItem[] = [1, 2, 3, 4, 5].map(num => ({
   id: String(num),
@@ -27,39 +22,6 @@ const allMedia: MediaItem[] = [
   ...screenshots
 ];
 
-export type ProjectLink = {
-  github?: string;
-  demo?: {
-    url: string;
-    isEnabled: boolean;
-  };
-};
-
-export type TechDetail = {
-  title: string;
-  items: string[];
-};
-
-export type ProjectOverview = {
-  description: string;
-  diagram: string;
-};
-
-export type ProjectData = {
-  title: string;
-  description: string;
-  period: string;
-  techStack: string[];
-  objectives: string[];
-  features: string[];
-  process: string;
-  techDetails: TechDetail[];
-  improvements?: string;
-  reflection: string;
-  media: MediaItem[];
-  links: ProjectLink;
-  overview: ProjectOverview;
-};
 
 export const projectData: ProjectData = {
   title: "CBT 까짓것 내가 만든다",

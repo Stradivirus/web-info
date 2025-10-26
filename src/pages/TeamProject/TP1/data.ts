@@ -1,46 +1,10 @@
-import { getDiagramImage, getVideoUrl, getTeamP1Image } from '../../../config/storage';
+import { getDiagramImage, getVideoUrl, getTeamP1Image, getPPTUrl } from '../../../config/storage';
+import type { MediaItem, ProjectData as BaseProjectData } from '../../../types/types';
 
-export interface ProjectMedia {
-  id: string;
-  type: 'image' | 'video';
-  url: string;
-  caption: string;
-}
-
-export interface TechDetail {
-  title: string;
-  items: string[];
-}
-
-export interface ProjectLinks {
-  github: string;
-  demo: {
-    url: string;
-    isEnabled: boolean;
-  };
-}
-
-export interface ProjectOverview {
-  description: string;
-  diagram: string;
-}
-
-export interface ProjectData {
-  title: string;
-  period: string;
-  description: string;
-  techStack: string[];
-  techDetails: TechDetail[];
-  objectives: string[];
-  features: string[];
-  process: string;
-  improvements: string;
-  reflection: string;
-  architectureImg: string;
-  media: ProjectMedia[];
-  links: ProjectLinks;
-  overview: ProjectOverview;
-}
+// Team Project는 공용 ProjectData에 추가 필드를 포함합니다.
+export type TeamProjectData = BaseProjectData & {
+  architectureImg?: string;
+};
 
 // Oracle Storage에서 데이터 불러오기
 const demoVideo: string = getVideoUrl('Teamproject1_record.mp4');
@@ -61,14 +25,14 @@ const screenshotCaptions: Record<string, string> = {
   '10': "홍XX - 데이터",
 };
 
-const screenshots: ProjectMedia[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => ({
+const screenshots: MediaItem[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => ({
   id: String(num),
   type: 'image',
   url: getTeamP1Image(`Screenshot${num}.png`),
   caption: screenshotCaptions[String(num)] || ''
 }));
 
-const allMedia: ProjectMedia[] = [
+const allMedia: MediaItem[] = [
   {
     id: 'system-overview',
     type: 'image',
@@ -84,7 +48,7 @@ const allMedia: ProjectMedia[] = [
   ...screenshots
 ];
 
-export const projectData: ProjectData = {
+export const projectData: TeamProjectData = {
   title: 'FastApi 기반 통합 관리 시스템',
   period: '2025.06 - 2025.07',
   description: '팀 프로젝트이며 요구사항 수집부터 배포까지 전 과정을 협업으로 진행.',
@@ -138,6 +102,7 @@ export const projectData: ProjectData = {
       url: 'http://140.83.49.106:8002/',
       isEnabled: true
     },
+    document: getPPTUrl('blackpink.pdf'),
   },
   overview: {
     description: '기업 관리자와 고객이 실시간 협업, 데이터 관리, 시각화, 권한 기반 접근을 모두 경험할 수 있는 통합 플랫폼.',

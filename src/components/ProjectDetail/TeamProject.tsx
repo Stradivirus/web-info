@@ -7,6 +7,8 @@ import './styles/MediaModal.css';
 
 
 
+import type { ProjectData } from '../../types/types';
+
 const tabButtonStyle = (active: boolean): React.CSSProperties => ({
   padding: '12px 24px',
   cursor: 'pointer',
@@ -18,23 +20,12 @@ const tabButtonStyle = (active: boolean): React.CSSProperties => ({
   transition: 'all 0.3s ease',
 });
 
-type TeamProjectProps = {
-  // Props for IndividualProject
+type TeamProjectProps = Partial<ProjectData> & {
   title: string;
   period: string;
   description: string;
-  overview?: any;
-  techStack?: string[];
-  objectives?: string[];
-  features?: string[];
-  process?: string;
-  techDetails?: any[];
-  issues?: string[];
-  improvements?: string;
-  reflection?: string;
-  media?: any[];
-  links?: any;
-  layoutStyle?: string;
+  issues?: any[];
+  layoutStyle?: 'default' | 'wide';
 
   // Components for team tabs
   TeamPartsComponent?: React.ReactNode;

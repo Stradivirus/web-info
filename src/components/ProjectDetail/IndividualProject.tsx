@@ -5,41 +5,19 @@ import OverviewDiagram from './common/OverviewDiagram';
 import ProjectContent from './common/ProjectContent';
 import MediaSection from './common/MediaSection';
 import MediaModal from './common/MediaModal';
+import type { MediaItem, ProjectData } from '../../types/types';
 import './styles/ProjectDetail.base.css';
 import './styles/ProjectDetail.media.css';
 import './styles/ProjectDetail.responsive.css';
 import './styles/MediaModal.css';
 
 
-type OverviewType = {
-  diagram?: string;
-  [key: string]: any;
-};
-
-type MediaType = {
-  type: string;
-  url: string;
-  caption?: string;
-  [key: string]: any;
-};
-
-type ProjectDetailProps = {
+type ProjectDetailProps = Partial<ProjectData> & {
   title: string;
   period: string;
   description: string;
-  overview?: OverviewType;
-  techStack?: string[];
-  objectives?: string[];
-  features?: string[];
-  process?: string;
-  techDetails?: string[];
-  issues?: string[];
-  improvements?: string;
-  reflection?: string;
-  media?: MediaType[];
-  links?: any;
-  layoutStyle?: string;
-  [key: string]: any;
+  issues?: any[];
+  layoutStyle?: 'default' | 'wide';
 };
 
 const IndividualProject: React.FC<ProjectDetailProps> = ({
@@ -56,17 +34,17 @@ const IndividualProject: React.FC<ProjectDetailProps> = ({
   improvements = "",
   reflection = "",
   media = [],
-  links,
+  links = {} as any,
   layoutStyle = 'default',
 }) => {
-  const [selectedMedia, setSelectedMedia] = useState<MediaType | null>(null);
+  const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleMediaClick = useCallback((mediaItem: MediaType, index: number) => {
+  const handleMediaClick = useCallback((mediaItem: MediaItem, index: number) => {
     setSelectedMedia(mediaItem);
     setCurrentIndex(index);
   }, []);
@@ -74,6 +52,7 @@ const IndividualProject: React.FC<ProjectDetailProps> = ({
   const handleDiagramClick = useCallback(() => {
     if (overview?.diagram) {
       setSelectedMedia({
+        id: 'overview-diagram',
         type: 'image',
         url: overview.diagram,
         caption: 'Overview Diagram'
@@ -98,7 +77,10 @@ const IndividualProject: React.FC<ProjectDetailProps> = ({
     }
 
     setCurrentIndex(newIndex);
-    setSelectedMedia(media[newIndex]);
+    const next = media[newIndex];
+    if (next) {
+      setSelectedMedia(next);
+    }
   }, [currentIndex, media]);
 
   useEffect(() => {
@@ -137,7 +119,7 @@ const IndividualProject: React.FC<ProjectDetailProps> = ({
       <ProjectLinks links={links} />
 
       <OverviewDiagram
-        overview={overview}
+        overview={overview || ({} as any)}
         onDiagramClick={handleDiagramClick}
       />
 

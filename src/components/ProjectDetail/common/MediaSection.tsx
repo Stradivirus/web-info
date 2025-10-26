@@ -1,9 +1,4 @@
-type MediaItem = {
-  id: string;
-  type: 'image' | 'video';
-  url: string;
-  caption?: string;
-};
+import type { MediaItem } from '../../../types/types';
 
 interface MediaSectionProps {
   media?: MediaItem[];

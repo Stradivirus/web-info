@@ -1,4 +1,5 @@
 import { getDiagramImage, getProject5Image } from '../../../config/storage';
+import type { MediaItem, ProjectData } from '../../../types/types';
 const overviewDiagram = getDiagramImage('Diagram5.png');
 
 const captions: Record<string, string> = {
@@ -7,12 +8,6 @@ const captions: Record<string, string> = {
   '3': "MongoDB Atlas에 등록된 데이터"
 };
 
-export type MediaItem = {
-  id: string;
-  type: string;
-  url: string;
-  caption: string;
-};
 
 const screenshots: MediaItem[] = [1, 2, 3].map(num => ({
   id: String(num),
@@ -25,39 +20,6 @@ const allMedia: MediaItem[] = [
   ...screenshots
 ];
 
-export type ProjectLink = {
-  github?: string;
-  demo?: {
-    url: string;
-    isEnabled: boolean;
-  };
-};
-
-export type TechDetail = {
-  title: string;
-  items: string[];
-};
-
-export type ProjectOverview = {
-  description: string;
-  diagram: string;
-};
-
-export type ProjectData = {
-  title: string;
-  period: string;
-  description: string;
-  techStack: string[];
-  objectives: string[];
-  features: string[];
-  process: string;
-  techDetails: TechDetail[];
-  improvements?: string;
-  reflection: string;
-  media: MediaItem[];
-  links: ProjectLink;
-  overview: ProjectOverview;
-};
 
 export const projectData: ProjectData = {
   title: "서버리스 CBT",
