@@ -99,7 +99,7 @@ export const projectData: TeamProjectData = {
   links: {
     github: 'https://github.com/Stradivirus/blackpink',
     demo: {
-      url: 'http://140.83.49.106:8002/',
+      url: 'http://140.83.49.106:8003/',
       isEnabled: true
     },
     document: getPDFUrl('blackpink.pdf'),
