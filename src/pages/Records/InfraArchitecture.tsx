@@ -70,7 +70,7 @@ export const StudyContent: React.FC = () => {
             <h4 className="font-medium mb-2 text-blue-600">3. 트러블슈팅: OCI 보안 그룹</h4>
             <div className="space-y-2 text-sm">
               <p><span className="font-semibold">문제:</span> OS 방화벽을 개방했음에도 스탠바이 DB 접근 시 타임아웃 발생</p>
-              <p><span className="font-semibold">원인:</span> 스탠바이 DB에 보안 그룹 추가 누락</p>
+              <p><span className="font-semibold">원인:</span> 스탠바이 DB에 보안 그룹 추가하는 것을 누락</p>
               <p><span className="font-semibold">해결:</span> 보안 그룹 추가하여 해결</p>
             </div>
           </div>
