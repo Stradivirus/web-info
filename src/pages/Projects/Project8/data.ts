@@ -16,7 +16,7 @@ const screenshots: MediaItem[] = [1, 2].map(num => ({
 
 export const projectData: ProjectData = {
   title: "Oracle Cloud 인프라 관리 시스템",
-  period: "2025.05 - 꾸준히 관리 중", 
+  period: "2025.05 - Crontab으로 전환 후 운영 중", 
   // [수정] Records 페이지 참조 문구 추가
   description: "Oracle Cloud 무료 인스턴스 환경에서의 고가용성 인프라 구축 및 리소스 최적화 경험 (상세 구현 코드는 'Records' 메뉴 참조)",
 
