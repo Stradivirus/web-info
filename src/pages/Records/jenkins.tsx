@@ -107,11 +107,28 @@ def verifyServices(serverName, ipAddress) {
 
   return (
     <div className="space-y-6">
+      {/* 0. 아키텍처 변경 알림 (NEW) */}
+      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg shadow-sm">
+        <div className="flex">
+          <div className="ml-3">
+            <h3 className="text-sm font-bold text-yellow-800 mb-1">
+              🚧 아키텍처 최적화 알림 (2025.12 Update)
+            </h3>
+            <p className="text-sm text-yellow-700">
+              이 문서는 초기 구축했던 <strong>Jenkins 기반의 CI/CD 파이프라인</strong>에 대한 기록입니다.<br/>
+              현재는 <strong>Oracle Cloud Free Tier의 리소스(RAM) 한계</strong>를 극복하고 안정성을 확보하기 위해, 
+              무거운 Jenkins Agent를 제거하고 <strong>OS 레벨의 Crontab을 활용한 경량화 아키텍처</strong>로 마이그레이션하여 운영 중입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* 제목 */}
       <section>
         <div className="mb-6">
-          <h2 className="text-2xl font-bold mb-4 text-gray-800">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800 flex items-center gap-3">
             Jenkins 멀티노드 인프라 자동화 시스템
+            <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full border border-gray-300">Legacy (v1)</span>
           </h2>
           <p className="text-gray-600 mb-4">
             Oracle Cloud 환경에서 3개 인스턴스를 통합 관리하는 엔터프라이즈급 자동화 파이프라인
