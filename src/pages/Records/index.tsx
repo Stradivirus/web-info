@@ -10,6 +10,7 @@ import { StudyContent as PostgreSQLReplicationContent } from './PostgreSQLReplic
 import { StudyContent as WebserverContent } from './webserver';
 import { StudyContent as JenkinsContent } from './jenkins';
 import { StudyContent as AssetMigrationContent } from './AssetMigration';
+import { StudyContent as InfraArchitectureContent } from './InfraArchitecture'; // [추가됨]
 import { StudyAccordion } from '../../components/Records/RecordsCommon';
 
 interface OpenRecordsState {
@@ -26,6 +27,7 @@ interface OpenRecordsState {
   jenkins: boolean;
   assetMigration: boolean;
   postgresqlReplication?: boolean;
+  infraArch: boolean; // [추가됨]
 }
 
 const Records: React.FC = () => {
@@ -42,7 +44,8 @@ const Records: React.FC = () => {
     cloudPostgresConfig: false,
     jenkins: false,
     assetMigration: false,
-    postgresqlReplication: false
+    postgresqlReplication: false,
+    infraArch: false // [추가됨]
   });
 
   const toggleRecord = (id: keyof OpenRecordsState) => {
@@ -59,6 +62,17 @@ const Records: React.FC = () => {
           <h1 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Study Records</h1>
           
           <div className="space-y-4">
+
+            {/* [추가됨] 가장 최신 항목 */}
+            <StudyAccordion
+              title="보안을 고려한 인프라 아키텍처 및 자동화 구축"
+              date="2025.12.16"
+              category="DevOps"
+              isOpen={openRecords.infraArch}
+              onToggle={() => toggleRecord('infraArch')}
+            >
+              <InfraArchitectureContent />
+            </StudyAccordion>
 
             <StudyAccordion
               title="React 앱의 정적 에셋을 Oracle Cloud Storage로 마이그레이션"
