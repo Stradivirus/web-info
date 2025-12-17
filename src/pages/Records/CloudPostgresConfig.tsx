@@ -5,12 +5,14 @@ const pgHbaImg = getRecordsImage('pg_hba_conf.png');
 const pgConfImg = getRecordsImage('postgresql_conf.png');
 
 type StudyContentProps = {
-  registerImages: (images: string[]) => void;
+  registerImages?: (images: string[]) => void;
 };
 
 export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
   useEffect(() => {
-    registerImages([pgHbaImg, pgConfImg]);
+    if (registerImages) {
+      registerImages([pgHbaImg, pgConfImg]);
+    }
   }, [registerImages]);
 
   return (
