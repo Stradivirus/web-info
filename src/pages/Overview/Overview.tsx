@@ -8,7 +8,6 @@ import { projectData as project3Data } from '../Projects/Project3/data';
 import { projectData as project4Data } from '../Projects/Project4/data';
 import { projectData as project5Data } from '../Projects/Project5/data';
 import { projectData as project8Data } from '../Projects/Project8/data';
-import { projectData as TP1Data } from '../TeamProject/TP1/data';
 import { projectData as TP2Data } from '../TeamProject/TP2/data';
 
 // 다이어그램 이미지 import - Oracle Storage 사용
@@ -19,7 +18,6 @@ const diagram3 = getDiagramImage('Diagram3.png');
 const diagram4 = getDiagramImage('Diagram4.png');
 const diagram5 = getDiagramImage('Diagram5.png');
 const diagram8 = getDiagramImage('Diagram8.png');
-const diagramTP1 = getDiagramImage('TeamProject1.png');
 const diagramTP2 = getDiagramImage('TeamProject2.png');
 
 type ProjectType = {
@@ -33,14 +31,6 @@ type ProjectType = {
 };
 
 const projects: ProjectType[] = [
-  {
-    id: 'TP1',
-    title: TP1Data.title,
-    description: TP1Data.overview.description,
-    image: diagramTP1,
-    tags: TP1Data.techStack,
-    isTeam: true
-  },
   {
     id: 'TP2',
     title: TP2Data.title,
