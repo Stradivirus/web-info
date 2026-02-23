@@ -70,10 +70,7 @@ const Navigation: React.FC = () => {
       </NavLink>
 
       <div className="nav-divider" style={{ background: '#e0f7fa', color: '#1976d2', fontWeight: 'bold' }}>팀 프로젝트</div>
-      <NavLink to="/project/TP1" className={getLinkClassName}>
-        <FolderOpen className="nav-icon" size={18} />
-        <span>FastApi 기반 통합 관리 시스템</span>
-      </NavLink>
+
       <NavLink to="/project/TP2" className={getLinkClassName}>
         <FolderOpen className="nav-icon" size={18} />
         <span>Cron을 이용한 환율 예측 프로젝트</span>
@@ -114,6 +111,10 @@ const Navigation: React.FC = () => {
           <FolderOpen className="nav-icon" size={18} />
           <span>Django와 PostGreSql를<br /> 사용한 CBT 사이트</span>
         </NavLink>
+        <NavLink to="/project/TP1" className={getLinkClassName}>
+        <FolderOpen className="nav-icon" size={18} />
+        <span>FastApi 기반 통합 관리 시스템</span>
+      </NavLink>
       </div>
 
       <div className="nav-divider">Certifications</div>
