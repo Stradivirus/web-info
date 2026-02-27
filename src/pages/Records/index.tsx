@@ -11,6 +11,7 @@ import { StudyContent as WebserverContent } from './webserver';
 import { StudyContent as JenkinsContent } from './jenkins';
 import { StudyContent as AssetMigrationContent } from './AssetMigration';
 import { StudyContent as InfraArchitectureContent } from './InfraArchitecture'; // [추가됨]
+import { StudyContent as CodeCommentsContent } from './CodeComments'; // [추가됨]
 import { StudyAccordion } from '../../components/Records/RecordsCommon';
 
 interface OpenRecordsState {
@@ -28,6 +29,7 @@ interface OpenRecordsState {
   assetMigration: boolean;
   postgresqlReplication?: boolean;
   infraArch: boolean; // [추가됨]
+  codeComments: boolean; // [추가됨]
 }
 
 const Records: React.FC = () => {
@@ -45,7 +47,8 @@ const Records: React.FC = () => {
     jenkins: false,
     assetMigration: false,
     postgresqlReplication: false,
-    infraArch: false // [추가됨]
+    infraArch: false, // [추가됨]
+    codeComments: false // [추가됨]
   });
 
   const toggleRecord = (id: keyof OpenRecordsState) => {
@@ -63,7 +66,16 @@ const Records: React.FC = () => {
           
           <div className="space-y-4">
 
-            {/* [추가됨] 가장 최신 항목 */}
+            <StudyAccordion
+              title="Vibe Coding: 주석으로 AI를 지휘하는 오케스트레이션 전략"
+              date="2025.02.27"
+              category="Philosophy"
+              isOpen={openRecords.codeComments}
+              onToggle={() => toggleRecord('codeComments')}
+            >
+              <CodeCommentsContent />
+            </StudyAccordion>
+
             <StudyAccordion
               title="보안을 고려한 인프라 아키텍처 및 자동화 구축"
               date="2025.12.16"
