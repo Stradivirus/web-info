@@ -12,6 +12,7 @@ import { StudyContent as JenkinsContent } from './jenkins';
 import { StudyContent as AssetMigrationContent } from './AssetMigration';
 import { StudyContent as InfraArchitectureContent } from './InfraArchitecture';
 import { StudyContent as CodeCommentsContent } from './CodeComments';
+import { StudyContent as BlueprintStrategyContent } from './BlueprintStrategy'; // [추가됨]
 import { StudyAccordion } from '../../components/Records/RecordsCommon';
 import { BookOpen, Server, Layers } from 'lucide-react';
 
@@ -31,6 +32,7 @@ interface OpenRecordsState {
   postgresqlReplication: boolean;
   infraArch: boolean;
   codeComments: boolean;
+  blueprintStrategy: boolean; // [추가됨]
 }
 
 const Records: React.FC = () => {
@@ -49,7 +51,8 @@ const Records: React.FC = () => {
     assetMigration: false,
     postgresqlReplication: false,
     infraArch: false,
-    codeComments: false
+    codeComments: false,
+    blueprintStrategy: false // [추가됨]
   });
 
   // 스크롤 이동을 위한 Ref 관리
@@ -59,15 +62,13 @@ const Records: React.FC = () => {
     setOpenRecords(prev => {
       const newState = { ...prev, [id]: !prev[id] };
       
-      // 방금 연 항목이 true가 되었다면 (열렸다면)
       if (newState[id]) {
-        // 레이아웃 전환 애니메이션 시간을 고려하여 약간의 딜레이 후 스크롤
         setTimeout(() => {
           scrollRefs.current[id]?.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
           });
-        }, 100); // 0.35초 뒤 스크롤 (자연스러운 타이밍)
+        }, 100);
       }
       
       return newState;
@@ -86,7 +87,7 @@ const Records: React.FC = () => {
     openRecords.msa, openRecords.refactoring
   ].some(Boolean);
 
-  const isPhilosophyOpen = openRecords.codeComments;
+  const isPhilosophyOpen = openRecords.codeComments || openRecords.blueprintStrategy; // [수정됨]
 
   // 공통 카드 스타일 생성 함수
   const getCardStyle = (isOpen: boolean, isAnyInSectionOpen: boolean) => {
@@ -127,6 +128,21 @@ const Records: React.FC = () => {
                     onToggle={() => toggleRecord('codeComments')}
                   >
                     <CodeCommentsContent />
+                  </StudyAccordion>
+                </div>
+
+                <div 
+                  ref={el => scrollRefs.current.blueprintStrategy = el}
+                  className={getCardStyle(openRecords.blueprintStrategy, isPhilosophyOpen)}
+                >
+                  <StudyAccordion
+                    title="Blueprint Strategy: 데이터 중심의 효율적 개발 아키텍처"
+                    date="2025.02.28"
+                    category="Strategy"
+                    isOpen={openRecords.blueprintStrategy}
+                    onToggle={() => toggleRecord('blueprintStrategy')}
+                  >
+                    <BlueprintStrategyContent />
                   </StudyAccordion>
                 </div>
               </div>
