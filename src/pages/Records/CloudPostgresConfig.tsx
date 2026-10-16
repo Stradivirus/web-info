@@ -45,7 +45,7 @@ export const StudyContent: React.FC = () => {
 
       <section>
         <h3 className="text-lg font-medium mb-3">설정 스크린샷</h3>
-        <div className="flex gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">pg_hba.conf 설정</p>
             <div className="rounded-lg overflow-hidden border border-gray-200">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Database, Server, CheckCircle, ArrowRightLeft, Layout, Zap } from 'lucide-react';
+import { Server, CheckCircle, ArrowRightLeft, Layout, Zap } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const postgres_main: string = getRecordsImage('Postgres_main.png');

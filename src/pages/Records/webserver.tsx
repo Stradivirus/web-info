@@ -138,7 +138,7 @@ const WebserverMigrationContent: React.FC = () => {
           <b>참고:</b> 아래 스크린샷에서 <span className="text-green-700">nginx</span>가 <span className="font-mono">476.0K</span> 메모리를 사용하고, <span className="text-blue-700">caddy</span>는 <span className="font-mono">16.6M</span> 메모리를 사용함을 알 수 있습니다.<br />
           <span className="text-gray-600">nginx가 caddy에 비해 훨씬 적은 메모리를 사용하는 것이 특징입니다.</span>
         </div>
-        <div className="flex gap-8 mb-8">
+        <div className="flex flex-col md:flex-row gap-8 mb-8">
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">nginx 성능</p>
             <div className="rounded-lg overflow-hidden border border-gray-200">

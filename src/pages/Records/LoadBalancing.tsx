@@ -143,8 +143,8 @@ http {
       
       <section>
         <h3 className="text-lg font-medium mb-3">구현 결과</h3>
-        <div className="flex gap-4">
-          <div className="w-[70%] space-y-2">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="w-full md:w-[70%] space-y-2">
             <div 
               className="rounded-lg overflow-hidden border border-gray-200"
             >
@@ -160,7 +160,7 @@ http {
             </p>
           </div>
 
-          <div className="w-[30%] space-y-2">
+          <div className="w-full md:w-[30%] space-y-2">
             <div 
               className="rounded-lg overflow-hidden border border-gray-200"
             >

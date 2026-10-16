@@ -10,8 +10,6 @@ import {
   Coffee,
   Workflow,
   Layers,
-  MonitorPlay,
-  Palette,
   Scissors,
   RotateCcw,
   Sparkles,

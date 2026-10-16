@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getCertificationImage } from '../../config/storage';
 
 type Certification = {
@@ -85,6 +85,17 @@ const CertificationsPage: React.FC = () => {
   const closeModal = () => {
     setSelectedImage(null);
   };
+
+  useEffect(() => {
+    if (!selectedImage) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage]);
 
   return (
     <>

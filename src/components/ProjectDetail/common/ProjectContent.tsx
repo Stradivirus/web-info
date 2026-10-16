@@ -1,20 +1,3 @@
-import React from 'react';
-
-interface LineBreakProps {
-  text: string;
-}
-
-const LineBreak = ({ text }: LineBreakProps) => (
-  <>
-    {text.split('\n').map((line, i) => (
-      <React.Fragment key={i}>
-        {line}
-        {i < text.split('\n').length - 1 && <br />}
-      </React.Fragment>
-    ))}
-  </>
-);
-
 interface TechDetail {
   title: string;
   items: string[];
@@ -101,7 +84,7 @@ const ProjectContent = ({
           {process && (
             <div className="mb-10 last:mb-0">
               <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4">개발 과정</h2>
-              <p className="text-gray-600 leading-relaxed mb-4 text-lg"><LineBreak text={process} /></p>
+              <p className="text-gray-600 leading-relaxed mb-4 text-lg whitespace-pre-line">{process}</p>
             </div>
           )}
 
@@ -143,14 +126,14 @@ const ProjectContent = ({
           {improvements && (
             <div className="mb-10 last:mb-0">
               <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4">개선점 및 향후 계획</h2>
-              <p className="text-gray-600 leading-relaxed mb-4 text-lg"><LineBreak text={improvements} /></p>
+              <p className="text-gray-600 leading-relaxed mb-4 text-lg whitespace-pre-line">{improvements}</p>
             </div>
           )}
 
           {reflection && (
             <div className="mb-10 last:mb-0">
               <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4">기술적 도전과 성과</h2>
-              <p className="text-gray-600 leading-relaxed mb-4 text-lg"><LineBreak text={reflection} /></p>
+              <p className="text-gray-600 leading-relaxed mb-4 text-lg whitespace-pre-line">{reflection}</p>
             </div>
           )}
         </div>

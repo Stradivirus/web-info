@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  MessageSquare, 
   UserPlus, 
   GitCompare, 
   Zap, 
