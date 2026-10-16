@@ -43,23 +43,23 @@ const MediaModal = ({
 
   return ReactDOM.createPortal(
     <div
-      className="media-modal-overlay"
+      className="fixed inset-0 bg-black/90 flex items-center justify-center z-[1000] !scale-100"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       {/* 헤더 */}
-      <div className="media-modal-header">
-        <div className="media-modal-info">
-          <span className="media-modal-caption">{selectedMedia.caption}</span>
+      <div className="fixed top-0 left-0 w-full h-[50px] md:h-[60px] bg-gradient-to-b from-black/80 to-transparent flex justify-between items-center px-[15px] md:px-5 z-[1001]">
+        <div className="flex flex-col gap-1">
+          <span className="text-white text-base md:text-[30px] font-semibold">{selectedMedia.caption}</span>
           {canNavigate && (
-            <span className="media-modal-counter">
+            <span className="text-white/80 text-sm md:text-xl font-medium">
               {currentIndex !== null ? currentIndex + 1 : ''} / {media.length}
             </span>
           )}
         </div>
 
-        <div className="media-modal-controls">
+        <div className="flex items-center gap-2 md:gap-3">
           <button
-            className="media-modal-control-btn media-modal-close"
+            className="bg-red-600/80 hover:bg-red-600 border-none text-white px-2 py-1.5 md:px-3 md:py-2 rounded-md cursor-pointer flex items-center justify-center transition-all duration-200 text-xs md:text-sm min-w-[32px] h-8 md:min-w-[40px] md:h-9"
             onClick={onClose}
             title="닫기 (ESC)"
           >
@@ -72,7 +72,7 @@ const MediaModal = ({
       {canNavigate && (
         <>
           <button
-            className="media-modal-nav media-modal-nav-prev"
+            className="fixed top-1/2 -translate-y-1/2 left-[15px] md:left-[30px] bg-black/50 hover:bg-black/80 hover:scale-110 border-none text-white w-10 h-10 md:w-[50px] md:h-[50px] rounded-full cursor-pointer flex items-center justify-center transition-all duration-300 z-[1001]"
             onClick={() => onNavigate('prev')}
             title="이전 (←)"
           >
@@ -80,7 +80,7 @@ const MediaModal = ({
           </button>
 
           <button
-            className="media-modal-nav media-modal-nav-next"
+            className="fixed top-1/2 -translate-y-1/2 right-[15px] md:right-[30px] bg-black/50 hover:bg-black/80 hover:scale-110 border-none text-white w-10 h-10 md:w-[50px] md:h-[50px] rounded-full cursor-pointer flex items-center justify-center transition-all duration-300 z-[1001]"
             onClick={() => onNavigate('next')}
             title="다음 (→)"
           >
@@ -90,19 +90,19 @@ const MediaModal = ({
       )}
 
       {/* 미디어 콘텐츠 */}
-      <div className="media-modal-content">
+      <div className="flex items-center justify-center py-[50px] px-5 md:py-[60px] md:px-20 box-border pointer-events-none">
         {isVideo ? (
           <video
             src={selectedMedia.url}
             controls
             autoPlay
-            className="media-modal-video"
+            className="max-w-full max-h-full outline-none pointer-events-auto"
           />
         ) : (
           <img
             src={selectedMedia.url}
             alt={selectedMedia.caption}
-            className="media-modal-image"
+            className="max-w-[min(90vw,1400px)] max-h-[min(80vh,1000px)] object-contain select-none pointer-events-auto"
           />
         )}
       </div>

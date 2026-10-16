@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Overview.css';
 
 // 프로젝트 데이터 import
 import { projectData as project1Data } from '../Projects/Project1/data';
@@ -84,34 +83,38 @@ const Overview: React.FC = () => {
     navigate(`/project/${projectId}`);
   };
 
+  const getCardBorderClass = (project: ProjectType) => {
+    if (project.isTeam) return 'border-[3px] border-[#6AFFA8]';
+    if (project.isInfra) return 'border-[3px] border-[#FFA500]';
+    return 'border border-gray-200';
+  };
+
   return (
-    <div className="overview-container">
-      <div className="projects-grid">
+    <div className="flex gap-5 items-start mb-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-[26px] mx-auto w-full">
         {projects.map((project, idx) => (
           <div 
             key={project.id}
-            className={`project-card${project.isTeam ? ' team-project' : ''}${project.isInfra ? ' infra-project' : ''}`}
+            className={`bg-white rounded-xl shadow-[0_2px_4px_rgba(0,0,0,0.1)] p-5 cursor-pointer transition-all duration-300 flex flex-col items-center justify-center h-full min-h-[400px] text-center ${getCardBorderClass(project)}`}
             onClick={() => handleProjectClick(project.id)}
-            style={
-              project.isTeam 
-                ? { border: '3px solid #6AFFA8' } 
-                : project.isInfra 
-                ? { border: '3px solid #FFA500' } 
-                : {}
-            }
           >
-            <div className="project-content">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
+            <div className="flex flex-col items-center justify-center w-full mb-5">
+              <h3 className="text-[26px] font-semibold text-[#1a1a1a] mb-3 text-center">{project.title}</h3>
+              <p className="text-gray-600 leading-normal text-center">{project.description}</p>
               <img 
                 src={project.image} 
                 alt={`${project.title} 아키텍처`} 
-                className="project-image"
+                className={`mx-auto my-[15px] rounded-lg object-contain block ${
+                  idx === 2 ? 'w-[95%] h-[200px] scale-110' : 'w-[80%] h-[180px]'
+                }`}
               />
             </div>
-            <div className="project-tags">
+            <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center w-full">
               {project.tags.map((tag, index) => (
-                <span key={index} className="tag">
+                <span
+                  key={index}
+                  className="bg-gray-200 text-gray-600 px-2 py-1 md:px-3 md:py-1.5 rounded-2xl text-[11px] md:text-[13px] font-medium transition-all duration-200 text-center hover:bg-blue-600 hover:text-white"
+                >
                   {tag}
                 </span>
               ))}

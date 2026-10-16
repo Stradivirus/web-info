@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { getCertificationImage } from '../../config/storage';
-import './Certifications.css';
 
 type Certification = {
   id: number;
@@ -89,23 +88,29 @@ const CertificationsPage: React.FC = () => {
 
   return (
     <>
-      <div className="certifications-grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px] w-full">
         {certifications.map((cert) => (
-          <div key={cert.id} className="certification-card">
-            <div className="certification-content">
+          <div
+            key={cert.id}
+            className="bg-white rounded-xl shadow-[0_2px_4px_rgba(0,0,0,0.1)] p-5 border border-gray-200 text-center h-[440px] flex flex-col justify-between"
+          >
+            <div className="flex flex-col items-center w-full h-full">
               {cert.imagePath && (
                 <img
                   src={cert.imagePath}
                   alt={cert.title}
-                  className="certification-image"
+                  className="w-full h-[280px] mb-[15px] rounded-lg object-contain transition-transform duration-200 hover:scale-[1.02] cursor-pointer"
                   onClick={() => openModal(cert)}
-                  style={{ cursor: 'pointer' }}
                 />
               )}
-              <h3>{cert.title}</h3>
-              <div className="certification-tags">
-                <span className="certification-tag">{cert.issuer}</span>
-                <span className="certification-tag">취득월: {cert.date}</span>
+              <h3 className="text-[22px] font-semibold text-[#1a1a1a] mb-3">{cert.title}</h3>
+              <div className="flex flex-col gap-2 justify-center items-center mt-auto">
+                <span className="bg-gray-200 text-gray-600 px-3 py-1.5 rounded-2xl text-[13px] font-medium">
+                  {cert.issuer}
+                </span>
+                <span className="bg-gray-200 text-gray-600 px-3 py-1.5 rounded-2xl text-[13px] font-medium">
+                  취득월: {cert.date}
+                </span>
               </div>
             </div>
           </div>
@@ -114,18 +119,29 @@ const CertificationsPage: React.FC = () => {
 
       {/* 이미지 모달 */}
       {selectedImage && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 bg-black/75 flex justify-center items-center z-[1000] p-5"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white p-4 md:p-5 rounded-xl relative max-w-[90vw] max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={selectedImage.imagePath}
               alt={selectedImage.title}
-              className="modal-image"
+              className="max-w-full max-h-[70vh] object-contain"
             />
-            <div className="modal-info">
-              <h3>{selectedImage.title}</h3>
-              <p>{selectedImage.issuer} | 취득월: {selectedImage.date}</p>
+            <div className="mt-4 text-center">
+              <h3 className="text-xl font-semibold mb-2">{selectedImage.title}</h3>
+              <p className="text-gray-600">{selectedImage.issuer} | 취득월: {selectedImage.date}</p>
             </div>
-            <button className="modal-close" onClick={closeModal}>×</button>
+            <button
+              className="absolute top-2.5 right-2.5 bg-transparent border-none text-2xl cursor-pointer text-gray-600 w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-gray-100"
+              onClick={closeModal}
+            >
+              ×
+            </button>
           </div>
         </div>
       )}

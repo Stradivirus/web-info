@@ -6,11 +6,6 @@ import ProjectContent from './common/ProjectContent';
 import MediaSection from './common/MediaSection';
 import MediaModal from './common/MediaModal';
 import type { MediaItem, ProjectData } from '../../types/types';
-import './styles/ProjectDetail.base.css';
-import './styles/ProjectDetail.media.css';
-import './styles/ProjectDetail.responsive.css';
-import './styles/MediaModal.css';
-
 
 type ProjectDetailProps = Partial<ProjectData> & {
   title: string;
@@ -84,7 +79,7 @@ const IndividualProject: React.FC<ProjectDetailProps> = ({
   }, [currentIndex, media]);
 
   return (
-    <div className="container">
+    <div className="bg-white rounded-xl p-4 md:p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)] w-full max-w-none">
       <MediaModal
         selectedMedia={selectedMedia}
         currentIndex={currentIndex}
