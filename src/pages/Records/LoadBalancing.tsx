@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const loadBalancer1: string = getRecordsImage('Loadbalancer1.png');
 const loadBalancer2: string = getRecordsImage('Loadbalancer2.png');
 
-export interface StudyContentProps {
-  registerImages?: (images: string[]) => void;
-}
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
+export const StudyContent: React.FC = () => {
   const [isConfigVisible, setIsConfigVisible] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([loadBalancer1, loadBalancer2]);
-    }
-  }, [registerImages]);
 
   const nginxConfig = `user nginx;
 worker_processes auto;

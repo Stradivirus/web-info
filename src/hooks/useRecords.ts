@@ -7,9 +7,7 @@ export interface OpenRecordsState {
   loadBalancing: boolean;
   cicd: boolean;
   refactoring: boolean;
-  autoCleanup: boolean;
   terraform: boolean;
-  crawling: boolean;
   cloudPostgresConfig: boolean;
   jenkins: boolean;
   assetMigration: boolean;
@@ -26,9 +24,7 @@ const initialState: OpenRecordsState = {
   loadBalancing: false,
   cicd: false,
   refactoring: false,
-  autoCleanup: false,
   terraform: false,
-  crawling: false,
   cloudPostgresConfig: false,
   jenkins: false,
   assetMigration: false,

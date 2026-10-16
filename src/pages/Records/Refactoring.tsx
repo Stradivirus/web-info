@@ -1,20 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { getRecordsImage } from '../../config/storage';
 
 const refactoringCommit: string = getRecordsImage('refactoring.png');
 const refactoringCommit2: string = getRecordsImage('refactoring2.png');
 
-export interface StudyContentProps {
-  registerImages?: (images: string[]) => void;
-}
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([refactoringCommit, refactoringCommit2]);
-    }
-  }, [registerImages]);
-
+export const StudyContent: React.FC = () => {
   return (
     <div className="space-y-8">
       <section>

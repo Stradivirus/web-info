@@ -83,23 +83,6 @@ const IndividualProject: React.FC<ProjectDetailProps> = ({
     }
   }, [currentIndex, media]);
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedMedia) return;
-
-      if (e.key === 'ArrowLeft' && selectedMedia) {
-        navigateMedia('prev');
-      } else if (e.key === 'ArrowRight' && selectedMedia) {
-        navigateMedia('next');
-      } else if (e.key === 'Escape') {
-        closeModal();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedMedia, navigateMedia, closeModal]);
-
   return (
     <div className="container">
       <MediaModal

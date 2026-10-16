@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const oracleApiMonitoring = getRecordsImage('OracleApiMonitoring.png');
 const oracleObjectStorage = getRecordsImage('OracleBucket.png');
 
-type StudyContentProps = {
-  registerImages?: (images: string[]) => void;
-};
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
+export const StudyContent: React.FC = () => {
   const [isStorageCodeVisible, setIsStorageCodeVisible] = useState(false);
   const [isCaddyCodeVisible, setIsCaddyCodeVisible] = useState(false);
   const [isBeforeAfterVisible, setIsBeforeAfterVisible] = useState(false);
-
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([oracleApiMonitoring, oracleObjectStorage]);
-    }
-  }, [registerImages]);
 
   return (
     <div className="space-y-8">

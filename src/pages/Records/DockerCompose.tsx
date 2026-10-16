@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   ChevronDown, 
   ChevronUp, 
@@ -25,19 +25,9 @@ const HighlightComments = (code: string) => {
   });
 };
 
-type StudyContentProps = {
-  registerImages?: (images: string[]) => void;
-};
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
+export const StudyContent: React.FC = () => {
   const [isBackendCodeVisible, setIsBackendCodeVisible] = useState(false);
   const [isJenkinsCodeVisible, setIsJenkinsCodeVisible] = useState(false);
-
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([composeTime]);
-    }
-  }, [registerImages]);
 
   return (
     <div className="space-y-12 py-4">
@@ -208,7 +198,7 @@ stage('Deploy Backend') {
               <img 
                 src={composeTime} 
                 alt="배포 시간 단축 지표" 
-                className="w-full hover:scale-110 transition-transform duration-700 cursor-zoom-in" 
+                className="w-full hover:scale-110 transition-transform duration-700" 
               />
             </div>
           </div>

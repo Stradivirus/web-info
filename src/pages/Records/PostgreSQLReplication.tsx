@@ -16,18 +16,7 @@ const HighlightComments = (code: string) => {
   });
 };
 
-export interface StudyContentProps {
-  registerImages?: (images: string[]) => void;
-}
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
-  // 이미지 등록
-  React.useEffect(() => {
-    if (registerImages) {
-      registerImages([postgres_main, postgres_stanby]);
-    }
-  }, [registerImages]);
-
+export const StudyContent: React.FC = () => {
   return (
     <div className="space-y-12 py-4">
       {/* 1. 요약 및 배경 */}

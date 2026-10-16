@@ -88,50 +88,48 @@ const CertificationsPage: React.FC = () => {
   };
 
   return (
-    <main className="main-content">
-      <div className="main-inner">
-        <div className="certifications-grid">
-          {certifications.map((cert) => (
-            <div key={cert.id} className="certification-card">
-              <div className="certification-content">
-                {cert.imagePath && (
-                  <img
-                    src={cert.imagePath}
-                    alt={cert.title}
-                    className="certification-image"
-                    onClick={() => openModal(cert)}
-                    style={{ cursor: 'pointer' }}
-                  />
-                )}
-                <h3>{cert.title}</h3>
-                <div className="certification-tags">
-                  <span className="certification-tag">{cert.issuer}</span>
-                  <span className="certification-tag">취득월: {cert.date}</span>
-                </div>
+    <>
+      <div className="certifications-grid">
+        {certifications.map((cert) => (
+          <div key={cert.id} className="certification-card">
+            <div className="certification-content">
+              {cert.imagePath && (
+                <img
+                  src={cert.imagePath}
+                  alt={cert.title}
+                  className="certification-image"
+                  onClick={() => openModal(cert)}
+                  style={{ cursor: 'pointer' }}
+                />
+              )}
+              <h3>{cert.title}</h3>
+              <div className="certification-tags">
+                <span className="certification-tag">{cert.issuer}</span>
+                <span className="certification-tag">취득월: {cert.date}</span>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* 이미지 모달 */}
-        {selectedImage && (
-          <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-content" onClick={e => e.stopPropagation()}>
-              <img
-                src={selectedImage.imagePath}
-                alt={selectedImage.title}
-                className="modal-image"
-              />
-              <div className="modal-info">
-                <h3>{selectedImage.title}</h3>
-                <p>{selectedImage.issuer} | 취득월: {selectedImage.date}</p>
-              </div>
-              <button className="modal-close" onClick={closeModal}>×</button>
             </div>
           </div>
-        )}
+        ))}
       </div>
-    </main>
+
+      {/* 이미지 모달 */}
+      {selectedImage && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <img
+              src={selectedImage.imagePath}
+              alt={selectedImage.title}
+              className="modal-image"
+            />
+            <div className="modal-info">
+              <h3>{selectedImage.title}</h3>
+              <p>{selectedImage.issuer} | 취득월: {selectedImage.date}</p>
+            </div>
+            <button className="modal-close" onClick={closeModal}>×</button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

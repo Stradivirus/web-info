@@ -1,20 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { getRecordsImage } from '../../config/storage';
 
 const pgHbaImg = getRecordsImage('pg_hba_conf.png');
 const pgConfImg = getRecordsImage('postgresql_conf.png');
 
-type StudyContentProps = {
-  registerImages?: (images: string[]) => void;
-};
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([pgHbaImg, pgConfImg]);
-    }
-  }, [registerImages]);
-
+export const StudyContent: React.FC = () => {
   return (
     <div className="space-y-8">
       <section>

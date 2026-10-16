@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
@@ -48,19 +48,9 @@ const caddyConfig = `:80, :443, 문쫑.홈페이지.한국, xn--z92b88z.xn--hu5b
 }
 `;
 
-export interface WebserverMigrationContentProps {
-  registerImages?: (images: string[]) => void;
-}
-
-const WebserverMigrationContent: React.FC<WebserverMigrationContentProps> = ({ registerImages }) => {
+const WebserverMigrationContent: React.FC = () => {
   const [isNginxOpen, setIsNginxOpen] = useState<boolean>(false);
   const [isCaddyOpen, setIsCaddyOpen] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([nginxImg, caddyImg]);
-    }
-  }, [registerImages]);
 
   return (
     <div className="space-y-8">
