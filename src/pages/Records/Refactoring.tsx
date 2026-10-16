@@ -1,20 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { getRecordsImage } from '../../config/storage';
 
 const refactoringCommit: string = getRecordsImage('refactoring.png');
 const refactoringCommit2: string = getRecordsImage('refactoring2.png');
 
-export interface StudyContentProps {
-  registerImages?: (images: string[]) => void;
-}
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([refactoringCommit, refactoringCommit2]);
-    }
-  }, [registerImages]);
-
+export const StudyContent: React.FC = () => {
   return (
     <div className="space-y-8">
       <section>
@@ -54,7 +44,7 @@ export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) =>
 
       <section>
         <h3 className="text-lg font-medium mb-3">Git 커밋 내역</h3>
-        <div className="flex gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">
               Portfolio 리팩토링<br />총 18개 파일이 변경되었으며, 컴포넌트와 데이터의 분리를 통해 889줄이 추가되고 2077줄이 제거되었습니다.

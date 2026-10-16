@@ -8,7 +8,7 @@ interface ProjectHeaderProps {
 
 const ProjectHeader = ({ title, description, period }: ProjectHeaderProps) => {
   return (
-    <div className="project-header">
+    <div>
       <h1 className="text-4xl font-bold mb-3">{title}</h1>
       {description && (
         <p className="text-gray-600 mb-4">{description}</p>

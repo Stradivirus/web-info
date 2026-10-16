@@ -33,7 +33,7 @@ export const myDevelopmentData: MyDevelopmentData = {
   features: [
     {
       id: 'auth-system',
-      title: '� 로그인 시스템 개발',
+      title: '🔐 로그인 시스템 개발',
       description: '프론트엔드와 백엔드를 통합한 완전한 로그인 시스템을 구축했습니다.',
       isExpanded: false,
       frontend: {

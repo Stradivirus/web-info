@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { getRecordsImage } from '../../config/storage';
 
 const pgHbaImg = getRecordsImage('pg_hba_conf.png');
 const pgConfImg = getRecordsImage('postgresql_conf.png');
 
-type StudyContentProps = {
-  registerImages: (images: string[]) => void;
-};
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
-  useEffect(() => {
-    registerImages([pgHbaImg, pgConfImg]);
-  }, [registerImages]);
-
+export const StudyContent: React.FC = () => {
   return (
     <div className="space-y-8">
       <section>
@@ -53,7 +45,7 @@ export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) =>
 
       <section>
         <h3 className="text-lg font-medium mb-3">설정 스크린샷</h3>
-        <div className="flex gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">pg_hba.conf 설정</p>
             <div className="rounded-lg overflow-hidden border border-gray-200">

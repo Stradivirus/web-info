@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { getRecordsImage } from '../../config/storage';
 
 const nodesDashboard: string = getRecordsImage('jenkins_nodes.png');
 
-export interface StudyContentProps {
-  registerImages?: (images: string[]) => void;
-}
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
+export const StudyContent: React.FC = () => {
   const [isPipelineVisible, setIsPipelineVisible] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([nodesDashboard]);
-    }
-  }, [registerImages]);
 
   const jenkinsCode = String.raw`pipeline {
     agent { label 'built-in' }

@@ -89,7 +89,10 @@ export const projectData: TeamProjectData = {
   improvements: `현재 하드 코딩 되어 있는 변수들을 환경 변수로 분리 (보안성/유지보수성 강화)
   고객 정보 관리 기능 확장(기업별 Comment 컬럼 등)
   세션 관리 개선 및 중복 로그인 방지
-  데이터 시각화 라이브러리(Chart.js, Matplotlib) 통합으로 일관성 및 유지보수성 강화`,
+  데이터 시각화 라이브러리(Chart.js, Matplotlib) 통합으로 일관성 및 유지보수성 강화
+
+  ※ 현재 프로젝트는 기술 스택·협업 과정의 레퍼런스 용도로만 유지 중이며,
+  실제 서비스 관점에서 보여주고자 하는 목표와 활용 시나리오가 뚜렷하지 않아 Live Demo는 비활성화한 상태입니다.`,
   reflection: `1. 컴포넌트 기반 설계와 API 중심 구조의 확장성 체감
   2. 클라우드 기반 MongoDB로 인해 유연한 데이터 관리 및 확장성 확보
   3. 실시간 협업 도구(깃허브, 슬랙) 활용의 중요성 인식`,
@@ -100,7 +103,7 @@ export const projectData: TeamProjectData = {
     github: 'https://github.com/Stradivirus/blackpink',
     demo: {
       url: 'http://140.83.49.106:8003/',
-      isEnabled: true
+      isEnabled: false
     },
     document: getPDFUrl('blackpink.pdf'),
   },

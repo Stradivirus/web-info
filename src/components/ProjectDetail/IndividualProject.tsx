@@ -6,11 +6,6 @@ import ProjectContent from './common/ProjectContent';
 import MediaSection from './common/MediaSection';
 import MediaModal from './common/MediaModal';
 import type { MediaItem, ProjectData } from '../../types/types';
-import './styles/ProjectDetail.base.css';
-import './styles/ProjectDetail.media.css';
-import './styles/ProjectDetail.responsive.css';
-import './styles/MediaModal.css';
-
 
 type ProjectDetailProps = Partial<ProjectData> & {
   title: string;
@@ -83,25 +78,8 @@ const IndividualProject: React.FC<ProjectDetailProps> = ({
     }
   }, [currentIndex, media]);
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedMedia) return;
-
-      if (e.key === 'ArrowLeft' && selectedMedia) {
-        navigateMedia('prev');
-      } else if (e.key === 'ArrowRight' && selectedMedia) {
-        navigateMedia('next');
-      } else if (e.key === 'Escape') {
-        closeModal();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedMedia, navigateMedia, closeModal]);
-
   return (
-    <div className="container">
+    <div className="bg-white rounded-xl p-4 md:p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)] w-full max-w-none">
       <MediaModal
         selectedMedia={selectedMedia}
         currentIndex={currentIndex}

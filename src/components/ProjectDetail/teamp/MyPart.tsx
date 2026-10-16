@@ -44,21 +44,15 @@ export const MyPart: React.FC = () => {
   };
 
   const renderCodeSnippet = (codeSnippet: CodeSnippet) => (
-    <div style={{
-      backgroundColor: '#f8fafc',
-      border: '1px solid #e2e8f0',
-      borderRadius: '8px',
-      padding: '16px',
-      fontSize: '13px',
-      fontFamily: 'monospace',
-      whiteSpace: 'pre-wrap'
-    }}>
-      <div style={{ color: '#64748b', marginBottom: '8px' }}>{codeSnippet.comment}</div>
+    <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 text-[13px] font-mono whitespace-pre-wrap overflow-x-auto">
+      <div className="text-slate-500 mb-2">{codeSnippet.comment}</div>
       {codeSnippet.code.map((line, idx) => (
-        <div key={idx} style={{
-          marginLeft: line.startsWith('  ') ? '16px' : line.startsWith('    ') ? '32px' : '0px',
-          color: '#1f2937'
-        }}>
+        <div
+          key={idx}
+          className={`text-gray-800 ${
+            line.startsWith('    ') ? 'ml-8' : line.startsWith('  ') ? 'ml-4' : 'ml-0'
+          }`}
+        >
           {line}
         </div>
       ))}
@@ -66,100 +60,55 @@ export const MyPart: React.FC = () => {
   );
 
   return (
-    <div className="content-box">
+    <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
       {/* 주요 개발 기능 */}
-      <div style={{ marginBottom: '32px' }}>
-        <h3 style={{
-          color: '#1f2937',
-          marginBottom: '16px',
-          fontSize: '18px',
-          borderLeft: '4px solid #3b82f6',
-          paddingLeft: '12px'
-        }}>
+      <div className="mb-8">
+        <h3 className="text-gray-800 mb-4 text-lg font-bold border-l-4 border-blue-500 pl-3">
           주요 개발 기능
         </h3>
         {(myDevelopmentData as MyDevelopmentData).features.map((feature) => {
           const isExpanded = expandedItems[feature.id];
           return (
-            <div key={feature.id} style={{ marginBottom: '24px' }}>
+            <div key={feature.id} className="mb-6">
               {/* 기능 제목 - 클릭 가능 */}
               <div
                 onClick={() => toggleExpand(feature.id)}
-                style={{
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  padding: '12px',
-                  backgroundColor: '#f8fafc',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '8px',
-                  marginBottom: '12px'
-                }}
+                className="cursor-pointer flex items-center p-3 bg-slate-50 border border-slate-200 rounded-lg mb-3 hover:bg-slate-100 transition-colors"
               >
-                <span style={{
-                  marginRight: '8px',
-                  fontSize: '14px',
-                  transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.2s'
-                }}>
+                <span
+                  className={`mr-2 text-sm transition-transform duration-200 ${
+                    isExpanded ? 'rotate-90' : 'rotate-0'
+                  }`}
+                >
                   ▶
                 </span>
-                <h4 style={{
-                  color: '#059669',
-                  fontSize: '16px',
-                  margin: 0,
-                  flex: 1
-                }}>
+                <h4 className="text-emerald-600 text-base font-semibold m-0 flex-1">
                   {feature.title}
                 </h4>
               </div>
               {/* 기능 설명 */}
-              <p style={{ color: '#4b5563', fontSize: '14px', marginBottom: '16px', lineHeight: '1.5' }}>
+              <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                 {feature.description}
               </p>
               {/* 접었다 폈다 내용 */}
               {isExpanded && (
-                <div style={{
-                  marginLeft: '16px',
-                  borderLeft: '3px solid #e2e8f0',
-                  paddingLeft: '16px'
-                }}>
+                <div className="ml-4 border-l-[3px] border-slate-200 pl-4">
                   {/* 프론트엔드 섹션 */}
-                  <div style={{ marginBottom: '24px' }}>
-                    <h5 style={{
-                      color: '#2563eb',
-                      fontSize: '15px',
-                      marginBottom: '8px',
-                      fontWeight: '600'
-                    }}>
+                  <div className="mb-6">
+                    <h5 className="text-blue-600 text-[15px] mb-2 font-semibold">
                       🎨 {feature.frontend.title}
                     </h5>
-                    <p style={{
-                      color: '#4b5563',
-                      fontSize: '13px',
-                      marginBottom: '12px',
-                      lineHeight: '1.4'
-                    }}>
+                    <p className="text-gray-600 text-[13px] mb-3 leading-snug">
                       {feature.frontend.description}
                     </p>
                     {renderCodeSnippet(feature.frontend.codeSnippet)}
                   </div>
                   {/* 백엔드 섹션 */}
-                  <div style={{ marginBottom: '16px' }}>
-                    <h5 style={{
-                      color: '#dc2626',
-                      fontSize: '15px',
-                      marginBottom: '8px',
-                      fontWeight: '600'
-                    }}>
+                  <div className="mb-4">
+                    <h5 className="text-red-600 text-[15px] mb-2 font-semibold">
                       ⚙️ {feature.backend.title}
                     </h5>
-                    <p style={{
-                      color: '#4b5563',
-                      fontSize: '13px',
-                      marginBottom: '12px',
-                      lineHeight: '1.4'
-                    }}>
+                    <p className="text-gray-600 text-[13px] mb-3 leading-snug">
                       {feature.backend.description}
                     </p>
                     {renderCodeSnippet(feature.backend.codeSnippet)}
@@ -171,67 +120,37 @@ export const MyPart: React.FC = () => {
         })}
       </div>
       {/* 기술적 도전과 해결 */}
-      <div style={{ marginBottom: '32px' }}>
-        <div style={{
-          backgroundColor: '#fef2f2',
-          border: '1px solid #fecaca',
-          borderRadius: '8px',
-          padding: '16px'
-        }}>
-          <h4 style={{ color: '#dc2626', fontSize: '16px', marginBottom: '8px' }}>
+      <div className="mb-8">
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <h4 className="text-red-600 text-base font-semibold mb-2">
             🚀 개발 과정동안 구현한 기능
           </h4>
-          <ul style={{ margin: '0', padding: '0 0 0 20px', color: '#4b5563', fontSize: '14px' }}>
+          <ul className="m-0 pl-5 list-disc text-gray-600 text-sm space-y-1.5">
             {(myDevelopmentData as MyDevelopmentData).challenges.technicalChallenges.map((challenge, idx) => (
-              <li key={idx} style={{ marginBottom: '6px' }}>{challenge}</li>
+              <li key={idx}>{challenge}</li>
             ))}
           </ul>
         </div>
       </div>
       {/* 프로젝트 성과 */}
       <div>
-        <h3 style={{
-          color: '#1f2937',
-          marginBottom: '16px',
-          fontSize: '18px',
-          borderLeft: '4px solid #059669',
-          paddingLeft: '12px'
-        }}>
+        <h3 className="text-gray-800 mb-4 text-lg font-bold border-l-4 border-emerald-600 pl-3">
           프로젝트 성과 및 배운 점
         </h3>
-        <div style={{
-          backgroundColor: '#f0fdf4',
-          border: '1px solid #bbf7d0',
-          borderRadius: '8px',
-          padding: '16px'
-        }}>
-          <div style={{ marginBottom: '12px' }}>
-            <span style={{
-              backgroundColor: '#059669',
-              color: 'white',
-              padding: '4px 8px',
-              borderRadius: '4px',
-              fontSize: '12px',
-              fontWeight: 'bold'
-            }}>
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+          <div className="mb-3">
+            <span className="bg-emerald-600 text-white px-2 py-1 rounded text-xs font-bold">
               성과
             </span>
-            <p style={{ color: '#166534', fontSize: '14px', marginTop: '8px', marginBottom: '0' }}>
+            <p className="text-green-800 text-sm mt-2 mb-0 leading-relaxed">
               {(myDevelopmentData as MyDevelopmentData).achievements.results}
             </p>
           </div>
           <div>
-            <span style={{
-              backgroundColor: '#2563eb',
-              color: 'white',
-              padding: '4px 8px',
-              borderRadius: '4px',
-              fontSize: '12px',
-              fontWeight: 'bold'
-            }}>
+            <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">
               배운 점
             </span>
-            <p style={{ color: '#1e40af', fontSize: '14px', marginTop: '8px', marginBottom: '0' }}>
+            <p className="text-blue-800 text-sm mt-2 mb-0 leading-relaxed">
               {(myDevelopmentData as MyDevelopmentData).achievements.learning}
             </p>
           </div>

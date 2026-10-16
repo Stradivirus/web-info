@@ -23,14 +23,12 @@ import Team2 from '../pages/TeamProject/TP2';
 export const AppRouter: React.FC = () => {
   return (
     <Routes>
-      {/* Main Pages - Outside Main Layout */}
-      <Route path="/Introduction" element={<Introduction />} />
-      <Route path="/Records" element={<RecordsPage />} />
-      <Route path="/Certifications" element={<CertificationsPage />} />
-
       {/* Main Layout with nested routes */}
       <Route path="/" element={<Main />}>
         <Route index element={<Overview />} />
+        <Route path="Introduction" element={<Introduction />} />
+        <Route path="Records" element={<RecordsPage />} />
+        <Route path="Certifications" element={<CertificationsPage />} />
         
         {/* Team Projects */}
         <Route path="project/TP1" element={<Team1 />} />

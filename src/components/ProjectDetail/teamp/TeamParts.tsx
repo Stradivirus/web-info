@@ -25,21 +25,18 @@ export const TeamParts: React.FC<TeamPartsProps> = ({
   members = teamMembers,
   collaborations = []
 }) => (
-  <div style={{
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-    gap: '32px'
-  }}>
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
     {/* 왼쪽: 팀원별 상세 개발 파트 */}
-    <div className="content-box">
-      <h2>팀원별 개발 파트</h2>
-      <ul style={{ padding: 0, listStyle: 'none' }}>
+    <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+      <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4">팀원별 개발 파트</h2>
+      <ul className="p-0 list-none">
         {members.map((member, idx) => (
-          <li key={idx} style={{ marginBottom: 24 }}>
-            <strong>{member.name}</strong> <span style={{ color: '#2563eb', fontWeight: 500 }}>({member.role})</span>
-            <ul style={{ marginTop: 8, marginLeft: 16 }}>
+          <li key={idx} className="mb-6 last:mb-0">
+            <strong className="text-gray-800">{member.name}</strong>{' '}
+            <span className="text-blue-600 font-medium">({member.role})</span>
+            <ul className="mt-2 ml-4 space-y-1">
               {member.parts.map((part, i) => (
-                <li key={i} style={{ color: '#4b5563', fontSize: 17 }}>- {part}</li>
+                <li key={i} className="text-gray-600 text-[17px]">- {part}</li>
               ))}
             </ul>
           </li>

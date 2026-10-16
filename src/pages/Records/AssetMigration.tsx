@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const oracleApiMonitoring = getRecordsImage('OracleApiMonitoring.png');
 const oracleObjectStorage = getRecordsImage('OracleBucket.png');
 
-type StudyContentProps = {
-  registerImages?: (images: string[]) => void;
-};
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
+export const StudyContent: React.FC = () => {
   const [isStorageCodeVisible, setIsStorageCodeVisible] = useState(false);
   const [isCaddyCodeVisible, setIsCaddyCodeVisible] = useState(false);
   const [isBeforeAfterVisible, setIsBeforeAfterVisible] = useState(false);
-
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([oracleApiMonitoring, oracleObjectStorage]);
-    }
-  }, [registerImages]);
 
   return (
     <div className="space-y-8">
@@ -298,8 +288,8 @@ const screenshots = [1, 2].map(num => ({
       </section>
       <section>
         <h3 className="text-lg font-medium mb-3">Oracle Cloud 스크린샷</h3>
-        <div className="grid grid-cols-4 gap-6">
-          <div className="col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="md:col-span-1">
             <p className="mb-3 text-base text-gray-800">폴더 구조로 파일 관리</p>
             <div className="rounded-lg overflow-hidden border border-gray-200">
               <img
@@ -310,7 +300,7 @@ const screenshots = [1, 2].map(num => ({
             </div>
           </div>
           
-          <div className="col-span-3">
+          <div className="md:col-span-3">
             <p className="mb-3 text-base text-gray-800">API 사용량 모니터링</p>
             <div className="rounded-lg overflow-hidden border border-gray-200">
               <img

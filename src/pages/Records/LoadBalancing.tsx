@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const loadBalancer1: string = getRecordsImage('Loadbalancer1.png');
 const loadBalancer2: string = getRecordsImage('Loadbalancer2.png');
 
-export interface StudyContentProps {
-  registerImages?: (images: string[]) => void;
-}
-
-export const StudyContent: React.FC<StudyContentProps> = ({ registerImages }) => {
+export const StudyContent: React.FC = () => {
   const [isConfigVisible, setIsConfigVisible] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([loadBalancer1, loadBalancer2]);
-    }
-  }, [registerImages]);
 
   const nginxConfig = `user nginx;
 worker_processes auto;
@@ -153,8 +143,8 @@ http {
       
       <section>
         <h3 className="text-lg font-medium mb-3">구현 결과</h3>
-        <div className="flex gap-4">
-          <div className="w-[70%] space-y-2">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="w-full md:w-[70%] space-y-2">
             <div 
               className="rounded-lg overflow-hidden border border-gray-200"
             >
@@ -170,7 +160,7 @@ http {
             </p>
           </div>
 
-          <div className="w-[30%] space-y-2">
+          <div className="w-full md:w-[30%] space-y-2">
             <div 
               className="rounded-lg overflow-hidden border border-gray-200"
             >

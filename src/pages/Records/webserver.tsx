@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
@@ -48,19 +48,9 @@ const caddyConfig = `:80, :443, 문쫑.홈페이지.한국, xn--z92b88z.xn--hu5b
 }
 `;
 
-export interface WebserverMigrationContentProps {
-  registerImages?: (images: string[]) => void;
-}
-
-const WebserverMigrationContent: React.FC<WebserverMigrationContentProps> = ({ registerImages }) => {
+const WebserverMigrationContent: React.FC = () => {
   const [isNginxOpen, setIsNginxOpen] = useState<boolean>(false);
   const [isCaddyOpen, setIsCaddyOpen] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (registerImages) {
-      registerImages([nginxImg, caddyImg]);
-    }
-  }, [registerImages]);
 
   return (
     <div className="space-y-8">
@@ -148,7 +138,7 @@ const WebserverMigrationContent: React.FC<WebserverMigrationContentProps> = ({ r
           <b>참고:</b> 아래 스크린샷에서 <span className="text-green-700">nginx</span>가 <span className="font-mono">476.0K</span> 메모리를 사용하고, <span className="text-blue-700">caddy</span>는 <span className="font-mono">16.6M</span> 메모리를 사용함을 알 수 있습니다.<br />
           <span className="text-gray-600">nginx가 caddy에 비해 훨씬 적은 메모리를 사용하는 것이 특징입니다.</span>
         </div>
-        <div className="flex gap-8 mb-8">
+        <div className="flex flex-col md:flex-row gap-8 mb-8">
           <div className="flex-1">
             <p className="mb-2 text-base text-gray-800">nginx 성능</p>
             <div className="rounded-lg overflow-hidden border border-gray-200">

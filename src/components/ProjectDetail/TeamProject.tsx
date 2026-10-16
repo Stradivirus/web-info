@@ -1,24 +1,6 @@
 import React, { useState } from 'react';
 import IndividualProject from './IndividualProject';
-import './styles/ProjectDetail.base.css';
-import './styles/ProjectDetail.media.css';
-import './styles/ProjectDetail.responsive.css';
-import './styles/MediaModal.css';
-
-
-
 import type { ProjectData } from '../../types/types';
-
-const tabButtonStyle = (active: boolean): React.CSSProperties => ({
-  padding: '12px 24px',
-  cursor: 'pointer',
-  backgroundColor: active ? '#e0f7fa' : 'transparent',
-  border: 'none',
-  borderBottom: active ? '3px solid #007bff' : '3px solid transparent',
-  fontWeight: active ? 'bold' : 'normal',
-  color: active ? '#0056b3' : '#333',
-  transition: 'all 0.3s ease',
-});
 
 type TeamProjectProps = Partial<ProjectData> & {
   title: string;
@@ -41,23 +23,30 @@ const TeamProject: React.FC<TeamProjectProps> = (props) => {
     ...individualProjectProps
   } = props;
 
+  const getTabButtonClass = (active: boolean) =>
+    `px-4 md:px-6 py-3 cursor-pointer border-b-[3px] transition-all duration-300 ${
+      active
+        ? 'bg-[#e0f7fa] border-[#007bff] font-bold text-[#0056b3]'
+        : 'bg-transparent border-transparent font-normal text-[#333] hover:bg-gray-100'
+    }`;
+
   return (
     <div>
-      <div style={{ display: 'flex', gap: 0, marginBottom: '24px', borderBottom: '2px solid #e5e7eb', justifyContent: 'center' }}>
+      <div className="flex flex-wrap gap-0 mb-6 border-b-2 border-gray-200 justify-center">
         <button
-          style={tabButtonStyle(activeTab === 'main')}
+          className={getTabButtonClass(activeTab === 'main')}
           onClick={() => setActiveTab('main')}
         >
           메인
         </button>
         <button
-          style={tabButtonStyle(activeTab === 'team')}
+          className={getTabButtonClass(activeTab === 'team')}
           onClick={() => setActiveTab('team')}
         >
           팀원별 개발 파트
         </button>
         <button
-          style={tabButtonStyle(activeTab === 'me')}
+          className={getTabButtonClass(activeTab === 'me')}
           onClick={() => setActiveTab('me')}
         >
           내가 개발한 부분
