@@ -54,7 +54,11 @@ export const StudyContent: React.FC = () => {
               </li>
               <li className="flex gap-2">
                 <span className="text-rose-400 font-bold">•</span>
-                AI에게 일일이 설명하는 수고를 덜기 위해, <strong>코드 자체에 AI를 위한 가이드(주석)를 박아넣기 시작</strong>
+                <span>
+                  AI에게 일일이 설명하는 수고를 덜기 위해,
+                  <br />
+                  <strong>코드 자체에 AI를 위한 가이드(주석)를 박아넣기 시작</strong>
+                </span>
               </li>
             </ul>
           </div>
@@ -70,11 +74,11 @@ export const StudyContent: React.FC = () => {
             <ul className="space-y-3 text-sm text-slate-700">
               <li className="flex gap-2">
                 <span className="text-blue-400 font-bold">•</span>
-                <strong>AI Orchestration</strong>: 주석으로 '판'을 깔아주고 AI가 춤추게 함
+                <span><strong>AI Orchestration</strong>: 주석으로 '판'을 깔아주고 AI가 춤추게 함</span>
               </li>
               <li className="flex gap-2">
                 <span className="text-blue-400 font-bold">•</span>
-                직접 구현하는 시간보다 <strong>의도를 명확히 정의하는 시간</strong>에 집중
+                <span>직접 구현하는 시간보다 <strong>의도를 명확히 정의하는 시간</strong>에 집중</span>
               </li>
               <li className="flex gap-2">
                 <span className="text-blue-400 font-bold">•</span>
