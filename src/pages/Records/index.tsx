@@ -13,6 +13,7 @@ import { StudyContent as AssetMigrationContent } from './AssetMigration';
 import { StudyContent as InfraArchitectureContent } from './InfraArchitecture';
 import { StudyContent as CodeCommentsContent } from './CodeComments';
 import { StudyContent as BlueprintStrategyContent } from './BlueprintStrategy';
+import { StudyContent as DBAccessControlContent } from './DBAccessControl';
 import { StudyAccordion } from '../../components/Records/RecordsCommon';
 import type { RecordAccentTheme } from '../../components/Records/RecordsCommon';
 import { useRecords } from '../../hooks/useRecords';
@@ -45,6 +46,13 @@ const philosophyRecords: RecordItem[] = [
 ];
 
 const cloudInfraRecords: RecordItem[] = [
+  {
+    id: 'dbAccessControl',
+    title: '엔터프라이즈 DB 접근제어 아키텍처: Proxy 방식 vs Sniffing 방식 비교 및 설계',
+    date: '2026.10.18',
+    category: 'DB Security',
+    Content: DBAccessControlContent,
+  },
   {
     id: 'infraArch',
     title: '보안을 고려한 인프라 아키텍처 및 자동화 구축',
@@ -164,8 +172,8 @@ const Records: React.FC = () => {
       title: 'AI & Engineering Philosophy',
       subtitle: 'AI 오케스트레이션과 데이터 중심 설계 철학',
       theme: 'indigo',
-      icon: <BookOpen className="w-6 h-6 text-indigo-600" />,
-      badgeBg: 'bg-indigo-100 text-indigo-700',
+      icon: <BookOpen className="w-6 h-6 text-indigo-400" />,
+      badgeBg: 'bg-indigo-50 text-indigo-600 border border-indigo-100',
       isOpen: isPhilosophyOpen,
       items: philosophyRecords,
     },
@@ -174,8 +182,8 @@ const Records: React.FC = () => {
       title: 'Cloud & Infrastructure',
       subtitle: '클라우드 아키텍처, 네트워크 보안, 웹서버 및 IaC 엔지니어링',
       theme: 'emerald',
-      icon: <Server className="w-6 h-6 text-emerald-600" />,
-      badgeBg: 'bg-emerald-100 text-emerald-700',
+      icon: <Server className="w-6 h-6 text-emerald-400" />,
+      badgeBg: 'bg-emerald-50 text-emerald-600 border border-emerald-100',
       isOpen: isCloudInfraOpen,
       items: cloudInfraRecords,
     },
@@ -184,8 +192,8 @@ const Records: React.FC = () => {
       title: 'CI/CD & Container Orchestration',
       subtitle: '무중단 배포 파이프라인, 컨테이너 분리 및 서버 운영 자동화',
       theme: 'sky',
-      icon: <GitBranch className="w-6 h-6 text-sky-600" />,
-      badgeBg: 'bg-sky-100 text-sky-700',
+      icon: <GitBranch className="w-6 h-6 text-sky-400" />,
+      badgeBg: 'bg-sky-50 text-sky-600 border border-sky-100',
       isOpen: isCicdOpen,
       items: cicdRecords,
     },
@@ -194,17 +202,17 @@ const Records: React.FC = () => {
       title: 'Database & Application Architecture',
       subtitle: '고가용성 데이터베이스 구축, MSA 전환 및 프론트엔드 아키텍처 리팩토링',
       theme: 'purple',
-      icon: <Layers className="w-6 h-6 text-purple-600" />,
-      badgeBg: 'bg-purple-100 text-purple-700',
+      icon: <Layers className="w-6 h-6 text-purple-400" />,
+      badgeBg: 'bg-purple-50 text-purple-600 border border-purple-100',
       isOpen: isDbAppOpen,
       items: dbAppRecords,
     },
   ];
 
   return (
-    <div className="container max-w-6xl mx-auto px-4 md:px-8 py-10">
+    <div className="bg-white rounded-xl p-4 md:p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)] w-full max-w-none mb-5">
       <div className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight border-b-4 border-blue-500 pb-3 inline-block">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 tracking-tight border-b-4 border-blue-400/70 pb-3 inline-block">
           Study Records
         </h1>
       </div>
@@ -214,17 +222,17 @@ const Records: React.FC = () => {
         {sections.map((section) => (
           <section key={section.id} id={section.id} className="scroll-mt-8">
             {/* 섹션 헤더 */}
-            <div className="flex items-center justify-between gap-3 mb-5 pb-3 border-b border-slate-200">
+            <div className="flex items-center justify-between gap-3 mb-5 pb-3 border-b border-slate-200/80">
               <div className="flex items-center gap-3">
                 {section.icon}
-                <h2 className="text-xl md:text-2xl font-bold text-slate-800 uppercase tracking-wider">
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-700 uppercase tracking-wider">
                   {section.title}
                 </h2>
-                <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${section.badgeBg}`}>
+                <span className={`px-3 py-0.5 rounded-full text-sm font-bold ${section.badgeBg}`}>
                   {section.items.length}
                 </span>
               </div>
-              <span className="hidden md:inline text-xs text-slate-400">
+              <span className="hidden md:inline text-sm text-slate-400">
                 {section.subtitle}
               </span>
             </div>
