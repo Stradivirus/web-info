@@ -1,27 +1,29 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Globe, Zap, FileCode, Cpu, ArrowRightLeft } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const nginxImg: string = getRecordsImage('nginx.png');
 const caddyImg: string = getRecordsImage('caddy.png');
 
-const nginxConfig = `#server {
-#    listen 80;
-#    server_name _;
-#   root /var/www/html;
-#    index index.html index.htm;
-#    location / {
-#        try_files $uri $uri/ /index.html;
-#    }
-#    location ~* .(js|css|png|jpg|jpeg|gif|ico|svg)$ {
-#        expires 1y;
-#        add_header Cache-Control "public, immutable";
-#    }
-#    gzip on;
-#    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
-#    gzip_min_length 256;
-#}
-`;
+const nginxConfig = `server {
+    listen 80;
+    server_name _;
+    root /var/www/html;
+    index index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~* \\.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+    gzip_min_length 256;
+}`;
 
 const caddyConfig = `:80, :443, 문쫑.홈페이지.한국, xn--z92b88z.xn--hu5b25b77nvwc.xn--3e0b707e {
     root * /var/www/html
@@ -45,110 +47,136 @@ const caddyConfig = `:80, :443, 문쫑.홈페이지.한국, xn--z92b88z.xn--hu5b
         }
         minimum_length 256
     }
-}
-`;
+}`;
 
 const WebserverMigrationContent: React.FC = () => {
   const [isNginxOpen, setIsNginxOpen] = useState<boolean>(false);
   const [isCaddyOpen, setIsCaddyOpen] = useState<boolean>(false);
 
   return (
-    <div className="space-y-8">
-      <section>
-        <ul className="list-disc pl-5 text-gray-700 space-y-1 mb-4">
-          <li>
-            <b>Nginx</b>: 고성능 오픈소스 웹 서버이자 리버스 프록시 서버. 정적 파일 서빙, 로드밸런싱, 다양한 플러그인 지원 등으로 널리 사용됨.
-          </li>
-          <li>
-            <b>Caddy</b>: 자동 HTTPS(무료 SSL), 간결한 설정, 모던 기능(리버스 프록시, 정적 파일, 인증 등)을 기본 제공하는 신생 웹서버. 설정이 간편하고 자동화에 강점.
-          </li>
-        </ul>
-        <div className="bg-white border border-blue-100 rounded p-4 mb-4">
-          <ul className="list-disc pl-5 text-gray-700 space-y-1">
-            <li>
-              <b>성능</b>: 두 서버 모두 정적 파일 서빙, 프록시, 캐싱 등에서 매우 우수한 성능을 보임.
-            </li>
-            <li>
-              <b>설정 및 자동화</b>: Nginx는 유연하지만 설정이 복잡하고, SSL 자동화 등은 별도 스크립트/툴이 필요함.<br/>
-              Caddy는 <b>자동 HTTPS</b>와 <b>핫 리로드</b>, <b>간결한 설정</b>을 기본 제공하여 운영 자동화가 훨씬 편리함.
-            </li>
-            <li>
-              <b>실제 경험</b>: 운영 자동화, SSL 관리, 설정 유지보수의 편의성 때문에 Caddy로 마이그레이션.<br/>
-              <span className="text-blue-600">특히, 도메인 추가/변경, 인증서 갱신, 설정 배포가 매우 간단해짐.</span>
-            </li>
-            <li>
-              <b>결론</b>: <b>성능</b>이 중요하다면 Nginx, <b>운영 자동화와 관리 편의성</b>을 중시한다면 Caddy가 훨씬 효율적.
-            </li>
-          </ul>
+    <div className="space-y-12 py-4">
+      {/* 1. 요약 배너 */}
+      <div className="bg-emerald-50 p-6 rounded-2xl border-l-4 border-emerald-500 shadow-sm flex items-start gap-4">
+        <Globe className="w-7 h-7 text-emerald-600 mt-0.5 flex-shrink-0" />
+        <div className="space-y-1.5">
+          <h4 className="font-bold text-emerald-900 text-lg">운영 자동화와 Auto HTTPS를 위한 Nginx → Caddy 마이그레이션</h4>
+          <p className="text-emerald-800/90 leading-relaxed text-sm">
+            도메인 추가, SSL 인증서 자동 발급/갱신, 핫 리로드 등 운영 편의성을 극대화하기 위해 기존 Nginx에서 모던 웹서버 <strong>Caddy</strong>로 전환하고, 실제 메모리 점유율과 설정 복잡도를 비교 분석했습니다.
+          </p>
         </div>
-        <div className="mb-4">
-          <h3 className="text-lg font-medium mb-2">주요 변경점</h3>
-          <ul className="list-disc pl-5 text-gray-700 space-y-1">
-            <li>listen/port, server_name → Caddy는 자동 HTTPS 및 다중 도메인 지원</li>
-            <li>try_files, file_server, header, encode 등으로 정적 파일 캐싱 및 압축 처리</li>
-            <li>gzip 관련 설정은 encode 블록으로 대체</li>
-            <li>설정이 간결해지고 유지보수성이 향상됨</li>
-            <li>운영 자동화(SSL, 배포, 설정 변경 등)가 Caddy에서 훨씬 편리</li>
-          </ul>
+      </div>
+
+      {/* 2. Nginx vs Caddy 비교 카드 */}
+      <section>
+        <div className="flex items-center gap-2 mb-6 border-b pb-2">
+          <ArrowRightLeft className="w-5 h-5 text-emerald-600" />
+          <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Nginx vs Caddy Comparison</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">Legacy: Nginx</span>
+              <span className="text-xs font-mono text-emerald-600 font-bold">RAM ~476 KB</span>
+            </div>
+            <h4 className="font-bold text-slate-800">초경량 고성능 리버스 프록시</h4>
+            <ul className="text-xs text-slate-600 space-y-2 leading-relaxed">
+              <li>• C 기반 이벤트 드리븐 구조로 메모리 점유율이 극도로 낮음</li>
+              <li>• 대규모 트래픽 처리와 세밀한 튜닝에 강점</li>
+              <li>• SSL(Let&apos;s Encrypt) 인증서 발급/갱신을 위해 Certbot 등 별도 스크립트 관리 필요</li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border-2 border-emerald-200 shadow-sm space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">Adopted: Caddy</span>
+              <span className="text-xs font-mono text-blue-600 font-bold">RAM ~16.6 MB</span>
+            </div>
+            <h4 className="font-bold text-slate-800">자동 HTTPS & 선언적 설정 웹서버</h4>
+            <ul className="text-xs text-slate-600 space-y-2 leading-relaxed">
+              <li>• 도메인만 명시하면 SSL 인증서 발급·갱신 및 HTTP→HTTPS 리다이렉트 완전 자동화</li>
+              <li>• 직관적인 <code className="bg-slate-100 px-1 rounded">Caddyfile</code> 블록 문법으로 유지보수성 대폭 향상</li>
+              <li>• 한글 도메인(퓨니코드) 멀티 바인딩 및 무중단 핫 리로드 기본 지원</li>
+            </ul>
+          </div>
         </div>
       </section>
+
+      {/* 3. 설정 파일 비교 (Dark Code Accordions) */}
       <section>
-        {/* nginx.conf 토글 */}
-        <div>
-          <button
-            onClick={() => setIsNginxOpen(v => !v)}
-            className="w-full bg-gray-50 hover:bg-gray-100 rounded-t-lg border border-gray-200 p-4 text-left transition-colors flex items-center justify-between"
-          >
-            <span className="font-mono text-gray-600">기존 nginx.conf</span>
-            {isNginxOpen ? <ChevronUp className="w-5 h-5 text-gray-500" /> : <ChevronDown className="w-5 h-5 text-gray-500" />}
-          </button>
-          {isNginxOpen && (
-              <div className="border-x border-b border-gray-200 rounded-b-lg">
-              <pre className="p-4 overflow-x-auto bg-gray-50 rounded-b-lg">
-                <code className="text-sm font-mono text-gray-800 whitespace-pre">
-                  {nginxConfig}
-                </code>
+        <div className="flex items-center gap-2 mb-6 border-b pb-2">
+          <FileCode className="w-5 h-5 text-slate-700" />
+          <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Configuration Migration</h3>
+        </div>
+        <div className="space-y-4">
+          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+            <button
+              type="button"
+              onClick={() => setIsNginxOpen((v) => !v)}
+              className="w-full bg-slate-800 p-4 text-left flex items-center justify-between hover:bg-slate-700 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <FileCode className="w-5 h-5 text-slate-400" />
+                <span className="font-mono text-slate-200 text-sm">기존 nginx.conf</span>
+              </div>
+              {isNginxOpen ? <ChevronUp className="text-slate-400" /> : <ChevronDown className="text-slate-400" />}
+            </button>
+            {isNginxOpen && (
+              <pre className="p-6 bg-slate-900 text-[13px] leading-relaxed text-slate-300 overflow-x-auto font-mono">
+                <code>{nginxConfig}</code>
               </pre>
-            </div>
-          )}
-        </div>
-        {/* Caddyfile 토글 */}
-        <div>
-          <button
-            onClick={() => setIsCaddyOpen(v => !v)}
-            className="w-full bg-gray-50 hover:bg-gray-100 rounded-t-lg border border-gray-200 p-4 text-left transition-colors flex items-center justify-between"
-          >
-            <span className="font-mono text-gray-600">새 Caddyfile</span>
-            {isCaddyOpen ? <ChevronUp className="w-5 h-5 text-gray-500" /> : <ChevronDown className="w-5 h-5 text-gray-500" />}
-          </button>
-          {isCaddyOpen && (
-              <div className="border-x border-b border-gray-200 rounded-b-lg">
-              <pre className="p-4 overflow-x-auto bg-gray-50 rounded-b-lg">
-                <code className="text-sm font-mono text-gray-800 whitespace-pre">
-                  {caddyConfig}
-                </code>
+            )}
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+            <button
+              type="button"
+              onClick={() => setIsCaddyOpen((v) => !v)}
+              className="w-full bg-slate-800 p-4 text-left flex items-center justify-between hover:bg-slate-700 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <Zap className="w-5 h-5 text-emerald-400" />
+                <span className="font-mono text-slate-200 text-sm">신규 Caddyfile (Auto HTTPS + Gzip + Static Cache)</span>
+              </div>
+              {isCaddyOpen ? <ChevronUp className="text-slate-400" /> : <ChevronDown className="text-slate-400" />}
+            </button>
+            {isCaddyOpen && (
+              <pre className="p-6 bg-slate-900 text-[13px] leading-relaxed text-emerald-300 overflow-x-auto font-mono">
+                <code>{caddyConfig}</code>
               </pre>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. 리소스 사용량 실측 비교 */}
+      <section className="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <Cpu className="w-5 h-5 text-blue-600" />
+            <h3 className="text-xl font-bold text-slate-800">실제 프로세스 메모리 사용량 비교 (systemctl status)</h3>
+          </div>
+          <span className="text-xs text-slate-500">
+            극한의 경량성이 필요할 때는 Nginx(476K), 운영 자동화/SSL 편의성이 중요할 때는 Caddy(16.6M) 선택
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between px-1">
+              <span className="text-sm font-bold text-slate-700">Nginx 프로세스 상태</span>
+              <span className="text-xs font-mono font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full">Memory: 476.0K</span>
             </div>
-          )}
-        </div>
-        {/* 한 줄 여백 추가 */}
-        <div className="my-6"></div>
-        <h3 className="text-lg font-medium mb-3">성능 스크린샷</h3>
-        <div className="text-gray-700 text-base mb-4">
-          <b>참고:</b> 아래 스크린샷에서 <span className="text-green-700">nginx</span>가 <span className="font-mono">476.0K</span> 메모리를 사용하고, <span className="text-blue-700">caddy</span>는 <span className="font-mono">16.6M</span> 메모리를 사용함을 알 수 있습니다.<br />
-          <span className="text-gray-600">nginx가 caddy에 비해 훨씬 적은 메모리를 사용하는 것이 특징입니다.</span>
-        </div>
-        <div className="flex flex-col md:flex-row gap-8 mb-8">
-          <div className="flex-1">
-            <p className="mb-2 text-base text-gray-800">nginx 성능</p>
-            <div className="rounded-lg overflow-hidden border border-gray-200">
-              <img src={nginxImg} alt="nginx 설정 구조" className="w-full" />
+            <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-md">
+              <img src={nginxImg} alt="nginx 설정 구조" className="w-full hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
-          <div className="flex-1">
-            <p className="mb-2 text-base text-gray-800">caddy 성능</p>
-            <div className="rounded-lg overflow-hidden border border-gray-200">
-              <img src={caddyImg} alt="caddy 설정 구조" className="w-full" />
+          <div className="space-y-3">
+            <div className="flex items-center justify-between px-1">
+              <span className="text-sm font-bold text-slate-700">Caddy 프로세스 상태</span>
+              <span className="text-xs font-mono font-bold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full">Memory: 16.6M</span>
+            </div>
+            <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-md">
+              <img src={caddyImg} alt="caddy 설정 구조" className="w-full hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
         </div>

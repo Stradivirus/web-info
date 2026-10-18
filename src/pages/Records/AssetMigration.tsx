@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Cloud, FileCode, Zap, CheckCircle2, BarChart3, FolderTree } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const oracleApiMonitoring = getRecordsImage('OracleApiMonitoring.png');
@@ -11,307 +11,235 @@ export const StudyContent: React.FC = () => {
   const [isBeforeAfterVisible, setIsBeforeAfterVisible] = useState(false);
 
   return (
-    <div className="space-y-8">
-      <section>
-        <h3 className="text-lg font-medium mb-3">리팩토링 배경</h3>
-        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-          <li>React 번들에 포함된 대용량 이미지/비디오 파일로 인한 번들 크기 증가</li>
-          <li>확장 가능한 에셋 관리 체계와 CDN 효과를 통한 성능 최적화 필요성</li>
-        </ul>
-      </section>
+    <div className="space-y-12 py-4">
+      {/* 1. 요약 배너 */}
+      <div className="bg-emerald-50 p-6 rounded-2xl border-l-4 border-emerald-500 shadow-sm flex items-start gap-4">
+        <Cloud className="w-7 h-7 text-emerald-600 mt-0.5 flex-shrink-0" />
+        <div className="space-y-1.5">
+          <h4 className="font-bold text-emerald-900 text-lg">정적 에셋 클라우드 스토리지 분리 및 차등 캐싱 최적화</h4>
+          <p className="text-emerald-800/90 leading-relaxed text-sm">
+            React 빌드 번들에 포함되어 있던 대용량 이미지와 데모 비디오를 <strong>Oracle Cloud Object Storage</strong>로 분리하고,
+            Caddy 웹서버의 파일 유형별 <strong>차등 캐싱(24시간 / 2주 / 1달)</strong>을 결합해 빌드 시간을 1분 단축하고 재방문 시 API 요청을 0건으로 줄였습니다.
+          </p>
+        </div>
+      </div>
 
+      {/* 2. 3대 핵심 전략 */}
       <section>
-        <h3 className="text-lg font-medium mb-3">구현 환경</h3>
-        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-          <li>Oracle Cloud Object Storage (Always Free Tier)</li>
-          <li>React 앱 (기존 로컬 assets 구조)</li>
-          <li>Caddy 웹서버 (캐싱 최적화)</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3 className="text-lg font-medium mb-3">구현 내용</h3>
-        <div className="space-y-4 text-gray-600">
-          <div>
-            <h4 className="font-medium mb-2">1. Oracle Cloud Object Storage 설정</h4>
-            <div className="space-y-2 pl-4">
-              <p>- 퍼블릭 버킷 생성 및 읽기 전용 권한 설정</p>
-              <p>- 폴더 구조 설계: records/, project/, video/, profile/, certifications/ 등</p>
-            </div>
+        <div className="flex items-center gap-2 mb-6 border-b pb-2">
+          <FolderTree className="w-5 h-5 text-emerald-600" />
+          <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Migration & Caching Strategy</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-emerald-600 mb-3 text-sm flex items-center gap-2">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full" />
+              1. OCI Object Storage
+            </h4>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• Always Free 퍼블릭 버킷(읽기 전용) 구성</li>
+              <li>• <code className="bg-slate-100 px-1 rounded">records/</code>, <code className="bg-slate-100 px-1 rounded">project/</code>, <code className="bg-slate-100 px-1 rounded">video/</code>, <code className="bg-slate-100 px-1 rounded">certifications/</code> 계층 설계</li>
+              <li>• 웹팩 번들에서 대용량 바이너리 완전 분리</li>
+            </ul>
           </div>
 
-          <div>
-            <h4 className="font-medium mb-2">2. React 앱 리팩토링</h4>
-            <div className="space-y-2 pl-4">
-              <p>- storage.js 중앙화된 URL 관리 시스템 구축</p>
-              <p>- require.context 제거 및 동적 import 최적화</p>
-              <p>- 모든 프로젝트와 Records 컴포넌트의 Oracle Storage 함수 적용</p>
-              <p>- 이미지 모달 기능 제거로 UI 단순화</p>
-            </div>
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-blue-600 mb-3 text-sm flex items-center gap-2">
+              <span className="w-2 h-2 bg-blue-500 rounded-full" />
+              2. React 코드 리팩토링
+            </h4>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• <code className="bg-slate-100 px-1 rounded">storage.ts</code> 중앙화된 에셋 URL 헬퍼 구축</li>
+              <li>• 무거운 <code className="bg-slate-100 px-1 rounded">require.context</code> 제거 및 정적 매핑</li>
+              <li>• 빌드 속도 1분 단축 및 번들 경량화 달성</li>
+            </ul>
           </div>
 
-          <div>
-            <h4 className="font-medium mb-2">3. 성능 최적화</h4>
-            <div className="space-y-2 pl-4">
-              <p>- Caddy 웹서버 캐싱 설정: 이미지 2주, 비디오 1달</p>
-              <p>- Oracle Cloud API 요청 최소화 전략 수립</p>
-              <p>- 브라우저 캐시 활용으로 재방문 시 API 요청 0건</p>
-            </div>
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-purple-600 mb-3 text-sm flex items-center gap-2">
+              <span className="w-2 h-2 bg-purple-500 rounded-full" />
+              3. Caddy 차등 캐싱
+            </h4>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• CSS/JS: <strong>24시간</strong> · 이미지/폰트: <strong>2주</strong> · 비디오: <strong>1달</strong></li>
+              <li>• HTML은 <code className="bg-slate-100 px-1 rounded">no-store</code>로 SPA 최신성 보장</li>
+              <li>• 브라우저 캐시 히트로 재방문 시 OCI API 호출 0건</li>
+            </ul>
           </div>
         </div>
       </section>
 
+      {/* 3. 주요 구현 코드 (Dark Accordions) */}
       <section>
-        <h3 className="text-lg font-medium mb-3">주요 코드</h3>
+        <div className="flex items-center gap-2 mb-6 border-b pb-2">
+          <FileCode className="w-5 h-5 text-slate-700" />
+          <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Implementation Code</h3>
+        </div>
         <div className="space-y-4">
-          <div>
+          {/* storage.ts */}
+          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
             <button
+              type="button"
               onClick={() => setIsStorageCodeVisible(!isStorageCodeVisible)}
-              className="w-full bg-gray-50 hover:bg-gray-100 rounded-t-lg border border-gray-200 p-4 text-left transition-colors"
+              className="w-full bg-slate-800 p-4 text-left flex items-center justify-between hover:bg-slate-700 transition-colors"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <span className="font-mono text-gray-600">storage.js - 중앙화된 URL 관리</span>
-                </div>
-                {isStorageCodeVisible ?
-                  <ChevronUp className="w-5 h-5 text-gray-500" /> :
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
-                }
+              <div className="flex items-center gap-3">
+                <FileCode className="w-5 h-5 text-emerald-400" />
+                <span className="font-mono text-slate-200 text-sm">src/config/storage.ts - 중앙화된 URL 관리 시스템</span>
               </div>
+              {isStorageCodeVisible ? <ChevronUp className="text-slate-400" /> : <ChevronDown className="text-slate-400" />}
             </button>
             {isStorageCodeVisible && (
-              <div className="border-x border-b border-gray-200 rounded-b-lg">
-                <div className="p-4 bg-gray-100 border-b border-gray-200">
-                  <p className="text-sm text-gray-700 mb-2">
-                    <strong>핵심 아이디어</strong>: 폴더별 전용 함수로 중앙화된 URL 관리 시스템 구축
-                  </p>
-                  <div className="grid grid-cols-2 gap-4 text-xs text-gray-600">
-                    <div>
-                      <strong>Records 폴더</strong>: 기술 문서 이미지
-                    </div>
-                    <div>
-                      <strong>Project 폴더</strong>: 프로젝트별 스크린샷
-                    </div>
-                    <div>
-                      <strong>Video 폴더</strong>: 데모 비디오 파일
-                    </div>
-                    <div>
-                      <strong>Profile 폴더</strong>: 프로필 이미지
-                    </div>
-                  </div>
-                </div>
-                <pre className="p-4 overflow-x-auto bg-gray-900 rounded-b-lg">
-                  <code className="text-sm font-mono text-green-400">
-{`// Oracle Cloud Object Storage 설정
+              <pre className="p-6 bg-slate-900 text-[13px] leading-relaxed text-emerald-300 overflow-x-auto font-mono">
+                <code>{`// Oracle Cloud Object Storage 설정
 const BUCKET_BASE_URL = 'https://objectstorage.ap-osaka-1.oraclecloud.com/n/axt322c13ce3/b/PortFolio/o/';
 
 // 기본 이미지 URL 생성 함수
-export const getImageUrl = (path) => {
-  return \`\${BUCKET_BASE_URL}\${path}\`;
-};
+export const getImageUrl = (path: string) => \`\${BUCKET_BASE_URL}\${path}\`;
 
-// Records 폴더 이미지 전용 함수
-export const getRecordsImage = (filename) => {
-  return getImageUrl(\`records/\${filename}\`);
-};
-
-// Project 별 폴더 이미지 전용 함수들
-export const getProject2Image = (filename) => {
-  return getImageUrl(\`project/2/\${filename}\`);
-};
-
-export const getProject3Image = (filename) => {
-  return getImageUrl(\`project/3/\${filename}\`);
-};
-
-// Video 폴더 비디오 전용 함수
-export const getVideoUrl = (filename) => {
-  return getImageUrl(\`video/\${filename}\`);
-};`}
-                  </code>
-                </pre>
-              </div>
+// 도메인별 전용 헬퍼 함수
+export const getRecordsImage = (filename: string) => getImageUrl(\`records/\${filename}\`);
+export const getProject2Image = (filename: string) => getImageUrl(\`project/2/\${filename}\`);
+export const getProject3Image = (filename: string) => getImageUrl(\`project/3/\${filename}\`);
+export const getVideoUrl = (filename: string) => getImageUrl(\`video/\${filename}\`);`}</code>
+              </pre>
             )}
           </div>
 
-          <div>
+          {/* Before/After */}
+          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
             <button
+              type="button"
               onClick={() => setIsBeforeAfterVisible(!isBeforeAfterVisible)}
-              className="w-full bg-gray-50 hover:bg-gray-100 rounded-t-lg border border-gray-200 p-4 text-left transition-colors"
+              className="w-full bg-slate-800 p-4 text-left flex items-center justify-between hover:bg-slate-700 transition-colors"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <span className="font-mono text-gray-600">마이그레이션 전후 비교</span>
-                </div>
-                {isBeforeAfterVisible ?
-                  <ChevronUp className="w-5 h-5 text-gray-500" /> :
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
-                }
+              <div className="flex items-center gap-3">
+                <Zap className="w-5 h-5 text-amber-400" />
+                <span className="font-mono text-slate-200 text-sm">Before & After: require.context 제거 및 경량화</span>
               </div>
+              {isBeforeAfterVisible ? <ChevronUp className="text-slate-400" /> : <ChevronDown className="text-slate-400" />}
             </button>
             {isBeforeAfterVisible && (
-              <div className="border-x border-b border-gray-200 rounded-b-lg">
-                <div className="p-4 bg-gray-100 border-b border-gray-200">
-                  <p className="text-sm text-gray-700 mb-2">
-                    <strong>주요 변경사항</strong>: require.context 복잡한 구조 → 간단한 Oracle Storage 함수 호출
-                  </p>
-                </div>
-                <pre className="p-4 overflow-x-auto bg-gray-900 rounded-b-lg">
-                  <code className="text-sm font-mono">
-                    <span className="text-orange-400">
-{`// 마이그레이션 전 (로컬 assets)
+              <pre className="p-6 bg-slate-900 text-[13px] leading-relaxed overflow-x-auto font-mono">
+                <code>
+                  <span className="text-rose-400">{`// [Before] 로컬 assets 번들 포함 & 무거운 require.context
 import screenshot1 from '../../../assets/images/project/Project3/screenshot1.png';
-const imageContext = require.context('../../../assets/images/project/Project3', false, /screenshot\\d+\\.png$/);`}
-                    </span>
-                    <span className="text-green-400">
-{`
-
-// 마이그레이션 후 (Oracle Storage)
+const imageContext = require.context('../../../assets/images/project/Project3', false, /screenshot\\d+\\.png$/);`}</span>
+                  {'\n\n'}
+                  <span className="text-emerald-300">{`// [After] Oracle Object Storage URL 매핑
 import { getProject3Image } from '../../../config/storage';
-const screenshot1 = getProject3Image('screenshot1.png');
-
-// 간단한 배열 맵핑으로 변경
 const screenshots = [1, 2].map(num => ({
   id: String(num),
   type: 'image',
   url: getProject3Image(\`screenshot\${num}.png\`),
   caption: captions[String(num)] || \`스크린샷 \${num}\`
-}));`}
-                    </span>
-                  </code>
-                </pre>
-              </div>
+}));`}</span>
+                </code>
+              </pre>
             )}
           </div>
 
-          <div>
+          {/* Caddyfile */}
+          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
             <button
+              type="button"
               onClick={() => setIsCaddyCodeVisible(!isCaddyCodeVisible)}
-              className="w-full bg-gray-50 hover:bg-gray-100 rounded-t-lg border border-gray-200 p-4 text-left transition-colors"
+              className="w-full bg-slate-800 p-4 text-left flex items-center justify-between hover:bg-slate-700 transition-colors"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <span className="font-mono text-gray-600">Caddy 캐싱 최적화 설정</span>
-                </div>
-                {isCaddyCodeVisible ?
-                  <ChevronUp className="w-5 h-5 text-gray-500" /> :
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
-                }
+              <div className="flex items-center gap-3">
+                <FileCode className="w-5 h-5 text-sky-400" />
+                <span className="font-mono text-slate-200 text-sm">Caddyfile - 확장자별 차등 Cache-Control 및 보안 헤더</span>
               </div>
+              {isCaddyCodeVisible ? <ChevronUp className="text-slate-400" /> : <ChevronDown className="text-slate-400" />}
             </button>
             {isCaddyCodeVisible && (
-              <div className="border-x border-b border-gray-200 rounded-b-lg">
-                <div className="p-4 bg-gray-100 border-b border-gray-200">
-                  <p className="text-sm text-gray-700 mb-2">
-                    <strong>캐싱 전략</strong>: 파일 변경 빈도에 따른 차등 캐싱으로 Oracle API 요청 최소화
-                  </p>
-                  <div className="grid grid-cols-3 gap-4 text-xs text-gray-600">
-                    <div>
-                      <strong>24시간</strong>: CSS, JS<br />
-                      <span className="text-gray-500">(자주 업데이트)</span>
-                    </div>
-                    <div>
-                      <strong>2주</strong>: 이미지, 폰트<br />
-                      <span className="text-gray-500">(거의 변경 없음)</span>
-                    </div>
-                    <div>
-                      <strong>1달</strong>: 비디오<br />
-                      <span className="text-gray-500">(대용량, 변경 없음)</span>
-                    </div>
-                  </div>
-                </div>
-                <pre className="p-4 overflow-x-auto bg-gray-900 rounded-b-lg">
-                  <code className="text-sm font-mono text-green-400">
-{`  # 정적 파일 캐싱 설정
-    header {
-        # CSS, JS 파일 - 24시간 캐싱
-        ?*.css "Cache-Control" "public, max-age=86400"
-        ?*.js "Cache-Control" "public, max-age=86400"
-        
-        # 이미지 파일 - 2주 캐싱 (1,209,600초)
-        ?*.png "Cache-Control" "public, max-age=1209600"
-        ?*.jpg "Cache-Control" "public, max-age=1209600"
-        ?*.jpeg "Cache-Control" "public, max-age=1209600"
-        ?*.gif "Cache-Control" "public, max-age=1209600"
-        ?*.webp "Cache-Control" "public, max-age=1209600"
-        ?*.svg "Cache-Control" "public, max-age=1209600"
-        ?*.ico "Cache-Control" "public, max-age=1209600"
-        
-        # 폰트 파일 - 2주 캐싱
-        ?*.woff "Cache-Control" "public, max-age=1209600"
-        ?*.woff2 "Cache-Control" "public, max-age=1209600"
-        ?*.ttf "Cache-Control" "public, max-age=1209600"
-        ?*.eot "Cache-Control" "public, max-age=1209600"
-        
-        # 비디오 파일 - 1달 캐싱 (2,592,000초)
-        ?*.mp4 "Cache-Control" "public, max-age=2592000"
-        
-        # HTML 파일은 캐시하지 않음 (React SPA 권장)
-        ?*.html "Cache-Control" "no-cache, no-store, must-revalidate"
-        
-        # 보안 헤더
-        "X-Content-Type-Options" "nosniff"
-        "X-Frame-Options" "DENY"
-        "Referrer-Policy" "strict-origin-when-cross-origin"
-    }
-`}
-                  </code>
-                </pre>
-              </div>
+              <pre className="p-6 bg-slate-900 text-[13px] leading-relaxed text-slate-300 overflow-x-auto font-mono">
+                <code>{`header {
+    # CSS, JS 파일 - 24시간 캐싱
+    ?*.css "Cache-Control" "public, max-age=86400"
+    ?*.js  "Cache-Control" "public, max-age=86400"
+
+    # 이미지 및 폰트 파일 - 2주 캐싱 (1,209,600초)
+    ?*.png  "Cache-Control" "public, max-age=1209600"
+    ?*.jpg  "Cache-Control" "public, max-age=1209600"
+    ?*.webp "Cache-Control" "public, max-age=1209600"
+    ?*.svg  "Cache-Control" "public, max-age=1209600"
+    ?*.woff2 "Cache-Control" "public, max-age=1209600"
+
+    # 비디오 파일 - 1달 캐싱 (2,592,000초)
+    ?*.mp4 "Cache-Control" "public, max-age=2592000"
+
+    # HTML 파일은 캐시하지 않음 (React SPA 즉시 반영)
+    ?*.html "Cache-Control" "no-cache, no-store, must-revalidate"
+
+    # 보안 헤더
+    "X-Content-Type-Options" "nosniff"
+    "X-Frame-Options" "DENY"
+    "Referrer-Policy" "strict-origin-when-cross-origin"
+}`}</code>
+              </pre>
             )}
           </div>
         </div>
       </section>
 
-      <section>
-        <h3 className="text-lg font-medium mb-3">개선된 점</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-            <h4 className="font-semibold text-green-800 mb-3">✅ 결과</h4>
-            <ul className="text-sm text-green-700 space-y-1">
-              <li>• React 번들 크기 대폭 감소 (이미지/비디오 파일 제거)</li>
-              <li>• 빌드 시간 1분 단축 (대용량 에셋 제거 효과)</li>
-              <li>• CDN 효과로 전 세계 어디서든 빠른 이미지 로딩 속도 확보</li>
-              <li>• 중앙화된 URL 관리로 유지보수성 향상</li>
-            </ul>
-          </div>
-          <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
-            <h4 className="font-semibold text-purple-800 mb-3">🔧 기술 역량</h4>
-            <ul className="text-sm text-purple-700 space-y-1">
-              <li>• 클라우드 스토리지 서비스 실무 활용 경험</li>
-              <li>• React 앱 성능 최적화 및 번들 크기 관리 기법</li>
-              <li>• 웹서버 캐싱 전략 수립 및 적용 경험</li>
-              <li>• 대규모 리팩토링 프로젝트 계획 및 실행 경험</li>
-            </ul>
-          </div>
+      {/* 4. Oracle Cloud 버킷 & 모니터링 스크린샷 */}
+      <section className="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+        <div className="flex items-center gap-2">
+          <BarChart3 className="w-5 h-5 text-emerald-600" />
+          <h3 className="text-xl font-bold text-slate-800">Oracle Cloud 버킷 구조 및 API 모니터링</h3>
         </div>
-      </section>
-      <section>
-        <h3 className="text-lg font-medium mb-3">Oracle Cloud 스크린샷</h3>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="md:col-span-1">
-            <p className="mb-3 text-base text-gray-800">폴더 구조로 파일 관리</p>
-            <div className="rounded-lg overflow-hidden border border-gray-200">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+          <div className="md:col-span-1 space-y-2">
+            <span className="text-xs font-bold text-slate-600 block">폴더 계층 구조</span>
+            <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-md">
               <img
                 src={oracleObjectStorage}
                 alt="Oracle Cloud Object Storage 폴더 구조"
-                className="w-full hover:opacity-90 transition-opacity"
+                className="w-full"
               />
             </div>
           </div>
-          
-          <div className="md:col-span-3">
-            <p className="mb-3 text-base text-gray-800">API 사용량 모니터링</p>
-            <div className="rounded-lg overflow-hidden border border-gray-200">
+
+          <div className="md:col-span-3 space-y-2">
+            <span className="text-xs font-bold text-slate-600 block">Object Storage API 사용량 모니터링</span>
+            <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-md">
               <img
                 src={oracleApiMonitoring}
                 alt="Oracle Cloud API 사용량 모니터링 그래프"
-                className="w-full hover:opacity-90 transition-opacity"
+                className="w-full"
               />
             </div>
           </div>
         </div>
       </section>
+
+      {/* 5. 성과 요약 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-gradient-to-br from-emerald-50 to-white p-6 rounded-2xl border border-emerald-200/80">
+          <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2">
+            <CheckCircle2 className="w-5 h-5" />
+            정량적 개선 결과
+          </h4>
+          <ul className="text-sm text-emerald-700 space-y-2.5 font-medium">
+            <li>• 대용량 미디어 제거로 React 빌드 번들 크기 대폭 감량</li>
+            <li>• CI/CD 프론트엔드 빌드 시간 약 1분 단축</li>
+            <li>• 브라우저 캐시 적중을 통해 재방문 시 스토리지 API 요청 0건 달성</li>
+          </ul>
+        </div>
+        <div className="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl border border-indigo-200/80">
+          <h4 className="font-bold text-indigo-800 mb-4 flex items-center gap-2">
+            <Zap className="w-5 h-5" />
+            아키텍처적 가치
+          </h4>
+          <ul className="text-sm text-indigo-700 space-y-2.5 font-medium">
+            <li>• 코드 배포 없이도 스토리지 버킷 교체만으로 미디어 즉시 업데이트 가능</li>
+            <li>• 중앙 집중식 <code className="bg-indigo-100 px-1 rounded text-xs">storage.ts</code> 모듈로 에셋 경로 파편화 해결</li>
+            <li>• 클라우드 프리티어 한도를 지키는 비용 최적화 캐싱 전략 확립</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
+export default StudyContent;

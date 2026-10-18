@@ -1,4 +1,5 @@
 import React from 'react';
+import { Database, Shield, Server, CheckCircle2 } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const pgHbaImg = getRecordsImage('pg_hba_conf.png');
@@ -6,68 +7,120 @@ const pgConfImg = getRecordsImage('postgresql_conf.png');
 
 export const StudyContent: React.FC = () => {
   return (
-    <div className="space-y-8">
-      <section>
-        <h3 className="text-lg font-medium mb-3">구현 배경</h3>
-        <div className="space-y-2 text-gray-600">
-          <p>
-            Docker로 서비스 관리 중 컨테이너 재시작이나 이미지 갱신 과정에서 DB가 초기화되는 문제가 발생하곤 했습니다.
-            이러한 위험을 줄이고 데이터의 안정성과 관리 효율성을 높이기 위해, DB를 오라클 클라우드 VM에 분리하여 운영하게 되었습니다.
+    <div className="space-y-12 py-4">
+      {/* 1. 구현 배경 요약 */}
+      <div className="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-500 shadow-sm flex items-start gap-4">
+        <Database className="w-7 h-7 text-purple-600 mt-0.5 flex-shrink-0" />
+        <div className="space-y-1.5">
+          <h4 className="font-bold text-purple-900 text-lg">컨테이너 의존성 탈피 및 독립 DB 서버 구축</h4>
+          <p className="text-purple-800/90 leading-relaxed text-sm">
+            Docker로 서비스를 관리하던 중 컨테이너 재시작이나 이미지 갱신 과정에서 DB 데이터가 초기화되는 위험이 있었습니다.
+            데이터 영속성과 운영 안정성을 높이기 위해 <strong>Oracle Cloud 독립 VM에 PostgreSQL 17을 분리 구축</strong>했습니다.
           </p>
+        </div>
+      </div>
+
+      {/* 2. 구현 환경 & 핵심 설정 */}
+      <section>
+        <div className="flex items-center gap-2 mb-6 border-b pb-2">
+          <Server className="w-5 h-5 text-indigo-600" />
+          <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Environment & Key Configuration</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-purple-600 mb-3 text-sm flex items-center gap-2">
+              <span className="w-2 h-2 bg-purple-500 rounded-full" />
+              System Spec
+            </h4>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• Oracle Cloud Free Tier VM</li>
+              <li>• Rocky Linux 9 OS</li>
+              <li>• PostgreSQL 17 Engine</li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-blue-600 mb-3 text-sm flex items-center gap-2">
+              <span className="w-2 h-2 bg-blue-500 rounded-full" />
+              pg_hba.conf 접근 제어
+            </h4>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• 인가된 특정 IP 대역만 접속 허용</li>
+              <li>• <code className="bg-slate-100 px-1 rounded">md5</code> / <code className="bg-slate-100 px-1 rounded">scram-sha-256</code> 암호화 인증 적용</li>
+              <li>• 무차별 외부 접근 원천 차단</li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-emerald-600 mb-3 text-sm flex items-center gap-2">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full" />
+              postgresql.conf 네트워크
+            </h4>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• <code className="bg-slate-100 px-1 rounded">listen_addresses</code> 외부 인터페이스 바인딩</li>
+              <li>• 5432 포트 및 커넥션 풀 파라미터 튜닝</li>
+              <li>• 애플리케이션 서버와의 안정적 연결 확보</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section>
-        <h3 className="text-lg font-medium mb-3">구현 환경</h3>
-        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-          <li>Oracle Cloud Free Tier VM</li>
-          <li>PostgreSQL 17</li>
-          <li>Rocky Linux 9</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3 className="text-lg font-medium mb-3">주요 설정</h3>
-        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-          <li>pg_hba.conf에서 외부 접속 허용, 인증 방식(md5), 특정 IP 허용 등 접근 제어 적용</li>
-          <li>postgresql.conf에서 listen_addresses, port 등 외부 연결을 위한 네트워크 설정 적용</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3 className="text-lg font-medium mb-3">개선 및 학습 효과</h3>
-        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-          <li>실제 클라우드 환경에서의 DB 접근 제어 경험</li>
-          <li>보안 및 네트워크 설정의 중요성 체감</li>
-          <li>운영 환경에서의 실전 문제 해결 및 적용 경험</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3 className="text-lg font-medium mb-3">설정 스크린샷</h3>
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex-1">
-            <p className="mb-2 text-base text-gray-800">pg_hba.conf 설정</p>
-            <div className="rounded-lg overflow-hidden border border-gray-200">
+      {/* 3. 설정 스크린샷 */}
+      <section className="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+        <div className="flex items-center gap-2">
+          <Shield className="w-5 h-5 text-purple-600" />
+          <h3 className="text-xl font-bold text-slate-800">실제 서버 설정 검증 스크린샷</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between px-1">
+              <span className="text-sm font-bold text-slate-700">pg_hba.conf 설정</span>
+              <span className="text-xs font-mono text-slate-400">Client Authentication</span>
+            </div>
+            <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-md">
               <img
                 src={pgHbaImg}
                 alt="pg_hba.conf 설정"
-                className="w-full"
+                className="w-full hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
-          <div className="flex-1">
-            <p className="mb-2 text-base text-gray-800">postgresql.conf 설정</p>
-            <div className="rounded-lg overflow-hidden border border-gray-200">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between px-1">
+              <span className="text-sm font-bold text-slate-700">postgresql.conf 설정</span>
+              <span className="text-xs font-mono text-slate-400">Network & Listener</span>
+            </div>
+            <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-md">
               <img
                 src={pgConfImg}
                 alt="postgresql.conf 설정"
-                className="w-full"
+                className="w-full hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
         </div>
       </section>
+
+      {/* 4. 학습 및 개선 효과 */}
+      <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl text-white shadow-xl">
+        <h4 className="text-lg font-bold mb-5 flex items-center gap-2">
+          <span className="w-6 h-1 bg-purple-400 rounded-full" />
+          Key Takeaways & Impact
+        </h4>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            '컨테이너 재배포와 무관하게 데이터베이스 영속성(Persistence) 완벽 보장',
+            '클라우드 방화벽과 DB 자체 인증(pg_hba.conf)을 결합한 이중 보안 체계 체득',
+            '추후 Primary-Standby 스트리밍 복제 아키텍처로 확장하기 위한 기반 마련',
+          ].map((text, idx) => (
+            <div key={idx} className="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+              <span className="text-sm text-slate-200 leading-relaxed">{text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
+export default StudyContent;
