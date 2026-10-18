@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 
 export interface OpenRecordsState {
+  enterpriseNetwork: boolean;
   dbAccessControl: boolean;
   webserver: boolean;
   dockercompose: boolean;
@@ -19,6 +20,7 @@ export interface OpenRecordsState {
 }
 
 const initialState: OpenRecordsState = {
+  enterpriseNetwork: false,
   dbAccessControl: false,
   webserver: false,
   dockercompose: false,
@@ -55,6 +57,7 @@ export function useRecords() {
   const isPhilosophyOpen = openRecords.codeComments || openRecords.blueprintStrategy;
 
   const isCloudInfraOpen = [
+    openRecords.enterpriseNetwork,
     openRecords.dbAccessControl,
     openRecords.infraArch,
     openRecords.assetMigration,

@@ -14,6 +14,7 @@ import { StudyContent as InfraArchitectureContent } from './InfraArchitecture';
 import { StudyContent as CodeCommentsContent } from './CodeComments';
 import { StudyContent as BlueprintStrategyContent } from './BlueprintStrategy';
 import { StudyContent as DBAccessControlContent } from './DBAccessControl';
+import { StudyContent as EnterpriseNetworkArchContent } from './EnterpriseNetworkArch';
 import { StudyAccordion } from '../../components/Records/RecordsCommon';
 import type { RecordAccentTheme } from '../../components/Records/RecordsCommon';
 import { useRecords } from '../../hooks/useRecords';
@@ -46,6 +47,13 @@ const philosophyRecords: RecordItem[] = [
 ];
 
 const cloudInfraRecords: RecordItem[] = [
+  {
+    id: 'enterpriseNetwork',
+    title: '엔터프라이즈 네트워크 아키텍처: 내·외부망과 DMZ, 방화벽 개념 및 구축 실무',
+    date: '2026.10.18',
+    category: 'Network & Infra',
+    Content: EnterpriseNetworkArchContent,
+  },
   {
     id: 'dbAccessControl',
     title: '엔터프라이즈 DB 접근제어 아키텍처: Proxy 방식 vs Sniffing 방식 비교 및 설계',
