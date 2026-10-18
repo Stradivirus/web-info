@@ -13,6 +13,7 @@ import { StudyContent as AssetMigrationContent } from './AssetMigration';
 import { StudyContent as InfraArchitectureContent } from './InfraArchitecture';
 import { StudyContent as CodeCommentsContent } from './CodeComments';
 import { StudyContent as BlueprintStrategyContent } from './BlueprintStrategy';
+import { StudyContent as CodeMaintenanceContent } from './CodeMaintenance';
 import { StudyContent as DBAccessControlContent } from './DBAccessControl';
 import { StudyContent as EnterpriseNetworkArchContent } from './EnterpriseNetworkArch';
 import { StudyAccordion } from '../../components/Records/RecordsCommon';
@@ -30,6 +31,13 @@ interface RecordItem {
 }
 
 const philosophyRecords: RecordItem[] = [
+  {
+    id: 'codeMaintenance',
+    title: 'Continuous Evolution: 돌아가는 코드를 넘어 주기적 유지보수가 필수적인 이유',
+    date: '2026.10.18',
+    category: 'Maintenance',
+    Content: CodeMaintenanceContent,
+  },
   {
     id: 'codeComments',
     title: 'Vibe Coding: 주석으로 AI를 지휘하는 오케스트레이션 전략',
