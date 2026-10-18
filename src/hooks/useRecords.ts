@@ -17,6 +17,7 @@ export interface OpenRecordsState {
   infraArch: boolean;
   codeComments: boolean;
   blueprintStrategy: boolean;
+  codeMaintenance: boolean;
 }
 
 const initialState: OpenRecordsState = {
@@ -36,6 +37,7 @@ const initialState: OpenRecordsState = {
   infraArch: false,
   codeComments: false,
   blueprintStrategy: false,
+  codeMaintenance: false,
 };
 
 export function useRecords() {
@@ -54,7 +56,10 @@ export function useRecords() {
     });
   };
 
-  const isPhilosophyOpen = openRecords.codeComments || openRecords.blueprintStrategy;
+  const isPhilosophyOpen =
+    openRecords.codeComments ||
+    openRecords.blueprintStrategy ||
+    openRecords.codeMaintenance;
 
   const isCloudInfraOpen = [
     openRecords.enterpriseNetwork,
