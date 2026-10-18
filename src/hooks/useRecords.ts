@@ -50,32 +50,44 @@ export function useRecords() {
     });
   };
 
-  const isInfraOpen = [
-    openRecords.infraArch, openRecords.jenkins, openRecords.assetMigration,
-    openRecords.dockercompose, openRecords.cicd, openRecords.terraform,
-    openRecords.loadBalancing, openRecords.webserver,
-  ].some(Boolean);
-
-  const isFullstackOpen = [
-    openRecords.postgresqlReplication, openRecords.cloudPostgresConfig,
-    openRecords.msa, openRecords.refactoring,
-  ].some(Boolean);
-
   const isPhilosophyOpen = openRecords.codeComments || openRecords.blueprintStrategy;
 
-  const getCardStyle = (isOpen: boolean, isAnyInSectionOpen: boolean) => {
-    if (isOpen) return 'lg:col-span-2 ring-4 ring-blue-500/20 border-blue-500 shadow-2xl scale-[1.01] z-10 transition-all duration-300';
-    if (isAnyInSectionOpen) return 'opacity-50 grayscale-[20%] scale-[0.98] transition-all duration-300';
-    return 'transition-all duration-300';
+  const isCloudInfraOpen = [
+    openRecords.infraArch,
+    openRecords.assetMigration,
+    openRecords.webserver,
+    openRecords.loadBalancing,
+    openRecords.terraform,
+  ].some(Boolean);
+
+  const isCicdOpen = [
+    openRecords.jenkins,
+    openRecords.dockercompose,
+    openRecords.cicd,
+  ].some(Boolean);
+
+  const isDbAppOpen = [
+    openRecords.postgresqlReplication,
+    openRecords.cloudPostgresConfig,
+    openRecords.msa,
+    openRecords.refactoring,
+  ].some(Boolean);
+
+  const getCardStyle = (isOpen: boolean, _isAnyInSectionOpen?: boolean) => {
+    if (isOpen) {
+      return 'ring-2 ring-slate-900/5 shadow-lg z-10 transition-all duration-200';
+    }
+    return 'transition-all duration-200';
   };
 
   return {
     openRecords,
     scrollRefs,
     toggleRecord,
-    isInfraOpen,
-    isFullstackOpen,
     isPhilosophyOpen,
+    isCloudInfraOpen,
+    isCicdOpen,
+    isDbAppOpen,
     getCardStyle,
   };
 }

@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
+import { ChevronDown, ChevronUp, AlertTriangle, Server, RefreshCw, FileCode, CheckCircle2, Clock, Activity } from 'lucide-react';
 import { getRecordsImage } from '../../config/storage';
 
 const nodesDashboard: string = getRecordsImage('jenkins_nodes.png');
+
+const HighlightComments = (code: string) => {
+  const parts = code.split(/(\/\/.*$)/m);
+  return parts.map((part, i) => {
+    if (part.startsWith('//')) {
+      return <span key={i} className="text-emerald-400 italic font-medium">{part}</span>;
+    }
+    return part;
+  });
+};
 
 export const StudyContent: React.FC = () => {
   const [isPipelineVisible, setIsPipelineVisible] = useState<boolean>(false);
@@ -96,260 +107,159 @@ def verifyServices(serverName, ipAddress) {
 }`;
 
   return (
-    <div className="space-y-6">
-      {/* 0. 아키텍처 변경 알림 (NEW) */}
-      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg shadow-sm">
-        <div className="flex">
-          <div className="ml-3">
-            <h3 className="text-sm font-bold text-yellow-800 mb-1">
-              🚧 아키텍처 최적화 알림 (2025.12 Update)
-            </h3>
-            <p className="text-sm text-yellow-700">
-              이 문서는 초기 구축했던 <strong>Jenkins 기반의 CI/CD 파이프라인</strong>에 대한 기록입니다.<br/>
-              현재는 <strong>Oracle Cloud Free Tier의 리소스(RAM) 한계</strong>를 극복하고 안정성을 확보하기 위해, 
-              무거운 Jenkins Agent를 제거하고 <strong>OS 레벨의 Crontab을 활용한 경량화 아키텍처</strong>로 마이그레이션하여 운영 중입니다.
-            </p>
+    <div className="space-y-12 py-4">
+      {/* 0. 아키텍처 최적화 알림 */}
+      <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-2xl shadow-sm flex items-start gap-4">
+        <AlertTriangle className="w-6 h-6 text-amber-600 mt-0.5 flex-shrink-0" />
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <h4 className="text-sm font-bold text-amber-900">아키텍처 경량화 업데이트 알림 (2025.12)</h4>
+            <span className="text-[11px] font-bold bg-amber-200/70 text-amber-900 px-2 py-0.5 rounded-full">Legacy v1 → Cron v2</span>
           </div>
+          <p className="text-xs md:text-sm text-amber-800 leading-relaxed">
+            본 문서는 초기 구축했던 <strong>Jenkins 멀티노드 오케스트레이션 파이프라인(v1)</strong> 기록입니다.
+            이후 Oracle Cloud Free Tier의 RAM 리소스 한계를 극복하기 위해 상주 메모리를 차지하는 Jenkins Agent를 걷어내고,
+            동일한 3단계 관리 로직을 <strong>OS 레벨 Crontab + Shell Script 경량 아키텍처(v2)</strong>로 이관하여 운영 중입니다.
+          </p>
         </div>
       </div>
 
-      {/* 제목 */}
+      {/* 1. 대상 인프라 및 스케줄 */}
       <section>
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold mb-4 text-gray-800 flex items-center gap-3">
-            Jenkins 멀티노드 인프라 자동화 시스템
-            <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full border border-gray-300">Legacy (v1)</span>
-          </h2>
-          <p className="text-gray-600 mb-4">
-            Oracle Cloud 환경에서 3개 인스턴스를 통합 관리하는 엔터프라이즈급 자동화 파이프라인
-          </p>
+        <div className="flex items-center gap-2 mb-6 border-b pb-2">
+          <Server className="w-5 h-5 text-sky-600" />
+          <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Managed Nodes & Schedule</h3>
         </div>
-      </section>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold text-sky-600">Node 01 (Web)</span>
+              <span className="font-mono text-xs text-slate-400">10.0.0.191</span>
+            </div>
+            <h4 className="font-bold text-slate-800 text-sm mb-1">Caddy Web Server</h4>
+            <p className="text-xs text-slate-500">리버스 프록시, 정적 에셋 캐싱 및 SSL 인증서 자동 관리 노드 (1순위 처리)</p>
+          </div>
 
-      {/* 1. 프로젝트 개요 - 항상 보임 */}
-      <section>
-        <div className="bg-blue-50 rounded-lg border border-blue-200 p-6">
-          <h3 className="font-semibold text-blue-800 mb-4">📋 프로젝트 개요</h3>
-          <div className="space-y-4">
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">🎯 목적</h4>
-              <p className="text-gray-600">
-                Oracle Cloud 환경의 3개 인스턴스(Caddy 웹서버, PostgreSQL Primary/Standby)에 대한 
-                <strong className="text-blue-600"> 월간 정기 시스템 관리 자동화</strong>
-              </p>
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold text-emerald-600">Node 02 (Master DB)</span>
+              <span className="font-mono text-xs text-slate-400">10.0.0.6</span>
             </div>
-            
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">🏗️ 인프라 구성</h4>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li><strong>Caddy 서버</strong> (10.0.0.191): 웹서버 및 SSL 자동 관리</li>
-                <li><strong>PostgreSQL Primary</strong> (10.0.0.6): 메인 데이터베이스</li>
-                <li><strong>PostgreSQL Standby</strong> (10.0.0.188): 실시간 복제 DB</li>
-              </ul>
-            </div>
+            <h4 className="font-bold text-slate-800 text-sm mb-1">PostgreSQL Primary</h4>
+            <p className="text-xs text-slate-500">메인 읽기/쓰기 DB 서버 · 재시작 후 Standby 동기화를 위해 5분 대기 보장</p>
+          </div>
 
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">⏰ 실행 스케줄</h4>
-              <p className="text-gray-600">
-                매월 1일 <strong className="text-green-600">새벽 3시(KST)</strong> 자동 실행
-                <span className="text-sm text-gray-500 ml-2">(크론: 0 18 1 * *)</span>
-              </p>
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold text-purple-600">Node 03 (Replica DB)</span>
+              <span className="font-mono text-xs text-slate-400">10.0.0.188</span>
             </div>
+            <h4 className="font-bold text-slate-800 text-sm mb-1">PostgreSQL Standby</h4>
+            <p className="text-xs text-slate-500">실시간 스트리밍 복제 DB · 복제 지연 검증 및 최대 2회 자동 재시도 적용</p>
           </div>
         </div>
       </section>
 
-      {/* 2. 시스템 아키텍처 - 항상 보임 */}
+      {/* 2. 노드별 3단계 자동화 사이클 */}
       <section>
-        <div className="bg-green-50 rounded-lg border border-green-200 p-6">
-          <h3 className="font-semibold text-green-800 mb-4">🏛️ 시스템 아키텍처 & 처리 순서</h3>
-          <div className="space-y-4">
-            <h4 className="font-semibold text-gray-800 mb-3">🔄 3단계 처리 사이클 (노드별)</h4>
-            
-            <div className="bg-white p-4 rounded-lg border border-green-100">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="text-center">
-                  <div className="bg-yellow-100 text-yellow-800 px-3 py-2 rounded-lg font-semibold">
-                    STEP A: 디스크 정리
-                  </div>
-                  <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                    <li>• 로그 파일 정리</li>
-                    <li>• 임시 파일 삭제</li>
-                    <li>• 패키지 캐시 정리</li>
-                  </ul>
-                </div>
-                
-                <div className="text-center">
-                  <div className="bg-blue-100 text-blue-800 px-3 py-2 rounded-lg font-semibold">
-                    STEP B: 노드 재시작
-                  </div>
-                  <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                    <li>• 안전한 시스템 재부팅</li>
-                    <li>• 온라인 대기 (3분)</li>
-                    <li>• 재시도 로직 (Standby)</li>
-                  </ul>
-                </div>
-                
-                <div className="text-center">
-                  <div className="bg-green-100 text-green-800 px-3 py-2 rounded-lg font-semibold">
-                    STEP C: 서비스 검증
-                  </div>
-                  <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                    <li>• systemctl 상태 확인</li>
-                    <li>• 포트 리스닝 확인</li>
-                    <li>• DB 복제 상태 확인</li>
-                  </ul>
-                </div>
-              </div>
+        <div className="flex items-center gap-2 mb-6 border-b pb-2">
+          <RefreshCw className="w-5 h-5 text-indigo-600" />
+          <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">3-Step Maintenance Cycle</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <div className="inline-block px-3 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold mb-3">
+              STEP A · 디스크 및 캐시 정리
             </div>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• 오래된 시스템 로그 및 Journald(7일/100MB) 정리</li>
+              <li>• 임시 파일 및 DNF 패키지 캐시 삭제</li>
+              <li>• PostgreSQL WAL 아카이브 및 임시 파일 정리</li>
+            </ul>
+          </div>
 
-            <h4 className="font-semibold text-gray-800 mb-2">📋 처리 순서 및 안전장치</h4>
-            <ol className="list-decimal pl-5 space-y-2 text-gray-600">
-              <li><strong>Caddy 웹서버</strong> 처리 → 사용자 영향 최소화 우선</li>
-              <li><strong>PostgreSQL Primary</strong> 처리 → 메인 DB 안정화</li>
-              <li><strong>5분 대기</strong> → Primary-Standby 복제 동기화 시간 확보</li>
-              <li><strong>PostgreSQL Standby</strong> 처리 → 복제 DB 처리 (재시도 로직)</li>
-              <li><strong>최종 리포트</strong> → 전체 시스템 상태 요약</li>
-            </ol>
+          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <div className="inline-block px-3 py-1 rounded-lg bg-sky-100 text-sky-800 text-xs font-bold mb-3">
+              STEP B · 순차적 노드 재부팅
+            </div>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• Caddy → Primary DB → (5분 동기화) → Standby DB</li>
+              <li>• 안전한 시스템 재부팅 및 SSH 온라인 복귀 대기</li>
+              <li>• Standby 연결 실패 시 자동 재시도 메커니즘</li>
+            </ul>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <div className="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-bold mb-3">
+              STEP C · 헬스체크 & 복제 검증
+            </div>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• <code className="bg-white px-1 rounded">systemctl is-active</code> 데몬 상태 확인</li>
+              <li>• <code className="bg-white px-1 rounded">ss</code> 포트 리스닝 및 <code className="bg-white px-1 rounded">curl</code> 응답 검증</li>
+              <li>• <code className="bg-white px-1 rounded">pg_stat_replication</code> 스트리밍 복제 무결성 확인</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* 3. 파이프라인 코드 - 아코디언 */}
+      {/* 3. Groovy 파이프라인 코드 */}
       <section>
-        <button
-          onClick={() => setIsPipelineVisible(!isPipelineVisible)}
-          className="w-full bg-purple-50 hover:bg-purple-100 rounded-t-lg border border-purple-200 p-4 text-left transition-colors"
-        >
-          <div className="flex items-center justify-between">
-            <span className="font-semibold text-purple-800">💻 Jenkinsfile 파이프라인 코드</span>
-            <span className="text-purple-600">{isPipelineVisible ? '▲' : '▼'}</span>
-          </div>
-        </button>
-        {isPipelineVisible ? (
-          <div className="border-x border-b border-purple-200 rounded-b-lg bg-white">
-            <div className="p-4 bg-gray-100 border-b border-purple-200">
-              <p className="text-sm text-gray-600">
-                <strong>전체 약 200줄</strong>의 Groovy 스크립트로 구성된 엔터프라이즈급 파이프라인
-              </p>
+        <div className="flex items-center gap-2 mb-6 border-b pb-2">
+          <FileCode className="w-5 h-5 text-slate-700" />
+          <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Declarative Pipeline Code</h3>
+        </div>
+        <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+          <button
+            type="button"
+            onClick={() => setIsPipelineVisible(!isPipelineVisible)}
+            className="w-full bg-slate-800 p-4 text-left flex items-center justify-between hover:bg-slate-700 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <FileCode className="w-5 h-5 text-sky-400" />
+              <span className="font-mono text-slate-200 text-sm">Jenkinsfile (Multi-Node Scheduled Maintenance Pipeline)</span>
             </div>
-            <pre className="p-4 overflow-x-auto bg-gray-900 text-gray-100 rounded-b-lg">
-              <code className="text-sm font-mono whitespace-pre">
-                {jenkinsCode}
-              </code>
+            {isPipelineVisible ? <ChevronUp className="text-slate-400" /> : <ChevronDown className="text-slate-400" />}
+          </button>
+          {isPipelineVisible && (
+            <pre className="p-6 bg-slate-900 text-[13px] leading-relaxed text-slate-300 overflow-x-auto font-mono max-h-[520px]">
+              <code>{HighlightComments(jenkinsCode)}</code>
             </pre>
-          </div>
-        ) : (
-          <div className="border-x border-b border-purple-200 rounded-b-lg bg-purple-50 p-4">
-            <p className="text-purple-700 text-center">클릭하여 전체 파이프라인 코드 보기</p>
-          </div>
-        )}
-      </section>
-
-      {/* 4. 핵심 기능 - 항상 보임 */}
-      <section>
-        <div className="bg-orange-50 rounded-lg border border-orange-200 p-6">
-          <h3 className="font-semibold text-orange-800 mb-4">⚙️ 핵심 기능 & 기술적 특징</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-3">🛡️ 고가용성 보장</h4>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li><strong>PostgreSQL 복제 고려</strong>: Primary → Standby 순서 처리</li>
-                <li><strong>5분 동기화 대기</strong>: 복제 무결성 보장</li>
-                <li><strong>재시도 로직</strong>: Standby DB 2회 재시도</li>
-                <li><strong>단계별 검증</strong>: 각 노드 처리 후 상태 확인</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-3">🔧 시스템 최적화</h4>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li><strong>디스크 정리</strong>: 로그, 임시파일, 패키지 캐시</li>
-                <li><strong>메모리 정리</strong>: 시스템 캐시 드롭</li>
-                <li><strong>Journald 관리</strong>: 7일/100MB 크기 제한</li>
-                <li><strong>PostgreSQL 전용 정리</strong>: WAL 로그, 임시파일</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-3">📊 모니터링 & 검증</h4>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li><strong>서비스 상태</strong>: systemctl active 확인</li>
-                <li><strong>포트 리스닝</strong>: ss 명령어로 포트 확인</li>
-                <li><strong>DB 복제 상태</strong>: pg_stat_replication 조회</li>
-                <li><strong>HTTP 응답 테스트</strong>: curl로 웹서비스 확인</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-3">🚨 장애 대응</h4>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li><strong>타임아웃 설정</strong>: SSH 연결 시간 제한</li>
-                <li><strong>예외 처리</strong>: try-catch 블록으로 오류 격리</li>
-                <li><strong>수동 복구 가이드</strong>: 실패 시 점검 방법 제시</li>
-                <li><strong>상세 로깅</strong>: 각 단계별 시간 및 상태 기록</li>
-              </ul>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
-      {/* 5. 실행 결과 - 항상 보임 */}
-      <section>
-        <div className="bg-red-50 rounded-lg border border-red-200 p-6">
-          <h3 className="font-semibold text-red-800 mb-4">🎯 실제 운영 결과 & 성과</h3>
-          <div className="space-y-4">
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h4 className="font-semibold text-green-800 mb-2">✅ 성공적인 실행 결과 (2025.09.01)</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                <div>
-                  <strong className="text-gray-700">실행 시간</strong>
-                  <p className="text-gray-600">총 14분 소요<br/>(예상 30분보다 빠름)</p>
-                </div>
-                <div>
-                  <strong className="text-gray-700">디스크 정리 효과</strong>
-                  <p className="text-gray-600">노드당 96-55개 파일<br/>약 100MB 공간 확보</p>
-                </div>
-                <div>
-                  <strong className="text-gray-700">서비스 상태</strong>
-                  <p className="text-gray-600">모든 서비스 정상<br/>복제 지연 없음</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-2">📈 운영 개선 효과</h4>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li><strong>자동화 효율성</strong>: 수동 작업 시간 월 2시간 → 0분</li>
-                <li><strong>시스템 안정성</strong>: 정기적 디스크 정리로 용량 부족 방지</li>
-                <li><strong>장애 예방</strong>: 월간 헬스체크로 잠재적 문제 조기 발견</li>
-                <li><strong>복제 무결성</strong>: Primary-Standby 동기화 상태 정기 점검</li>
-              </ul>
-            </div>
-
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">🔧 기술적 성취</h4>
-              <p className="text-gray-700 text-sm">
-                단순한 <strong>"시스템 재시작"</strong>에서 시작하여 
-                <strong className="text-blue-600"> 엔터프라이즈급 인프라 자동화 시스템</strong>으로 발전
-              </p>
-              <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600 text-sm">
-                <li>멀티 노드 환경에서의 순차적 처리 및 의존성 관리</li>
-                <li>데이터베이스 복제 환경을 고려한 안전한 재시작 로직</li>
-                <li>포괄적인 시스템 헬스체크 및 장애 복구 메커니즘</li>
-              </ul>
-            </div>
+      {/* 4. 실행 성과 및 모니터링 대시보드 */}
+      <section className="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Activity className="w-5 h-5 text-sky-600" />
+            <h3 className="text-xl font-bold text-slate-800">실제 운영 성과 및 노드 모니터링</h3>
+          </div>
+          <div className="flex items-center gap-2 text-xs text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full font-bold">
+            <Clock className="w-3.5 h-3.5" />
+            매월 1일 03:00 KST 자동 실행 · 평균 14분 소요
           </div>
         </div>
-      </section>
 
-      {/* 6. 스크린샷 - 마지막에 배치 */}
-      <section>
-        <h3 className="text-lg font-medium mb-3 text-gray-800">📸 Jenkins 노드 모니터링 대시보드</h3>
-        <div className="rounded-lg overflow-hidden border border-gray-200">
-          <img 
-            src={nodesDashboard} 
-            alt="Jenkins 노드 모니터링 대시보드" 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/70 text-center">
+            <div className="text-[11px] font-bold text-slate-400 uppercase">수동 점검 시간 절감</div>
+            <div className="text-xl font-extrabold text-sky-600 mt-1">월 2시간 → 0분</div>
+          </div>
+          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/70 text-center">
+            <div className="text-[11px] font-bold text-slate-400 uppercase">디스크 공간 확보</div>
+            <div className="text-xl font-extrabold text-emerald-600 mt-1">노드당 ~100MB 정리</div>
+          </div>
+          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/70 text-center">
+            <div className="text-[11px] font-bold text-slate-400 uppercase">DB 복제 상태</div>
+            <div className="text-xl font-extrabold text-purple-600 mt-1">지연 0초 · 무결성 유지</div>
+          </div>
+        </div>
+
+        <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-md">
+          <img
+            src={nodesDashboard}
+            alt="Jenkins 노드 모니터링 대시보드"
             className="w-full"
           />
         </div>
@@ -357,3 +267,4 @@ def verifyServices(serverName, ipAddress) {
     </div>
   );
 };
+export default StudyContent;
