@@ -5,6 +5,9 @@ on:
     branches:
       - dev
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Version and Deploy Check
         id: check
@@ -58,19 +61,16 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Update Version in Master
-        if: env.UPDATE_VERSION == 'true'
-        run: |
-          git checkout master
-          npm version ${{ env.NEW_VERSION }} --no-git-tag-version
-          git add package.json package-lock.json
-          git commit -m "Update version to ${{ env.NEW_VERSION }}"
-          git push origin master
-
-      - name: Merge to master if deploying
+      - name: Merge dev into Master and Update Version
         if: env.SHOULD_DEPLOY == 'true'
         run: |
-          git merge --no-ff dev -m "Merge dev into master for deployment"
+          git checkout master
+          git merge --no-ff -X theirs dev -m "Merge dev into master for deployment"
+          if [ "${{ env.UPDATE_VERSION }}" = "true" ]; then
+            npm version ${{ env.NEW_VERSION }} --no-git-tag-version --allow-same-version
+            git add package.json package-lock.json
+            git commit -m "Update version to ${{ env.NEW_VERSION }}" || true
+          fi
           git push origin master
 
       - name: Return to dev
