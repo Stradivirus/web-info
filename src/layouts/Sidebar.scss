@@ -1,0 +1,58 @@
+.sidebar {
+  width: 300px;
+  position: fixed;
+  height: 100vh;
+  padding: 24px 0;
+
+  .sidebar-nav {
+    height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+
+  // FHD 대응
+  @media screen and (max-width: 1920px) {
+    .sidebar-nav {
+      height: calc(160vh - 48px);
+    }
+  }
+
+  // 모바일 대응
+  @media (max-width: 768px) {
+    display: none;
+
+    &.mobile-open {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.5);
+
+      .sidebar-nav {
+        width: 200px;
+        height: 100vh;
+        background: white;
+        position: relative;
+        z-index: 1000;
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+
+    .sidebar-nav {
+      width: 200px;
+      height: 100vh;
+      background: white;
+      position: relative;
+      z-index: 1000;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+}

@@ -12,13 +12,14 @@ const OverviewDiagram = ({ overview, onDiagramClick }: OverviewDiagramProps) => 
 
   return (
     <div
-      className="my-6 mx-auto bg-white w-full md:w-[60%] block cursor-pointer"
+      className="overview-diagram-preview cursor-pointer"
       onClick={onDiagramClick}
     >
       <img
         src={overview.diagram}
         alt="Overview Diagram"
-        className="w-full cursor-pointer"
+        width="100%"
+        style={{ cursor: 'pointer' }}
       />
     </div>
   );

@@ -1,15 +1,15 @@
 import { useState, useRef } from 'react';
 
 export interface OpenRecordsState {
-  enterpriseNetwork: boolean;
-  dbAccessControl: boolean;
   webserver: boolean;
   dockercompose: boolean;
   msa: boolean;
   loadBalancing: boolean;
   cicd: boolean;
   refactoring: boolean;
+  autoCleanup: boolean;
   terraform: boolean;
+  crawling: boolean;
   cloudPostgresConfig: boolean;
   jenkins: boolean;
   assetMigration: boolean;
@@ -17,19 +17,18 @@ export interface OpenRecordsState {
   infraArch: boolean;
   codeComments: boolean;
   blueprintStrategy: boolean;
-  codeMaintenance: boolean;
 }
 
 const initialState: OpenRecordsState = {
-  enterpriseNetwork: false,
-  dbAccessControl: false,
   webserver: false,
   dockercompose: false,
   msa: false,
   loadBalancing: false,
   cicd: false,
   refactoring: false,
+  autoCleanup: false,
   terraform: false,
+  crawling: false,
   cloudPostgresConfig: false,
   jenkins: false,
   assetMigration: false,
@@ -37,7 +36,6 @@ const initialState: OpenRecordsState = {
   infraArch: false,
   codeComments: false,
   blueprintStrategy: false,
-  codeMaintenance: false,
 };
 
 export function useRecords() {
@@ -56,49 +54,32 @@ export function useRecords() {
     });
   };
 
-  const isPhilosophyOpen =
-    openRecords.codeComments ||
-    openRecords.blueprintStrategy ||
-    openRecords.codeMaintenance;
-
-  const isCloudInfraOpen = [
-    openRecords.enterpriseNetwork,
-    openRecords.dbAccessControl,
-    openRecords.infraArch,
-    openRecords.assetMigration,
-    openRecords.webserver,
-    openRecords.loadBalancing,
-    openRecords.terraform,
+  const isInfraOpen = [
+    openRecords.infraArch, openRecords.jenkins, openRecords.assetMigration,
+    openRecords.dockercompose, openRecords.cicd, openRecords.terraform,
+    openRecords.loadBalancing, openRecords.webserver,
   ].some(Boolean);
 
-  const isCicdOpen = [
-    openRecords.jenkins,
-    openRecords.dockercompose,
-    openRecords.cicd,
+  const isFullstackOpen = [
+    openRecords.postgresqlReplication, openRecords.cloudPostgresConfig,
+    openRecords.msa, openRecords.refactoring,
   ].some(Boolean);
 
-  const isDbAppOpen = [
-    openRecords.postgresqlReplication,
-    openRecords.cloudPostgresConfig,
-    openRecords.msa,
-    openRecords.refactoring,
-  ].some(Boolean);
+  const isPhilosophyOpen = openRecords.codeComments || openRecords.blueprintStrategy;
 
-  const getCardStyle = (isOpen: boolean, _isAnyInSectionOpen?: boolean) => {
-    if (isOpen) {
-      return 'ring-2 ring-slate-900/5 shadow-lg z-10 transition-all duration-200';
-    }
-    return 'transition-all duration-200';
+  const getCardStyle = (isOpen: boolean, isAnyInSectionOpen: boolean) => {
+    if (isOpen) return 'lg:col-span-2 ring-4 ring-blue-500/20 border-blue-500 shadow-2xl scale-[1.01] z-10 transition-all duration-300';
+    if (isAnyInSectionOpen) return 'opacity-50 grayscale-[20%] scale-[0.98] transition-all duration-300';
+    return 'transition-all duration-300';
   };
 
   return {
     openRecords,
     scrollRefs,
     toggleRecord,
+    isInfraOpen,
+    isFullstackOpen,
     isPhilosophyOpen,
-    isCloudInfraOpen,
-    isCicdOpen,
-    isDbAppOpen,
     getCardStyle,
   };
 }

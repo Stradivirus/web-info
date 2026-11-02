@@ -28,16 +28,11 @@ const ProjectLinks = ({ links }: ProjectLinksProps) => {
     }
   };
 
-  const baseLinkClass =
-    'inline-flex items-center justify-center md:justify-start gap-2 px-5 py-2 bg-blue-600 text-white rounded-lg no-underline font-medium transition-colors duration-200 hover:bg-blue-700 border-none cursor-pointer';
-  const disabledLinkClass =
-    '!bg-gray-400 !cursor-not-allowed opacity-60 hover:!bg-gray-400';
-
   return (
-    <div className="mt-4 flex flex-col md:flex-row gap-4">
+    <div className="links">
       {github && (
         <button
-          className={`${baseLinkClass} ${isGithubObject && !github.isEnabled ? disabledLinkClass : ''}`}
+          className={`link ${isGithubObject && !github.isEnabled ? 'disabled-link' : ''}`}
           disabled={isGithubObject && !github.isEnabled}
           onClick={() => {
             const url = isGithubObject ? github.url : github;
@@ -53,7 +48,7 @@ const ProjectLinks = ({ links }: ProjectLinksProps) => {
       )}
       {links.demo && (
         <button
-          className={`${baseLinkClass} ${!links.demo.isEnabled ? disabledLinkClass : ''}`}
+          className={`link ${!links.demo.isEnabled ? 'disabled-link' : ''}`}
           disabled={!links.demo.isEnabled}
           onClick={() => {
             if (links.demo?.isEnabled) {
@@ -68,7 +63,7 @@ const ProjectLinks = ({ links }: ProjectLinksProps) => {
       )}
       {links.document && (
         <button
-          className={baseLinkClass}
+          className="link"
           onClick={() => {
             window.open(links.document, '_blank', 'noopener noreferrer');
           }}

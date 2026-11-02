@@ -1,133 +1,130 @@
-import React from 'react';
-import type { ReactNode } from 'react';
-import { Calendar, ChevronDown, ChevronUp } from 'lucide-react';
+import React, { useState, useEffect, ReactNode } from 'react';
+import { Calendar, GitBranch, ChevronDown, ChevronUp } from 'lucide-react';
 
-export type RecordAccentTheme = 'indigo' | 'emerald' | 'sky' | 'purple';
+export interface ImageModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  images: string[];
+  currentIndex: number;
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, images, currentIndex, setCurrentIndex }) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return;
+      switch (e.key) {
+        case 'Escape':
+          onClose();
+          break;
+        case 'ArrowLeft':
+          setCurrentIndex(prev => (prev > 0 ? prev - 1 : prev));
+          break;
+        case 'ArrowRight':
+          setCurrentIndex(prev => (prev < images.length - 1 ? prev + 1 : prev));
+          break;
+        default:
+          break;
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, images.length, onClose, setCurrentIndex]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div 
+      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+      onClick={onClose}
+    >
+      <div className="relative max-w-4xl w-full mx-4">
+        <img 
+          src={images[currentIndex]} 
+          alt="확대된 이미지" 
+          className="w-full h-auto"
+          onClick={(e) => e.stopPropagation()}
+        />
+        {images.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white">
+            {currentIndex + 1} / {images.length}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export interface StudyAccordionProps {
   title: string;
   date: string;
   category: string;
-  theme?: RecordAccentTheme;
   isOpen: boolean;
   onToggle: () => void;
   children: ReactNode;
 }
 
-const themeStyles: Record<
-  RecordAccentTheme,
-  {
-    badge: string;
-    openBorder: string;
-    openHeaderBg: string;
-    titleHover: string;
-    titleOpen: string;
-    iconBtnOpen: string;
-  }
-> = {
-  indigo: {
-    badge: 'bg-indigo-50/60 text-indigo-600/90 border-indigo-100',
-    openBorder: 'border-indigo-200/80',
-    openHeaderBg: 'bg-indigo-50/25',
-    titleHover: 'group-hover:text-indigo-600',
-    titleOpen: 'text-indigo-700',
-    iconBtnOpen: 'bg-indigo-100/80 text-indigo-600',
-  },
-  emerald: {
-    badge: 'bg-emerald-50/60 text-emerald-600/90 border-emerald-100',
-    openBorder: 'border-emerald-200/80',
-    openHeaderBg: 'bg-emerald-50/25',
-    titleHover: 'group-hover:text-emerald-600',
-    titleOpen: 'text-emerald-700',
-    iconBtnOpen: 'bg-emerald-100/80 text-emerald-600',
-  },
-  sky: {
-    badge: 'bg-sky-50/60 text-sky-600/90 border-sky-100',
-    openBorder: 'border-sky-200/80',
-    openHeaderBg: 'bg-sky-50/25',
-    titleHover: 'group-hover:text-sky-600',
-    titleOpen: 'text-sky-700',
-    iconBtnOpen: 'bg-sky-100/80 text-sky-600',
-  },
-  purple: {
-    badge: 'bg-purple-50/60 text-purple-600/90 border-purple-100',
-    openBorder: 'border-purple-200/80',
-    openHeaderBg: 'bg-purple-50/25',
-    titleHover: 'group-hover:text-purple-600',
-    titleOpen: 'text-purple-700',
-    iconBtnOpen: 'bg-purple-100/80 text-purple-600',
-  },
-};
+export const StudyAccordion: React.FC<StudyAccordionProps> = ({ title, date, category, isOpen, onToggle, children }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [images, setImages] = useState<string[]>([]);
 
-export const StudyAccordion: React.FC<StudyAccordionProps> = ({
-  title,
-  date,
-  category,
-  theme = 'indigo',
-  isOpen,
-  onToggle,
-  children,
-}) => {
-  const currentTheme = themeStyles[theme];
+  const registerImages = (imageArray: string[]) => {
+    setImages(imageArray);
+  };
+
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const childrenWithProps = React.Children.map(children, child => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, { 
+        onImageClick: handleImageClick,
+        registerImages: registerImages
+      });
+    }
+    return child;
+  });
 
   return (
-    <div
-      className={`group bg-white rounded-xl border transition-all duration-200 overflow-hidden ${
-        isOpen
-          ? `${currentTheme.openBorder} shadow-md`
-          : 'border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300/80'
-      }`}
-    >
+    <div className="bg-slate-50 rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow">
       <button
-        type="button"
-        className={`w-full px-6 py-4 md:px-7 md:py-5 text-left focus:outline-none transition-colors duration-200 ${
-          isOpen ? `${currentTheme.openHeaderBg} border-b border-slate-200/60` : 'hover:bg-slate-50/60'
-        }`}
+        className="w-full p-6 text-left border-b border-gray-200 focus:outline-none"
         onClick={onToggle}
       >
-        <div className="flex items-center justify-between gap-4">
-          {/* 좌측: 카테고리 배지 + 제목 */}
-          <div className="flex items-center gap-3.5 md:gap-4 min-w-0 flex-1">
-            <span
-              className={`inline-flex items-center justify-center px-3 py-1 rounded-md text-sm font-semibold border flex-shrink-0 w-36 text-center truncate ${currentTheme.badge}`}
-            >
-              {category}
-            </span>
-
-            <h2
-              className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-200 truncate ${
-                isOpen ? currentTheme.titleOpen : `text-slate-700 ${currentTheme.titleHover}`
-              }`}
-            >
-              {title}
-            </h2>
-          </div>
-
-          {/* 우측: 날짜 + 화살표 버튼 */}
-          <div className="flex items-center gap-4 flex-shrink-0">
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-sm font-mono text-slate-400">
-              <Calendar className="w-4 h-4 text-slate-400" />
-              {date}
-            </span>
-
-            <div
-              className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
-                isOpen
-                  ? currentTheme.iconBtnOpen
-                  : 'bg-slate-100/80 text-slate-400 group-hover:bg-slate-200/70 group-hover:text-slate-600'
-              }`}
-            >
-              {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-semibold text-blue-600">{title}</h2>
+            <div className="flex gap-4 mt-2 text-gray-600">
+              <span className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                {date}
+              </span>
+              <span className="flex items-center gap-2">
+                <GitBranch className="w-4 h-4" />
+                {category}
+              </span>
             </div>
           </div>
+          {isOpen ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
         </div>
       </button>
-
+      
       {isOpen && (
-        <div className="p-6 md:p-8 bg-slate-50/20">
-          {children}
+        <div className="p-6">
+          {childrenWithProps}
         </div>
       )}
+
+      <ImageModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        images={images}
+        currentIndex={currentImageIndex}
+        setCurrentIndex={setCurrentImageIndex}
+      />
     </div>
   );
 };

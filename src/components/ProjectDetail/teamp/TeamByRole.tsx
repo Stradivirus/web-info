@@ -32,25 +32,33 @@ export const TeamByRole: React.FC<TeamByRoleProps> = ({ members = [], collaborat
   });
 
   return (
-    <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-      <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4">역할별 팀 구성 및 협업</h2>
-      <div className="flex flex-col gap-6">
+    <div className="content-box">
+      <h2>역할별 팀 구성 및 협업</h2>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
         {Object.entries(groupMap).map(([groupName, { members: groupMembers, collab }]) => (
-          <div
-            key={groupName}
-            className="border border-gray-200 rounded-lg p-4 bg-white shadow-sm"
-          >
-            <h3 className="text-gray-800 mb-3 text-lg font-bold border-b-2 border-blue-500 pb-2">
+          <div key={groupName} style={{
+            border: '1px solid #e5e7eb',
+            borderRadius: '8px',
+            padding: '16px',
+            backgroundColor: '#f9fafb'
+          }}>
+            <h3 style={{
+              color: '#1f2937',
+              marginBottom: '12px',
+              fontSize: '18px',
+              borderBottom: '2px solid #3b82f6',
+              paddingBottom: '8px'
+            }}>
               {groupName}
             </h3>
             {/* 팀원 목록 */}
-            <div className="mb-4">
+            <div style={{ marginBottom: '16px' }}>
               {groupMembers.map((member, idx) => (
-                <div key={member.id || idx} className="mb-2">
-                  <div className="font-bold text-gray-700">
+                <div key={member.id || idx} style={{ marginBottom: '8px' }}>
+                  <div style={{ fontWeight: 'bold', color: '#374151' }}>
                     {member.name}
                   </div>
-                  <div className="text-sm text-gray-500 mt-0.5">
+                  <div style={{ fontSize: '14px', color: '#6b7280', marginTop: '2px' }}>
                     {member.role}
                   </div>
                 </div>
@@ -58,22 +66,42 @@ export const TeamByRole: React.FC<TeamByRoleProps> = ({ members = [], collaborat
             </div>
             {/* 협업 내용 */}
             <div>
-              <h4 className="text-emerald-600 text-base mb-2 font-semibold">
+              <h4 style={{
+                color: '#059669',
+                fontSize: '16px',
+                marginBottom: '8px',
+                fontWeight: '600'
+              }}>
                 주요 협업 내용
               </h4>
-              <ul className="mb-3 pl-4 list-disc space-y-1">
+              <ul style={{ margin: '0 0 12px 0', padding: '0 0 0 16px' }}>
                 {collab.collaborations.slice(0, 3).map((item, idx) => (
-                  <li key={idx} className="text-sm text-gray-600 leading-snug">
+                  <li key={idx} style={{
+                    fontSize: '14px',
+                    color: '#4b5563',
+                    marginBottom: '4px',
+                    lineHeight: '1.4'
+                  }}>
                     {item}
                   </li>
                 ))}
               </ul>
-              <h4 className="text-red-600 text-base mb-2 font-semibold">
+              <h4 style={{
+                color: '#dc2626',
+                fontSize: '16px',
+                marginBottom: '8px',
+                fontWeight: '600'
+              }}>
                 주요 성과
               </h4>
-              <ul className="m-0 pl-4 list-disc space-y-1">
+              <ul style={{ margin: '0', padding: '0 0 0 16px' }}>
                 {collab.achievements.map((achievement, idx) => (
-                  <li key={idx} className="text-sm text-gray-600 leading-snug">
+                  <li key={idx} style={{
+                    fontSize: '14px',
+                    color: '#4b5563',
+                    marginBottom: '4px',
+                    lineHeight: '1.4'
+                  }}>
                     {achievement}
                   </li>
                 ))}
