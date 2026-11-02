@@ -28,7 +28,7 @@ const Navigation: React.FC = () => {
           <div className="profile-contact">
             <div className="contact-item">
               <Mail className="contact-icon" size={18} />
-              <span>stradivirus@outlook.kr </span>
+              <span>stradivirus@outlook.kr</span>
             </div>
             <a
               href="https://github.com/stradivirus"
