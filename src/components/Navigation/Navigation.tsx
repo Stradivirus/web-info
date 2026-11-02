@@ -28,11 +28,7 @@ const Navigation: React.FC = () => {
           <div className="profile-contact">
             <div className="contact-item">
               <Mail className="contact-icon" size={18} />
-              <span>stradivirus@naver.com</span>
-            </div>
-            <div className="contact-item">
-              <Phone className="contact-icon" size={18} />
-              <span>010-9875-6325</span>
+              <span>stradivirus@outlook.kr</span>
             </div>
             <a
               href="https://github.com/stradivirus"
