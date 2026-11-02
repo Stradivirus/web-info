@@ -30,16 +30,12 @@ const Navigation: React.FC = () => {
         <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] mx-auto mb-4 overflow-hidden">
           <img src={profilePhoto} alt="Profile" className="w-full h-full object-contain" />
         </div>
-        <div className="text-center">
-          <h2 className="text-[1.4rem] font-bold text-blue-800 mb-2.5">문성종의 PortFolio</h2>
-          <div className="flex flex-col gap-2.5">
-            <div className="flex items-center gap-3 text-base text-gray-600 font-medium transition-all duration-200">
-              <Mail className="text-blue-600 shrink-0" size={18} />
-              <span>stradivirus@naver.com</span>
-            </div>
-            <div className="flex items-center gap-3 text-base text-gray-600 font-medium transition-all duration-200">
-              <Phone className="text-blue-600 shrink-0" size={18} />
-              <span>010-9875-6325</span>
+        <div className="profile-info">
+          <h2 className="profile-name">문성종의 PortFolio</h2>
+          <div className="profile-contact">
+            <div className="contact-item">
+              <Mail className="contact-icon" size={18} />
+              <span>stradivirus@outlook.kr</span>
             </div>
             <a
               href="https://github.com/stradivirus"
