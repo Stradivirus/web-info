@@ -73,15 +73,9 @@ jobs:
           fi
           git push origin master
 
-      - name: Return to dev
-        run: |
-          git checkout dev
-
       - name: Install Dependencies
         if: env.SHOULD_DEPLOY == 'true'
-        run: |
-          git checkout master
-          npm install
+        run: npm install
 
       - name: Set build time
         if: env.SHOULD_DEPLOY == 'true'
@@ -100,11 +94,10 @@ jobs:
           VITE_BUILD_TIME: ${{ env.VITE_BUILD_TIME }}
         run: npm run build
 
-      # Cloudflare Pages로 직접 업로드 배포
       - name: Deploy to Cloudflare Pages
         if: env.SHOULD_DEPLOY == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy build --project-name=portfolio
+          command: pages deploy build --project-name=portfolio --commit-dirty=true
