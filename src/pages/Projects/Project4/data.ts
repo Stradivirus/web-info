@@ -127,7 +127,7 @@ export const projectData: ProjectData = {
   links: {
     github: "https://github.com/stradivirus/reservation",
     demo: {
-      url:"https://reservation.stradivirus.workers.dev/",
+      url:"https://reservation.stradivirus.com",
       isEnabled: true
     }
   },
