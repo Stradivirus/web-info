@@ -1,4 +1,4 @@
-name: Deploy to Oracle Cloud
+name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -82,7 +82,7 @@ jobs:
         run: |
           git checkout master
           npm install
-       
+
       - name: Set build time
         if: env.SHOULD_DEPLOY == 'true'
         run: |
@@ -100,29 +100,11 @@ jobs:
           VITE_BUILD_TIME: ${{ env.VITE_BUILD_TIME }}
         run: npm run build
 
-      # Oracle Cloud 배포 단계 시작
-      - name: Prepare SSH Key
+      # Cloudflare Pages로 직접 업로드 배포
+      - name: Deploy to Cloudflare Pages
         if: env.SHOULD_DEPLOY == 'true'
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_KEY" > ~/.ssh/oracle_rsa
-          chmod 600 ~/.ssh/oracle_rsa
-          echo "StrictHostKeyChecking no" >> ~/.ssh/config
-        env:
-          SSH_KEY: ${{ secrets.ORACLE_SSH_KEY }}
-
-      - name: Clean deploy folder on server
-        if: env.SHOULD_DEPLOY == 'true'
-        run: |
-          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo rm -rf /var/web/portfolio/*"
-        env:
-          DEPLOY_PATH: "/var/web/portfolio"
-
-      - name: Deploy Files via SCP
-        if: env.SHOULD_DEPLOY == 'true'
-        run: |
-          scp -i ~/.ssh/oracle_rsa -o UserKnownHostsFile=/dev/null -r build/* ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }}:/home/${{ secrets.SSH_USER }}/tmp/
-          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo mv /home/${{ secrets.SSH_USER }}/tmp/* /var/web/portfolio/"
-          ssh -i ~/.ssh/oracle_rsa ${{ secrets.SSH_USER }}@${{ secrets.ORACLE_SERVER_IP }} "sudo systemctl restart caddy"
-        env:
-          DEPLOY_PATH: "/var/web/portfolio"
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=portfolio
